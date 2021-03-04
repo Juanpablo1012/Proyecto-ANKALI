@@ -6,9 +6,23 @@ $listarusuarios = json_decode($ControladorUsuarios->Listarusuarios());
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <title>ANKALI</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.css" />
+
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.js"></script>
+
+    
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -31,18 +45,15 @@ $listarusuarios = json_decode($ControladorUsuarios->Listarusuarios());
 
   <!-- Main Stylesheet File -->
   <link href="../Estilo/css/style.css" rel="stylesheet">
-<!--DATATABLE-->
-  <!-- =======================================================
-    Theme Name: eStartup
-    Theme URL: https://bootstrapmade.com/estartup-bootstrap-landing-page-template/
-    Author: BootstrapMade.com
-    License: https://bootstrapmade.com/license/
-  ======================================================= -->
+
+
+
 </head>
 
 <body>
 
-   <header id="header" class="header header-hide">
+
+<header id="header" class="header header-hide">
         <div class="container">
     
           <div id="logo" class="pull-left">
@@ -85,13 +96,19 @@ $listarusuarios = json_decode($ControladorUsuarios->Listarusuarios());
           </nav><!-- #nav-menu-container -->
         </div>
       </header>
-  
+      <br>
+
+
+
+
+
       <section id="hero4" class="wow fadeIn">
-        <div class="hero-container">
-          <h1>Listado de usuarios</h1>
-            <HR></HR>
-          <table id="tabla" class="table table-bordered"> 
-            <thead style="text-align: center;">
+      
+    <div class="container mt-4">
+    
+        <div class="card-body" >
+            <table border="1" class="table table-sriped  table-bordered" id="litarroles">
+                <thead>
                 <tr>
                     <th>Número de<br> documento</th>
                     <th>Nombre</th>
@@ -100,10 +117,8 @@ $listarusuarios = json_decode($ControladorUsuarios->Listarusuarios());
                     <th>Estado</th>
                     <th>Acciones</th>
                 </tr>
-            </thead>
-            <tbody style="text-align: center;">
-            
-                <tr>
+                </thead>
+                <tbody>
 
                 <?php
                 foreach($listarusuarios as $usu)
@@ -125,23 +140,21 @@ $listarusuarios = json_decode($ControladorUsuarios->Listarusuarios());
                     
                     </td>
                     <td>
-                        <a href="../Controlador/ControladorUsuarios.php?Actualizarusuario&Documento=<?php echo $usu->Documento?>" class="btn btn" >Cambiar estado</a>
+                        <a href="../Controlador/ControladorUsuarios.php?CambiarEstado&documento=<?php echo $usu->Documento?>" class="btn btn" >Cambiar estado</a>
                     </td>
                     
                 </tr>
                 <?php
                 }
-                ?>                       
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-          
+                ?>
+                </tbody>
+            </table>
         </div>
-      </section>
-  
+    </div>
 
-  <footer class="footer">
+    </section>
+
+    <footer class="footer">
       <div class="copyrights">
         <p>&copy; Copyrights eStartup. All rights reserved.</p>
         <div class="credits">
@@ -150,8 +163,9 @@ $listarusuarios = json_decode($ControladorUsuarios->Listarusuarios());
       </div>
   </footer>
 
-  <!-- JavaScript Libraries -->
-  <script src="../Estilo/lib/jquery/jquery.min.js"></script>
+
+
+    <!-- <script src="../Estilo/lib/jquery/jquery.min.js"></script> -->
   <script src="../Estilo/lib/jquery/jquery-migrate.min.js"></script>
   <script src="../Estilo/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="../Estilo/lib/superfish/hoverIntent.js"></script>
@@ -166,5 +180,21 @@ $listarusuarios = json_decode($ControladorUsuarios->Listarusuarios());
   <!-- Template Main Javascript File -->
   <script src="../Estilo/js/main.js"></script>
 
+
+
+
+    <script>
+        $(document).ready(function () {
+            $('#litarroles').DataTable({
+                "language": {
+      "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+    }
+            });
+            
+        });
+    </script>
+
+    
 </body>
+
 </html>
