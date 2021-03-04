@@ -5,7 +5,7 @@
 
         public function RegistrarUsuario($usuario)
         {
-            $mensaje = "";
+            $mensaje="";
             $Db = Db::Conectar(); // conectar bd
             $sql = $Db->prepare('INSERT INTO usuarios(Documento,Nombre,
             Telefono,Direccion,Correo,Contrasena,Estado,IdRol)
@@ -44,9 +44,10 @@
 
         public function Buscarusuario($Doc)
     {
-        $usu = new  Usuarios();
+        $usu = new  usuarios();
         $Db = Db::Conectar(); // conectar bd
-        $sql = $Db->prepare('SELECT * FROM usuarios WHERE Documento =:Documento'); //definir sentencia sql
+        $sql = $Db->prepare('SELECT * FROM usuarios 
+        WHERE Documento =:Documento'); //definir sentencia sql
         $sql->bindvalue('Documento',$Doc);
         
         try{
@@ -73,13 +74,14 @@
     {
         $mensaje = "";
         $Db = Db::Conectar(); // conectar bd
-        $sql = $Db->prepare('UPDATE usuarios SET Telefono = :Telefono,
-                                                Nombre=:Nombre, 
-                                                 Correo= :Correo, 
-                                                 Contrasena = :Contrasena,
-                                                 Direccion = :Direccion,
-                                                 Estado = :Estado,
-                                                WHERE Documento=:Documento'); //definir sentencia sql
+        $sql = $Db->prepare('UPDATE usuarios 
+        SET Telefono = :Telefono,
+        Nombre=:Nombre, 
+        Correo= :Correo, 
+        Contrasena = :Contrasena,
+        Direccion = :Direccion,
+        Estado = :Estado
+        WHERE Documento=:Documento'); //definir sentencia sql
         $sql->bindvalue('Telefono',$Usuarios->getTelefono());
         $sql->bindvalue('Nombre',$Usuarios->getNombre());
         $sql->bindvalue('Correo',$Usuarios->getCorreo());

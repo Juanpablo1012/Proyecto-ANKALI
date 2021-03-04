@@ -125,7 +125,7 @@ $listarusuarios = json_decode($ControladorUsuarios->Listarusuarios());
                     
                     </td>
                     <td>
-                        <a href="../Controlador/ControladorUsuarios.php?CambiarEstado&documento=<?php echo $usu->Documento?>" class="btn btn" >Cambiar estado</a>
+                        <a href="../Controlador/ControladorUsuarios.php?Actualizarusuario&Documento=<?php echo $usu->Documento?>" class="btn btn" >Cambiar estado</a>
                     </td>
                     
                 </tr>

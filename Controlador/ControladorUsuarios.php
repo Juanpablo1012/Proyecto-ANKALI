@@ -45,16 +45,17 @@ class ControladorUsuarios{
 
     }
 
-    public function Actualizarusuario($Documento,$Telefono,$Nombre,$Correo,$Contrasena,$Direccion,$Estado)
+    public function Actualizarusuario($Documento,$Telefono,$Nombre,$Correo,
+    $Contrasena,$Direccion,$Estado)
     {
-        $Usuarios = new usuarios();
+        $Usuarios =new usuarios();
         $CrudUsuarios= new CrudUsuarios();
         $Usuarios->setDocumento($Documento);
-        $Usuarios->setTelefono($Telefono);
         $Usuarios->setNombre($Nombre);
+        $Usuarios->setTelefono($Telefono);
+        $Usuarios->setDireccion($Direccion);
         $Usuarios->setCorreo($Correo);
         $Usuarios->setContrasena($Contrasena);
-        $Usuarios->setDireccion($Direccion);
         $Usuarios->setEstado($Estado);
         return $CrudUsuarios->Actualizarusuario($Usuarios);
 
@@ -107,17 +108,17 @@ elseif(isset($_POST['acceder']))
 
 
 
-elseif(isset($_GET['CambiarEstado']))
+elseif(isset($_GET['Actualizarusuario']))
 {
-    $Documento = $_GET['documento'];
+    $Documento = $_GET['Documento'];
     $ControladorUsuarios->desplegarVista('../Vista/Editarusuariousu.php?Documento='.$Documento);
 }
 
 
 elseif(isset($_POST['Actualizarusuario']))
 {
-    $ControladorUsuarios->Actualizarusuario($_POST['Documento'],$_POST['Telefono'],$_POST['Nombre'],$_POST['Correo'],$_POST['Contrasena'],$_POST['Direccion'],$_POST['Estado']);
-    $ControladorUsuarios->desplegarVista('../Vista/Usuariosadmin.php');
+    echo $ControladorUsuarios->Actualizarusuario($_POST['Documento'],$_POST['Telefono'],$_POST['Nombre'],$_POST['Correo'],$_POST['Contrasena'],$_POST['Direccion'],$_POST['Estado']);
+    $ControladorUsuarios->desplegarVista('../Vista/Usuariosadmin.php'.$Documento);
 }
 
 

@@ -98,18 +98,26 @@ $doc =  $ControladorUsuarios->Buscarusuario($_GET['Documento']);
         </div>
         <!-- Login Form -->
         <form method="POST" action="../Controlador/ControladorUsuarios.php">
-        <!-- <label for="">Documento</label> -->
-          <input type="number" id="Documento" class="fadeIn third" name="Documento" readonly value="<?php echo $doc->getDocumento() ?>" placeholder="Numero de documento">
-          <!-- <label for="">Telefono</label> -->
-          <input type="number" id="Telefono" class="fadeIn second" name="Telefono" readonly  value="<?php echo $doc->getTelefono() ?>" placeholder="Numero de telefono">
-          <!-- <label for="">Nombre</label> -->
-          <input type="text" id="Nombre" class="fadeIn third" name="Nombre"  value="<?php echo $doc->getNombre() ?>"  placeholder="Nombre">
-          <input type="email" id="Correo" class="fadeIn second" name="Correo" readonly value="<?php echo $doc->getCorreo() ?>" placeholder="Correo">
-          <!-- <label for="">Contraseña</label> -->
-          <input type="text" id="Contrasena" class="fadeIn third" name="Contrasena" readonly value="<?php echo $doc->getContrasena()?>" placeholder="Contraseña">
-          <input type="text" id="Direccion" class="fadeIn second" name="Direccion" readonly value="<?php echo $doc->getDireccion() ?>"  placeholder="Direccion">
+
+          <label for="">Documento </label>
+          <input type="number" id="Documento" class="fadeIn third" name="Documento" value="<?php echo $doc->getDocumento() ?>" placeholder="Numero de documento"readonly>
+
+          <label for="">Telefono</label>
+          <input type="number" id="Telefono" class="fadeIn second" name="Telefono"  value="<?php echo $doc->getTelefono() ?>" placeholder="Numero de telefono">
+          
+          <label for="">Nombre</label>
+          <input type="text" id="Nombre" class="fadeIn third" name="Nombre" value="<?php echo $doc->getNombre() ?>"  placeholder="Nombre">
+          
+          <label for="">--Correo</label>
+
+          <input type="email" id="Correo" class="fadeIn second" name="Correo" value="<?php echo $doc->getCorreo() ?>" placeholder="Correo" >
+          
+          <label for="">Direccion</label>
+          <input type="text" id="Direccion" class="fadeIn second" name="Direccion" value="<?php echo $doc->getDireccion() ?>"  placeholder="Direccion">
+          
           <label for="">1 = Activo y 2 = Inhabiliado </label>
           <input type="text" id="Estado" class="fadeIn third" name="Estado" value="<?php echo $doc->getEstado() ?>" placeholder="Estado">
+          <input type="text" id="Contrasena" class="fadeIn third" name="Contrasena" value="<?php echo $doc->getContrasena() ?>" placeholder="Contrasena">
           
           <!-- <button type="submit" name="registro" class="fadeIn fourth">Registrarse</button> -->
           <!-- <button type="submit" class="fadeIn fourth" name="Actualizarusuario" id="Actualizarusuario">Cambiar estado</button> -->
