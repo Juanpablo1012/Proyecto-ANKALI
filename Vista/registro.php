@@ -54,11 +54,10 @@
             ANKALI
         </a>
       </h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
         
       </div>
     </div>
-  </header><!-- #header -->
+  </header>
 
   <!--==========================
     Hero Section
@@ -83,9 +82,9 @@
           <input type="password" id="Contrasena" class="fadeIn third" name="Contrasena" placeholder="Contraseña">
           
           <button type="submit" name="registro" class="fadeIn fourth">Registrarse</button>
-          <button type="submit" class="fadeIn fourth" value=""><a href="../index.php" style="color:white">Iniciar Sesión</a></button>
-
         </form>
+        <button type="submit" class="fadeIn fourth" value=""><a href="../index.php" style="color:white">Iniciar Sesión</a></button>
+
       </div>
     </div>
       <!--<img src="img/hero-img.png" alt="Hero Imgs">-->

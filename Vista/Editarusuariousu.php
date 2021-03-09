@@ -1,7 +1,11 @@
 <?php
 require_once("../Controlador/ControladorUsuarios.php");
 $doc =  $ControladorUsuarios->Buscarusuario($_GET['Documento']);
-// session_start();
+session_start();
+if(!($_SESSION['Documento']))
+{
+  header ("Location:../index.php");
+}
 ?>
 
 <!DOCTYPE html>

@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(!($_SESSION['Documento']))
+{
+  header ("Location:../index.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,47 +44,52 @@
 <body>
 
    <header id="header" class="header header-hide">
-        <div class="container">
-    
-          <div id="logo" class="pull-left">
-            <h1><a href="admin.html" class="scrollto"><a href=""><img src="../Estilo/img/logo-blanco.png" width="70" height="70"> </a>  ANKALI</a></h1>
-            <!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
-          </div>
-    
-          <nav id="nav-menu-container">
-            <ul class="nav-menu">
-              <li class="menu-active"><a href="admin.html">Inicio</a></li>
-              <li class="menu-has-children"><a href="">Servicios</a>
-                <ul>
-                  <li><a href="Agregar_servicio.html">Agregar servicio</a></li>
-                  <li><a href="Listar_Servicio.html">Listar servicios</a></li>
-                  <!--<li><a href="#">Drop Down 4</a></li>
-                  <li><a href="#">Drop Down 5</a></li>-->
-                </ul>
-              </li>
-              <li class="menu-has-children"><a href="">Productos</a>
-                <ul>
-                  <li><a href="Agregar_producto.html">Agregar producto</a></li>
-                  <li><a href="Listar_Producto.html">Listar productos</a></li>
-                  <!--<li><a href="#">Drop Down 4</a></li>
-                  <li><a href="#">Drop Down 5</a></li>-->
-                </ul>
-              </li>
-              <li class="menu-has-children"><a href="Pedido.html">Pedidos</a>
-                <ul>
-                  <li><a href="Agregar_Pedido.html">Agregar Pedido</a></li>
-                  <li><a href="Listar_Pedido.html">Listar Pedido</a></li>
-                  <!--<li><a href="#">Drop Down 4</a></li>
-                  <li><a href="#">Drop Down 5</a></li>-->
-                </ul>
-              </li>
-              <li><a href="Venta.html">Ventas</a></li>
-              <li><a href="Usuarios.html">Usuarios</a></li>
-              
-              <li><a href="../index.html">Cerrar Sesión <i class="fa fa-window-close"></i></a></li>
-            </ul>
-          </nav><!-- #nav-menu-container -->
+      <div class="container">
+        
+        <div id="logo" class="pull-left">
+          <h1><a href="admin.php" class="scrollto"><a href=""><img src="../Estilo/img/logo-blanco.png" width="70" height="70"> </a>  ANKALI</a></h1>
+          <!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
         </div>
+
+        <nav id="nav-menu-container">
+          <ul class="nav-menu">
+            <li class="menu-active"><a href="admin.php">Inicio</a></li>
+            <li class="menu-has-children"><a href="">Servicios</a>
+              <ul>
+                <li><a href="Agregar_servicio.php">Agregar servicio</a></li>
+                <li><a href="Listar_Servicio.php">Listar servicios</a></li>
+                <!--<li><a href="#">Drop Down 4</a></li>
+                <li><a href="#">Drop Down 5</a></li>-->
+              </ul>
+            </li>
+            <li class="menu-has-children"><a href="">Productos</a>
+              <ul>
+                <li><a href="Agregar_producto.php">Agregar producto</a></li>
+                <li><a href="Listar_Producto.php">Listar productos</a></li>
+                <!--<li><a href="#">Drop Down 4</a></li>
+                <li><a href="#">Drop Down 5</a></li>-->
+              </ul>
+            </li>
+            <li class="menu-has-children"><a href="">Pedidos</a>
+              <ul>
+                <li><a href="Agregar_Pedido.php">Agregar Pedido</a></li>
+                <li><a href="Listar_Pedido.php">Listar Pedido</a></li>
+              </ul>
+            </li>
+            <li><a href="Venta.php">Ventas</a></li>
+
+            <li class="menu-has-children"><a href="">Usuarios</a>
+                <ul>
+                  <li><a href="registroAdmin.php">Registrar usuarios</a></li>
+                  <li><a href="">Registrar roles</a></li>
+                  <li><a href="">Listar usuarios</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="../Controlador/DestruirSesion.php">Cerrar Sesión <i class="fa fa-window-close"></i></a></li>
+          </ul>
+        </nav><!-- #nav-menu-container -->
+      </div>
       </header>
   
       <section id="hero4" class="wow fadeIn">

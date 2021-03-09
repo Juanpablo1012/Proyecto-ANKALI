@@ -80,10 +80,9 @@
           <input type="password" id="password" class="fadeIn third" name="Contrasena" placeholder="Contraseña">
           <br>
           <button type="submit" name="acceder"class="fadeIn fourth" value="" onclick="InicioSesion()">Iniciar Sesión</button>
-          <button type="button" class="fadeIn fourth" value="" ><a href="Vista/registro.php" style="color:white"> Registrarse</a></button>
 
         </form>
-    
+        <button type="button" class="fadeIn fourth" value="" ><a href="Vista/registro.php" style="color:white"> Registrarse</a></button>
         <!-- Remind Passowrd -->
         <div id="formFooter">
           <a class="underlineHover" href="#">¿Olvidaste tu contraseña?</a>

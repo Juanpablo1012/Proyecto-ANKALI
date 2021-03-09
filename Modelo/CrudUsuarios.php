@@ -35,7 +35,9 @@
         public function Listarusuarios()
         {
             $Db = Db::Conectar(); // conectar bd
-            $sql = $Db->query('SELECT * FROM usuarios ORDER BY Nombre'); //definir sentencia sql
+            $sql = $Db->query('SELECT `Documento`,`Nombre`,`Telefono`,`Correo`,`Direccion`,`Estado`,`NombreRol` 
+            FROM `usuarios` 
+            JOIN roles on (roles.IdRol = usuarios.IdRol)'); //definir sentencia sql
             $sql->execute(); // ejecutar la consulta
             return $sql->fetchAll(); // retorna todos los registros de la consulta
             Db::CerrarConexion($Db);

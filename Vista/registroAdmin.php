@@ -13,6 +13,9 @@ if(!($_SESSION['Documento']))
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
   <!-- Favicons -->
   <link href="../Estilo/img/logo-negro.png" rel="icon">
@@ -92,48 +95,45 @@ if(!($_SESSION['Documento']))
       </ul>
     </nav><!-- #nav-menu-container -->
   </div>
-  </header>
-  
-  <section id="hero3" class="wow fadeIn">
-    <div class="wrapper3 fadeInDown">
-        <div id="formContent3">
-          <!-- Tabs Titles -->
-      
-          <!-- Icon -->
-          <div class="fadeIn first">
-
-            <h6>Agregar Pedido</h6>
-          </div>
-          <!-- Login Form -->
-          <form>
-            <input type="hidden" id="registro" class="fadeIn third" name="login" placeholder="Codigo producto">
-            <input type="text" id="registro" class="fadeIn third" name="login" placeholder="Nombre del cliente">
-            <input type="number" id="registro" class="fadeIn second" name="login" placeholder="Número">
-            <input type="number" id="registro" class="fadeIn second" name="login" placeholder="Producto">
-            <input type="text" id="registro" class="fadeIn second" name="login" placeholder="Servicio">
-            <textarea type="text" id="registro" class="fadeIn second" name="login" placeholder="Fecha"></textarea>
-            <input type="file" id="registro" class="fadeIn second" name="login" placeholder="Total">
-            <input type="file" id="registro" class="fadeIn second" name="login" placeholder="Estado">
-            <input type="submit" class="fadeIn fourth" value="Agregar">
-          </form>
     
+  </header>
+
+  <!--==========================
+    Hero Section
+  ============================-->
+  <section id="hero2" class="wow fadeIn">
+    <div class="wrapper2 fadeInDown">
+      <div id="formContent2">
+        <!-- Tabs Titles -->
+    
+        <!-- Icon -->
+        <div class="fadeIn first">
+          <img src="../Estilo/img/logo-negro.png" id="icon2" alt="User Icon">
+          <h6>¡Registrarte!</h6>
+        </div>
+        <!-- Login Form -->
+        <form Method="POST" action="../Controlador/ControladorUsuarios.php">
+          <input type="number" id="Documento" class="fadeIn third" name="Documento" placeholder="Numero de documento">
+          <select name="" id="">
+            <option value="">Seleccione un rol</option>
+            <option value=""><?php?></option>
+            <option value=""><?php?></option>
+          </select>
+          <input type="number" id="Telefono" class="fadeIn second" name="Telefono" placeholder="Numero de telefono">
+          <input type="text" id="Nombre" class="fadeIn third" name="Nombre" placeholder="Nombre">
+          <input type="text" id="Direccion" class="fadeIn second" name="Direccion" placeholder="Direccion">
+          <input type="email" id="Correo" class="fadeIn second" name="Correo" placeholder="Correo">
+          <input type="password" id="Contrasena" class="fadeIn third" name="Contrasena" placeholder="Contraseña">
+          
+          <button type="submit" name="registro" class="fadeIn fourth">Registrarse</button>
+        </form>
+      </div>
+    </div>
+      <!--<img src="img/hero-img.png" alt="Hero Imgs">-->
       
-        </div>
-      </div>
+    </div>
   </section>
-  
-
-  <footer class="footer">
-      <div class="copyrights">
-        <p>&copy; Copyrights eStartup. All rights reserved.</p>
-        <div class="credits">
-          Designed by <a href="">BootstrapMade</a>
-        </div>
-      </div>
-  </footer>
-
-
-
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
   <!-- JavaScript Libraries -->
   <script src="../Estilo/lib/jquery/jquery.min.js"></script>

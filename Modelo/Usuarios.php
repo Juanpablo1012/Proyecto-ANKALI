@@ -7,7 +7,7 @@
         private $Direccion;
         private $Correo;
         private $Contrasena;
-        private $Estado = true;//1 true, 2 false
+        private $Estado = 1; //1 true, 0 false
         private $IdRol = 2;
         private $Existe;
         
