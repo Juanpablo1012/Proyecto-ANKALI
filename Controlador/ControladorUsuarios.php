@@ -36,7 +36,11 @@ class ControladorUsuarios{
         $CrudUsuarios= new CrudUsuarios();
         return json_encode($CrudUsuarios->Listarusuarios());
     }
-
+    public function ListarRoles()
+    {
+        $CrudUsuarios= new CrudUsuarios();
+        return json_encode($CrudUsuarios->ListarRoles());
+    }
     public function Buscarusuario($Documento)
     {
         $Usuarios = new usuarios();
@@ -81,7 +85,8 @@ if(isset($_POST['registro'])){
     $_POST['Telefono'],
     $_POST['Direccion'],
     $_POST['Correo'],
-    $_POST['Contrasena']);
+    $_POST['Contrasena']),
+    $IdRoles=$_POST['IdRol'];
 }
 
 elseif(isset($_POST['acceder']))
@@ -121,8 +126,34 @@ elseif(isset($_POST['Actualizarusuario']))
     $ControladorUsuarios->desplegarVista('../Vista/Usuariosadmin.php'.$Documento);
 }
 
+elseif(isset($_POST['recuperarcontra']))
+{
+    $email = $mysqli->real_escape_string($_POST['Correo']);
+    $sql = $mysqli->query("SELECT Correo, Nombre FROM usuarios where Correo = '$email'");
+    $row = $sql->fetch_array();
+    $count = $sql->num_rows;
+    
+    if($count ==1){
+        $token = uniqid();
+        $act =  $mysqli->query("UPDATE usuarios SET Token = '$token' WHERE Correo = '$email'");
+
+            $email_to = $email;
+            $email_subject = "Cambio de contraseña";
+            $email_from = "regalosankali@gmail.com";
+
+            $email_message = "Hola " . $row['Nombre'] . ", haz solicita recuperar tu contraseña, ingresa al siguiente link.\n\n";
+            $email_message .="http://localhost/Proyecto-ANKALI/Vista/RecuperarContrasena.php?usuario=".$row['Nombre']."&token=".$token."\n\n";
 
 
+            $headers = 'From: '.$email_from."\r\n". 
+            'Reply-To: '.$email_from."\r\n" . 
+            'X-Mailer: PHP/' . phpversion();
+            @mail($email_to,$email_subject,$email_message,$headers);
 
+            echo"Te hemos enviado un email para cambiar contraseña";
 
+    } else{
+        echo"Este correo no esta registrado";
+    }
+}
 ?>

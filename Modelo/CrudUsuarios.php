@@ -42,7 +42,16 @@
             return $sql->fetchAll(); // retorna todos los registros de la consulta
             Db::CerrarConexion($Db);
         }
-
+        
+        public function ListarRoles()
+        {
+            $Db = Db::Conectar(); // conectar bd
+            $sql = $Db->query('SELECT `NombreRol` 
+            FROM `roles`'); //definir sentencia sql
+            $sql->execute(); // ejecutar la consulta
+            return $sql->fetchAll(); // retorna todos los registros de la consulta
+            Db::CerrarConexion($Db);
+        }
 
         public function Buscarusuario($Doc)
     {

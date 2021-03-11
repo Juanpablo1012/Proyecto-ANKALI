@@ -1,5 +1,5 @@
 <?php
-
+$mysqli = new mysqli("localhost", "root", "", "ankali");
 class  Db{
     private static $conexion=NULL;
     private function __construct(){}

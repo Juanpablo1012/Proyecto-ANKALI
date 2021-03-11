@@ -85,7 +85,7 @@
         <button type="button" class="fadeIn fourth" value="" ><a href="Vista/registro.php" style="color:white"> Registrarse</a></button>
         <!-- Remind Passowrd -->
         <div id="formFooter">
-          <a class="underlineHover" href="#">¿Olvidaste tu contraseña?</a>
+          <a class="underlineHover" href="Vista/RecuperarContrasena.php">¿Olvidaste tu contraseña?</a>
         </div>
     
       </div>
