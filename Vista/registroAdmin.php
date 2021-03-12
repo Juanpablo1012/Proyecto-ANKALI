@@ -111,7 +111,7 @@ $listarRol = json_decode($ControladorUsuarios->ListarRoles());
         </div>
         <!-- Login Form -->
         <form Method="POST" action="../Controlador/ControladorUsuarios.php">
-          <input type="number" id="Documento" class="fadeIn third" name="Documento" placeholder="Numero de documento">
+          <input type="number" id="Documento" class="fadeIn third" name="Documento" placeholder="Numero de documento" required>
           
           <select name="IdRol[]">
               <option>Seleccione un Rol</option>
@@ -126,9 +126,9 @@ $listarRol = json_decode($ControladorUsuarios->ListarRoles());
           </select>
 
           <input type="number" id="Telefono" class="fadeIn second" name="Telefono" placeholder="Numero de telefono">
-          <input type="text" id="Nombre" class="fadeIn third" name="Nombre" placeholder="Nombre">
+          <input type="text" id="Nombre" class="fadeIn third" name="Nombre" placeholder="Nombre" required>
           <input type="text" id="Direccion" class="fadeIn second" name="Direccion" placeholder="Direccion">
-          <input type="email" id="Correo" class="fadeIn second" name="Correo" placeholder="Correo">
+          <input type="email" id="Correo" class="fadeIn second" name="Correo" placeholder="Correo" required>
           <input type="password" id="Contrasena" class="fadeIn third" name="Contrasena" placeholder="Contraseña">
           
           <button type="submit" name="registro" class="fadeIn fourth">Registrarse</button>

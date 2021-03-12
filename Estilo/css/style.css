@@ -21,7 +21,12 @@ h2 {
   color: #000;
   font-weight: 600;
 }
-
+.label{
+  font-size: 19px;    
+  text-align: center;
+  font-family: "Philosopher", sans-serif;
+  font-weight: 500;
+}
 h4 {
   color: #000;
   font-size: 13px;
@@ -61,7 +66,6 @@ p {
   font-weight: 300;
   letter-spacing: 0.5px;
   line-height: 2;
-  margin-bottom: 20px;
 }
 
 span {
