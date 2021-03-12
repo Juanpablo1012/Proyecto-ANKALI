@@ -76,8 +76,8 @@
     
         <!-- Login Form -->
         <form Method="POST" action="Controlador/ControladorUsuarios.php">
-          <input type="text" id="login" class="fadeIn second" name="Correo" placeholder="Correo">
-          <input type="password" id="password" class="fadeIn third" name="Contrasena" placeholder="Contraseña">
+          <input type="text" id="login" class="fadeIn second" name="Correo" placeholder="Correo" required>
+          <input type="password" id="password" class="fadeIn third" name="Contrasena" placeholder="Contraseña"required>
           <br>
           <button type="submit" name="acceder"class="fadeIn fourth" value="" onclick="InicioSesion()">Iniciar Sesión</button>
 

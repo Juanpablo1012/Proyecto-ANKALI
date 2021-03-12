@@ -1,3 +1,6 @@
+<?php
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,23 +73,16 @@
         <!-- Icon -->
         <div class="fadeIn first">
           <img src="../Estilo/img/logo-negro.png" id="icon2" alt="User Icon">
-          <h6>¡Registrarte!</h6>
+          <h6>Retablecer contraseña</h6>
+          <h7>Ingresa una nueva contraseña.</h7>
         </div>
         <!-- Login Form -->
-        <form Method="POST" action="../Controlador/ControladorUsuarios.php">
-          <input type="number" id="Documento" class="fadeIn third" name="Documento" placeholder="Numero de documento" required>
-          <input type="number" id="Telefono" class="fadeIn second" name="Telefono" placeholder="Numero de telefono" required>
-          <input type="text" id="Nombre" class="fadeIn third" name="Nombre" placeholder="Nombre" required>
-          <input type="text" id="Direccion" class="fadeIn second" name="Direccion" placeholder="Direccion" required>
-          <input type="email" id="Correo" class="fadeIn second" name="Correo" placeholder="Correo"required>
-          <input type="password" id="Contrasena" class="fadeIn third" name="Contrasena" placeholder="Contraseña"required>
-          
-          <button type="submit" name="registro" class="fadeIn fourth">Registrarse</button>
+        <form Method="POST" action="../Controlador/ControladorUsuarios.php"> 
+            <input type="password" id="Contrasena" class="fadeIn second" name="Contrasena" placeholder="Contraseña"required>
+            <button type="submit" class="fadeIn fourth" name="restablecercontra">
+              Cambiar contraseña
+            </button>
         </form>
-        <button type="submit" class="fadeIn fourth" value="">
-            <a href="../index.php" type="button"style="color:white">Iniciar Sesión</a>
-        </button>
-
       </div>
     </div>
       <!--<img src="img/hero-img.png" alt="Hero Imgs">-->

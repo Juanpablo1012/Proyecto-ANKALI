@@ -74,7 +74,7 @@
         </div>
         <!-- Login Form -->
         <form Method="POST" action="../Controlador/ControladorUsuarios.php">
-            <input type="email" id="Correo" class="fadeIn second" name="Correo" placeholder="Correo">
+            <input type="email" id="Correo" class="fadeIn second" name="Correo" placeholder="Correo" required>
             <button type="submit" class="fadeIn fourth" name="recuperarcontra">Recuperar contraseña
             </button>
         </form>
