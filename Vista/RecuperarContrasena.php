@@ -74,6 +74,10 @@
         </div>
         <!-- Login Form -->
         <form Method="POST" action="../Controlador/ControladorUsuarios.php">
+            <input type="hidden" name="email" id="email" value="<?php echo $Correo;?>">
+            
+            <input type="hidden" name="ndoc" id="ndco" value="<?php echo $Documento;?>">
+
             <input type="email" id="Correo" class="fadeIn second" name="Correo" placeholder="Correo" required>
             <button type="submit" class="fadeIn fourth" name="recuperarcontra">Recuperar contraseña
             </button>

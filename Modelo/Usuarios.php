@@ -8,7 +8,7 @@
         private $Correo;
         private $Contrasena;
         private $Estado = 1; //1 true, 0 false
-        private $IdRol = 2;
+        private $IdRol = 0;
         private $Existe;
         
         public function __construct()

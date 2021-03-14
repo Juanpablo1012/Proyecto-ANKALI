@@ -6,6 +6,11 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
+<!--SWEETALERT-->
+<link href="Estilo/sweetalert2/sweetalert2.css" >
+<link href="Estilo/sweetalert2/sweetalert2.min.css" >
+<script src="Estilo/sweetalert2/sweetalert2.all.min.js"></script>
+
 
   <!-- Favicons -->
   <link href="Estilo/img/logo-negro.png" rel="icon">

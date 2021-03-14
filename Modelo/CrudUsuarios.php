@@ -53,7 +53,7 @@
         public function ListarRoles()
         {
             $Db = Db::Conectar(); // conectar bd
-            $sql = $Db->query('SELECT `NombreRol` 
+            $sql = $Db->query('SELECT * 
             FROM `roles`'); //definir sentencia sql
             $sql->execute(); // ejecutar la consulta
             return $sql->fetchAll(); // retorna todos los registros de la consulta
@@ -166,6 +166,42 @@
             catch(Exception $e)
             {
                 $mensaje = $e->getMessage();
+            }
+            Db::CerrarConexion($Db);
+            return $mensaje;
+        }
+
+        public function RegistrarAdmin($usuario)
+        {
+            $mensaje="";
+            $Db = Db::Conectar(); // conectar bd
+            $sql = $Db->prepare('INSERT INTO usuarios(Documento,Nombre,
+            Telefono,Direccion,Correo,Contrasena,Estado,IdRol)
+            VALUES (:Documento,:Nombre,:Telefono,:Direccion,:Correo,:Contrasena,:Estado,:IdRol)'); //definir sentencia sql
+            $sql->bindvalue('Documento',$usuario->getDocumento());
+            $sql->bindvalue('Nombre',$usuario->getNombre());
+            $sql->bindvalue('Telefono',$usuario->getTelefono());
+            $sql->bindvalue('Direccion',$usuario->getDireccion());
+            $sql->bindvalue('Correo',$usuario->getCorreo());
+            $sql->bindvalue('Contrasena',$usuario->getContrasena());
+            $sql->bindvalue('Estado',$usuario->getEstado());
+            $sql->bindvalue('IdRol',$usuario->getIdRol());
+
+            try{
+                $sql->execute();
+                echo 
+                '<script>
+                    alert("Usuario registrado exitosamente.");
+                    window.location="../Usuariousu.php";
+                </script>';
+            }
+            catch(Exception $e)
+            {
+                echo 
+                '<script>
+                    alert("algo ha ocurrido mal.");
+                    window.history.go(-1);
+                </script>';
             }
             Db::CerrarConexion($Db);
             return $mensaje;

@@ -1,5 +1,4 @@
 <?php
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,7 +76,13 @@
           <h7>Ingresa una nueva contraseña.</h7>
         </div>
         <!-- Login Form -->
+<?php
+?>
         <form Method="POST" action="../Controlador/ControladorUsuarios.php"> 
+            <input type="hidden" name="email" id="email" value="<?php echo $_REQUEST['ABC'];?>">
+
+            <input type="hidden" name="ndoc" id="ndoc" value="<?php echo $_REQUEST['ndoc'];?>">
+
             <input type="password" id="Contrasena" class="fadeIn second" name="Contrasena" placeholder="Contraseña"required>
             <button type="submit" class="fadeIn fourth" name="restablecercontra">
               Cambiar contraseña

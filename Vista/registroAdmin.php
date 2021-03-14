@@ -1,7 +1,6 @@
 <?php
 require_once("../Controlador/ControladorUsuarios.php");
 $listarRol = json_decode($ControladorUsuarios->ListarRoles());
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -113,13 +112,13 @@ $listarRol = json_decode($ControladorUsuarios->ListarRoles());
         <form Method="POST" action="../Controlador/ControladorUsuarios.php">
           <input type="number" id="Documento" class="fadeIn third" name="Documento" placeholder="Numero de documento" required>
           
-          <select name="IdRol[]">
+          <select name="IdRol">
               <option>Seleccione un Rol</option>
               <?php
                 foreach($listarRol as $rol)
                 {
               ?> 
-                <option value="<?php $rol->IdRol?>"> <?php echo $rol->NombreRol?></option>
+                <option value="<?php echo $rol->IdRol?>"> <?php echo $rol->NombreRol?></option>
               <?php
                 }
               ?>
@@ -131,7 +130,8 @@ $listarRol = json_decode($ControladorUsuarios->ListarRoles());
           <input type="email" id="Correo" class="fadeIn second" name="Correo" placeholder="Correo" required>
           <input type="password" id="Contrasena" class="fadeIn third" name="Contrasena" placeholder="Contraseña">
           
-          <button type="submit" name="registro" class="fadeIn fourth">Registrarse</button>
+          <button type="submit" name="registroAdmin" class="fadeIn fourth">Registrar</button>
+          <?php print_r($_REQUEST); ?>
         </form>
       </div>
     </div>

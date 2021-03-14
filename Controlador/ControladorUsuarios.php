@@ -86,6 +86,23 @@ class ControladorUsuarios{
         return $CrudUsuarios->BuscarCorreo($Correo);
 
     }
+
+    public function RegistrarAdmin($Documento,$Nombre,$Telefono,$Direccion,
+    $Correo,$Contrasena,$IdRol)
+    {
+        $Usuarios =new usuarios();
+        $CrudUsuarios= new CrudUsuarios();
+        $Usuarios->setDocumento($Documento);
+        $Usuarios->setNombre($Nombre);
+        $Usuarios->setTelefono($Telefono);
+        $Usuarios->setDireccion($Direccion);
+        $Usuarios->setCorreo($Correo);
+        $Usuarios->setContrasena($Contrasena);
+        $Usuarios->setIdRol($IdRol);
+
+        return $CrudUsuarios->RegistrarAdmin($Usuarios);
+    }
+
     public function desplegarVista($vista)
     {
         header("location:".$vista);
@@ -107,8 +124,7 @@ if(isset($_POST['registro'])){
     $_POST['Contrasena']);
     }
 
-
-    elseif(isset($_POST['acceder']))
+elseif(isset($_POST['acceder']))
 {
     $Usuario=$ControladorUsuarios->InicioSesion(
         $_POST['Correo'],
@@ -149,13 +165,22 @@ elseif(isset($_POST['recuperarcontra']))
 {
         $body="";
             $email = $mysqli->real_escape_string($_POST['Correo']);
-                $sql = $mysqli->query("SELECT Correo, Nombre FROM usuarios where Correo = '$email'");
+                define("KEY","ankali");
+                define("COD","AES-128-ECB");
+                $correoencript=openssl_encrypt($email,COD,KEY);
+                //$xx=$email;
+                
+                $sql = $mysqli->query("SELECT Nombre, Documento FROM usuarios where Correo = '$email'");
+                
                 $row = $sql->fetch_array();
                 $count = $sql->num_rows;
+                
         if($count ==1){
-            $act =  $mysqli->query("UPDATE usuarios WHERE Correo = '$email'");
+            $ndocencript=openssl_encrypt($row['Documento'],COD,KEY);
+
+            //$act =  $mysqli->query("UPDATE usuarios WHERE Correo = '$email'");
             $body =  "<br> Estimad@ " .$row['Nombre'] . "<br> Haz solicitado recuperar tu contraseña, ingresa al siguiente link.
-            http://localhost/Proyecto-ANKALI/Vista/RestablecerContrasena.php"; 
+            http://localhost/Proyecto-ANKALI/Vista/RestablecerContrasena.php?ABC=".$correoencript."&ndoc=".$ndocencript; 
         }else{
             echo '<script>
             alert("Este correo no existe");
@@ -203,13 +228,42 @@ elseif(isset($_POST['recuperarcontra']))
     }   
 }
 
-elseif(isset($_GET['restablecercontra']))
+
+elseif(isset($_POST['restablecercontra']))
 {
-    $Correo = $_GET['Correo'];
-    $ControladorUsuarios->desplegarVista('../Vista/Restablecercontrasena.php?Correo='.$Correo);
+    define("KEY","ankali");
+    define("COD","AES-128-ECB");
+    
+    $Correo=openssl_decrypt($_REQUEST['email'],COD,KEY);
+    $Correo=($_REQUEST['email']);
+
+    $Documento=openssl_decrypt($_REQUEST['ndoc'],COD,KEY);
+
+
+    //$Correo = $_POST['email'];
+    $email = $mysqli->real_escape_string($Correo);
+    $psw=$_REQUEST['Contrasena'];
+
+    //echo "<br>"."HOLA".$Documento;
+
+    echo '<script>
+        alert("Contraseña cambiada correctamente.");
+        window.location="../index.php";
+        </script>';
+
+    $sql = $mysqli->query("UPDATE  usuarios SET Contrasena = '$psw'  where Documento = '$Documento'");
+    
 }
-elseif(isset($_POST['restablecercontra'])){
-    echo $ControladorUsuarios->RestablecerContra($_POST['Contrasena'],$_POST['Correo']);
+elseif(isset($_POST['registroAdmin']))
+{
+    echo $ControladorUsuarios->RegistrarAdmin(
+    $_POST['Documento'],
+    $_POST['Nombre'],
+    $_POST['Telefono'],
+    $_POST['Direccion'],
+    $_POST['Correo'],
+    $_POST['Contrasena'],
+    $_POST['IdRol']);
 }
 
 ?>
