@@ -105,20 +105,19 @@ if(!($_SESSION['Documento']))
             <h6>Agregar Producto o Insumo</h6>
           </div>
           <!-- Login Form -->
-          <form>
-            <input type="hidden" id="registro" class="fadeIn third" name="login" placeholder="Codigo producto">
-            <select class="fadeIn third" aria-label="Default select example">
+          <form action="../Controlador/ControladorProductos.php" method="Post">
+            <!-- <input type="hidden" id="registro" class="fadeIn third" name="login" placeholder="Codigo producto"> -->
+            <!-- <select class="fadeIn third" aria-label="Default select example">
               <option selected>--Seleccione--</option>
               <option value="1">Producto</option>
               <option value="2">Insumo</option>
-            </select>
-            <input type="text" id="registro" class="fadeIn third" name="login" placeholder="Nombre">
-            <input type="number" id="registro" class="fadeIn second" name="login" placeholder="Cantidad">
-            <input type="number" id="registro" class="fadeIn second" name="login" placeholder="Precio">
-            <input type="text" id="registro" class="fadeIn second" name="login" placeholder="Proveedor">
-            <textarea type="text" id="registro" class="fadeIn second" name="login" placeholder="Descripcion"></textarea>
-            <input type="file" id="registro" class="fadeIn second" name="login" placeholder="Correo">
-            <input type="submit" class="fadeIn fourth" value="Agregar">
+            </select> -->
+            <input type="text" id="Nombre" class="fadeIn third" name="Nombre" placeholder="Nombre">
+            <input type="number" id="Precio" class="fadeIn second" name="Precio" placeholder="Precio">
+            <input type="number" id="Stock" class="fadeIn second" name="Stock" placeholder="Stock">
+            <!-- <textarea type="text" id="registro" class="fadeIn second" name="login" placeholder="Descripcion"></textarea> -->
+            <!-- <input type="file" id="registro" class="fadeIn second" name="login" placeholder="Correo"> -->
+            <button type="submit" name="CrearProduc" class="fadeIn fourth">Agregar Producto</button>
           </form>
     
       

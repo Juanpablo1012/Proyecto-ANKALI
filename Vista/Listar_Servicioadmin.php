@@ -56,24 +56,24 @@ if(!($_SESSION['Documento']))
         <li class="menu-active"><a href="admin.php">Inicio</a></li>
         <li class="menu-has-children"><a href="">Servicios</a>
           <ul>
-            <li><a href="Agregar_servicio.php">Agregar servicio</a></li>
-            <li><a href="Listar_Servicio.php">Listar servicios</a></li>
+            <li><a href="Agregar_servicioadmin.php">Agregar servicio</a></li>
+            <li><a href="Listar_Servicioadmin.php">Listar servicios</a></li>
             <!--<li><a href="#">Drop Down 4</a></li>
             <li><a href="#">Drop Down 5</a></li>-->
           </ul>
         </li>
         <li class="menu-has-children"><a href="">Productos</a>
           <ul>
-            <li><a href="Agregar_producto.php">Agregar producto</a></li>
-            <li><a href="Listar_Producto.php">Listar productos</a></li>
+            <li><a href="Agregar_productoadmin.php">Agregar producto</a></li>
+            <li><a href="Listar_Productoadmin.php">Listar productos</a></li>
             <!--<li><a href="#">Drop Down 4</a></li>
             <li><a href="#">Drop Down 5</a></li>-->
           </ul>
         </li>
         <li class="menu-has-children"><a href="">Pedidos</a>
           <ul>
-            <li><a href="Agregar_Pedido.php">Agregar Pedido</a></li>
-            <li><a href="Listar_Pedido.php">Listar Pedido</a></li>
+            <li><a href="Agregar_Pedidoadmin.php">Agregar Pedido</a></li>
+            <li><a href="Listar_Pedidoadmin.php">Listar Pedido</a></li>
           </ul>
         </li>
         <li><a href="Venta.php">Ventas</a></li>
@@ -81,8 +81,8 @@ if(!($_SESSION['Documento']))
         <li class="menu-has-children"><a href="">Usuarios</a>
             <ul>
               <li><a href="registroAdmin.php">Registrar usuarios</a></li>
-              <li><a href="">Registrar roles</a></li>
-              <li><a href="">Listar usuarios</a></li>
+              <li><a href="RegistrarRol.php">Registrar roles</a></li>
+              <li><a href="Usuariosadmin.php">Listar usuarios</a></li>
             </ul>
         </li>
         

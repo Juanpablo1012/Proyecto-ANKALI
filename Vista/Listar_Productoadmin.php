@@ -1,15 +1,33 @@
 <?php
 session_start();
+
+require_once("../Controlador/ControladorProductos.php");
+$listarproducto = json_decode($ControladorProductos->Listarproducto());
+
 if(!($_SESSION['Documento']))
 {
   header ("Location:../index.php");
-}
+} 
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <title>ANKALI</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.css" />
+
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.js"></script>
+
+    
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -32,19 +50,14 @@ if(!($_SESSION['Documento']))
 
   <!-- Main Stylesheet File -->
   <link href="../Estilo/css/style.css" rel="stylesheet">
-<!--DATATABLE-->
-  <!-- =======================================================
-    Theme Name: eStartup
-    Theme URL: https://bootstrapmade.com/estartup-bootstrap-landing-page-template/
-    Author: BootstrapMade.com
-    License: https://bootstrapmade.com/license/
-  ======================================================= -->
+
+
+
 </head>
 
 <body>
-
-   <header id="header" class="header header-hide">
-   <div class="container">
+    <header id="header" class="header header-hide">
+    <div class="container">
     
     <div id="logo" class="pull-left">
       <h1><a href="admin.php" class="scrollto"><a href=""><img src="../Estilo/img/logo-blanco.png" width="70" height="70"> </a>  ANKALI</a></h1>
@@ -64,16 +77,16 @@ if(!($_SESSION['Documento']))
         </li>
         <li class="menu-has-children"><a href="">Productos</a>
           <ul>
-            <li><a href="Agregar_producto.php">Agregar producto</a></li>
-            <li><a href="Listar_Producto.php">Listar productos</a></li>
+            <li><a href="Agregar_productoadmin.php">Agregar producto</a></li>
+            <li><a href="Listar_Productoadmin.php">Listar productos</a></li>
             <!--<li><a href="#">Drop Down 4</a></li>
             <li><a href="#">Drop Down 5</a></li>-->
           </ul>
         </li>
         <li class="menu-has-children"><a href="">Pedidos</a>
           <ul>
-            <li><a href="Agregar_Pedido.php">Agregar Pedido</a></li>
-            <li><a href="Listar_Pedido.php">Listar Pedido</a></li>
+            <li><a href="Agregar_Pedidoadmin.php">Agregar Pedido</a></li>
+            <li><a href="Listar_Pedidoadmin.php">Listar Pedido</a></li>
           </ul>
         </li>
         <li><a href="Venta.php">Ventas</a></li>
@@ -90,52 +103,66 @@ if(!($_SESSION['Documento']))
       </ul>
     </nav><!-- #nav-menu-container -->
   </div>
-      </header>
-  
-      <section id="hero4" class="wow fadeIn">
-        <div class="hero-container">
-          <h1>Listado de productos</h1>
-          <HR></HR>
+  </header>
+      <br>
 
-          <table id="Listar_Producto" class="table table-bordered"> 
-            <thead>
+
+
+
+
+      <section id="hero4" class="wow fadeIn">
+      
+    <div class="container mt-4">
+    
+        <div class="card-body" >
+            <table border="1" class="table table-sriped  table-bordered" id="litarroles">
+                <thead>
                 <tr>
-                    <th>Código</th>
+                    <th>Codigo Producto</th>
                     <th>Nombre</th>
-                    <th>Cantidad</th>
                     <th>Precio</th>
-                    <th>Imagen</th>
-                    <th>Descripción</th>
+                    <th>Cantidad disponible</th>
+                    <th>Tipo de Producto</th>
+                    <th>Estado</th>
                     <th>Acciones</th>
                 </tr>
-            </thead>
-            <tbody>
+                </thead>
+                <tbody>
+
+                <?php
+                foreach($listarproducto as $producto)
+                {
+                ?> 
                 <tr>
-                    <td>1</td>
-                    <td>Portaliz de perro</td>
-                    <td>3</td>
-                    <td>15.000</td>
+                    <td><?php echo $producto->IdProducto?></td>
+                    <td><?php echo $producto->Nombre?></td>
+                    <td><?php echo $producto->Precio?></td>
+                    <td><?php echo $producto->Stock?></td>
+                    <td><?php echo $producto->TipodeProducto?></td>
                     <td>
-                      <img src="../img/portalapiz.jpeg" alt="img" class="img-fluid">
+                    <?php if($producto->Estado == 1 ){
+                        echo "Activo";
+                    } else
+                    {
+                        echo "Inhabiliado";
+                    } ?>            
                     </td>
-                    <td>hola</td>
                     <td>
-                        <a href="">Editar</a>
-                        <br>
-                        <a href="">Cambiar estado</a>
-                        <br>
-                        <a href="">Eliminar</a>
+                        <!-- <a href="../Controlador/ControladorUsuarios.php?Actualizarusuario&Documento=<?php echo $usu->Documento?>" class="btn btn" >Cambiar estado</a> -->
                     </td>
-
+                    
                 </tr>
-            </tbody>
-        </table>
-          
+                <?php
+                }
+                ?>
+                </tbody>
+            </table>
         </div>
-      </section>
-  
+    </div>
 
-  <footer class="footer">
+    </section>
+
+    <footer class="footer">
       <div class="copyrights">
         <p>&copy; Copyrights eStartup. All rights reserved.</p>
         <div class="credits">
@@ -144,8 +171,9 @@ if(!($_SESSION['Documento']))
       </div>
   </footer>
 
-  <!-- JavaScript Libraries -->
-  <script src="../Estilo/lib/jquery/jquery.min.js"></script>
+
+
+    <!-- <script src="../Estilo/lib/jquery/jquery.min.js"></script> -->
   <script src="../Estilo/lib/jquery/jquery-migrate.min.js"></script>
   <script src="../Estilo/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="../Estilo/lib/superfish/hoverIntent.js"></script>
@@ -160,5 +188,21 @@ if(!($_SESSION['Documento']))
   <!-- Template Main Javascript File -->
   <script src="../Estilo/js/main.js"></script>
 
+
+
+
+    <script>
+        $(document).ready(function () {
+            $('#litarroles').DataTable({
+                "language": {
+      "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+    }
+            });
+            
+        });
+    </script>
+
+    
 </body>
+
 </html>

@@ -14,34 +14,23 @@ if(!($_SESSION['Documento']))
   <meta content="" name="keywords">
   <meta content="" name="description">
 
-  <!-- Favicons -->
   <link href="../Estilo/img/logo-negro.png" rel="icon">
   <link href="../Estilo/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i" rel="stylesheet">
 
-  <!-- Bootstrap css -->
-  <!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
+
   <link href="../Estilo/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Libraries CSS Files -->
   <link href="../Estilo/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="../Estilo/lib/owlcarousel/assets/owl.theme.default.min.css" rel="stylesheet">
   <link href="../Estilo/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link href="../Estilo/lib/animate/animate.min.css" rel="stylesheet">
   <link href="../Estilo/lib/modal-video/css/modal-video.min.css" rel="stylesheet">
 
-  <!-- Main Stylesheet File -->
   <link href="../Estilo/css/style.css" rel="stylesheet">
   <link href="../Estilo/css/app.css" rel="stylesheet">
 
-  <!-- =======================================================
-    Theme Name: eStartup
-    Theme URL: https://bootstrapmade.com/estartup-bootstrap-landing-page-template/
-    Author: BootstrapMade.com
-    License: https://bootstrapmade.com/license/
-  ======================================================= -->
 </head>
 
 <body>
@@ -51,7 +40,6 @@ if(!($_SESSION['Documento']))
     
     <div id="logo" class="pull-left">
       <h1><a href="admin.php" class="scrollto"><a href=""><img src="../Estilo/img/logo-blanco.png" width="70" height="70"> </a>  ANKALI</a></h1>
-      <!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
     </div>
 
     <nav id="nav-menu-container">
@@ -59,18 +47,15 @@ if(!($_SESSION['Documento']))
         <li class="menu-active"><a href="admin.php">Inicio</a></li>
         <li class="menu-has-children"><a href="">Servicios</a>
           <ul>
-            <li><a href="Agregar_servicio.php">Agregar servicio</a></li>
-            <li><a href="Listar_Servicio.php">Listar servicios</a></li>
-            <!--<li><a href="#">Drop Down 4</a></li>
-            <li><a href="#">Drop Down 5</a></li>-->
+            <li><a href="Agregar_servicioadmin.php">Agregar servicio</a></li>
+            <li><a href="Listar_Servicioadmin.php">Listar servicios</a></li>
+
           </ul>
         </li>
         <li class="menu-has-children"><a href="">Productos</a>
           <ul>
-            <li><a href="Agregar_producto.php">Agregar producto</a></li>
-            <li><a href="Listar_Producto.php">Listar productos</a></li>
-            <!--<li><a href="#">Drop Down 4</a></li>
-            <li><a href="#">Drop Down 5</a></li>-->
+            <li><a href="Agregar_productoadmin.php">Agregar producto</a></li>
+            <li><a href="Listar_Productoadmin.php">Listar productos</a></li>
           </ul>
         </li>
         <li class="menu-has-children"><a href="">Pedidos</a>
@@ -84,25 +69,19 @@ if(!($_SESSION['Documento']))
         <li class="menu-has-children"><a href="">Usuarios</a>
             <ul>
               <li><a href="registroAdmin.php">Registrar usuarios</a></li>
-              <li><a href="">Registrar roles</a></li>
-              <li><a href="">Listar usuarios</a></li>
+              <li><a href="RegistrarRol.php">Registrar roles</a></li>
+              <li><a href="Usuariosamin.php">Listar usuarios</a></li>
             </ul>
         </li>
         
         <li><a href="../Controlador/DestruirSesion.php">Cerrar Sesión <i class="fa fa-window-close"></i></a></li>
       </ul>
-    </nav><!-- #nav-menu-container -->
+    </nav>
   </div>
-  </header><!-- #header -->
-
-  <!--==========================
-    Hero Section
-  ============================-->
+  </header>
   <section id="hero7" class="wow fadeIn">
     <div class="hero-container">
       <h1>Bienvenido de nuevo administrador</h1>
-      <!--<h2>Elegant Bootstrap Template for Startups, Apps &amp; more...</h2>-->
-      <!--<img src="img/hero-img.png" alt="Hero Imgs">-->
     </div>
   </section>
   <section id="productos" class="padd-section text-center wow fadeInUp">
@@ -175,7 +154,6 @@ if(!($_SESSION['Documento']))
                   <tbody>
                   <tr>
                     <td>
-                      <!--<img src="dist/img/default-150x150.png"  class="img-circle img-size-32 mr-2">-->
                       Ancheta stick
                     </td>
                     <td>$55.000</td>
@@ -194,7 +172,6 @@ if(!($_SESSION['Documento']))
                   </tr>
                   <tr>
                     <td>
-                      <!--<img src="dist/img/default-150x150.png"  class="img-circle img-size-32 mr-2">-->
                       Portalapiz
                     </td>
                     <td>$15.000 </td>
@@ -213,7 +190,6 @@ if(!($_SESSION['Documento']))
                   </tr>
                   <tr>
                     <td>
-                     <!-- <img src="dist/img/default-150x150.png"  class="img-circle img-size-32 mr-2">-->
                       Ancheta globo
                     </td>
                     <td>$25.000 </td>

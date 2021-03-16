@@ -57,12 +57,12 @@ if(!($_SESSION['Documento']))
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li class="menu-active"><a href="usuario.html">Inicio</a></li>
-          <li><a href="Productos.html">Productos</a></li>
-          <li><a href="Servicios.html">Servicios</a></li>
-          <li><a href="Pedido.html">Pedidos <i class="fa fa-list-alt"></i></a></li>
+          <li><a href="Productosusu.php">Productos</a></li>
+          <li><a href="Serviciosusu.php">Servicios</a></li>
+          <li><a href="Pedidousu.php">Pedidos <i class="fa fa-list-alt"></i></a></li>
           <li><a href="#contact">Contacto <i class="fa fa-address-book"></i></a></li>
-          <li><a href="carrito.html">Carrito <i class="fa fa-shopping-cart"></i></a></li>
-          <li><a href="../index.html">Cerrar Sesión <i class="fa fa-window-close"></i></a></li>
+          <li><a href="carrito.php">Carrito <i class="fa fa-shopping-cart"></i></a></li>
+          <li><a href="../index.php">Cerrar Sesión <i class="fa fa-window-close"></i></a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>

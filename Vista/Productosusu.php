@@ -1,4 +1,7 @@
 <?php
+
+require_once("../Controlador/ControladorProductos.php");
+$listarproducto = json_decode($ControladorProductos->Listarproductousu());
 session_start();
 if(!($_SESSION['Documento']))
 {
@@ -58,12 +61,12 @@ if(!($_SESSION['Documento']))
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li class="menu-active"><a href="usuario.html">Inicio</a></li>
-          <li><a href="Servicios.html">Productos</a></li>
-          <li><a href="Servicios.html">Servicios</a></li>
+          <li><a href="Serviciosusu.html">Productos</a></li>
+          <li><a href="Serviciosusu.html">Servicios</a></li>
           <li><a href="Pedido.html">Pedidos <i class="fa fa-list-alt"></i></a></li>
 
           <li><a href="#contact">Contacto <i class="fa fa-address-book"></i></a></li>
-          <li><a href="carrito.html">Carrito <i class="fa fa-shopping-cart"></i></a></li>
+          <li><a href="carritousu.html">Carrito <i class="fa fa-shopping-cart"></i></a></li>
           <li><a href="../index.html">Cerrar Sesión <i class="fa fa-window-close"></i></a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
@@ -91,75 +94,24 @@ if(!($_SESSION['Documento']))
     <div class="container">
       <div class="row">
 
-        <div class="col-md-6 col-lg-3">
-          <div class="feature-block">
-            <img src="../../Estilo/img/portalapiz.jpeg"  class="img-fluid" >
-            <h4>Portalapiz de perrito</h4>
-            <p>Portalapiz de perrito, hecho a mano con foamy</p>
-            <a href="carrito.html"><button class="btn"><i class="fa fa-shopping-cart"></i> Comprar</button></a>
-          </div>
-        </div>
+      <?php
+                foreach($listarproducto as $producto)
+                {
+        ?> 
 
         <div class="col-md-6 col-lg-3">
           <div class="feature-block">
-            <img src="../../Estilo/img/ancheta globo.JPG" alt="img" class="img-fluid">
-            <h4>Ancheta Globo</h4>
-            <p>Ancheta ideal para relago de cumpleaños</p>
-            <button class="btn"><i class="fa fa-shopping-cart"></i> Comprar</button>
+            <!-- <img src="../../Estilo/img/portalapiz.jpeg"  class="img-fluid" > -->
+            <h4><?php echo $producto->Nombre?></h4>
+            <p>$<?php echo $producto->Precio?></p><br>
+            <a href="carrito.php"><button class="btn"><i class="fa fa-shopping-cart"></i> Comprar</button></a>
           </div>
         </div>
 
-        <div class="col-md-6 col-lg-3">
-          <div class="feature-block">
-            <img src="../../Estilo/img/portalapiz leon.jpeg" alt="img" class="img-fluid">
-            <h4>Portalapiz de león</h4>
-            <p>Portalapiz de león, hecho a mano con foamy</p>
-            <button class="btn"><i class="fa fa-shopping-cart"></i> Comprar</button>
 
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3">
-          <div class="feature-block">
-            <img src="../../Estilo/img/Ancheta elefante.JPG" alt="img" class="img-fluid">
-            <h4>Ancheta Elefante</h4>
-            <p>Ancheta con elefeante elaborado en foamy</p>
-            <button class="btn"><i class="fa fa-shopping-cart"></i> Comprar</button>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-            <div class="feature-block">
-              <img src="../../Estilo/img/Ancheta elefante.JPG" alt="img" class="img-fluid">
-              <h4>Ancheta Elefante</h4>
-              <p>Lorem Ipsum is simply dummy </p>
-              <button class="btn"><i class="fa fa-shopping-cart"></i> Comprar</button>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="feature-block">
-              <img src="../../Estilo/img/Ancheta elefante.JPG" alt="img" class="img-fluid">
-              <h4>Ancheta Elefante</h4>
-              <p>Lorem Ipsum is simply dummy </p>
-              <button class="btn"><i class="fa fa-shopping-cart"></i> Comprar</button>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3">
-          <div class="feature-block">
-            <img src="../../Estilo/img/Ancheta elefante.JPG" alt="img" class="img-fluid">
-            <h4>Ancheta Elefante</h4>
-            <p>Lorem Ipsum is simply dummy </p>
-            <button class="btn"><i class="fa fa-shopping-cart"></i> Comprar</button>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-            <div class="feature-block">
-              <img src="../../Estilo/img/Ancheta elefante.JPG" alt="img" class="img-fluid">
-              <h4>Ancheta Elefante</h4>
-              <p>Lorem Ipsum is simply dummy </p>
-              <button class="btn"><i class="fa fa-shopping-cart"></i> Comprar</button>
-            </div>
-          </div>
-  
+        <?php
+                }
+        ?>
       </div>
     </div>
   </section>
