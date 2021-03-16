@@ -133,7 +133,14 @@ $listarusuarios = json_decode($ControladorUsuarios->Listarusuarios());
                     <td><?php echo $usu->Nombre?></td>
                     <td><?php echo $usu->Correo?></td>
                     <td><?php echo $usu->Telefono?></td>
-                    <td><?php echo $usu->NombreRol?></td>
+                    <td><?php 
+                    if($usu->NombreRol == 'U' ){
+                      echo "Usuario";
+                  } else if($usu->NombreRol == 'A' )
+                  {
+                      echo "Administrador";
+                  }
+                  ?></td>
                     <td>
                     <?php if($usu->Estado == 1 ){
                         echo "Activo";

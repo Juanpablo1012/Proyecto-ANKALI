@@ -66,8 +66,8 @@ if(!($_SESSION['Documento']))
         </li>
         <li class="menu-has-children"><a href="">Productos</a>
           <ul>
-            <li><a href="Agregar_producto.php">Agregar producto</a></li>
-            <li><a href="Listar_Producto.php">Listar productos</a></li>
+            <li><a href="Agregar_productoadmin.php">Agregar producto</a></li>
+            <li><a href="Listar_Productoadmin.php">Listar productos</a></li>
             <!--<li><a href="#">Drop Down 4</a></li>
             <li><a href="#">Drop Down 5</a></li>-->
           </ul>

@@ -207,6 +207,12 @@
             return $mensaje;
         }
 
+        public function CambiarEstadoU($id)
+        {
+            "UPDATE usuarios set Estado = !Estado WHERE Documento = :Documento";
+        }
+
+
        
 }
     
