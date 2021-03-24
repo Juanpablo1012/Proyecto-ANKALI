@@ -49,7 +49,7 @@ if(!($_SESSION['Documento']))
 
       <div id="logo" class="pull-left">
         
-        <h1><a href="../usuario.html" class="scrollto"><a><img src="../Estilo/img/logo-blanco.png" width="70" height="70"> </a>  ANKALI</a></h1>
+        <h1><a href="#" class="scrollto"><a><img src="../Estilo/img/logo-blanco.png" width="70" height="70"> </a>  ANKALI</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         
       </div>

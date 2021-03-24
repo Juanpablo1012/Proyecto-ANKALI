@@ -4,7 +4,7 @@
         private $Documento;
         private $Nombre;
         private $Telefono;
-        private $Direccion;
+        private $Direccion; 
         private $Correo;
         private $Contrasena;
         private $Estado = 1; //1 true, 0 false

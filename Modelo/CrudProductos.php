@@ -5,7 +5,7 @@
 
         public function CrearProducto($producto)
         {
-            $mensaje="";
+            $mensaje=""; 
             $Db = Db::Conectar(); // conectar bd
             $sql = $Db->prepare('INSERT INTO producto(Nombre,Precio,Stock,Estado,TipodeProducto)
             VALUES (:Nombre,:Precio,:Stock,:Estado,:TipoProducto)'); //definir sentencia sql

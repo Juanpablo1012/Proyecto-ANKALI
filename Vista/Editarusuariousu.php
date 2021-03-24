@@ -1,7 +1,7 @@
 <?php
 require_once("../Controlador/ControladorUsuarios.php");
 $doc =  $ControladorUsuarios->Buscarusuario($_GET['Documento']);
-session_start();
+// session_start();
 if(!($_SESSION['Documento']))
 {
   header ("Location:../index.php");
@@ -112,7 +112,7 @@ if(!($_SESSION['Documento']))
           <label for="">Nombre</label>
           <input type="text" id="Nombre" class="fadeIn third" name="Nombre" value="<?php echo $doc->getNombre() ?>"  placeholder="Nombre">
           
-          <label for="">--Correo</label>
+          <label for="">Correo</label>
 
           <input type="email" id="Correo" class="fadeIn second" name="Correo" value="<?php echo $doc->getCorreo() ?>" placeholder="Correo" >
           
@@ -121,6 +121,8 @@ if(!($_SESSION['Documento']))
           
           <label for="">1 = Activo y 2 = Inhabiliado </label>
           <input type="text" id="Estado" class="fadeIn third" name="Estado" value="<?php echo $doc->getEstado() ?>" placeholder="Estado">
+          <label for="">Contraseña </label>
+
           <input type="text" id="Contrasena" class="fadeIn third" name="Contrasena" value="<?php echo $doc->getContrasena() ?>" placeholder="Contrasena">
           
           <!-- <button type="submit" name="registro" class="fadeIn fourth">Registrarse</button> -->

@@ -42,26 +42,26 @@ if(!($_SESSION['Documento']))
   <div class="container">
     
     <div id="logo" class="pull-left">
-      <h1><a href="admin.php" class="scrollto"><a href=""><img src="../Estilo/img/logo-blanco.png" width="70" height="70"> </a>  ANKALI</a></h1>
+      <h1><a href="admin.php" class="scrollto"><a href="#"><img src="../Estilo/img/logo-blanco.png" width="70" height="70"> </a>  ANKALI</a></h1>
     </div>
 
     <nav id="nav-menu-container">
       <ul class="nav-menu">
         <li class="menu-active"><a href="admin.php">Inicio</a></li>
-        <li class="menu-has-children"><a href="">Servicios</a>
+        <li class="menu-has-children"><a href="#">Servicios</a>
           <ul>
             <li><a href="Agregar_servicioadmin.php">Agregar servicio</a></li>
             <li><a href="Listar_Servicioadmin.php">Listar servicios</a></li>
 
           </ul>
         </li>
-        <li class="menu-has-children"><a href="">Productos</a>
+        <li class="menu-has-children"><a href="#">Productos</a>
           <ul>
             <li><a href="Agregar_productoadmin.php">Agregar producto</a></li>
             <li><a href="Listar_Productoadmin.php">Listar productos</a></li>
           </ul>
         </li>
-        <li class="menu-has-children"><a href="">Pedidos</a>
+        <li class="menu-has-children"><a href="#">Pedidos</a>
           <ul>
             <li><a href="Agregar_Pedidoadmin.php">Agregar Pedido</a></li>
             <li><a href="Listar_Pedidoadmin.php">Listar Pedido</a></li>
@@ -69,7 +69,7 @@ if(!($_SESSION['Documento']))
         </li>
         <li><a href="Venta.php">Ventas</a></li>
 
-        <li class="menu-has-children"><a href="">Usuarios</a>
+        <li class="menu-has-children"><a href="#">Usuarios</a>
             <ul>
               <li><a href="registroAdmin.php">Registrar usuarios</a></li>
               <li><a href="RegistrarRol.php">Registrar roles</a></li>
