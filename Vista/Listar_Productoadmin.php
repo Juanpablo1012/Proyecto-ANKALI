@@ -91,7 +91,7 @@ if(!($_SESSION['Documento']))
         </li>
         <li><a href="Venta.php">Ventas</a></li>
 
-        <li class="menu-has-children"><a href="">Usuarios</a>
+        <li class="menu-has-children"><a href="#">Usuarios</a>
             <ul>
               <li><a href="registroAdmin.php">Registrar usuarios</a></li>
               <li><a href="">Registrar roles</a></li>
@@ -121,6 +121,8 @@ if(!($_SESSION['Documento']))
                     <th>Codigo Producto</th>
                     <th>Nombre</th>
                     <th>Precio</th>
+                    <th>Imagen</th>
+                    <th>Descripcion</th>
                     <th>Cantidad disponible</th>
                     <th>Tipo de Producto</th>
                     <th>Estado</th>
@@ -137,8 +139,17 @@ if(!($_SESSION['Documento']))
                     <td><?php echo $producto->IdProducto?></td>
                     <td><?php echo $producto->Nombre?></td>
                     <td><?php echo $producto->Precio?></td>
+                    <td><?php echo $producto->Imagen?></td>
+                    <td><?php echo $producto->Descripcion?></td>
                     <td><?php echo $producto->Stock?></td>
-                    <td><?php echo $producto->TipodeProducto?></td>
+                    <td>
+                    <?php if($producto->TipodeProducto == 1 ){
+                        echo "Porducto";
+                    } else
+                    {
+                        echo "Insumo";
+                    } ?>            
+                    </td>
                     <td>
                     <?php if($producto->Estado == 1 ){
                         echo "Activo";

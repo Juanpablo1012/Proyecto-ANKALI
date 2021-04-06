@@ -15,13 +15,16 @@ class ControladorProductos{
 
     }
 
-    public function CrearProducto($NombreP,$Precio,$Stock)
+    public function CrearProducto($NombreP,$Precio,$Imagen,$Descripcion,$Stock,$TipoProducto)
     {
         $producto = new Productos();
         $crudproductos = new CrudProductos();
         $producto->setNombreP($NombreP);
         $producto->setPrecio($Precio);
+        $producto->setImagen($Imagen);
+        $producto->setDescripcion($Descripcion);
         $producto->setStock($Stock);
+        $producto->setTipoProducto($TipoProducto);
         return $crudproductos->CrearProducto($producto);
     }
 
@@ -29,6 +32,12 @@ class ControladorProductos{
 
         $crudproducto = new CrudProductos();
         return json_encode($crudproducto->Listarproducto());
+    } 
+
+    public function ListarTipoproducto(){
+
+        $crudproducto = new CrudProductos();
+        return json_encode($crudproducto->ListarTipoproducto());
     } 
 
     public function Listarproductousu(){
@@ -43,7 +52,7 @@ class ControladorProductos{
 $ControladorProductos = new ControladorProductos();
 if(isset($_POST['CrearProduc'])){
 
-    echo $ControladorProductos->CrearProducto($_POST['Nombre'],$_POST['Precio'],$_POST['Stock']);
+    echo $ControladorProductos->CrearProducto($_POST['Nombre'],$_POST['Precio'],$_POST['Imagen'],$_POST['Descripcion'],$_POST['Stock'],$_POST['IdTipoProducto']);
     }
 
 ?>

@@ -62,7 +62,7 @@ if(!($_SESSION['Documento']))
           <li><a href="Pedidousu.php">Pedidos <i class="fa fa-list-alt"></i></a></li>
           <li><a href="#contact">Contacto <i class="fa fa-address-book"></i></a></li>
           <li><a href="carrito.php">Carrito <i class="fa fa-shopping-cart"></i></a></li>
-          <li><a href="../index.php">Cerrar Sesión <i class="fa fa-window-close"></i></a></li>
+          <li><a href="../Controlador/DestruirSesion.php">Cerrar Sesión <i class="fa fa-window-close"></i></a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>

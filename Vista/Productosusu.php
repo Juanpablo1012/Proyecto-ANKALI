@@ -67,7 +67,7 @@ if(!($_SESSION['Documento']))
 
           <li><a href="#contact">Contacto <i class="fa fa-address-book"></i></a></li>
           <li><a href="carritousu.html">Carrito <i class="fa fa-shopping-cart"></i></a></li>
-          <li><a href="../index.html">Cerrar Sesión <i class="fa fa-window-close"></i></a></li>
+          <li><a href="../Controlador/DestruirSesion.php">Cerrar Sesión <i class="fa fa-window-close"></i></a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
@@ -102,7 +102,9 @@ if(!($_SESSION['Documento']))
         <div class="col-md-6 col-lg-3">
           <div class="feature-block">
             <!-- <img src="../../Estilo/img/portalapiz.jpeg"  class="img-fluid" > -->
+            <h4><?php echo $producto->Imagen?></h4>
             <h4><?php echo $producto->Nombre?></h4>
+            <p><?php echo $producto->Descripcion?></p><br>
             <p>$<?php echo $producto->Precio?></p><br>
             <a href="carrito.php"><button class="btn"><i class="fa fa-shopping-cart"></i> Comprar</button></a>
           </div>

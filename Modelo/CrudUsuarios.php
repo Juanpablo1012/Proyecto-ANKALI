@@ -192,7 +192,7 @@
                 echo 
                 '<script>
                     alert("Usuario registrado exitosamente.");
-                    window.location="../Usuariousu.php";
+                    window.location="../Vista/Usuariosadmin.php";
                 </script>';
             }
             catch(Exception $e)

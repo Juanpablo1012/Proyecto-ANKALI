@@ -4,9 +4,11 @@
         private $IdProducto;
         private $Nombre;
         private $Precio;
+        private $Imagen = "Defaul.png";
+        private $Descripcion;
         private $Stock;
         private $Estado = 1;
-        private $TipoProducto = 1;
+        private $TipoProducto;
 
         public function __construct()
         {
@@ -43,6 +45,28 @@
         {
             return $this->Precio;
         }
+        
+        public function setImagen($Imagen)
+        {
+            $this->Imagen=$Imagen;
+        }
+
+        public function getImagen()
+        {
+            return $this->Imagen;
+        }
+
+       
+        public function setDescripcion($Descripcion)
+        {
+            $this->Descripcion=$Descripcion;
+        }
+
+        public function getDescripcion()
+        {
+            return $this->Descripcion;
+        }
+        
         
         public function setStock($Stock)
         {

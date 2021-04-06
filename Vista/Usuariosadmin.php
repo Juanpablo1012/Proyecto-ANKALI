@@ -86,11 +86,11 @@ $listarusuarios = json_decode($ControladorUsuarios->Listarusuarios());
         </li>
         <li><a href="Venta.php">Ventas</a></li>
 
-        <li class="menu-has-children"><a href="">Usuarios</a>
+        <li class="menu-has-children"><a href="#">Usuarios</a>
             <ul>
               <li><a href="registroAdmin.php">Registrar usuarios</a></li>
-              <li><a href="">Registrar roles</a></li>
-              <li><a href="">Listar usuarios</a></li>
+              <li><a href="ResgistrarRol.php">Registrar roles</a></li>
+              <li><a href="Usuariosadmin.php">Listar usuarios</a></li>
             </ul>
         </li>
         

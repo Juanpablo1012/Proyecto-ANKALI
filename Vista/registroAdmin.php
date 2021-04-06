@@ -63,7 +63,7 @@ $listarRol = json_decode($ControladorUsuarios->ListarRoles());
             <!--<li><a href="#">Drop Down 4</a></li>
             <li><a href="#">Drop Down 5</a></li>-->
           </ul>
-        </li>
+        </li> 
         <li class="menu-has-children"><a href="">Productos</a>
           <ul>
             <li><a href="Agregar_productoadmin.php">Agregar producto</a></li>
@@ -131,7 +131,7 @@ $listarRol = json_decode($ControladorUsuarios->ListarRoles());
           <input type="password" id="Contrasena" class="fadeIn third" name="Contrasena" placeholder="Contraseña">
           
           <button type="submit" name="registroAdmin" class="fadeIn fourth">Registrar</button>
-          <?php print_r($_REQUEST); ?>
+          <!-- <?php print_r($_REQUEST); ?> -->
         </form>
       </div>
     </div>

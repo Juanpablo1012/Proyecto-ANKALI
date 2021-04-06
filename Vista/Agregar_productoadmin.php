@@ -1,4 +1,7 @@
 <?php
+require_once("../Controlador/ControladorProductos.php");
+$listarTP = json_decode($ControladorProductos->ListarTipoproducto());
+
 session_start();
 if(!($_SESSION['Documento']))
 {
@@ -98,15 +101,22 @@ if(!($_SESSION['Documento']))
           <!-- Login Form -->
           <form action="../Controlador/ControladorProductos.php" method="Post">
             <!-- <input type="hidden" id="registro" class="fadeIn third" name="login" placeholder="Codigo producto"> -->
-            <!-- <select class="fadeIn third" aria-label="Default select example">
-              <option selected>--Seleccione--</option>
-              <option value="1">Producto</option>
-              <option value="2">Insumo</option>
-            </select> -->
+            <select name="IdTipoProducto">
+              <option>Seleccione un tipo de producto</option>
+              <?php
+                foreach($listarTP as $Tp)
+                {
+              ?> 
+                <option value="<?php echo $Tp->IdTipoProducto?>"> <?php echo $Tp->Nombre?></option>
+              <?php
+                }
+              ?>
+          </select>
             <input type="text" id="Nombre" class="fadeIn third" name="Nombre" placeholder="Nombre">
             <input type="number" id="Precio" class="fadeIn second" name="Precio" placeholder="Precio">
+            <input type="file" id="Imagen" class="fadeIn second" name="Imagen" placeholder="Imagen">
+            <textarea type="text" id="Descripcion" class="fadeIn second" name="Descripcion" placeholder="Descripcion"></textarea>
             <input type="number" id="Stock" class="fadeIn second" name="Stock" placeholder="Stock">
-            <!-- <textarea type="text" id="registro" class="fadeIn second" name="login" placeholder="Descripcion"></textarea> -->
             <!-- <input type="file" id="registro" class="fadeIn second" name="login" placeholder="Correo"> -->
             <button type="submit" name="CrearProduc" class="fadeIn fourth">Agregar Producto</button>
           </form>

@@ -63,7 +63,7 @@ if(!($_SESSION['Documento']))
 
           <li><a href="#contact">Contacto <i class="fa fa-address-book"></i></a></li>
           <li><a href="carrito.html">Carrito <i class="fa fa-shopping-cart"></i></a></li>
-          <li><a href="../index.html">Cerrar Sesión <i class="fa fa-window-close"></i></a></li>
+          <li><a href="../Controlador/DestruirSesion.php">Cerrar Sesión <i class="fa fa-window-close"></i></a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
