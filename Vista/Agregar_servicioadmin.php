@@ -69,19 +69,19 @@ if(!($_SESSION['Documento']))
             <li><a href="Listar_Pedidoadmin.php">Listar Pedido</a></li>
           </ul>
         </li>
-        <li><a href="Venta.php">Ventas</a></li>
+        <li><a href="Ventaadmin.php">Ventas</a></li>
 
         <li class="menu-has-children"><a href="#">Usuarios</a>
             <ul>
               <li><a href="registroAdmin.php">Registrar usuarios</a></li>
-              <li><a href="RegistrarRol.php">Registrar roles</a></li>
+              <li><a href="ResgistrarRol.php">Registrar roles</a></li>
               <li><a href="Usuariosadmin.php">Listar usuarios</a></li>
             </ul>
         </li>
         
         <li><a href="../Controlador/DestruirSesion.php">Cerrar Sesión <i class="fa fa-window-close"></i></a></li>
       </ul>
-    </nav><!-- #nav-menu-container -->
+    </nav>
   </div>
   </header>
   
@@ -96,11 +96,11 @@ if(!($_SESSION['Documento']))
             <h6>Agregar Sevicio</h6>
           </div>
           <!-- Login Form -->
-          <form action="../Controlador/ControladorServicios.php" method="Post">
-            <input type="text" name="Nombre" class="fadeIn third" name="login" placeholder="Nombre">
-            <textarea type="number" name="Descripcion" class="fadeIn second" name="login" placeholder="Descripcion"></textarea>
-            <input type="file" name="Imagen" class="fadeIn second" name="login" placeholder="Imagen">
-            <input type="number" name="Precio" class="fadeIn second" name="login" placeholder="Precio">
+          <form action="../Controlador/ControladorServicios.php" method="Post" enctype="multipart/form-data">
+            <input type="text" name="Nombre" class="fadeIn third" placeholder="Nombre">
+            <textarea type="number" name="Descripcion" class="fadeIn second"placeholder="Descripcion"></textarea>
+            <input type="file" name="Imagen" class="fadeIn second" placeholder="Imagen">
+            <input type="number" name="Precio" class="fadeIn second" placeholder="Precio">
             <input type="submit" name="AgregarServ" class="fadeIn fourth" value="Agregar">
           </form>
     

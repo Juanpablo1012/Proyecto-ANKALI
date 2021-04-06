@@ -50,7 +50,7 @@ if(!($_SESSION['Documento']))
 
     </div>
 
-    <<nav id="nav-menu-container">
+    <nav id="nav-menu-container">
       <ul class="nav-menu">
         <li class="menu-active"><a href="admin.php">Inicio</a></li>
         <li class="menu-has-children"><a href="#">Servicios</a>
@@ -72,7 +72,7 @@ if(!($_SESSION['Documento']))
             <li><a href="Listar_Pedidoadmin.php">Listar Pedido</a></li>
           </ul>
         </li>
-        <li><a href="Venta.php">Ventas</a></li>
+        <li><a href="Ventaadmin.php">Ventas</a></li>
 
         <li class="menu-has-children"><a href="#">Usuarios</a>
             <ul>

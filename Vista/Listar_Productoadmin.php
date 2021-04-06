@@ -86,7 +86,7 @@ if(!($_SESSION['Documento']))
             <li><a href="Listar_Pedidoadmin.php">Listar Pedido</a></li>
           </ul>
         </li>
-        <li><a href="Venta.php">Ventas</a></li>
+        <li><a href="Ventaadmin.php">Ventas</a></li>
 
         <li class="menu-has-children"><a href="#">Usuarios</a>
             <ul>

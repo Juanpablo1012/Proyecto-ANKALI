@@ -67,7 +67,6 @@ class ControladorServicios{
 
 $ControladorServicios = new ControladorServicios();
 if(isset($_POST['AgregarServ'])){
-
     echo $ControladorServicios->CrearServicio($_POST['Nombre'],$_POST['Descripcion'],$_POST['Imagen'],$_POST['Precio']);
     }
 
