@@ -1,4 +1,6 @@
 <?php
+require_once("../Controlador/ControladorServicios.php");
+
 session_start();
 if(!($_SESSION['Documento']))
 {
@@ -94,14 +96,12 @@ if(!($_SESSION['Documento']))
             <h6>Agregar Sevicio</h6>
           </div>
           <!-- Login Form -->
-          <form>
-            <input type="hidden" id="registro" class="fadeIn third" name="login" placeholder="Codigo servicio">
-            <input type="text" id="registro" class="fadeIn third" name="login" placeholder="Nombre">
-            <input type="number" id="registro" class="fadeIn second" name="login" placeholder="Cantidad">
-            <input type="number" id="registro" class="fadeIn second" name="login" placeholder="Precio">
-            <textarea type="number" id="registro" class="fadeIn second" name="login" placeholder="Descripcion"></textarea>
-            <input type="file" id="registro" class="fadeIn second" name="login" placeholder="Correo">
-            <input type="submit" class="fadeIn fourth" value="Agregar">
+          <form action="../Controlador/ControladorServicios.php" method="Post">
+            <input type="text" name="Nombre" class="fadeIn third" name="login" placeholder="Nombre">
+            <textarea type="number" name="Descripcion" class="fadeIn second" name="login" placeholder="Descripcion"></textarea>
+            <input type="file" name="Imagen" class="fadeIn second" name="login" placeholder="Imagen">
+            <input type="number" name="Precio" class="fadeIn second" name="login" placeholder="Precio">
+            <input type="submit" name="AgregarServ" class="fadeIn fourth" value="Agregar">
           </form>
     
       

@@ -60,7 +60,6 @@ if(!($_SESSION['Documento']))
           <ul>
             <li><a href="Agregar_productoadmin.php">Agregar producto</a></li>
             <li><a href="Listar_Productoadmin.php">Listar productos</a></li>
-
           </ul>
         </li>
         <li class="menu-has-children"><a href="#">Pedidos</a>
@@ -74,14 +73,14 @@ if(!($_SESSION['Documento']))
         <li class="menu-has-children"><a href="#">Usuarios</a>
             <ul>
               <li><a href="registroAdmin.php">Registrar usuarios</a></li>
-              <li><a href="RegistrarRol.php">Registrar roles</a></li>
+              <li><a href="ResgistrarRol.php">Registrar roles</a></li>
               <li><a href="Usuariosadmin.php">Listar usuarios</a></li>
             </ul>
         </li>
         
         <li><a href="../Controlador/DestruirSesion.php">Cerrar Sesión <i class="fa fa-window-close"></i></a></li>
       </ul>
-    </nav><!-- #nav-menu-container -->
+    </nav>
   </div>
   </header>
   

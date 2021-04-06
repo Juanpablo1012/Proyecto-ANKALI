@@ -50,7 +50,7 @@ if(!($_SESSION['Documento']))
 
     </div>
 
-    <nav id="nav-menu-container">
+    <<nav id="nav-menu-container">
       <ul class="nav-menu">
         <li class="menu-active"><a href="admin.php">Inicio</a></li>
         <li class="menu-has-children"><a href="#">Servicios</a>
@@ -77,14 +77,14 @@ if(!($_SESSION['Documento']))
         <li class="menu-has-children"><a href="#">Usuarios</a>
             <ul>
               <li><a href="registroAdmin.php">Registrar usuarios</a></li>
-              <li><a href="RegistrarRol.php">Registrar roles</a></li>
+              <li><a href="ResgistrarRol.php">Registrar roles</a></li>
               <li><a href="Usuariosadmin.php">Listar usuarios</a></li>
             </ul>
         </li>
         
         <li><a href="../Controlador/DestruirSesion.php">Cerrar Sesión <i class="fa fa-window-close"></i></a></li>
       </ul>
-    </nav><!-- #nav-menu-container -->
+    </nav>
   </div>
   </header>
   

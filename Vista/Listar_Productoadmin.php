@@ -15,7 +15,7 @@ if(!($_SESSION['Documento']))
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ANKALI</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
@@ -67,23 +67,20 @@ if(!($_SESSION['Documento']))
     <nav id="nav-menu-container">
       <ul class="nav-menu">
         <li class="menu-active"><a href="admin.php">Inicio</a></li>
-        <li class="menu-has-children"><a href="">Servicios</a>
+        <li class="menu-has-children"><a href="#">Servicios</a>
           <ul>
-            <li><a href="Agregar_servicio.php">Agregar servicio</a></li>
-            <li><a href="Listar_Servicio.php">Listar servicios</a></li>
-            <!--<li><a href="#">Drop Down 4</a></li>
-            <li><a href="#">Drop Down 5</a></li>-->
+            <li><a href="Agregar_servicioadmin.php">Agregar servicio</a></li>
+            <li><a href="Listar_Servicioadmin.php">Listar servicios</a></li>
+
           </ul>
         </li>
-        <li class="menu-has-children"><a href="">Productos</a>
+        <li class="menu-has-children"><a href="#">Productos</a>
           <ul>
             <li><a href="Agregar_productoadmin.php">Agregar producto</a></li>
             <li><a href="Listar_Productoadmin.php">Listar productos</a></li>
-            <!--<li><a href="#">Drop Down 4</a></li>
-            <li><a href="#">Drop Down 5</a></li>-->
           </ul>
         </li>
-        <li class="menu-has-children"><a href="">Pedidos</a>
+        <li class="menu-has-children"><a href="#">Pedidos</a>
           <ul>
             <li><a href="Agregar_Pedidoadmin.php">Agregar Pedido</a></li>
             <li><a href="Listar_Pedidoadmin.php">Listar Pedido</a></li>
@@ -94,14 +91,14 @@ if(!($_SESSION['Documento']))
         <li class="menu-has-children"><a href="#">Usuarios</a>
             <ul>
               <li><a href="registroAdmin.php">Registrar usuarios</a></li>
-              <li><a href="">Registrar roles</a></li>
-              <li><a href="">Listar usuarios</a></li>
+              <li><a href="ResgistrarRol.php">Registrar roles</a></li>
+              <li><a href="Usuariosadmin.php">Listar usuarios</a></li>
             </ul>
         </li>
         
         <li><a href="../Controlador/DestruirSesion.php">Cerrar Sesión <i class="fa fa-window-close"></i></a></li>
       </ul>
-    </nav><!-- #nav-menu-container -->
+    </nav>
   </div>
   </header>
       <br>
