@@ -132,7 +132,6 @@ if(!($_SESSION['Documento']))
                                 <td><?php echo $servicio->Descripcion?></td>
                                 <td><?php echo $servicio->Imagen?></td>
                                 <td><?php echo $servicio->Precio?></td>
-                                <td><?php echo $servicio->Estado?></td>
                                 <td>
                                     <?php if($servicio->Estado == 1 ){
                                         echo "Activo";
@@ -142,7 +141,7 @@ if(!($_SESSION['Documento']))
                                     } ?>            
                                 </td>
                                 <td>
-                                    <!-- <a href="../Controlador/ControladorUsuarios.php?Actualizarusuario&Documento=<?php echo $usu->Documento?>" class="btn btn" >Cambiar estado</a> -->
+                                  <a href="../Controlador/ControladorServicios.php?Editarservicio&IdServicios=<?php echo $servicio->IdServicios?>" class="btn btn" >Cambiar estado</a>
                                 </td>
                                 
                             </tr>

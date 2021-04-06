@@ -1,6 +1,6 @@
 <?php
 class Servicios{
-    private $IdServicio;
+    private $IdServicios;
     private $Nombre;
     private $Descripcion;
     private $Imagen = "Defaul.png";
@@ -11,14 +11,14 @@ class Servicios{
 
     }
 
-        public function setIdServicio($IdServicio)
+        public function setIdServicios($IdServicios)
         {
-            $this->IdServicio=$IdServicio;
+            $this->IdServicios=$IdServicios;
         }
 
-        public function getIdServicio()
+        public function getIdServicios()
         {
-            return $this->IdServicio;
+            return $this->IdServicios;
         } 
 
         public function setNombre($Nombre)

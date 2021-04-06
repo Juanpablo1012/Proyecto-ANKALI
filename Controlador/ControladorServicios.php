@@ -32,6 +32,29 @@ class ControladorServicios{
         return json_encode($crudservicios->Listarservicio());
     } 
 
+    public function Buscarservicio($IdServicios)
+    {
+        $servicio = new Servicios();
+        $crudservicios = new CrudServicios();
+        return $crudservicios->Buscarservicio($IdServicios);
+
+    }
+
+    public function Editarservicio($IdServicios,$Nombre,$Descripcion,
+    $Imagen,$Precio,$Estado)
+    {
+        $servicio = new Servicios();
+        $crudservicios = new CrudServicios();
+        $servicio->setIdServicios($IdServicios);
+        $servicio->setNombre($Nombre);
+        $servicio->setDescripcion($Descripcion);
+        $servicio->setImagen($Imagen);
+        $servicio->setPrecio($Precio);
+        $servicio->setEstado($Estado);
+        return $crudservicios->Editarservicio($servicio);
+
+    }
+
 }
 
 $ControladorServicios = new ControladorServicios();
@@ -39,6 +62,19 @@ if(isset($_POST['AgregarServ'])){
 
     echo $ControladorServicios->CrearServicio($_POST['Nombre'],$_POST['Descripcion'],$_POST['Imagen'],$_POST['Precio']);
     }
+
+
+    elseif(isset($_GET['Editarservicio']))
+{
+    $IdServicios = $_GET['IdServicios'];
+    $ControladorServicios->desplegarVista('../Vista/EditarServicio.php?IdServicios='.$IdServicios);
+}
+
+elseif(isset($_POST['Editarservicio']))
+{
+    echo $ControladorServicios->Editarservicio($_POST['IdServicios'],$_POST['Nombre'],$_POST['Descripcion'],$_POST['Imagen'],$_POST['Precio'],$_POST['Estado']);
+    $ControladorServicios->desplegarVista('../Vista/Listar_Servicioadmin.php'.$IdServicios);
+}
 
 ?>
 
