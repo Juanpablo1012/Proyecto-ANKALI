@@ -109,6 +109,13 @@
             return $mensaje;
         }
 
-
+        public function Listarserviciousu()
+        {
+            $Db = Db::Conectar(); // conectar bd
+            $sql = $Db->query('SELECT * FROM servicios WHERE Estado = 1'); //definir sentencia sql
+            $sql->execute(); // ejecutar la consulta
+            return $sql->fetchAll(); // retorna todos los registros de la consulta
+            Db::CerrarConexion($Db);
+        }
     }
 ?>

@@ -1,4 +1,7 @@
 <?php
+require_once("../Controlador/ControladorServicios.php");
+$serv = json_decode($ControladorServicios->Listarserviciousu());
+
 session_start();
 if(!($_SESSION['Documento']))
 {
@@ -49,23 +52,22 @@ if(!($_SESSION['Documento']))
 
       <div id="logo" class="pull-left">
         
-        <h1><a href="../usuario.html" class="scrollto"><a><img src="../Estilo/img/logo-blanco.png" width="70" height="70"> </a>  ANKALI</a></h1>
+        <h1><a href="../usuariousu.php" class="scrollto"><a><img src="../Estilo/img/logo-blanco.png" width="70" height="70"> </a>  ANKALI</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         
       </div>
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li class="menu-active"><a href="usuario.html">Inicio</a></li>
-          <li><a href="Productos.html">Productos</a></li>
-          <li><a href="Servicios.html">Servicios</a></li>
-          <li><a href="Pedido.html">Pedidos <i class="fa fa-list-alt"></i></a></li>
-
+          <li class="menu-active"><a href="usuariousu.php">Inicio</a></li>
+          <li><a href="Productosusu.php">Productos</a></li>
+          <li><a href="Serviciosusu.php">Servicios</a></li>
+          <li><a href="Pedidousu.php">Pedidos <i class="fa fa-list-alt"></i></a></li>
           <li><a href="#contact">Contacto <i class="fa fa-address-book"></i></a></li>
-          <li><a href="carrito.html">Carrito <i class="fa fa-shopping-cart"></i></a></li>
+          <li><a href="carritousu.php">Carrito <i class="fa fa-shopping-cart"></i></a></li>
           <li><a href="../Controlador/DestruirSesion.php">Cerrar Sesión <i class="fa fa-window-close"></i></a></li>
         </ul>
-      </nav><!-- #nav-menu-container -->
+      </nav>
     </div>
   </header><!-- #header -->
 
@@ -90,44 +92,26 @@ if(!($_SESSION['Documento']))
     <div class="container">
       <div class="row">
 
-        <div class="col-md-6 col-lg-3">
-          <div class="feature-block">
-            <img src="../../Estilo/img/decoracion.jpg"  class="img-fluid" >
-            <h4>Decoración de fiestas</h4>
-            <p>Decoramos tu fiestas con la tematica que desees</p>
-            <button class="btn" fontawesome=""><i class="fa fa-shopping-cart"></i> Solicitar</button>
-          </div>
-        </div>
+            <?php
+                foreach($serv as $servicio)
+                {
+            ?> 
 
         <div class="col-md-6 col-lg-3">
           <div class="feature-block">
-            <img src="../../Estilo/img/regalos.JPG" alt="img" class="img-fluid">
-            <h4>Marcado de regalos</h4>
-            <p>Personaliza tu regalo</p>
-            <button class="btn"><i class="fa fa-shopping-cart"></i> Solicitar</button>
+            <!-- <img src="../../Estilo/img/portalapiz.jpeg"  class="img-fluid" > -->
+            <h4><?php echo $servicio->Imagen?></h4>
+            <h4><?php echo $servicio->Nombre?></h4>
+            <p><?php echo $servicio->Descripcion?></p><br>
+            <p>$<?php echo $servicio->Precio?></p><br>
+            <a href="carrito.php"><button class="btn"><i class="fa fa-shopping-cart"></i> Comprar</button></a>
           </div>
         </div>
 
-        <div class="col-md-6 col-lg-3">
-          <div class="feature-block">
-            <img src="../../Estilo/img/Desayuno_niño.jpg" alt="img" class="img-fluid">
-            <h4>Desayuno sorpresa</h4>
-            <p>Personaliza tu desayuno sorpresa</p>
-            <a href="Pedido.html"><button class="btn"><i class="fa fa-shopping-cart"></i> Solicitar</button></a>
 
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3">
-          <div class="feature-block">
-            <img src="../../Estilo/img/Ancheta elefante.JPG" alt="img" class="img-fluid">
-            <h4>Ancheta Elefante</h4>
-            <p>Lorem Ipsum is simply dummy </p>
-            <button class="btn " ><i class="fa fa-shopping-cart"></i> Comprar</button>
-
-          </div>
-        </div>
-
+              <?php
+                }
+              ?>
       </div>
     </div>
   </section>

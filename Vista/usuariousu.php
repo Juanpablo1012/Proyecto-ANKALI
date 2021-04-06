@@ -49,22 +49,22 @@ if(!($_SESSION['Documento']))
 
       <div id="logo" class="pull-left">
         
-        <h1><a href="../../usuario.php" class="scrollto"><a><img src="../Estilo/img/logo-blanco.png" width="70" height="70"> </a>  ANKALI</a></h1>
+        <h1><a href="../../usuariousu.php" class="scrollto"><a><img src="../Estilo/img/logo-blanco.png" width="70" height="70"> </a>  ANKALI</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         
       </div>
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li class="menu-active"><a href="usuario.html">Inicio</a></li>
+          <li class="menu-active"><a href="usuariousu.php">Inicio</a></li>
           <li><a href="Productosusu.php">Productos</a></li>
           <li><a href="Serviciosusu.php">Servicios</a></li>
           <li><a href="Pedidousu.php">Pedidos <i class="fa fa-list-alt"></i></a></li>
           <li><a href="#contact">Contacto <i class="fa fa-address-book"></i></a></li>
-          <li><a href="carrito.php">Carrito <i class="fa fa-shopping-cart"></i></a></li>
+          <li><a href="carritousu.php">Carrito <i class="fa fa-shopping-cart"></i></a></li>
           <li><a href="../Controlador/DestruirSesion.php">Cerrar Sesión <i class="fa fa-window-close"></i></a></li>
         </ul>
-      </nav><!-- #nav-menu-container -->
+      </nav>
     </div>
   </header><!-- #header -->
 

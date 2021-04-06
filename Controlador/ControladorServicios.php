@@ -55,7 +55,15 @@ class ControladorServicios{
 
     }
 
+    public function Listarserviciousu(){
+
+        $crudservicios = new CrudServicios();
+        return json_encode($crudservicios->Listarserviciousu());
+    } 
+
 }
+
+
 
 $ControladorServicios = new ControladorServicios();
 if(isset($_POST['AgregarServ'])){
