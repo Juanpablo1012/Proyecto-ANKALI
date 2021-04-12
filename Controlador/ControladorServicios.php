@@ -15,13 +15,12 @@ class ControladorServicios{
 
     }
 
-    public function CrearServicio($Nombre,$Descripcion,$Imagen,$Precio)
+    public function CrearServicio($Nombre,$Descripcion,$Precio)
     {
         $servicio = new Servicios();
         $crudservicios = new CrudServicios();
         $servicio->setNombre($Nombre);
         $servicio->setDescripcion($Descripcion);
-        $servicio->setImagen($Imagen);
         $servicio->setPrecio($Precio);
         return $crudservicios->CrearServicio($servicio);
     }
@@ -67,8 +66,42 @@ class ControladorServicios{
 
 $ControladorServicios = new ControladorServicios();
 if(isset($_POST['AgregarServ'])){
-    echo $ControladorServicios->CrearServicio($_POST['Nombre'],$_POST['Descripcion'],$_POST['Imagen'],$_POST['Precio']);
-    }
+
+    $valid = array('success' => false, 'messages' => array());
+
+	$Nombre = $_POST['Nombre'];
+	$Descripcion = $_POST['Descripcion'];
+	$Precio = $_POST['Precio'];
+	$Estado = 1;
+	$type = explode('.', $_FILES['Imagen']['name']);
+	$type = $type[count($type)-1];
+	$url = '../Estilo/img/uploads/' . uniqid(rand()) . '.' . $type;
+   
+	if(in_array($type, array('gif', 'jpg', 'jpeg', 'png'))) {
+		if(is_uploaded_file($_FILES['Imagen']['tmp_name'])) {
+			if(move_uploaded_file($_FILES['Imagen']['tmp_name'], $url)) {
+
+				// insert into database
+				$sql = "INSERT INTO servicios (Nombre, Descripcion, Precio, Imagen,Estado) 
+                VALUES ('$Nombre','$Descripcion', '$Precio','$url','$Estado')";
+				if($conn->query($sql) === TRUE) {
+					$valid['success'] = true;
+					$valid['messages'] = "Producto Agregado Correctamente";
+				} 
+				else {
+					$valid['success'] = false;
+					$valid['messages'] = "Se Produjo un Error al Agregar";
+				}
+				$conn->close();
+			}
+			else {
+				$valid['success'] = false;
+				$valid['messages'] = "Se Produjo un Error al Agregar";
+			}
+		}
+	}
+	echo json_encode($valid);
+}
 
 
     elseif(isset($_GET['Editarservicio']))
@@ -79,6 +112,45 @@ if(isset($_POST['AgregarServ'])){
 
 elseif(isset($_POST['Editarservicio']))
 {
+		$Nombre=$_POST['title'];
+		$Descripcion=$_POST['descrip'];
+		$precio=$_POST['preci'];
+		$cantidad=$_POST['cant'];
+        $id=(int) $_GET['id'];
+        
+        $type = explode('.', $_FILES['foto2']['name']);
+	    $type = $type[count($type)-1];
+        $url = '../uploads/' . uniqid(rand()) . '.' . $type;
+  
+        if(in_array($type, array('gif', 'jpg', 'jpeg', 'png'))) {
+            if(is_uploaded_file($_FILES['foto2']['tmp_name'])) {
+                if(move_uploaded_file($_FILES['foto2']['tmp_name'], $url)) {
+    
+                    // insert into database
+                    $sql = "UPDATE  productos SET name='$titulo',descripcion='$descripcion',precio='$precio',cantidad='$cantidad', image='$url' WHERE id='$id'";
+    
+                    if($con->query($sql) === TRUE) {
+                        header('Location: ../view.php');
+                    } 
+                    else {
+                        $valid['success'] = false;
+                        $valid['messages'] = "Se Produjo un Error al Agregar";
+                    }
+    
+                }
+                else {
+                    $valid['success'] = false;
+                    $valid['messages'] = "Se Produjo un Error al Agregar";
+                }
+            }
+            header('Location: ../view.php');
+
+        }
+
+
+
+
+
     echo $ControladorServicios->Editarservicio($_POST['IdServicios'],$_POST['Nombre'],$_POST['Descripcion'],$_POST['Imagen'],$_POST['Precio'],$_POST['Estado']);
     $ControladorServicios->desplegarVista('../Vista/Listar_Servicioadmin.php'.$IdServicios);
 }

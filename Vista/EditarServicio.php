@@ -101,7 +101,7 @@ if(!($_SESSION['Documento']))
             <h6>Agregar Sevicio</h6>
           </div>
           <!-- Login Form -->
-          <form action="../Controlador/ControladorServicios.php" method="Post">
+          <form action="../Controlador/ControladorServicios.php" method="Post" enctype="multipart/form-data">
 
             <input type="number" name="IdServicios" class="fadeIn third" value="<?php echo $serv->getIdServicios() ?>" placeholder="Codigo" readonly>
 
@@ -110,7 +110,8 @@ if(!($_SESSION['Documento']))
             <textarea type="number" name="Descripcion" class="fadeIn second" value="<?php echo $serv->getDescripcion() ?>"placeholder="Descripcion"></textarea>
 
             <input type="file" name="Imagen" class="fadeIn second" value="<?php echo $serv->getImagen() ?>" placeholder="Imagen" required>
-
+             
+            
             <input type="number" name="Precio" class="fadeIn second" value="<?php echo $serv->getPrecio() ?>" placeholder="Precio" required>
 
             <input type="text" id="Estado" class="fadeIn third" name="Estado" value="<?php echo $serv->getEstado() ?>" placeholder="Estado">

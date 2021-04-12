@@ -101,7 +101,7 @@ if(!($_SESSION['Documento']))
             <h6>Agregar Sevicio</h6>
           </div>
           <!-- Login Form -->
-          <form action="../Controlador/ControladorServicios.php" method="Post">
+          <form action="../Controlador/ControladorServicios.php" method="Post" enctype="multipart/form-data">
             <input type="text" name="Nombre" class="fadeIn third" placeholder="Nombre">
             <textarea type="number" name="Descripcion" class="fadeIn second"placeholder="Descripcion"></textarea>
             <input type="file" name="Imagen" class="fadeIn second" placeholder="Imagen">

@@ -132,7 +132,11 @@ if(!($_SESSION['Documento']))
                                 <td><?php echo $servicio->IdServicios?></td>
                                 <td><?php echo $servicio->Nombre?></td>
                                 <td><?php echo $servicio->Descripcion?></td>
-                                <td><?php echo $servicio->Imagen?></td>
+                                <?php  $ruta= $servicio->Imagen;
+                                ?>
+				                      <td><?php echo "<img src='$ruta' widht='100' height='100' />"  ?></td>  
+
+                                
                                 <td><?php echo $servicio->Precio?></td>
                                 <td>
                                     <?php if($servicio->Estado == 1 ){

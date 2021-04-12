@@ -28,7 +28,7 @@
                 echo 
                 '<script>
                     alert("No se puede agregar");
-                    window.location="../Vista/Agregar_servicioadmin.php";
+                    window.location=";
                 </script>';
             }
             Db::CerrarConexion($Db);

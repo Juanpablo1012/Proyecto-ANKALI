@@ -100,7 +100,10 @@ if(!($_SESSION['Documento']))
         <div class="col-md-6 col-lg-3">
           <div class="feature-block">
             <!-- <img src="../../Estilo/img/portalapiz.jpeg"  class="img-fluid" > -->
-            <h4><?php echo $servicio->Imagen?></h4>
+            <h4>
+            <?php  $ruta= $servicio->Imagen;?>
+				      <td><?php echo "<img src='$ruta' widht='100' height='100' />"  ?></td> 
+            </h4>
             <h4><?php echo $servicio->Nombre?></h4>
             <p><?php echo $servicio->Descripcion?></p><br>
             <p>$<?php echo $servicio->Precio?></p><br>
