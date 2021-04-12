@@ -120,8 +120,8 @@ if(!($_SESSION['Documento']))
                         <th>Imagen</th>
                         <th>Precio</th>
                         <th>Estado</th>
-                        <th>Editar</th>
-                        <th>Cambiar Estado</th>
+                        <th></th>
+                        <th colspan="">Cambiar Estado</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -133,14 +133,11 @@ if(!($_SESSION['Documento']))
                                 <td><?php echo $servicio->IdServicios?></td>
                                 <td><?php echo $servicio->Nombre?></td>
                                 <td><?php echo $servicio->Descripcion?></td>
-                                <?php  $ruta= $servicio->Imagen;
-                                ?>
-				                      <td><?php echo "<img src='$ruta' widht='100' height='100' />"  ?></td>  
-
-                                
+                                <?php  $ruta= $servicio->Imagen;?>
+				                        <td><?php echo "<img src='$ruta' widht='100' height='100' />"  ?></td>  
                                 <td><?php echo $servicio->Precio?></td>
                                 <td>
-                                <?php if($servicio->Estado == 1 ){
+                                  <?php if($servicio->Estado == 1 ){
                                   echo "<h4 style='color:green;'> Activo </h4>";
                                   } else
                                   {
@@ -148,17 +145,16 @@ if(!($_SESSION['Documento']))
                                   } ?>             
                                 </td>
                                 <td>
-                                  <a href="../Controlador/ControladorServicios.php?Editarservicio&IdServicios=<?php echo $servicio->IdServicios?>" class="btn btn" >Cambiar estado</a>
+                                  <a href="../Controlador/ControladorServicios.php?Editarservicio&IdServicios=<?php echo $servicio->IdServicios?>" class="btn btn" >Editar</a>
                                 </td>
                                 <td>
-                        <a href="../Controlador/ControladorServicios.php?CambiarEstadoS&IdServicios=<?php echo $servicio->IdServicios?>" class="btn btn" ><?php if($servicio->Estado == 1 ){
-                        echo "Inhabilitar";
-                    } else
-                    {
-                        echo "Activar";
-                    } ?></a>
-                    </td>
-                                
+                                  <a href="../Controlador/ControladorServicios.php?CambiarEstadoS&IdServicios=<?php echo $servicio->IdServicios?>" class="btn btn" ><?php if($servicio->Estado == 1 ){
+                                  echo "Inhabilitar";
+                                  } else
+                                  {
+                                      echo "Activar";
+                                  } ?></a>
+                                </td>
                             </tr>
                             <?php
                             }

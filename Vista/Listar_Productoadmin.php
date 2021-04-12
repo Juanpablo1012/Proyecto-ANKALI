@@ -142,12 +142,13 @@ if(!($_SESSION['Documento']))
                     <td><?php echo $producto->IdProducto?></td>
                     <td><?php echo $producto->Nombre?></td>
                     <td><?php echo $producto->Precio?></td>
-                    <td><?php echo $producto->Imagen?></td>
+                    <?php  $ruta= $producto->Imagen;?>
+				              <td><?php echo "<img src='$ruta' widht='100' height='100' />"  ?></td> 
                     <td><?php echo $producto->Descripcion?></td>
                     <td><?php echo $producto->Stock?></td>
                     <td>
                     <?php if($producto->TipodeProducto == 1 ){
-                        echo "Porducto";
+                        echo "Producto";
                     } else
                     {
                         echo "Insumo";

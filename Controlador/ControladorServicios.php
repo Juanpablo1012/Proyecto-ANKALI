@@ -73,6 +73,7 @@ class ControladorServicios{
 
 
 $ControladorServicios = new ControladorServicios();
+
 if(isset($_POST['AgregarServ'])){
 
     $valid = array('success' => false, 'messages' => array());
@@ -93,26 +94,34 @@ if(isset($_POST['AgregarServ'])){
 				$sql = "INSERT INTO servicios (Nombre, Descripcion, Precio, Imagen,Estado) 
                 VALUES ('$Nombre','$Descripcion', '$Precio','$url','$Estado')";
 				if($conn->query($sql) === TRUE) {
-					$valid['success'] = true;
-					$valid['messages'] = "Producto Agregado Correctamente";
+					echo 
+                '<script>
+                    alert("Servicio registrado correctamente.");
+                    window.location="../Vista/Listar_Servicioadmin.php";                
+                </script>';
 				} 
 				else {
-					$valid['success'] = false;
-					$valid['messages'] = "Se Produjo un Error al Agregar";
+					echo 
+                '<script>
+                    alert("No se puede agregar intentalo nuevamente.");
+                    window.location="../Vista/Agregar_servicioadmin.php";                
+                </script>';
 				}
 				$conn->close();
 			}
 			else {
-				$valid['success'] = false;
-				$valid['messages'] = "Se Produjo un Error al Agregar";
+				echo 
+                '<script>
+                    alert("No se puede agregar intentalo nuevamente.");
+                    window.location="../Vista/Agregar_servicioadmin.php";                
+                </script>';
 			}
 		}
 	}
 	echo json_encode($valid);
 }
 
-
-    elseif(isset($_GET['Editarservicio']))
+elseif(isset($_GET['Editarservicio']))
 {
     $IdServicios = $_GET['IdServicios'];
     $ControladorServicios->desplegarVista('../Vista/EditarServicio.php?IdServicios='.$IdServicios);
@@ -120,25 +129,33 @@ if(isset($_POST['AgregarServ'])){
 
 elseif(isset($_POST['Editarservicio']))
 {
-		$Nombre=$_POST['title'];
-		$Descripcion=$_POST['descrip'];
-		$precio=$_POST['preci'];
-		$cantidad=$_POST['cant'];
-        $id=(int) $_GET['id'];
+	
+		$Nombre=$_POST['Nombre'];
+		$Descripcion=$_POST['Descripcion'];
+		$Precio=$_POST['Precio'];
+        $id=(int) $_GET['IdServicios'];
         
-        $type = explode('.', $_FILES['foto2']['name']);
+        $type = explode('.', $_FILES['Imagen']['name']);
 	    $type = $type[count($type)-1];
-        $url = '../uploads/' . uniqid(rand()) . '.' . $type;
+        $url = '../Estilo/img/uploads/' . uniqid(rand()) . '.' . $type;
   
         if(in_array($type, array('gif', 'jpg', 'jpeg', 'png'))) {
-            if(is_uploaded_file($_FILES['foto2']['tmp_name'])) {
-                if(move_uploaded_file($_FILES['foto2']['tmp_name'], $url)) {
-    
+            if(is_uploaded_file($_FILES['Imagen']['tmp_name'])) {
+                if(move_uploaded_file($_FILES['Imagen']['tmp_name'], $url)) {
                     // insert into database
-                    $sql = "UPDATE  productos SET name='$titulo',descripcion='$descripcion',precio='$precio',cantidad='$cantidad', image='$url' WHERE id='$id'";
+                    $sql = "UPDATE  servicios SET 
+                    Nombre='$Nombre',
+                    Descripcion='$Descripcion',
+                    Precio='$Precio',
+                    Imagen='$url' 
+                    WHERE IdServicios='$id'";
     
                     if($con->query($sql) === TRUE) {
-                        header('Location: ../view.php');
+                        echo 
+                '<script>
+                    alert("Servicio registrado correctamente.");
+                    window.location="../Vista/Listar_Servicioadmin.php";                
+                </script>';
                     } 
                     else {
                         $valid['success'] = false;
@@ -151,18 +168,16 @@ elseif(isset($_POST['Editarservicio']))
                     $valid['messages'] = "Se Produjo un Error al Agregar";
                 }
             }
-            header('Location: ../view.php');
-
-        }
-
-
-
-
-
-    echo $ControladorServicios->Editarservicio($_POST['IdServicios'],$_POST['Nombre'],$_POST['Descripcion'],$_POST['Imagen'],$_POST['Precio'],$_POST['Estado']);
-    $ControladorServicios->desplegarVista('../Vista/Listar_Servicioadmin.php'.$IdServicios);
+            echo 
+                '<script>
+                    alert("Servicio registrado correctamente.");
+                    window.location="../Vista/Listar_Servicioadmin.php";                
+                </script>';
+    //echo $ControladorServicios->Editarservicio($_POST['IdServicios'],$_POST['Nombre'],$_POST['Descripcion'],$_POST['Imagen'],$_POST['Precio'],$_POST['Estado']);
+    //$ControladorServicios->desplegarVista('../Vista/Listar_Servicioadmin.php'.$IdServicios);
 }
 
+}
 elseif(isset($_GET['CambiarEstadoS']))
 {
     $IdServicios = $_GET['IdServicios'];
@@ -170,6 +185,5 @@ elseif(isset($_GET['CambiarEstadoS']))
      $ControladorServicios->desplegarVista('../Vista/Listar_servicioadmin.php');
 
 }
-
 ?>
 
