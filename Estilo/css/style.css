@@ -204,7 +204,7 @@ hr{
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  height: calc(100vh - 40px);
+  height: calc(80vh - 40px);
   background: linear-gradient(274deg, #46c9d0d8, #6262e2d2 44%, #c862f7d8);
   /*background: url(../img/hero-bg.png) center bottom no-repeat;*/
   background-size: 100%;

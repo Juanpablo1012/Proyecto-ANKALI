@@ -78,7 +78,12 @@ if(!($_SESSION['Documento']))
               <li><a href="Usuariosadmin.php">Listar usuarios</a></li>
             </ul>
         </li>
-        
+        <li class="menu-has-children"><a href="#">Compra</a>
+            <ul>
+              <li><a href="Compras.php">Ingresar compra</a></li>
+              <li><a href="Listar_Compra.php">Listar compras</a></li>
+            </ul>
+        </li>
         <li><a href="../Controlador/DestruirSesion.php">Cerrar Sesión <i class="fa fa-window-close"></i></a></li>
       </ul>
     </nav>
@@ -96,7 +101,7 @@ if(!($_SESSION['Documento']))
             <h6>Agregar Sevicio</h6>
           </div>
           <!-- Login Form -->
-          <form action="../Controlador/ControladorServicios.php" method="Post" enctype="multipart/form-data">
+          <form action="../Controlador/ControladorServicios.php" method="Post">
             <input type="text" name="Nombre" class="fadeIn third" placeholder="Nombre">
             <textarea type="number" name="Descripcion" class="fadeIn second"placeholder="Descripcion"></textarea>
             <input type="file" id="Imagen" class="fadeIn second" name="Imagen" placeholder="Imagen">
