@@ -123,7 +123,8 @@ if(!($_SESSION['Documento']))
                     <th>Cantidad disponible</th>
                     <th>Tipo de Producto</th>
                     <th>Estado</th>
-                    <th>Acciones</th>
+                    <th>Editar</th>
+                    <th>Cambiar Estado</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -149,14 +150,22 @@ if(!($_SESSION['Documento']))
                     </td>
                     <td>
                     <?php if($producto->Estado == 1 ){
-                        echo "Activo";
+                        echo "<h4 style='color:green;'> Activo </h4>";
                     } else
                     {
-                        echo "Inhabiliado";
-                    } ?>            
+                        echo "<h4 style='color:red;'> Inhabiliado </h4>";
+                    } ?>           
                     </td>
                     <td>
-                        <!-- <a href="../Controlador/ControladorUsuarios.php?Actualizarusuario&Documento=<?php echo $usu->Documento?>" class="btn btn" >Cambiar estado</a> -->
+                        <a href="../Controlador/ControladorUsuarios.php?ModificarProducto&IdProducto=<?php echo $producto->IdProducto?>" class="btn btn" >Editar</a>
+                    </td>
+                    <td>
+                        <a href="../Controlador/ControladorProductos.php?CambiarEstadoP&IdProducto=<?php echo $producto->IdProducto?>" class="btn btn" ><?php if($producto->Estado == 1 ){
+                        echo "Inhabilitar";
+                    } else
+                    {
+                        echo "Activar";
+                    } ?></a>
                     </td>
                     
                 </tr>

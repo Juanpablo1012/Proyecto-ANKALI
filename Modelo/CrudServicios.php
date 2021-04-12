@@ -117,5 +117,24 @@
             return $sql->fetchAll(); // retorna todos los registros de la consulta
             Db::CerrarConexion($Db);
         }
+
+        public function CambiarEstadoS($id)
+        {
+            $mensaje = "";
+            $Db = Db::Conectar(); // conectar bd
+            $sql = $Db->prepare('UPDATE servicios set Estado = !Estado WHERE IdServicios ='.$id); //definir sentencia sql
+            try{
+                $sql->execute();
+                $mensaje = "Actualizacion Exitoso";
+            }
+            catch(Exception $e)
+            {
+                $mensaje = $e->getMessage();
+            }
+            Db::CerrarConexion($Db);
+            return $mensaje;
+        }
+
+
     }
 ?>

@@ -40,6 +40,14 @@ class ControladorServicios{
 
     }
 
+    public function CambiarEstadoS($Documento)
+    {
+        $servicio = new Servicios();
+        $crudservicios = new CrudServicios();
+        return $crudservicios->CambiarEstadoS($Documento);
+
+    }
+
     public function Editarservicio($IdServicios,$Nombre,$Descripcion,
     $Imagen,$Precio,$Estado)
     {
@@ -81,6 +89,14 @@ elseif(isset($_POST['Editarservicio']))
 {
     echo $ControladorServicios->Editarservicio($_POST['IdServicios'],$_POST['Nombre'],$_POST['Descripcion'],$_POST['Imagen'],$_POST['Precio'],$_POST['Estado']);
     $ControladorServicios->desplegarVista('../Vista/Listar_Servicioadmin.php'.$IdServicios);
+}
+
+elseif(isset($_GET['CambiarEstadoS']))
+{
+    $IdServicios = $_GET['IdServicios'];
+     $ControladorServicios->CambiarEstadoS($IdServicios);
+     $ControladorServicios->desplegarVista('../Vista/Listar_servicioadmin.php');
+
 }
 
 ?>

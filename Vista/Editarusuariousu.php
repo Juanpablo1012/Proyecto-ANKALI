@@ -120,11 +120,7 @@ if(!($_SESSION['Documento']))
           
           <label for="">Direccion</label>
           <input type="text" id="Direccion" class="fadeIn second" name="Direccion" value="<?php echo $doc->getDireccion() ?>"  placeholder="Direccion">
-          
-          <label for="">1 = Activo y 2 = Inhabiliado </label>
-          <input type="text" id="Estado" class="fadeIn third" name="Estado" value="<?php echo $doc->getEstado() ?>" placeholder="Estado">
           <label for="">Contraseña </label>
-
           <input type="text" id="Contrasena" class="fadeIn third" name="Contrasena" value="<?php echo $doc->getContrasena() ?>" placeholder="Contrasena">
           
           <!-- <button type="submit" name="registro" class="fadeIn fourth">Registrarse</button> -->

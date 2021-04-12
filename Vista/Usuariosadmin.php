@@ -116,7 +116,8 @@ $listarusuarios = json_decode($ControladorUsuarios->Listarusuarios());
                     <th>Número de <br>teléfono</th>
                     <th>Roles</th>
                     <th>Estado</th>
-                    <th>Acciones</th>
+                    <th>Editar</th>
+                    <th>Cambiar estado</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -140,16 +141,23 @@ $listarusuarios = json_decode($ControladorUsuarios->Listarusuarios());
                   ?></td>
                     <td>
                     <?php if($usu->Estado == 1 ){
-                        echo "Activo";
+                        echo "<h4 style='color:green;'> Activo </h4>";
                     } else
                     {
-                        echo "Inhabiliado";
+                        echo "<h4 style='color:red;'> Inhabiliado </h4>";
                     } ?>
-                    
                     
                     </td>
                     <td>
-                        <a href="../Controlador/ControladorUsuarios.php?Actualizarusuario&Documento=<?php echo $usu->Documento?>" class="btn btn" >Cambiar estado</a>
+                        <a href="../Controlador/ControladorUsuarios.php?Actualizarusuario&Documento=<?php echo $usu->Documento?>" class="btn btn" >Editar</a>
+                    </td>
+                    <td>
+                        <a href="../Controlador/ControladorUsuarios.php?CambiarEstado&Documento=<?php echo $usu->Documento?>" class="btn btn" ><?php if($usu->Estado == 1 ){
+                        echo "Inhabilitar";
+                    } else
+                    {
+                        echo "Activar";
+                    } ?></a>
                     </td>
                     
                 </tr>
