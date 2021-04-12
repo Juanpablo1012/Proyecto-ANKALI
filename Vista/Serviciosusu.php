@@ -102,7 +102,7 @@ if(!($_SESSION['Documento']))
             <!-- <img src="../../Estilo/img/portalapiz.jpeg"  class="img-fluid" > -->
             <h4>
             <?php  $ruta= $servicio->Imagen;?>
-				      <td><?php echo "<img src='$ruta' widht='100' height='100' />"  ?></td> 
+				      <td><?php echo "<img src='$ruta' widht='290' height='290' />"  ?></td> 
             </h4>
             <h4><?php echo $servicio->Nombre?></h4>
             <p><?php echo $servicio->Descripcion?></p><br>
