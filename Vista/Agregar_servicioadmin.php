@@ -104,7 +104,7 @@ if(!($_SESSION['Documento']))
           <form action="../Controlador/ControladorServicios.php" method="Post" enctype="multipart/form-data">
             <input type="text" name="Nombre" class="fadeIn third" placeholder="Nombre">
             <textarea type="number" name="Descripcion" class="fadeIn second"placeholder="Descripcion"></textarea>
-            <input type="file" name="Imagen" class="fadeIn second" placeholder="Imagen">
+            <input type="file" id="Imagen" class="fadeIn second" name="Imagen" placeholder="Imagen">
             <input type="number" name="Precio" class="fadeIn second" placeholder="Precio">
             <input type="submit" name="AgregarServ" class="fadeIn fourth" value="Agregar">
           </form>

@@ -120,7 +120,8 @@ if(!($_SESSION['Documento']))
                         <th>Imagen</th>
                         <th>Precio</th>
                         <th>Estado</th>
-                        <th>Acciones</th>
+                        <th>Editar</th>
+                        <th>Cambiar Estado</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -139,16 +140,24 @@ if(!($_SESSION['Documento']))
                                 
                                 <td><?php echo $servicio->Precio?></td>
                                 <td>
-                                    <?php if($servicio->Estado == 1 ){
-                                        echo "Activo";
-                                    } else
-                                    {
-                                        echo "Inhabiliado";
-                                    } ?>            
+                                <?php if($servicio->Estado == 1 ){
+                                  echo "<h4 style='color:green;'> Activo </h4>";
+                                  } else
+                                  {
+                                      echo "<h4 style='color:red;'> Inhabiliado </h4>";
+                                  } ?>             
                                 </td>
                                 <td>
                                   <a href="../Controlador/ControladorServicios.php?Editarservicio&IdServicios=<?php echo $servicio->IdServicios?>" class="btn btn" >Cambiar estado</a>
                                 </td>
+                                <td>
+                        <a href="../Controlador/ControladorServicios.php?CambiarEstadoS&IdServicios=<?php echo $servicio->IdServicios?>" class="btn btn" ><?php if($servicio->Estado == 1 ){
+                        echo "Inhabilitar";
+                    } else
+                    {
+                        echo "Activar";
+                    } ?></a>
+                    </td>
                                 
                             </tr>
                             <?php

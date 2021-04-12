@@ -97,14 +97,12 @@
             Nombre=:Nombre, 
             Correo= :Correo, 
             Contrasena = :Contrasena,
-            Direccion = :Direccion,
-            Estado = :Estado
+            Direccion = :Direccion
             WHERE Documento=:Documento'); //definir sentencia sql
             $sql->bindvalue('Telefono',$Usuarios->getTelefono());
             $sql->bindvalue('Nombre',$Usuarios->getNombre());
             $sql->bindvalue('Correo',$Usuarios->getCorreo());
             $sql->bindvalue('Contrasena',$Usuarios->getContrasena());
-            $sql->bindvalue('Estado',$Usuarios->getEstado());
             $sql->bindvalue('Direccion',$Usuarios->getDireccion());
             $sql->bindvalue('Documento',$Usuarios->getDocumento());
 
@@ -207,9 +205,21 @@
             return $mensaje;
         }
 
-        public function CambiarEstadoU($id)
+        public function CambiarEstado($id)
         {
-            "UPDATE usuarios set Estado = !Estado WHERE Documento = :Documento";
+            $mensaje = "";
+            $Db = Db::Conectar(); // conectar bd
+            $sql = $Db->prepare('UPDATE usuarios set Estado = !Estado WHERE Documento ='.$id); //definir sentencia sql
+            try{
+                $sql->execute();
+                $mensaje = "Actualizacion Exitoso";
+            }
+            catch(Exception $e)
+            {
+                $mensaje = $e->getMessage();
+            }
+            Db::CerrarConexion($Db);
+            return $mensaje;
         }
 
 

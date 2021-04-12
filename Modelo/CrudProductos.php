@@ -40,7 +40,7 @@
         public function Listarproducto()
         {
             $Db = Db::Conectar(); // conectar bd
-            $sql = $Db->query('SELECT producto.*,tipoproducto.Nombre FROM producto 
+            $sql = $Db->query('SELECT producto.*,tipoproducto.Nombre as nombreTP FROM producto 
                                 JOIN tipoproducto on (producto.TipodeProducto = tipoproducto.IdTipoProducto)'); //definir sentencia sql
             $sql->execute(); // ejecutar la consulta
             return $sql->fetchAll(); // retorna todos los registros de la consulta
@@ -68,6 +68,24 @@
             return $sql->fetchAll(); // retorna todos los registros de la consulta
             Db::CerrarConexion($Db);
         }
+
+        public function CambiarEstadoP($id)
+        {
+            $mensaje = "";
+            $Db = Db::Conectar(); // conectar bd
+            $sql = $Db->prepare('UPDATE producto set Estado = !Estado WHERE IdProducto ='.$id); //definir sentencia sql
+            try{
+                $sql->execute();
+                $mensaje = "Actualizacion Exitoso";
+            }
+            catch(Exception $e)
+            {
+                $mensaje = $e->getMessage();
+            }
+            Db::CerrarConexion($Db);
+            return $mensaje;
+        }
+
 
 
     }

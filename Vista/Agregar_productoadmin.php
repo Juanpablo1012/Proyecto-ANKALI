@@ -104,7 +104,7 @@ if(!($_SESSION['Documento']))
             <h6>Agregar Producto o Insumo</h6>
           </div>
           <!-- Login Form -->
-          <form action="../Controlador/ControladorProductos.php" method="Post">
+          <form action="../Controlador/ControladorProductos.php" method="Post" enctype="multipart/form-data">
             <!-- <input type="hidden" id="registro" class="fadeIn third" name="login" placeholder="Codigo producto"> -->
             <select name="IdTipoProducto">
               <option>Seleccione un tipo de producto</option>

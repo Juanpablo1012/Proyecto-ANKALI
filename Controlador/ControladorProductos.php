@@ -15,6 +15,14 @@ class ControladorProductos{
 
     }
 
+    public function CambiarEstadoP($Documento)
+    {
+        $producto = new Productos();
+        $crudproductos = new CrudProductos();
+        return $crudproductos->CambiarEstadoP($Documento);
+
+    }
+
     public function CrearProducto($NombreP,$Precio,$Imagen,$Descripcion,$Stock,$TipoProducto)
     {
         $producto = new Productos();
@@ -54,6 +62,16 @@ if(isset($_POST['CrearProduc'])){
 
     echo $ControladorProductos->CrearProducto($_POST['Nombre'],$_POST['Precio'],$_POST['Imagen'],$_POST['Descripcion'],$_POST['Stock'],$_POST['IdTipoProducto']);
     }
+
+    elseif(isset($_GET['CambiarEstadoP']))
+{
+    $IdProducto = $_GET['IdProducto'];
+     $ControladorProductos->CambiarEstadoP($IdProducto);
+     $ControladorProductos->desplegarVista('../Vista/Usuariosadmin.php');
+
+}
+
+
 
 ?>
 

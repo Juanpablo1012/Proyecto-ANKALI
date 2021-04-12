@@ -55,8 +55,18 @@ class ControladorUsuarios{
 
     }
 
+    public function CambiarEstado($Documento)
+    {
+        $Usuarios = new usuarios();
+        $CrudUsuarios= new CrudUsuarios();
+        return $CrudUsuarios->CambiarEstado($Documento);
+
+    }
+
+
+
     public function Actualizarusuario($Documento,$Telefono,$Nombre,$Correo,
-    $Contrasena,$Direccion,$Estado)
+    $Contrasena,$Direccion)
     {
         $Usuarios =new usuarios();
         $CrudUsuarios= new CrudUsuarios();
@@ -66,7 +76,6 @@ class ControladorUsuarios{
         $Usuarios->setDireccion($Direccion);
         $Usuarios->setCorreo($Correo);
         $Usuarios->setContrasena($Contrasena);
-        $Usuarios->setEstado($Estado);
         return $CrudUsuarios->Actualizarusuario($Usuarios);
 
     }
@@ -157,7 +166,7 @@ elseif(isset($_GET['Actualizarusuario']))
 
 elseif(isset($_POST['Actualizarusuario']))
 {
-    echo $ControladorUsuarios->Actualizarusuario($_POST['Documento'],$_POST['Telefono'],$_POST['Nombre'],$_POST['Correo'],$_POST['Contrasena'],$_POST['Direccion'],$_POST['Estado']);
+    echo $ControladorUsuarios->Actualizarusuario($_POST['Documento'],$_POST['Telefono'],$_POST['Nombre'],$_POST['Correo'],$_POST['Contrasena'],$_POST['Direccion']);
     $ControladorUsuarios->desplegarVista('../Vista/Usuariosadmin.php'.$Documento);
 }
 
@@ -264,6 +273,14 @@ elseif(isset($_POST['registroAdmin']))
     $_POST['Correo'],
     $_POST['Contrasena'],
     $_POST['IdRol']);
+}
+
+elseif(isset($_GET['CambiarEstado']))
+{
+    $Documento = $_GET['Documento'];
+     $ControladorUsuarios->CambiarEstado($Documento);
+     $ControladorUsuarios->desplegarVista('../Vista/Usuariosadmin.php');
+
 }
 
 ?>
