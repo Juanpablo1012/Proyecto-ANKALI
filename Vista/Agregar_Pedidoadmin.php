@@ -77,7 +77,12 @@ if(!($_SESSION['Documento']))
               <li><a href="Usuariosadmin.php">Listar usuarios</a></li>
             </ul>
         </li>
-        
+        <li class="menu-has-children"><a href="#">Compra</a>
+            <ul>
+              <li><a href="Compras.php">Ingresar compra</a></li>
+              <li><a href="Listar_Compra.php">Listar compras</a></li>
+            </ul>
+        </li>
         <li><a href="../Controlador/DestruirSesion.php">Cerrar Sesión <i class="fa fa-window-close"></i></a></li>
       </ul>
     </nav>
@@ -112,19 +117,6 @@ if(!($_SESSION['Documento']))
       </div>
   </section>
   
-
-  <footer class="footer">
-      <div class="copyrights">
-        <p>&copy; Copyrights eStartup. All rights reserved.</p>
-        <div class="credits">
-          Designed by <a href="">BootstrapMade</a>
-        </div>
-      </div>
-  </footer>
-
-
-
-
   <!-- JavaScript Libraries -->
   <script src="../Estilo/lib/jquery/jquery.min.js"></script>
   <script src="../Estilo/lib/jquery/jquery-migrate.min.js"></script>

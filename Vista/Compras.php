@@ -1,7 +1,4 @@
 <?php
-require_once("../Controlador/ControladorProductos.php");
-$listarTP = json_decode($ControladorProductos->ListarTipoproducto());
-
 session_start();
 if(!($_SESSION['Documento']))
 {
@@ -46,8 +43,7 @@ if(!($_SESSION['Documento']))
   <div class="container">
     
     <div id="logo" class="pull-left">
-      <h1><a href="admin.php" class="scrollto"><a href=""><img src="../Estilo/img/logo-blanco.png" width="70" height="70"> </a>  ANKALI</a></h1>
-
+      <h1><a href="admin.php" class="scrollto"><a href="#"><img src="../Estilo/img/logo-blanco.png" width="70" height="70"> </a>  ANKALI</a></h1>
     </div>
 
     <nav id="nav-menu-container">
@@ -101,39 +97,25 @@ if(!($_SESSION['Documento']))
           <!-- Icon -->
           <div class="fadeIn first">
 
-            <h6>Agregar Producto o Insumo</h6>
+            <h6>Agregar Pedido</h6>
           </div>
           <!-- Login Form -->
-          <form action="../Controlador/ControladorProductos.php" method="Post">
-            <!-- <input type="hidden" id="registro" class="fadeIn third" name="login" placeholder="Codigo producto"> -->
-            <select name="IdTipoProducto">
-              <option>Seleccione un tipo de producto</option>
-              <?php
-                foreach($listarTP as $Tp)
-                {
-              ?> 
-                <option value="<?php echo $Tp->IdTipoProducto?>"> <?php echo $Tp->Nombre?></option>
-              <?php
-                }
-              ?>
-          </select>
-            <input type="text" id="Nombre" class="fadeIn third" name="Nombre" placeholder="Nombre">
-            <input type="number" id="Precio" class="fadeIn second" name="Precio" placeholder="Precio">
-            <input type="file" id="Imagen" class="fadeIn second" name="Imagen" placeholder="Imagen">
-            <textarea type="text" id="Descripcion" class="fadeIn second" name="Descripcion" placeholder="Descripcion"></textarea>
-            <input type="number" id="Stock" class="fadeIn second" name="Stock" placeholder="Stock">
-            <!-- <input type="file" id="registro" class="fadeIn second" name="login" placeholder="Correo"> -->
-            <button type="submit" name="CrearProduc" class="fadeIn fourth">Agregar Producto</button>
+          <form>
+            <input type="hidden" id="registro" class="fadeIn third" name="login" placeholder="Codigo producto">
+            <input type="text" id="registro" class="fadeIn third" name="login" placeholder="Nombre del cliente">
+            <input type="number" id="registro" class="fadeIn second" name="login" placeholder="Número">
+            <input type="number" id="registro" class="fadeIn second" name="login" placeholder="Producto">
+            <input type="text" id="registro" class="fadeIn second" name="login" placeholder="Servicio">
+            <textarea type="text" id="registro" class="fadeIn second" name="login" placeholder="Fecha"></textarea>
+            <input type="file" id="registro" class="fadeIn second" name="login" placeholder="Total">
+            <input type="file" id="registro" class="fadeIn second" name="login" placeholder="Estado">
+            <input type="submit" class="fadeIn fourth" value="Agregar">
           </form>
     
       
         </div>
       </div>
   </section>
-  
-
-
-
 
 
   <!-- JavaScript Libraries -->
