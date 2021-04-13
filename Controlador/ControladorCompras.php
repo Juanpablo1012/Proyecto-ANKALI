@@ -33,6 +33,7 @@ if(isset($_POST['Agregar'])){
 	$valid = array('success' => false, 'messages' => array());
 
 	$Total = $_POST['Total'];
+	$Fecha = 2021-04-12;
 	$DocumentoUsuario = 1;
 
 	$type = explode('.', $_FILES['Factura']['name']);
@@ -44,8 +45,8 @@ if(isset($_POST['Agregar'])){
 			if(move_uploaded_file($_FILES['Factura']['tmp_name'], $url)) {
 
 				// insert into database
-				$sql = "INSERT INTO compra (Total, Factura,DocumentoUsuario) 
-                VALUES ('$Total', '$url','$DocumentoUsuario')";
+				$sql = "INSERT INTO compra (Total, Factura,DocumentoUsuario,Fecha) 
+                VALUES ('$Total', '$url','$DocumentoUsuario','$Fe')";
 				if($conn->query($sql) === TRUE) {
 					$valid['success'] = true;
 					$valid['messages'] = "Producto Agregado Correctamente";
