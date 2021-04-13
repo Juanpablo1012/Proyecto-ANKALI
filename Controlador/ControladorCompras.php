@@ -14,12 +14,13 @@ class ControladorCompras{
         header("location:".$vista);
     }
 
-    public function CrearCompra($Total,$Factura,$DocumentoUsuario)
+    public function CrearCompra($Factura,$Fecha,$Total,$DocumentoUsuario)
     {
         $compra = new Compras();
         $crudCompra = new CrudCompra();
-        $compra->setTotal($Total);
         $compra->setFactura($Factura);
+        $compra->setFecha($Fecha);
+        $compra->setTotal($Total);
         $compra->setDocumentoUsuario($DocumentoUsuario);
         return $crudCompra->CrearCompra($compra);
     }
@@ -43,6 +44,7 @@ $ControladorCompras = new ControladorCompras();
 if(isset($_POST['Agregar'])){
 	echo $ControladorCompras->CrearCompra(
 		$_POST['Factura'],
+        $_POST['Fecha'],
 		$_POST['Total'],
 		$_POST['DocumentoUsuario']);
 	}

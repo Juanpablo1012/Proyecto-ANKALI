@@ -90,6 +90,11 @@ if(!($_SESSION['Documento']))
     </nav>
   </div>
   </header>
+
+  <?php
+  date_default_timezone_set('America/Panama');
+  $fechaA=date("Y-m-d H:i:s");
+  ?>
   
   <section id="hero3" class="wow fadeIn">
     <div class="wrapper3 fadeInDown">
@@ -105,7 +110,7 @@ if(!($_SESSION['Documento']))
           <form action="../Controlador/ControladorCompras.php" method="Post" >
 
             <input type="hidden" id="Compra" class="fadeIn third" name="Compra" placeholder="Codigo compra">
-            <input type="hidden" id="Fecha" class="fadeIn second" name="Fecha" placeholder="Número">
+            <input type="hidden" value="<?php echo $fechaA ?>" id="Fecha" class="fadeIn second" name="Fecha" placeholder="Número">
             <input type="hidden" id="DocumentoUsuario" class="fadeIn second" value="<?php echo $doc?>"name="DocumentoUsuario" placeholder="Número">
 
             <input type="file" id="Factura" class="fadeIn third" name="Factura" placeholder="Factura">
