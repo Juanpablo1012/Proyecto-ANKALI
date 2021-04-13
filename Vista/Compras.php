@@ -97,18 +97,16 @@ if(!($_SESSION['Documento']))
           <!-- Icon -->
           <div class="fadeIn first">
 
-            <h6>Agregar Pedido</h6>
+            <h6>Agregar Compra</h6>
           </div>
           <!-- Login Form -->
-          <form>
-            <input type="hidden" id="registro" class="fadeIn third" name="login" placeholder="Codigo producto">
-            <input type="text" id="registro" class="fadeIn third" name="login" placeholder="Nombre del cliente">
-            <input type="number" id="registro" class="fadeIn second" name="login" placeholder="Número">
-            <input type="number" id="registro" class="fadeIn second" name="login" placeholder="Producto">
-            <input type="text" id="registro" class="fadeIn second" name="login" placeholder="Servicio">
-            <textarea type="text" id="registro" class="fadeIn second" name="login" placeholder="Fecha"></textarea>
-            <input type="file" id="registro" class="fadeIn second" name="login" placeholder="Total">
-            <input type="file" id="registro" class="fadeIn second" name="login" placeholder="Estado">
+          <form action="../Controlador/ControladorCompras.php" method="Post" enctype="multipart/form-data">
+
+            <input type="hidden" id="Compra" class="fadeIn third" name="Compra" placeholder="Codigo compra">
+
+            <input type="file" id="Factura" class="fadeIn third" name="Factura" placeholder="Factura">
+            <input type="hidden" id="Fecha" class="fadeIn second" name="Fecha" placeholder="Número">
+            <input type="number" id="Total" class="fadeIn second" name="Total" placeholder="Total de la compra">
             <input type="submit" class="fadeIn fourth" value="Agregar">
           </form>
     

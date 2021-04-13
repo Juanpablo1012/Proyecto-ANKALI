@@ -25,12 +25,12 @@
             return $this->IdProducto;
         }
 
-        public function setNombreP($Nombre)
+        public function setNombre($Nombre)
         {
             $this->Nombre=$Nombre;
         }
 
-        public function getNombreP()
+        public function getNombre()
         {
             return $this->Nombre;
         }

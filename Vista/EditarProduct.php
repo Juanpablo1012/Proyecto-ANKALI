@@ -1,6 +1,8 @@
 <?php
-require_once("../Controlador/ControladorServicios.php");
-$serv =  $ControladorServicios->Buscarservicio($_GET['IdServicios']);
+require_once("../Controlador/ControladorProductos.php");
+$product =  $ControladorProductos->BuscarProducto($_GET['IdProducto']);
+$listarTP = json_decode($ControladorProductos->ListarTipoproducto());
+
 session_start();
 if(!($_SESSION['Documento']))
 {
@@ -98,23 +100,39 @@ if(!($_SESSION['Documento']))
           <!-- Icon -->
           <div class="fadeIn first">
 
-            <h6>Agregar Sevicio</h6>
+            <h6>Editar Producto o insumo</h6>
           </div>
           <!-- Login Form -->
-          <form action="../Controlador/ControladorServicios.php" method="Post" enctype="multipart/form-data">
+          <form action="../Controlador/ControladorProductos.php" method="Post" enctype="multipart/form-data">
+          
+          <select name="IdTipoProducto">
+              <option>Seleccione un tipo de producto</option>
+              <?php
+                foreach($listarTP as $Tp)
+                {
+              ?> 
+                <option value="<?php echo $Tp->IdTipoProducto?>"> <?php echo $Tp->Nombre?></option>
+              <?php
+                }
+              ?>
+          </select>
 
-            <input type="number" name="IdServicios" class="fadeIn third" value="<?php echo $serv->getIdServicios() ?>" placeholder="Codigo" readonly>
+            <input type="number" name="IdProducto" class="fadeIn third" value="<?php echo $product->getIdProducto() ?>" placeholder="Codigo producto" readonly>
 
-            <input type="text" name="Nombre" class="fadeIn third" value="<?php echo $serv->getNombre() ?>" placeholder="Nombre" required>
+            <input type="text" name="Nombre" class="fadeIn third" value="<?php echo $product->getNombre() ?>" placeholder="Nombre" required>
+            
+            <input type="number" name="Precio" class="fadeIn second" value="<?php echo $product->getPrecio() ?>" placeholder="Precio" required>
 
-            <textarea type="number" name="Descripcion" class="fadeIn second" value="<?php echo $serv->getDescripcion() ?>"placeholder="Descripcion"></textarea>
 
-            <input type="file" name="Imagen" class="fadeIn second" value="<?php echo $serv->getImagen() ?>" placeholder="Imagen" required>
+            <input type="file" name="Imagen" class="fadeIn second" value="<?php echo $product->getImagen() ?>" placeholder="Imagen" required>
+
+            <textarea type="number" name="Descripcion" class="fadeIn second" value="<?php echo $product->getDescripcion() ?>"placeholder="Descripcion"></textarea>
+
+            <input type="number" name="Stock" class="fadeIn second" value="<?php echo $product->getStock() ?>" placeholder="Stock" required>
              
             
-            <input type="number" name="Precio" class="fadeIn second" value="<?php echo $serv->getPrecio() ?>" placeholder="Precio" required>
 
-            <input type="submit" ID="Editarservicio"name="Editarservicio" class="fadeIn fourth">
+            <input type="submit" ID="EditarProducto"name="EditarProducto" class="fadeIn fourth">
           </form>
     
       
@@ -123,14 +141,6 @@ if(!($_SESSION['Documento']))
   </section>
   
 
-  <footer class="footer">
-      <div class="copyrights">
-        <p>&copy; Copyrights eStartup. All rights reserved.</p>
-        <div class="credits">
-          Designed by <a href="">BootstrapMade</a>
-        </div>
-      </div>
-  </footer>
 
 
 

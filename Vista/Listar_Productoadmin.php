@@ -163,7 +163,7 @@ if(!($_SESSION['Documento']))
                     } ?>           
                     </td>
                     <td>
-                        <a href="../Controlador/ControladorUsuarios.php?ModificarProducto&IdProducto=<?php echo $producto->IdProducto?>" class="btn btn" >Editar</a>
+                        <a href="../Controlador/ControladorProductos.php?EditarProducto&IdProducto=<?php echo $producto->IdProducto?>" class="btn btn" >Editar</a>
                     </td>
                     <td>
                         <a href="../Controlador/ControladorProductos.php?CambiarEstadoP&IdProducto=<?php echo $producto->IdProducto?>" class="btn btn" ><?php if($producto->Estado == 1 ){

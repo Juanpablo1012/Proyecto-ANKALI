@@ -47,8 +47,6 @@
             Db::CerrarConexion($Db);
         }
 
-        
-
         public function ListarTipoproducto()
         {
             $Db = Db::Conectar(); // conectar bd
@@ -85,7 +83,33 @@
             Db::CerrarConexion($Db);
             return $mensaje;
         }
+        public function BuscarProducto($product)
+        {
+            $producto = new  Productos();
+            $Db = Db::Conectar(); // conectar bd
+            $sql = $Db->prepare('SELECT * FROM producto 
+            WHERE IdProducto =:IdProducto'); //definir sentencia sql
+            $sql->bindvalue('IdProducto',$product);
+        
+            try{
+                $sql->execute();
+                $x = $sql->fetch();
+                $producto->setIdProducto($x['IdProducto']);
+                $producto->setNombre($x['Nombre']);    
+                $producto->setPrecio($x['Precio']);    
+                $producto->setImagen($x['Imagen']);    
+                $producto->setStock($x['Stock']);    
+                $producto->setEstado($x['Estado']);    
+                //$producto->setTipoProducto($x['TipoProducto']);    
 
+            }
+                catch(Exception $e)
+                {
+                    echo $e->getMessage();
+                }
+                Db::CerrarConexion($Db);
+                return $producto;
+        }
 
 
     }

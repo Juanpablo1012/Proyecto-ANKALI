@@ -53,13 +53,7 @@ class ControladorProductos{
         $crudproducto = new CrudProductos();
         return json_encode($crudproducto->Listarproductousu());
     } 
-    public function BuscarProducto($IdProducto)
-    {
-        $producto = new Productos();
-        $crudproductos = new CrudProductos();
-        return $crudproductos->BuscarProducto($IdProducto);
 
-    }
 
 }
 $ControladorProductos = new ControladorProductos();
@@ -113,77 +107,15 @@ if(isset($_POST['CrearProduc'])){
     //echo $ControladorProductos->CrearProducto($_POST['Nombre'],$_POST['Precio'],$_POST['Imagen'],$_POST['Descripcion'],$_POST['Stock'],$_POST['IdTipoProducto']);
 }
 
-elseif(isset($_GET['CambiarEstadoP']))
+    elseif(isset($_GET['CambiarEstadoP']))
 {
     $IdProducto = $_GET['IdProducto'];
      $ControladorProductos->CambiarEstadoP($IdProducto);
      $ControladorProductos->desplegarVista('../Vista/Listar_Productoadmin.php');
-}
-elseif(isset($_GET['EditarProducto']))
-{
-    $IdProducto = $_GET['IdProducto'];
-    $ControladorProductos->desplegarVista('../Vista/EditarProduct.php?IdProducto='.$IdProducto);
-}
-elseif(isset($_POST['EditarProducto']))
-{
-    $valid = array('success' => false, 'messages' => array());
 
-	//$IdTipoProducto = $_POST['IdTipoProducto'];
-    $Nombre = $_POST['Nombre'];
-	$Precio = $_POST['Precio'];
-	$Descripcion = $_POST['Descripcion'];
-	$Stock = $_POST['Stock'];
-    $id=(int) $_POST['IdProducto'];
-        
-        $type = explode('.', $_FILES['Imagen']['name']);
-	    $type = $type[count($type)-1];
-        $url = '../Estilo/img/uploads/' . uniqid(rand()) . '.' . $type;
-  
-        if(in_array($type, array('gif', 'jpg', 'jpeg', 'png'))) {
-            if(is_uploaded_file($_FILES['Imagen']['tmp_name'])) {
-                if(move_uploaded_file($_FILES['Imagen']['tmp_name'], $url)) 
-                {
-                        // insert into database
-                        $sql = "UPDATE  producto SET 
-
-                        Nombre='$Nombre',
-                        Precio='$Precio',
-                        Descripcion='$Descripcion',
-                        Stock='$Stock',
-                        Imagen='$url' 
-                        WHERE IdProducto='$id'";
-                    if($conn->query($sql) === TRUE) {
-                        if($conn->query($sql) === TRUE) 
-                        {
-                        echo 
-                            '<script>
-                                alert("Producto actualizado correctamente.");
-                                window.location="../Vista/Listar_Productoadmin.php";                
-                            </script>';
-                            //$valid['success'] = true;
-                            //$valid['messages'] = "Producto Agregado Correctamente";
-                        } 
-                        else {
-                            echo 
-                                '<script>
-                                    alert("No se puede agregar intentalo nuevamente.");
-                                    window.location="../Vista/Agregar_productoadmin.php";                
-                                </script>';
-                            //$valid['success'] = false;
-                            //$valid['messages'] = "Se Produjo un Error al Agregar";
-                            }
-                        $conn->close();
-                    }
-                    else {
-                        $valid['success'] = false;
-                        $valid['messages'] = "Se Produjo un Error al Agregar";
-                    }
-                }
-            }
-        }
-	echo json_encode($valid);
-    
 }
+
+
 
 ?>
 

@@ -110,11 +110,8 @@ if(isset($_POST['AgregarServ'])){
 				$conn->close();
 			}
 			else {
-				echo 
-                '<script>
-                    alert("No se puede agregar intentalo nuevamente.");
-                    window.location="../Vista/Agregar_servicioadmin.php";                
-                </script>';
+				$valid['success'] = false;
+				$valid['messages'] = "Se Produjo un Error al Agregar";
 			}
 		}
 	}
@@ -133,7 +130,7 @@ elseif(isset($_POST['Editarservicio']))
 		$Nombre=$_POST['Nombre'];
 		$Descripcion=$_POST['Descripcion'];
 		$Precio=$_POST['Precio'];
-        $id=(int) $_GET['IdServicios'];
+        $id=(int) $_POST['IdServicios'];
         
         $type = explode('.', $_FILES['Imagen']['name']);
 	    $type = $type[count($type)-1];
@@ -150,12 +147,12 @@ elseif(isset($_POST['Editarservicio']))
                     Imagen='$url' 
                     WHERE IdServicios='$id'";
     
-                    if($con->query($sql) === TRUE) {
+                    if($conn->query($sql) === TRUE) {
                         echo 
-                '<script>
-                    alert("Servicio registrado correctamente.");
-                    window.location="../Vista/Listar_Servicioadmin.php";                
-                </script>';
+                        '<script>
+                            alert("Servicio registrado correctamente.");
+                            window.location="../Vista/Listar_Servicioadmin.php";                
+                        </script>';
                     } 
                     else {
                         $valid['success'] = false;
@@ -173,8 +170,6 @@ elseif(isset($_POST['Editarservicio']))
                     alert("Servicio registrado correctamente.");
                     window.location="../Vista/Listar_Servicioadmin.php";                
                 </script>';
-    //echo $ControladorServicios->Editarservicio($_POST['IdServicios'],$_POST['Nombre'],$_POST['Descripcion'],$_POST['Imagen'],$_POST['Precio'],$_POST['Estado']);
-    //$ControladorServicios->desplegarVista('../Vista/Listar_Servicioadmin.php'.$IdServicios);
 }
 
 }
