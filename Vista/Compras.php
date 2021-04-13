@@ -106,10 +106,10 @@ if(!($_SESSION['Documento']))
 
             <h6>Agregar Compra</h6>
           </div>
-          <!-- Login Form enctype="multipart/form-data" -->
-          <form action="../Controlador/ControladorCompras.php" method="Post" >
+          <!-- Login Form  -->
+          <form action="../Controlador/ControladorCompras.php" method="Post" enctype="multipart/form-data">
 
-            <input type="hidden" id="Compra" class="fadeIn third" name="Compra" placeholder="Codigo compra">
+            <input type="hidden" id="IdCompra" class="fadeIn third" name="IdCompra" placeholder="Codigo compra">
             <input type="hidden" value="<?php echo $fechaA ?>" id="Fecha" class="fadeIn second" name="Fecha" placeholder="Número">
             <input type="hidden" id="DocumentoUsuario" class="fadeIn second" value="<?php echo $doc?>"name="DocumentoUsuario" placeholder="Número">
 

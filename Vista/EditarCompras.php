@@ -93,7 +93,10 @@ if(!($_SESSION['Documento']))
     </nav>
   </div>
   </header>
-  
+  <?php
+  date_default_timezone_set('America/Panama');
+  $fechaA=date("Y-m-d H:i:s");
+  ?>
   <section id="hero3" class="wow fadeIn">
     <div class="wrapper3 fadeInDown">
         <div id="formContent3">
@@ -105,9 +108,9 @@ if(!($_SESSION['Documento']))
             <h6>Editar Compra</h6>
           </div>
           <!-- Login Form enctype="multipart/form-data" -->
-          <form action="../Controlador/ControladorCompras.php" method="Post" >
+          <form action="../Controlador/ControladorCompras.php" method="Post" enctype="multipart/form-data">
 
-            <input type="hidden" id="Compra" class="fadeIn third" value="<?php echo $compra->getIdCompra()?>"name="Compra" placeholder="Codigo compra">
+            <input type="hidden" id="IdCompra" class="fadeIn third" value="<?php echo $compra->getIdCompra()?>"name="IdCompra" placeholder="Codigo compra">
             <input type="hidden" id="Fecha" class="fadeIn second" value="<?php echo $compra->getFecha() ?>" name="Fecha" placeholder="Número">
             <input type="hidden" id="DocumentoUsuario" class="fadeIn second" value="<?php echo $doc?>" name="DocumentoUsuario" placeholder="Número">
             
@@ -115,7 +118,7 @@ if(!($_SESSION['Documento']))
             
             <input type="number" id="Total" class="fadeIn second" name="Total" value="<?php echo $compra->getTotal() ?>" placeholder="Total de la compra">
 
-            <input type="submit" name="Agregar" class="fadeIn fourth" value="Agregar">
+            <input type="submit" name="Editar" class="fadeIn fourth" value="Editar">
 
           </form>
     

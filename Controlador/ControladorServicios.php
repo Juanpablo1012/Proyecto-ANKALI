@@ -124,7 +124,6 @@ elseif(isset($_GET['Editarservicio']))
 
 elseif(isset($_POST['Editarservicio']))
 {
-	
 		$Nombre=$_POST['Nombre'];
 		$Descripcion=$_POST['Descripcion'];
 		$Precio=$_POST['Precio'];

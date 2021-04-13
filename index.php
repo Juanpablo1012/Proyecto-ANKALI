@@ -81,7 +81,6 @@
     
         <!-- Login Form -->
         <form Method="POST" action="Controlador/ControladorUsuarios.php">
-          <p class="text-left " id="pepe" style="padding: 1px 80px; font-family: Philosopher, sans-serif; font-weight: 300; font-size: 15px;"><b>Correo electrónico</b></p>
           <input type="text" id="login" class="fadeIn second" name="Correo" placeholder="Correo" required>
           <input type="password" id="password" class="fadeIn third" name="Contrasena" placeholder="Contraseña"required>
           <br>
