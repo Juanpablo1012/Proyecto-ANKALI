@@ -1,5 +1,7 @@
 <?php
 session_start();
+$doc = $_SESSION['Documento'];
+
 if(!($_SESSION['Documento']))
 {
   header ("Location:../index.php");
@@ -99,15 +101,17 @@ if(!($_SESSION['Documento']))
 
             <h6>Agregar Compra</h6>
           </div>
-          <!-- Login Form -->
-          <form action="../Controlador/ControladorCompras.php" method="Post" enctype="multipart/form-data">
+          <!-- Login Form enctype="multipart/form-data" -->
+          <form action="../Controlador/ControladorCompras.php" method="Post" >
 
             <input type="hidden" id="Compra" class="fadeIn third" name="Compra" placeholder="Codigo compra">
             <input type="hidden" id="Fecha" class="fadeIn second" name="Fecha" placeholder="Número">
+            <input type="hidden" id="DocumentoUsuario" class="fadeIn second" value="<?php echo $doc?>"name="DocumentoUsuario" placeholder="Número">
 
             <input type="file" id="Factura" class="fadeIn third" name="Factura" placeholder="Factura">
 
             <input type="number" id="Total" class="fadeIn second" name="Total" placeholder="Total de la compra">
+
             <input type="submit" name="Agregar" class="fadeIn fourth" value="Agregar">
 
           </form>

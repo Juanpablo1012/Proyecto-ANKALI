@@ -21,14 +21,14 @@
             return $this->IdCompra;
         }
 
-        public function setImagen($Imagen)
+        public function setFactura($Factura)
         {
-            $this->Imagen=$Imagen;
+            $this->Factura=$Factura;
         }
 
-        public function getImagen()
+        public function getFactura()
         {
-            return $this->Imagen;
+            return $this->Factura;
         }
 
         
