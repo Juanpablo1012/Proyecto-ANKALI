@@ -71,8 +71,8 @@ if(isset($_POST['CrearProduc'])){
 	$Precio = $_POST['Precio'];
 	$Stock = $_POST['Stock'];
 	$IdTipoProducto = $_POST['IdTipoProducto'];
-
 	$Estado = 1;
+    
 	$type = explode('.', $_FILES['Imagen']['name']);
 	$type = $type[count($type)-1];
 	$url = '../Estilo/img/uploads/' . uniqid(rand()) . '.' . $type;

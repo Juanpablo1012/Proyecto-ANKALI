@@ -103,11 +103,13 @@ if(!($_SESSION['Documento']))
           <form action="../Controlador/ControladorCompras.php" method="Post" enctype="multipart/form-data">
 
             <input type="hidden" id="Compra" class="fadeIn third" name="Compra" placeholder="Codigo compra">
+            <input type="hidden" id="Fecha" class="fadeIn second" name="Fecha" placeholder="Número">
 
             <input type="file" id="Factura" class="fadeIn third" name="Factura" placeholder="Factura">
-            <input type="hidden" id="Fecha" class="fadeIn second" name="Fecha" placeholder="Número">
+
             <input type="number" id="Total" class="fadeIn second" name="Total" placeholder="Total de la compra">
-            <input type="submit" class="fadeIn fourth" value="Agregar">
+            <input type="submit" name="Agregar" class="fadeIn fourth" value="Agregar">
+
           </form>
     
       

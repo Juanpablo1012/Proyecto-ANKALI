@@ -1,10 +1,10 @@
 <?php
 require_once("../Modelo/Conexion.php");
-require_once("../Modelo/Productos.php");
-require_once("../Modelo/CrudProductos.php");
+require_once("../Modelo/Compras.php");
+//require_once("../Modelo/CrudProductos.php");
 
 
-class ControladorProductos{
+class ControladorCompras{
     public function __construct()
     {
     }
@@ -15,107 +15,63 @@ class ControladorProductos{
 
     }
 
-    public function CambiarEstadoP($Documento)
+    public function CrearCompra($Total,$Factura)
     {
-        $producto = new Productos();
-        $crudproductos = new CrudProductos();
-        return $crudproductos->CambiarEstadoP($Documento);
-
+        $compra = new Compras();
+        $crudCompras = new crudCompras();
+        $compra->setTotal($Total);
+        $compra->setFactura($Factura);
+        return $crudCompras->CrearCompra($compra);
     }
 
-    public function CrearProducto($NombreP,$Precio,$Imagen,$Descripcion,$Stock,$TipoProducto)
-    {
-        $producto = new Productos();
-        $crudproductos = new CrudProductos();
-        $producto->setNombreP($NombreP);
-        $producto->setPrecio($Precio);
-        $producto->setImagen($Imagen);
-        $producto->setDescripcion($Descripcion);
-        $producto->setStock($Stock);
-        $producto->setTipoProducto($TipoProducto);
-        return $crudproductos->CrearProducto($producto);
-    }
-
-    public function Listarproducto(){
-
-        $crudproducto = new CrudProductos();
-        return json_encode($crudproducto->Listarproducto());
-    } 
-
-    public function ListarTipoproducto(){
-
-        $crudproducto = new CrudProductos();
-        return json_encode($crudproducto->ListarTipoproducto());
-    } 
-
-    public function Listarproductousu(){
-
-        $crudproducto = new CrudProductos();
-        return json_encode($crudproducto->Listarproductousu());
-    } 
 
 
 }
-$ControladorProductos = new ControladorProductos();
-if(isset($_POST['CrearProduc'])){
-    $valid = array('success' => false, 'messages' => array());
+$ControladorCompras = new ControladorCompras();
 
-	$Nombre = $_POST['Nombre'];
-	$Descripcion = $_POST['Descripcion'];
-	$Precio = $_POST['Precio'];
-	$Stock = $_POST['Stock'];
-	$IdTipoProducto = $_POST['IdTipoProducto'];
+if(isset($_POST['Agregar'])){
+	$valid = array('success' => false, 'messages' => array());
 
-	$Estado = 1;
-	$type = explode('.', $_FILES['Imagen']['name']);
+	$Total = $_POST['Total'];
+	$DocumentoUsuario = 1;
+
+	$type = explode('.', $_FILES['Factura']['name']);
 	$type = $type[count($type)-1];
 	$url = '../Estilo/img/uploads/' . uniqid(rand()) . '.' . $type;
    
 	if(in_array($type, array('gif', 'jpg', 'jpeg', 'png'))) {
-		if(is_uploaded_file($_FILES['Imagen']['tmp_name'])) {
-			if(move_uploaded_file($_FILES['Imagen']['tmp_name'], $url)) {
+		if(is_uploaded_file($_FILES['Factura']['tmp_name'])) {
+			if(move_uploaded_file($_FILES['Factura']['tmp_name'], $url)) {
 
 				// insert into database
-				$sql = "INSERT INTO producto (Nombre, Descripcion, Precio, Stock,TipodeProducto,Imagen,Estado) 
-                VALUES ('$Nombre','$Descripcion', '$Precio','$Stock','$IdTipoProducto','$url','$Estado')";
+				$sql = "INSERT INTO compra (Total, Factura,DocumentoUsuario) 
+                VALUES ('$Total', '$url','$DocumentoUsuario')";
 				if($conn->query($sql) === TRUE) {
-					echo 
-                        '<script>
-                            alert("Producto registrado exitosamente.");
-                            window.location="../Vista/Listar_Productoadmin.php";                
-                        </script>';
+					$valid['success'] = true;
+					$valid['messages'] = "Producto Agregado Correctamente";
 				} 
 				else {
-					echo 
-                        '<script>
-                            alert("No se puede agregar intentalo nuevamente.");
-                            window.location="../Vista/Agregar_productoadmin.php";                
-                        </script>';
+					$valid['success'] = false;
+					$valid['messages'] = "Se Produjo un Error al Agregar";
 				}
 				$conn->close();
 			}
 			else {
-				echo 
-                    '<script>
-                        alert("No se puede agregar intentalo nuevamente.");
-                        window.location="../Vista/Agregar_productoadmin.php";                
-                    </script>';
+				$valid['success'] = false;
+				$valid['messages'] = "Se Produjo un Error al Agregar";
 			}
 		}
 	}
 	echo json_encode($valid);
-    //echo $ControladorProductos->CrearProducto($_POST['Nombre'],$_POST['Precio'],$_POST['Imagen'],$_POST['Descripcion'],$_POST['Stock'],$_POST['IdTipoProducto']);
+
 }
 
-    elseif(isset($_GET['CambiarEstadoP']))
+elseif(isset($_GET['CambiarEstadoP']))
 {
     $IdProducto = $_GET['IdProducto'];
      $ControladorProductos->CambiarEstadoP($IdProducto);
      $ControladorProductos->desplegarVista('../Vista/Listar_Productoadmin.php');
 
 }
-
-
-
 ?>
 

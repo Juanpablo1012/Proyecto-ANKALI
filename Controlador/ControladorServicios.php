@@ -75,9 +75,7 @@ class ControladorServicios{
 $ControladorServicios = new ControladorServicios();
 
 if(isset($_POST['AgregarServ'])){
-
     $valid = array('success' => false, 'messages' => array());
-
 	$Nombre = $_POST['Nombre'];
 	$Descripcion = $_POST['Descripcion'];
 	$Precio = $_POST['Precio'];
@@ -85,7 +83,7 @@ if(isset($_POST['AgregarServ'])){
 	$type = explode('.', $_FILES['Imagen']['name']);
 	$type = $type[count($type)-1];
 	$url = '../Estilo/img/uploads/' . uniqid(rand()) . '.' . $type;
-   
+
 	if(in_array($type, array('gif', 'jpg', 'jpeg', 'png'))) {
 		if(is_uploaded_file($_FILES['Imagen']['tmp_name'])) {
 			if(move_uploaded_file($_FILES['Imagen']['tmp_name'], $url)) {
