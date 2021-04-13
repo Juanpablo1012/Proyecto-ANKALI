@@ -7,10 +7,10 @@
         {
             $mensaje=""; 
             $Db = Db::Conectar(); // conectar bd
-            $sql = $Db->prepare('INSERT INTO compra(Factura,Total,DocumentoUsuario)
-            VALUES (:Factura,:Total,:DocumentoUsuario)'); //definir sentencia sql
+            $sql = $Db->prepare('INSERT INTO compra(Factura,Fecha,Total,DocumentoUsuario)
+            VALUES (:Factura,:Fecha,:Total,:DocumentoUsuario)'); //definir sentencia sql
             $sql->bindvalue('Factura',$compra->getFactura());
-            //$sql->bindvalue('Fecha',$compra->getFecha());
+            $sql->bindvalue('Fecha',$compra->getFecha());
             $sql->bindvalue('Total',$compra->getTotal());
            $sql->bindvalue('DocumentoUsuario',$compra->getDocumentoUsuario());
  

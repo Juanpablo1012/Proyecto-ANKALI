@@ -136,7 +136,12 @@ $listarusuarios = json_decode($ControladorUsuarios->Listarusuarios());
                     <td><?php echo $usu->Nombre?></td>
                     <td><?php echo $usu->Correo?></td>
                     <td><?php echo $usu->Telefono?></td>
+<<<<<<< HEAD
                     <td><?php echo $usu->NombreRol?></td>
+=======
+                    <td>
+                    <?php echo $usu->NombreRol ?> </td>
+>>>>>>> 0fbd9a7fb6859bbf9f909f2d53b7290b786f5958
                     <td>
                     <?php if($usu->Estado == 1 ){
                         echo "<h4 style='color:green;'> Activo </h4>";
