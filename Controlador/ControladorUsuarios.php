@@ -173,11 +173,12 @@ elseif(isset($_POST['Actualizarusuario']))
 elseif(isset($_POST['recuperarcontra']))
 {
         $body="";
+        //$mysqli="";
             $email = $mysqli->real_escape_string($_POST['Correo']);
                 define("KEY","ankali");
                 define("COD","AES-128-ECB");
                 $correoencript=openssl_encrypt($email,COD,KEY);
-                //$xx=$email;
+                $xx=$email;
                 
                 $sql = $mysqli->query("SELECT Nombre, Documento FROM usuarios where Correo = '$email'");
                 
