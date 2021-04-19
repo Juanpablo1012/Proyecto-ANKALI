@@ -88,13 +88,15 @@ if(isset($_POST['CrearProduc'])){
 				if($conn->query($sql) === TRUE) {
 					echo 
                 '<script>
-                    alert("Servicio registrado correctamente.");
+                    alert("Producto registrado correctamente.");
+                    window.location="../Vista/Listar_Productoadmin.php";                
                 </script>';
 				} 
 				else {
 					echo 
                 '<script>
                     alert("No se puede agregar intentalo nuevamente.");
+                    window.location="../Vista/Agregar_productoadmin.php";                
                 </script>';
 				}
 				$conn->close();

@@ -1,5 +1,6 @@
 <?php
 $mysqli = mysqli_connect ("localhost", "root", "", "ankali");
+$conn = mysqli_connect ("localhost", "root", "", "ankali");
 
 
 
