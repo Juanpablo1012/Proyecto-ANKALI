@@ -73,7 +73,7 @@ if(!($_SESSION['Documento']))
                 <li><a href="Listar_Pedidoadmin.php">Listar Pedido</a></li>
               </ul>
             </li>
-            <li><a href="Venta.php">Ventas</a></li>
+            <li><a href="Ventaadmin.php">Ventas</a></li>
 
             <li class="menu-has-children"><a href="#">Usuarios</a>
                 <ul>
@@ -82,50 +82,17 @@ if(!($_SESSION['Documento']))
                   <li><a href="Usuariosadmin.php">Listar usuarios</a></li>
                 </ul>
             </li>
-            
+            <li class="menu-has-children"><a href="#">Compra</a>
+                <ul>
+                  <li><a href="Compras.php">Ingresar compra</a></li>
+                  <li><a href="Listar_Compra.php">Listar compras</a></li>
+                </ul>
+            </li>
             <li><a href="../Controlador/DestruirSesion.php">Cerrar Sesión <i class="fa fa-window-close"></i></a></li>
           </ul>
-    </na<nav id="nav-menu-container">
-      <ul class="nav-menu">
-        <li class="menu-active"><a href="admin.php">Inicio</a></li>
-        <li class="menu-has-children"><a href="#">Servicios</a>
-          <ul>
-            <li><a href="Agregar_servicioadmin.php">Agregar servicio</a></li>
-            <li><a href="Listar_Servicioadmin.php">Listar servicios</a></li>
+        </nav>
 
-          </ul>
-        </li>
-        <li class="menu-has-children"><a href="#">Productos</a>
-          <ul>
-            <li><a href="Agregar_productoadmin.php">Agregar producto</a></li>
-            <li><a href="Listar_Productoadmin.php">Listar productos</a></li>
-          </ul>
-        </li>
-        <li class="menu-has-children"><a href="#">Pedidos</a>
-          <ul>
-            <li><a href="Agregar_Pedidoadmin.php">Agregar Pedido</a></li>
-            <li><a href="Listar_Pedidoadmin.php">Listar Pedido</a></li>
-          </ul>
-        </li>
-        <li><a href="Ventaadmin.php">Ventas</a></li>
-
-        <li class="menu-has-children"><a href="#">Usuarios</a>
-            <ul>
-              <li><a href="registroAdmin.php">Registrar usuarios</a></li>
-              <li><a href="ResgistrarRol.php">Registrar roles</a></li>
-              <li><a href="Usuariosadmin.php">Listar usuarios</a></li>
-            </ul>
-        </li>
-        <li class="menu-has-children"><a href="#">Compra</a>
-            <ul>
-              <li><a href="Compras.php">Ingresar compra</a></li>
-              <li><a href="Listar_Compra.php">Listar compras</a></li>
-            </ul>
-        </li>
-        <li><a href="../Controlador/DestruirSesion.php">Cerrar Sesión <i class="fa fa-window-close"></i></a></li>
-      </ul>
-    </nav>
-      </div>
+        </div>
       </header>
   
       <section id="hero4" class="wow fadeIn">

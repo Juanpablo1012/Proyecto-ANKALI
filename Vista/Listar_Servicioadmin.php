@@ -108,8 +108,9 @@ if(!($_SESSION['Documento']))
     <br>
       <section id="hero4" class="wow fadeIn">
       
-        <div class="container mt-4">
-        
+      <div class="hero-container">        
+        <h2>Lista de servicios</h2>
+            <hr></hr>
             <div class="card-body" >
                 <table border="1" class="table table-sriped  table-bordered" id="listarserv">
                     <thead>
