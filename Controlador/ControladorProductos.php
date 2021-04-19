@@ -63,54 +63,49 @@ class ControladorProductos{
 
 }
 $ControladorProductos = new ControladorProductos();
+
 if(isset($_POST['CrearProduc'])){
     $valid = array('success' => false, 'messages' => array());
-
-	$Nombre = $_POST['Nombre'];
-	$Descripcion = $_POST['Descripcion'];
-	$Precio = $_POST['Precio'];
-	$Stock = $_POST['Stock'];
 	$IdTipoProducto = $_POST['IdTipoProducto'];
+	$Nombre = $_POST['Nombre'];
+	$Precio = $_POST['Precio'];
+    $Descripcion = $_POST['Descripcion'];
+    $Stock = $_POST['Stock'];
+
 	$Estado = 1;
-    
+
 	$type = explode('.', $_FILES['Imagen']['name']);
 	$type = $type[count($type)-1];
 	$url = '../Estilo/img/uploads/' . uniqid(rand()) . '.' . $type;
-   
+
 	if(in_array($type, array('gif', 'jpg', 'jpeg', 'png'))) {
 		if(is_uploaded_file($_FILES['Imagen']['tmp_name'])) {
 			if(move_uploaded_file($_FILES['Imagen']['tmp_name'], $url)) {
 
 				// insert into database
-				$sql = "INSERT INTO producto (Nombre, Descripcion, Precio, Stock,TipodeProducto,Imagen,Estado) 
-                VALUES ('$Nombre','$Descripcion', '$Precio','$Stock','$IdTipoProducto','$url','$Estado')";
+				$sql = "INSERT INTO producto (Nombre,Precio,Descripcion,Estado,Stock,Imagen) 
+                VALUES ('$Nombre','$Precio','$Descripcion','$Estado','$Stock','$url')";
 				if($conn->query($sql) === TRUE) {
 					echo 
-                        '<script>
-                            alert("Producto registrado exitosamente.");
-                            window.location="../Vista/Listar_Productoadmin.php";                
-                        </script>';
+                '<script>
+                    alert("Servicio registrado correctamente.");
+                </script>';
 				} 
 				else {
 					echo 
-                        '<script>
-                            alert("No se puede agregar intentalo nuevamente.");
-                            window.location="../Vista/Agregar_productoadmin.php";                
-                        </script>';
+                '<script>
+                    alert("No se puede agregar intentalo nuevamente.");
+                </script>';
 				}
 				$conn->close();
 			}
 			else {
-				echo 
-                    '<script>
-                        alert("No se puede agregar intentalo nuevamente.");
-                        window.location="../Vista/Agregar_productoadmin.php";                
-                    </script>';
+				$valid['success'] = false;
+				$valid['messages'] = "Se Produjo un Error al Agregar";
 			}
 		}
 	}
 	echo json_encode($valid);
-    //echo $ControladorProductos->CrearProducto($_POST['Nombre'],$_POST['Precio'],$_POST['Imagen'],$_POST['Descripcion'],$_POST['Stock'],$_POST['IdTipoProducto']);
 }
 
 elseif(isset($_GET['CambiarEstadoP']))

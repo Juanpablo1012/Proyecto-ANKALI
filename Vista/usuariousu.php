@@ -92,7 +92,7 @@ if(!($_SESSION['Documento']))
 
         <div class="col-md-6 col-lg-3">
           <div class="feature-block">
-            <img src="../../Estilo/img/portalapiz.jpeg"  class="img-fluid" >
+            <img src="../Estilo/img/portalapiz.jpeg"  class="img-fluid" >
             <h4>Portalapiz de perrito</h4>
             <p>Portalapiz de perrito, hecho a mano con foamy</p>
             
@@ -102,7 +102,7 @@ if(!($_SESSION['Documento']))
 
         <div class="col-md-6 col-lg-3">
           <div class="feature-block">
-            <img src="../../Estilo/img/ancheta globo.JPG" alt="img" class="img-fluid">
+            <img src="../Estilo/img/ancheta globo.JPG" alt="img" class="img-fluid">
             <h4>Ancheta Globo</h4>
             <p>Ancheta ideal para relago de cumpleaños</p>
             <button class="btn"><i class="fa fa-shopping-cart"></i> Comprar</button>
@@ -111,7 +111,7 @@ if(!($_SESSION['Documento']))
 
         <div class="col-md-6 col-lg-3">
           <div class="feature-block">
-            <img src="../../Estilo/img/portalapiz leon.jpeg" alt="img" class="img-fluid">
+            <img src="../Estilo/img/portalapiz leon.jpeg" alt="img" class="img-fluid">
             <h4>Portalapiz de león</h4>
             <p>Portalapiz de león, hecho a mano con foamy</p>
             <button class="btn"><i class="fa fa-shopping-cart"></i> Comprar</button>
@@ -121,7 +121,7 @@ if(!($_SESSION['Documento']))
 
         <div class="col-md-6 col-lg-3">
           <div class="feature-block">
-            <img src="../../Estilo/img/Ancheta elefante.JPG" alt="img" class="img-fluid">
+            <img src="../Estilo/img/Ancheta elefante.JPG" alt="img" class="img-fluid">
             <h4>Ancheta Elefante</h4>
             <p>Ancheta con elefeante elaborado en foamy</p>
             <button class="btn"><i class="fa fa-shopping-cart"></i> Comprar</button>
@@ -130,7 +130,7 @@ if(!($_SESSION['Documento']))
         </div>
       </div>
     </div>
-    <a href="Productos.html" style="text-align: center;">Ver más...</a>
+    <a href="Productosusu.php" style="text-align: center;">Ver más...</a>
 
   </section>
   <hr>
@@ -150,7 +150,7 @@ if(!($_SESSION['Documento']))
 
         <div class="col-md-6 col-lg-3">
           <div class="feature-block">
-            <img src="../../Estilo/img/decoracion.jpg"  class="img-fluid" >
+            <img src="../Estilo/img/decoracion.jpg"  class="img-fluid" >
             <h4>Decoración de fiestas</h4>
             <p>Decoramos tu fiestas con la tematica que desees</p>
             <button class="btn" fontawesome=""><i class="fa fa-shopping-cart"></i> Solicitar</button>
@@ -159,7 +159,7 @@ if(!($_SESSION['Documento']))
 
         <div class="col-md-6 col-lg-3">
           <div class="feature-block">
-            <img src="../../Estilo/img/regalos.JPG" alt="img" class="img-fluid">
+            <img src="../Estilo/img/regalos.JPG" alt="img" class="img-fluid">
             <h4>Marcado de regalos</h4>
             <p>Personaliza tu regalo</p>
             <button class="btn"><i class="fa fa-shopping-cart"></i> Solicitar</button>
@@ -168,7 +168,7 @@ if(!($_SESSION['Documento']))
 
         <div class="col-md-6 col-lg-3">
           <div class="feature-block">
-            <img src="../../Estilo/img/Desayuno_niño.jpg" alt="img" class="img-fluid">
+            <img src="../Estilo/img/Desayuno_niño.jpg" alt="img" class="img-fluid">
             <h4>Desayuno sorpresa</h4>
             <p>Personaliza tu desayuno sorpresa</p>
             <button class="btn"><i class="fa fa-shopping-cart"></i> Solicitar</button>
@@ -178,7 +178,7 @@ if(!($_SESSION['Documento']))
 
         <div class="col-md-6 col-lg-3">
           <div class="feature-block">
-            <img src="../../Estilo/img/Ancheta elefante.JPG" alt="img" class="img-fluid">
+            <img src="../Estilo/img/Ancheta elefante.JPG" alt="img" class="img-fluid">
             <h4>Ancheta Elefante</h4>
             <p>Lorem Ipsum is simply dummy </p>
             <button class="btn " ><i class="fa fa-shopping-cart"></i> Comprar</button>
@@ -189,7 +189,7 @@ if(!($_SESSION['Documento']))
 
       </div>
     </div>
-    <a href="Servicios.html" style="text-align: center;">Ver más...</a>
+    <a href="Serviciosusu.php" style="text-align: center;">Ver más...</a>
   </section>
 
   <hr>
