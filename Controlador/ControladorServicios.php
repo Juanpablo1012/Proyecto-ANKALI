@@ -84,13 +84,13 @@ if(isset($_POST['AgregarServ'])){
 	$type = $type[count($type)-1];
 	$url = '../Estilo/img/uploads/' . uniqid(rand()) . '.' . $type;
 
-	if(in_array($type, array('gif', 'jpg', 'jpeg', 'png'))) {
+	if(in_array($type, array('gif', 'jpg', 'jpeg', 'png','tiff','psd','bmp','JGP','JPEG','PNG'))) {
 		if(is_uploaded_file($_FILES['Imagen']['tmp_name'])) {
 			if(move_uploaded_file($_FILES['Imagen']['tmp_name'], $url)) {
 
 				// insert into database
-				$sql = "INSERT INTO servicios (Nombre, Descripcion, Precio, Imagen,Estado) 
-                VALUES ('$Nombre','$Descripcion', '$Precio','$url','$Estado')";
+				$sql = "INSERT INTO servicios (Nombre, Imagen, Descripcion, Precio,Estado) 
+                VALUES ('$Nombre','$url','$Descripcion', '$Precio','$Estado')";
 				if($conn->query($sql) === TRUE) {
 					echo 
                 '<script>
@@ -113,6 +113,7 @@ if(isset($_POST['AgregarServ'])){
 			}
 		}
 	}
+    echo $Nombre, $Descripcion, $Precio,  $Estado,   $url;
 	echo json_encode($valid);
 }
 
@@ -133,15 +134,15 @@ elseif(isset($_POST['Editarservicio']))
 	    $type = $type[count($type)-1];
         $url = '../Estilo/img/uploads/' . uniqid(rand()) . '.' . $type;
   
-        if(in_array($type, array('gif', 'jpg', 'jpeg', 'png'))) {
+        if(in_array($type, array('gif', 'jpg', 'jpeg', 'png','tiff','psd','bmp','JPG','GIF','JPEG','PNG'))) {
             if(is_uploaded_file($_FILES['Imagen']['tmp_name'])) {
                 if(move_uploaded_file($_FILES['Imagen']['tmp_name'], $url)) {
                     // insert into database
                     $sql = "UPDATE  servicios SET 
                     Nombre='$Nombre',
+                    Imagen='$url',
                     Descripcion='$Descripcion',
-                    Precio='$Precio',
-                    Imagen='$url' 
+                    Precio='$Precio'
                     WHERE IdServicios='$id'";
     
                     if($conn->query($sql) === TRUE) {
@@ -162,11 +163,8 @@ elseif(isset($_POST['Editarservicio']))
                     $valid['messages'] = "Se Produjo un Error al Agregar";
                 }
             }
-            echo 
-                '<script>
-                    alert("Servicio registrado correctamente.");
-                    window.location="../Vista/Listar_Servicioadmin.php";                
-                </script>';
+            echo $Nombre, $Descripcion, $Precio,   $url;
+	echo json_encode($valid);
 }
 
 }

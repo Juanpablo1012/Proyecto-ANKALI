@@ -117,8 +117,8 @@ if(!($_SESSION['Documento']))
                     <tr>
                         <th>Codigo</th>
                         <th>Nombre</th>
-                        <th>Descripción</th>
                         <th>Imagen</th>
+                        <th>Descripción</th>
                         <th>Precio</th>
                         <th>Estado</th>
                         <th></th>
@@ -133,9 +133,10 @@ if(!($_SESSION['Documento']))
                             <tr>
                                 <td><?php echo $servicio->IdServicios?></td>
                                 <td><?php echo $servicio->Nombre?></td>
-                                <td><?php echo $servicio->Descripcion?></td>
                                 <?php  $ruta= $servicio->Imagen;?>
 				                        <td><?php echo "<img src='$ruta' widht='150' height='150' />"  ?></td>  
+                                <td><?php echo $servicio->Descripcion?></td>
+                                
                                 <td><?php echo $servicio->Precio?></td>
                                 <td>
                                   <?php if($servicio->Estado == 1 ){

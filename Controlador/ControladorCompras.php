@@ -52,7 +52,7 @@ if(isset($_POST['Agregar'])){
 	$type = $type[count($type)-1];
 	$url = '../Estilo/img/uploads/' . uniqid(rand()) . '.' . $type;
 
-	if(in_array($type, array('gif', 'jpg', 'jpeg', 'png'))) {
+    if(in_array($type, array('gif', 'jpg', 'jpeg', 'png','tiff','psd','bmp','JPG','GIF','JPEG','PNG'))) {
 		if(is_uploaded_file($_FILES['Factura']['tmp_name'])) {
 			if(move_uploaded_file($_FILES['Factura']['tmp_name'], $url)) {
 
@@ -107,7 +107,7 @@ elseif(isset($_POST['Editar']))
 	    $type = $type[count($type)-1];
         $url = '../Estilo/img/uploads/' . uniqid(rand()) . '.' . $type;
   
-        if(in_array($type, array('gif', 'jpg', 'jpeg', 'png'))) {
+        if(in_array($type, array('gif', 'jpg', 'jpeg', 'png','tiff','psd','bmp','JPG','GIF','JPEG','PNG'))) {
             if(is_uploaded_file($_FILES['Factura']['tmp_name'])) {
                 if(move_uploaded_file($_FILES['Factura']['tmp_name'], $url)) {
                     // insert into database
