@@ -81,10 +81,10 @@ if(isset($_POST['AgregarServ'])){
 	$Precio = $_POST['Precio'];
 	$Estado = 1;
 	$type = explode('.', $_FILES['Imagen']['name']);
-	$type = $type[count($type)-1];
+	$type = strtolower($type[count($type)-1]);
 	$url = '../Estilo/img/uploads/' . uniqid(rand()) . '.' . $type;
 
-	if(in_array($type, array('gif', 'jpg', 'jpeg', 'png','tiff','psd','bmp','JGP','JPEG','PNG'))) {
+	if(in_array($type, array('gif', 'jpg', 'jpeg', 'png','tiff','psd','bmp'))) {
 		if(is_uploaded_file($_FILES['Imagen']['tmp_name'])) {
 			if(move_uploaded_file($_FILES['Imagen']['tmp_name'], $url)) {
 

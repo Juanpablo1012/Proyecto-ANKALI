@@ -49,8 +49,8 @@
       <div id="logo" class="pull-left">
         
       <h1>
-        <a href="index.html" class="scrollto">
-          <a href="index.html">
+        <a href="../index.php" class="scrollto">
+          <a href="../index.php">
             <img src="../Estilo/img/logo-blanco.png" width="70" height="70">
           </a>  
             ANKALI

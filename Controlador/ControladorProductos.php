@@ -65,8 +65,9 @@ class ControladorProductos{
 $ControladorProductos = new ControladorProductos();
 
 if(isset($_POST['CrearProduc'])){
+
     $valid = array('success' => false, 'messages' => array());
-	$TipodeProducto = $_POST['IdTipoProducto'];
+	$IdTipoProducto = $_POST['IdTipoProducto'];
 	$Nombre = $_POST['Nombre'];
 	$Precio = $_POST['Precio'];
     $Descripcion = $_POST['Descripcion'];
@@ -75,26 +76,30 @@ if(isset($_POST['CrearProduc'])){
 	$Estado = 1;
 
 	$type = explode('.', $_FILES['Imagen']['name']);
-	$type = $type[count($type)-1];
+	$type = strtolower($type[count($type)-1]);
     $url = '../Estilo/img/uploads/' . uniqid(rand()) . '.' . $type;
 
-    if(in_array($type, array('gif', 'jpg', 'jpeg', 'png','tiff','psd','bmp','JPG','GIF','JPEG','PNG'))) {
+    if(in_array($type, array('gif', 'jpg', 'jpeg', 'png','tiff','psd','bmp'))) {
 		if(is_uploaded_file($_FILES['Imagen']['tmp_name'])) {
 			if(move_uploaded_file($_FILES['Imagen']['tmp_name'], $url)) {
 
 				// insert into database
-				$sql = "INSERT INTO producto (Nombre,Descripcion,Imagen,Precio,Stock,Estado) 
-                VALUES ('$Nombre','$Descripcion','$url','$Precio','$Stock','$Estado')";
+				$sql = "INSERT INTO producto (Nombre,Descripcion,Imagen,Precio,Stock,Estado,TipodeProducto) 
+                VALUES ('$Nombre','$Descripcion','$url','$Precio','$Stock','$Estado',$IdTipoProducto)";
 				if($conn->query($sql) === TRUE) {
 					echo 
-                '<script>
-                    alert("Producto registrado correctamente.");
-                </script>';
+                        '<script>
+                            alert("Producto registrado correctamente.");
+                            window.location="../Vista/Listar_Productoadmin.php";                
+                        </script>';
+                        $valid['success'] = true;
+                        $valid['messages'] = "Producto Agregado Correctamente";
 				} 
 				else {
 					echo 
                 '<script>
                     alert("No se puede agregar intentalo nuevamente.");
+                    window.location="../Vista/Agregar_productoadmin.php";                
                 </script>';
 				}
 				$conn->close();
@@ -106,7 +111,7 @@ if(isset($_POST['CrearProduc'])){
 		}
 	}
 	echo json_encode($valid);
-    echo $Nombre,'---', $Descripcion,'---',$url,'---',$Precio,'---',$Stock,'---',$Estado,'---',$TipodeProducto;
+    
 }
 
 elseif(isset($_GET['CambiarEstadoP']))
@@ -148,7 +153,6 @@ elseif(isset($_POST['EditarProducto']))
                         Stock='$Stock',
                         Imagen='$url' 
                         WHERE IdProducto='$id'";
-                    if($conn->query($sql) === TRUE) {
                         if($conn->query($sql) === TRUE) 
                         {
                         echo 
@@ -176,10 +180,10 @@ elseif(isset($_POST['EditarProducto']))
                     }
                 }
             }
+            echo json_encode($valid);
+
         }
-	echo json_encode($valid);
-    
-}
+
 
 ?>
 
