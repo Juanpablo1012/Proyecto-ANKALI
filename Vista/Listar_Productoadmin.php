@@ -67,13 +67,8 @@ if(!($_SESSION['Documento']))
     <nav id="nav-menu-container">
       <ul class="nav-menu">
         <li class="menu-active"><a href="admin.php">Inicio</a></li>
-        <li class="menu-has-children"><a href="#">Servicios</a>
-          <ul>
-            <li><a href="Agregar_servicioadmin.php">Agregar servicio</a></li>
-            <li><a href="Listar_Servicioadmin.php">Listar servicios</a></li>
-
-          </ul>
-        </li>
+        <li class="menu-has-children"><a href="Listar_Servicioadmin.php">Servicios</a></li>
+        
         <li class="menu-has-children"><a href="#">Productos</a>
           <ul>
             <li><a href="Agregar_productoadmin.php">Agregar producto</a></li>
@@ -125,7 +120,6 @@ if(!($_SESSION['Documento']))
                     <th>Precio</th>
                     <th>Imagen</th>
                     <th>Descripcion</th>
-                    <th>Cantidad disponible</th>
                     <th>Tipo de Producto</th>
                     <th>Estado</th>
                     <th>Editar</th>
@@ -145,7 +139,6 @@ if(!($_SESSION['Documento']))
                     <?php  $ruta= $producto->Imagen;?>
 				              <td><?php echo "<img src='$ruta' widht='150' height='150' />"  ?></td> 
                     <td><?php echo $producto->Descripcion?></td>
-                    <td><?php echo $producto->Stock?></td>
                     <td>
                     <?php if($producto->TipodeProducto == 1 ){
                         echo "Producto";

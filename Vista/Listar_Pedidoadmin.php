@@ -1,20 +1,36 @@
 <?php
 session_start();
+
+require_once("../Controlador/Controladorpedido.php");
+$Listarpedido = $ControladorPedido->Listarpedido();
+
 if(!($_SESSION['Documento']))
 {
   header ("Location:../index.php");
-}
+} 
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <title>ANKALI</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANKALI</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.css" />
+
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.js"></script>
+
+    
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
-
-  <!-- Favicons -->
   <link href="../Estilo/img/logo-negro.png" rel="icon">
   <link href="../Estilo/img/apple-touch-icon.png" rel="apple-touch-icon">
 
@@ -34,19 +50,14 @@ if(!($_SESSION['Documento']))
 
   <!-- Main Stylesheet File -->
   <link href="../Estilo/css/style.css" rel="stylesheet">
-<!--DATATABLE-->
-  <!-- =======================================================
-    Theme Name: eStartup
-    Theme URL: https://bootstrapmade.com/estartup-bootstrap-landing-page-template/
-    Author: BootstrapMade.com
-    License: https://bootstrapmade.com/license/
-  ======================================================= -->
+
+
+
 </head>
 
 <body>
-
-   <header id="header" class="header header-hide">
-   <div class="container">
+    <header id="header" class="header header-hide">
+    <div class="container">
     
     <div id="logo" class="pull-left">
       <h1><a href="admin.php" class="scrollto"><a href=""><img src="../Estilo/img/logo-blanco.png" width="70" height="70"> </a>  ANKALI</a></h1>
@@ -56,13 +67,8 @@ if(!($_SESSION['Documento']))
     <nav id="nav-menu-container">
       <ul class="nav-menu">
         <li class="menu-active"><a href="admin.php">Inicio</a></li>
-        <li class="menu-has-children"><a href="#">Servicios</a>
-          <ul>
-            <li><a href="Agregar_servicioadmin.php">Agregar servicio</a></li>
-            <li><a href="Listar_Servicioadmin.php">Listar servicios</a></li>
-
-          </ul>
-        </li>
+        <li class="menu-has-children"><a href="Listar_Servicioadmin.php">Servicios</a></li>
+        
         <li class="menu-has-children"><a href="#">Productos</a>
           <ul>
             <li><a href="Agregar_productoadmin.php">Agregar producto</a></li>
@@ -94,51 +100,72 @@ if(!($_SESSION['Documento']))
       </ul>
     </nav>
   </div>
-      </header>
-  
-      <section id="hero4" class="wow fadeIn">
-        <div class="hero-container">
-          <h1>Listado de pedidos</h1>
-            <HR></HR>
-          <table id="tabla" class="table table-bordered"> 
-            <thead style="text-align: center;">
-                <tr>
-                    <th>Número de<br> pedido</th>
-                    <th>Nombre del <br>cliente</th>
-                    <th>Número de <br>documento</th>
-                    <th>Producto</th>
-                    <th>Servicio</th>
-                    <th>Fecha</th>
-                    <th>Total</th>
-                    <td>Estado</td>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody style="text-align: center;">
-                <tr>
-                    <td>01</td>
-                    <td>Karen Luna</td>
-                    <td>301-291-15-79</td>
-                    <td>
-                      <td>
-                        <img src="../img/Desayuno_niño.jpg" alt="img" class="img-fluid">
-                      </td>
-                    <td>31/10/2020</td>
-                    <td>55.000</td>
-                    <td>Pendiente</td>
-                    <td>
-                        <a href="">Cambiar estado</a>
-                        
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-          
-        </div>
-      </section>
-  
+  </header>
+      <br>
 
-  <footer class="footer">
+
+
+
+
+      <section id="hero4" class="wow fadeIn">
+      
+    <div class="container mt-4">
+    
+        <div class="card-body" >
+            <table border="1" class="table table-sriped  table-bordered" id="litarroles">
+                <thead>
+                <tr>
+                    <th>Codigo Pedido</th>
+                    <th>Nombre cliente</th>
+                    <th>Fecha</th>
+                    <th>Ver detalle</th>
+                    <th>Estado</th>
+                    <th>Cambiar Estado</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <?php
+                foreach($Listarpedido as $pedido)
+                {
+                ?> 
+                <tr>
+                    <td><?php echo $pedido["IdPedido"]?></td>
+                    <td><?php echo $pedido["nombreCl"]?></td>
+                    <td><?php echo $pedido["Fecha"]?></td>
+                    
+                    <td>
+                    <?php if($pedido["Estado"] == 1 ){
+                        echo "<h4 style='color:yellow;'> Por enviar </h4>";
+                    } else
+                    {
+                        echo "<h4 style='color:green;'> Enviado </h4>";
+                    } ?>           
+                    </td>
+                    <td>
+                        <a href="../Controlador/ControladorProductos.php?EditarProducto&IdProducto=<?php echo $producto->IdProducto?>" class="btn btn" >Detalle</a>
+                    </td>
+                    <td>
+                        <a href="../Controlador/ControladorProductos.php?CambiarEstadoP&IdProducto=<?php echo $producto->IdProducto?>" class="btn btn" ><?php if($pedido["Estado"] == 1 ){
+                        echo "Enviar";
+                    } else
+                    {
+                        echo "No enviar";
+                    } ?></a>
+                    </td>
+                    
+                </tr>
+                <?php
+                }
+                ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    </section>
+
+    <footer class="footer">
       <div class="copyrights">
         <p>&copy; Copyrights eStartup. All rights reserved.</p>
         <div class="credits">
@@ -147,8 +174,9 @@ if(!($_SESSION['Documento']))
       </div>
   </footer>
 
-  <!-- JavaScript Libraries -->
-  <script src="../Estilo/lib/jquery/jquery.min.js"></script>
+
+
+    <!-- <script src="../Estilo/lib/jquery/jquery.min.js"></script> -->
   <script src="../Estilo/lib/jquery/jquery-migrate.min.js"></script>
   <script src="../Estilo/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="../Estilo/lib/superfish/hoverIntent.js"></script>
@@ -163,5 +191,21 @@ if(!($_SESSION['Documento']))
   <!-- Template Main Javascript File -->
   <script src="../Estilo/js/main.js"></script>
 
+
+
+
+    <script>
+        $(document).ready(function () {
+            $('#litarroles').DataTable({
+                "language": {
+      "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+    }
+            });
+            
+        });
+    </script>
+
+    
 </body>
+
 </html>

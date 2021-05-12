@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-require_once("../Controlador/ControladorServicios.php");
-$listarserv = json_decode($ControladorServicios->Listarservicio());
+require_once("../Controlador/ControladorProductos.php");
+$ListarServicio = json_decode($ControladorProductos->ListarServicio());
 
 if(!($_SESSION['Documento']))
 {
@@ -57,116 +57,126 @@ if(!($_SESSION['Documento']))
 
 <body>
     <header id="header" class="header header-hide">
-      <div class="container">
+    <div class="container">
     
-          <div id="logo" class="pull-left">
-            <h1><a href="admin.php" class="scrollto"><a href=""><img src="../Estilo/img/logo-blanco.png" width="70" height="70"> </a>  ANKALI</a></h1>
-          </div>
-          <nav id="nav-menu-container">
-              <ul class="nav-menu">
-                <li class="menu-active"><a href="admin.php">Inicio</a></li>
-                <li class="menu-has-children"><a href="#">Servicios</a>
-                  <ul>
-                    <li><a href="Agregar_servicioadmin.php">Agregar servicio</a></li>
-                    <li><a href="Listar_Servicioadmin.php">Listar servicios</a></li>
+    <div id="logo" class="pull-left">
+      <h1><a href="admin.php" class="scrollto"><a href=""><img src="../Estilo/img/logo-blanco.png" width="70" height="70"> </a>  ANKALI</a></h1>
+      <!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
+    </div>
 
-                  </ul>
-                </li>
-                <li class="menu-has-children"><a href="#">Productos</a>
-                  <ul>
-                    <li><a href="Agregar_productoadmin.php">Agregar producto</a></li>
-                    <li><a href="Listar_Productoadmin.php">Listar productos</a></li>
-                  </ul>
-                </li>
-                <li class="menu-has-children"><a href="#">Pedidos</a>
-                  <ul>
-                    <li><a href="Agregar_Pedidoadmin.php">Agregar Pedido</a></li>
-                    <li><a href="Listar_Pedidoadmin.php">Listar Pedido</a></li>
-                  </ul>
-                </li>
-                <li><a href="Ventaadmin.php">Ventas</a></li>
+    <nav id="nav-menu-container">
+      <ul class="nav-menu">
+        <li class="menu-active"><a href="admin.php">Inicio</a></li>
+        <li class="menu-has-children"><a href="Listar_Servicioadmin.php">Servicios</a></li>
+        
+        <li class="menu-has-children"><a href="#">Productos</a>
+          <ul>
+            <li><a href="Agregar_productoadmin.php">Agregar producto</a></li>
+            <li><a href="Listar_Productoadmin.php">Listar productos</a></li>
+          </ul>
+        </li>
+        <li class="menu-has-children"><a href="#">Pedidos</a>
+          <ul>
+            <li><a href="Agregar_Pedidoadmin.php">Agregar Pedido</a></li>
+            <li><a href="Listar_Pedidoadmin.php">Listar Pedido</a></li>
+          </ul>
+        </li>
+        <li><a href="Ventaadmin.php">Ventas</a></li>
 
-                <li class="menu-has-children"><a href="#">Usuarios</a>
-                    <ul>
-                      <li><a href="registroAdmin.php">Registrar usuarios</a></li>
-                      <li><a href="ResgistrarRol.php">Registrar roles</a></li>
-                      <li><a href="Usuariosadmin.php">Listar usuarios</a></li>
-                    </ul>
-                </li>
-                <li class="menu-has-children"><a href="#">Compra</a>
-                  <ul>
-                    <li><a href="Compras.php">Ingresar compra</a></li>
-                    <li><a href="Listar_Compra.php">Listar compras</a></li>
-                  </ul>
-                </li>
-                <li><a href="../Controlador/DestruirSesion.php">Cerrar Sesión <i class="fa fa-window-close"></i></a></li>
-              </ul>
+        <li class="menu-has-children"><a href="#">Usuarios</a>
+            <ul>
+              <li><a href="registroAdmin.php">Registrar usuarios</a></li>
+              <li><a href="ResgistrarRol.php">Registrar roles</a></li>
+              <li><a href="Usuariosadmin.php">Listar usuarios</a></li>
+            </ul>
+        </li>
+        <li class="menu-has-children"><a href="#">Compra</a>
+            <ul>
+              <li><a href="Compras.php">Ingresar compra</a></li>
+              <li><a href="Listar_Compra.php">Listar compras</a></li>
+            </ul>
+        </li>
+        <li><a href="../Controlador/DestruirSesion.php">Cerrar Sesión <i class="fa fa-window-close"></i></a></li>
+      </ul>
     </nav>
-      </div>
-    
-    </header>
-    <br>
+  </div>
+  </header>
+      <br>
+
+
+
+
+
       <section id="hero4" class="wow fadeIn">
       
-      <div class="hero-container">        
-        <h2>Lista de servicios</h2>
-            <hr></hr>
-            <div class="card-body" >
-                <table border="1" class="table table-sriped  table-bordered" id="listarserv">
-                    <thead>
-                    <tr>
-                        <th>Codigo</th>
-                        <th>Nombre</th>
-                        <th>Imagen</th>
-                        <th>Descripción</th>
-                        <th>Precio</th>
-                        <th>Estado</th>
-                        <th></th>
-                        <th colspan="">Cambiar Estado</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                            foreach($listarserv as $servicio)
-                            {
-                            ?> 
-                            <tr>
-                                <td><?php echo $servicio->IdServicios?></td>
-                                <td><?php echo $servicio->Nombre?></td>
-                                <?php  $ruta= $servicio->Imagen;?>
-				                        <td><?php echo "<img src='$ruta' widht='150' height='150' />"  ?></td>  
-                                <td><?php echo $servicio->Descripcion?></td>
-                                
-                                <td><?php echo $servicio->Precio?></td>
-                                <td>
-                                  <?php if($servicio->Estado == 1 ){
-                                  echo "<h4 style='color:green;'> Activo </h4>";
-                                  } else
-                                  {
-                                      echo "<h4 style='color:red;'> Inhabiliado </h4>";
-                                  } ?>             
-                                </td>
-                                <td>
-                                  <a href="../Controlador/ControladorServicios.php?Editarservicio&IdServicios=<?php echo $servicio->IdServicios?>" class="btn btn" >Editar</a>
-                                </td>
-                                <td>
-                                  <a href="../Controlador/ControladorServicios.php?CambiarEstadoS&IdServicios=<?php echo $servicio->IdServicios?>" class="btn btn" ><?php if($servicio->Estado == 1 ){
-                                  echo "Inhabilitar";
-                                  } else
-                                  {
-                                      echo "Activar";
-                                  } ?></a>
-                                </td>
-                            </tr>
-                            <?php
-                            }
-                            ?>
-                      </tbody>
-                </table>
-            </div>
-        </div>
+    <div class="container mt-4">
+    
+        <div class="card-body" >
+            <table border="1" class="table table-sriped  table-bordered" id="litarroles">
+                <thead>
+                <tr>
+                    <th>Codigo Producto</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Imagen</th>
+                    <th>Descripcion</th>
+                    <th>Tipo de Producto</th>
+                    <th>Estado</th>
+                    <th>Editar</th>
+                    <th>Cambiar Estado</th>
+                </tr>
+                </thead>
+                <tbody>
 
-      </section>
+                <?php
+                foreach($ListarServicio as $servicio)
+                {
+                ?> 
+                <tr>
+                    <td><?php echo $servicio->IdProducto?></td>
+                    <td><?php echo $servicio->Nombre?></td>
+                    <td><?php echo $servicio->Precio?></td>
+                    <?php  $ruta= $servicio->Imagen;?>
+				              <td><?php echo "<img src='$ruta' widht='150' height='150' />"  ?></td> 
+                    <td><?php echo $servicio->Descripcion?></td>
+                    <td>
+                    <?php if($servicio->TipodeProducto == 1 ){
+                        echo "Producto";
+                    } else
+                    {
+                        echo "Insumo";
+                    } ?>            
+                    </td>
+                    <td>
+                    <?php if($servicio->Estado == 1 ){
+                        echo "<h4 style='color:green;'> Activo </h4>";
+                    } else
+                    {
+                        echo "<h4 style='color:red;'> Inhabiliado </h4>";
+                    } ?>           
+                    </td>
+                    <td>
+                        <a href="../Controlador/ControladorProductos.php?EditarProducto&IdProducto=<?php echo $servicio->IdProducto?>" class="btn btn" >Editar</a>
+                    </td>
+                    <td>
+                        <a href="../Controlador/ControladorProductos.php?CambiarEstadoP&IdProducto=<?php echo $servicio->IdProducto?>" class="btn btn" ><?php if($servicio->Estado == 1 ){
+                        echo "Inhabilitar";
+                    } else
+                    {
+                        echo "Activar";
+                    } ?></a>
+                    </td>
+                    
+                </tr>
+                <?php
+                }
+                ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    </section>
 
     <footer class="footer">
       <div class="copyrights">
@@ -180,7 +190,7 @@ if(!($_SESSION['Documento']))
 
 
     <!-- <script src="../Estilo/lib/jquery/jquery.min.js"></script> -->
-    <script src="../Estilo/lib/jquery/jquery-migrate.min.js"></script>
+  <script src="../Estilo/lib/jquery/jquery-migrate.min.js"></script>
   <script src="../Estilo/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="../Estilo/lib/superfish/hoverIntent.js"></script>
   <script src="../Estilo/lib/superfish/superfish.min.js"></script>
@@ -193,9 +203,13 @@ if(!($_SESSION['Documento']))
 
   <!-- Template Main Javascript File -->
   <script src="../Estilo/js/main.js"></script>
+
+
+
+
     <script>
         $(document).ready(function () {
-            $('#listarserv').DataTable({
+            $('#litarroles').DataTable({
                 "language": {
       "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
     }
