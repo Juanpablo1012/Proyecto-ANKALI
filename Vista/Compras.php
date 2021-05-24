@@ -92,7 +92,7 @@ if(!($_SESSION['Documento']))
   ?>
   
   <section id="hero3" class="wow fadeIn">
-    <div class="wrapper3 fadeInDown">
+    <div class="wrapper2 fadeInDown">
         <div id="formContent3">
           <!-- Tabs Titles -->
       
@@ -108,9 +108,9 @@ if(!($_SESSION['Documento']))
             <input type="hidden" value="<?php echo $fechaA ?>" id="Fecha" class="fadeIn second" name="Fecha" placeholder="Número">
             <input type="hidden" id="DocumentoUsuario" class="fadeIn second" value="<?php echo $doc?>"name="DocumentoUsuario" placeholder="Número">
 
-            <input type="file" id="Factura" class="fadeIn third" name="Factura" placeholder="Factura">
+            <input type="file" id="Factura" class="fadeIn third" name="Factura" placeholder="Factura" required>
 
-            <input type="number" id="Total" class="fadeIn second" name="Total" placeholder="Total de la compra">
+            <input type="number" id="Total" class="fadeIn second" name="Total" placeholder="Total de la compra" required>
 
             <input type="submit" name="Agregar" class="fadeIn fourth" value="Agregar">
 

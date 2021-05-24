@@ -2134,6 +2134,154 @@ input[type=text]:placeholder {
 #hero3 .btns a:hover {
   color: #71c55d;
 }
+
+.wrapper4 {
+  background: linear-gradient(274deg, #46c9d0d8, #6262e2d2 44%, #c862f7d8);
+
+  display: flex;
+  align-items: center;
+  flex-direction: column; 
+  justify-content: center;
+  width: 100%;
+  min-height: 100%;
+  padding: 60px;
+}
+
+#formContent4 {
+  
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  padding: 30px;
+  width: 90%;
+  max-width: 800px;
+  position: relative;
+  -webkit-box-shadow: 0 40px 80px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 40px 80px 0 rgba(0,0,0,0.3);
+  text-align: center;
+}
+#hero4 {
+  width: 100%;
+  height: calc(100vh - 40px);
+  /*background: url(../img/hero-bg.png) center bottom no-repeat;*/
+  background-size: 100%;
+  position: relative;
+  margin-top: 40px;
+}
+#hero4 h6 {
+  font-size: 30px;
+  font-weight: 700;
+  font-family: "Philosopher", sans-serif;
+}
+
+@media (min-width: 1025px) {
+  #hero {
+    background-attachment: fixed;
+  }
+}
+#hero4 {
+  width: 100%;
+  height: calc(100vh - 40px);
+  /*background: url(../img/hero-bg.png) center bottom no-repeat;*/
+  background-size: 100%;
+  position: relative;
+  margin-top: 100px;
+}
+#hero4 .hero-container {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+#hero4 h1 {
+  margin: 0 0 10px 0;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  font-family: "Philosopher", sans-serif;
+  color:#ffffff;
+}
+
+@media (max-width: 768px) {
+  #hero4 h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+}
+
+#hero4 h2 {
+  color: #fff;
+  margin-bottom: 30px;
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+}
+
+@media (max-width: 768px) {
+  #hero4 h2 {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
+}
+
+#hero4 img {
+  max-width: 95%;
+  margin-bottom: 10px;
+}
+
+#hero4 .btn-get-started {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 11px 36px;
+  border-radius: 50px;
+  transition: 0.5s;
+  margin-bottom: 30px;
+  border: 2px solid #71c55d;
+  background: #fff;
+  color: #71c55d;
+  text-decoration: none;
+}
+
+#hero4 .btn-get-started:hover {
+  background: #71c55d;
+  color: #fff;
+}
+
+#hero4 .btns a {
+  color: #555;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 4px 20px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+@media (max-width: 575px) {
+  #hero4 .btns a {
+    margin: 4px 8px;
+  }
+}
+
+#hero4 .btns a:hover {
+  color: #71c55d;
+}
+
+
+
+
+
 #tabla{
   width:100%;
   text-align: center;

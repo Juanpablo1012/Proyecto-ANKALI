@@ -107,12 +107,16 @@ if(!($_SESSION['Documento']))
 
 
 
-      <section id="hero4" class="wow fadeIn">
+<section id="hero4" class="wow fadeIn">
       
+      <div class="hero-container">        
+        <h2>Lista de servicios</h2>
+            <hr></hr>
+            
     <div class="container mt-4">
     
         <div class="card-body" >
-            <table border="1" class="table table-sriped  table-bordered" id="litarroles">
+            <table border="1" class="table table-sriped  table-bordered" id="listarserv">
                 <thead>
                 <tr>
                     <th>Codigo Producto</th>
@@ -173,6 +177,7 @@ if(!($_SESSION['Documento']))
                 ?>
                 </tbody>
             </table>
+
         </div>
     </div>
 
@@ -209,7 +214,7 @@ if(!($_SESSION['Documento']))
 
     <script>
         $(document).ready(function () {
-            $('#litarroles').DataTable({
+            $('#listarserv').DataTable({
                 "language": {
       "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
     }

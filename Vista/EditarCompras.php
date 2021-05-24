@@ -93,7 +93,7 @@ if(!($_SESSION['Documento']))
   $fechaA=date("Y-m-d H:i:s");
   ?>
   <section id="hero3" class="wow fadeIn">
-    <div class="wrapper3 fadeInDown">
+    <div class="wrapper2 fadeInDown">
         <div id="formContent3">
           <!-- Tabs Titles -->
       

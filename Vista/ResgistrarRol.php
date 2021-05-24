@@ -106,7 +106,6 @@
         </div>
         <!-- Login Form -->
         <form Method="POST" action="../Controlador/ControladorUsuarios.php">
-        <p class="label">Nombre del rol</p>
           <input type="text" id="NombreRol" class="fadeIn third" name="NombreRol" placeholder="Nombre del rol" required>
           
           <button type="submit" name="registro" class="fadeIn fourth">Guardar</button>

@@ -111,6 +111,7 @@ if(!($_SESSION['Documento']))
                     <tr>
                         <th>Codigo</th>
                         <th>Documento de quien <br>ingreso la compra</th>
+                        <th>Nombre de quien <br>ingreso la compra</th>
                         <th>Factura</th>
                         <th>Total</th>
                         <th>Fecha</th>
@@ -126,6 +127,7 @@ if(!($_SESSION['Documento']))
                             <tr>
                                 <td><?php echo $x->IdCompra?></td>
                                 <td><?php echo $x->DocumentoUsuario?></td>
+                                <td><?php echo $x->nombreU?></td>
                                 <?php  $ruta= $x->Factura;?>
 				                        <td><?php echo "<img src='$ruta' widht='150' height='150' />"  ?></td>  
                                 <td><?php echo $x->Total?></td>
