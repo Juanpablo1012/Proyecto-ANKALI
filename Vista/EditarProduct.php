@@ -52,13 +52,8 @@ if(!($_SESSION['Documento']))
     <nav id="nav-menu-container">
       <ul class="nav-menu">
         <li class="menu-active"><a href="admin.php">Inicio</a></li>
-        <li class="menu-has-children"><a href="#">Servicios</a>
-          <ul>
-            <li><a href="Agregar_servicioadmin.php">Agregar servicio</a></li>
-            <li><a href="Listar_Servicioadmin.php">Listar servicios</a></li>
-
-          </ul>
-        </li>
+        <li class="menu-has-children"><a href="Listar_Servicioadmin.php">Servicios</a></li>
+        
         <li class="menu-has-children"><a href="#">Productos</a>
           <ul>
             <li><a href="Agregar_productoadmin.php">Agregar producto</a></li>
@@ -116,7 +111,7 @@ if(!($_SESSION['Documento']))
 
             <input type="file" name="Imagen" class="fadeIn second" value="<?php echo $product->getImagen() ?>" placeholder="Imagen" required>
 
-            <textarea type="number" name="Descripcion" class="fadeIn second" value="<?php echo $product->getDescripcion() ?>"placeholder="Descripcion"></textarea>
+            <textarea type="text" name="Descripcion" class="fadeIn second" value="<?php echo $product->getDescripcion() ?>"placeholder="Descripcion"></textarea>
 
             <input type="number" name="Stock" class="fadeIn second" value="<?php echo $product->getStock() ?>" placeholder="Stock" required>
              

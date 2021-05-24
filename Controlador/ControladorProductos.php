@@ -42,6 +42,12 @@ class ControladorProductos{
         return json_encode($crudproducto->Listarproducto());
     } 
 
+    public function ListarServicio(){
+
+        $crudproducto = new CrudProductos();
+        return json_encode($crudproducto->ListarServicio());
+    } 
+
     public function ListarTipoproducto(){
 
         $crudproducto = new CrudProductos();

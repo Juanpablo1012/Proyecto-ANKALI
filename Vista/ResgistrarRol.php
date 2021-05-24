@@ -55,13 +55,8 @@
     <nav id="nav-menu-container">
       <ul class="nav-menu">
         <li class="menu-active"><a href="admin.php">Inicio</a></li>
-        <li class="menu-has-children"><a href="#">Servicios</a>
-          <ul>
-            <li><a href="Agregar_servicioadmin.php">Agregar servicio</a></li>
-            <li><a href="Listar_Servicioadmin.php">Listar servicios</a></li>
-
-          </ul>
-        </li>
+        <li class="menu-has-children"><a href="Listar_Servicioadmin.php">Servicios</a></li>
+        
         <li class="menu-has-children"><a href="#">Productos</a>
           <ul>
             <li><a href="Agregar_productoadmin.php">Agregar producto</a></li>
@@ -83,7 +78,12 @@
               <li><a href="Usuariosadmin.php">Listar usuarios</a></li>
             </ul>
         </li>
-        
+        <li class="menu-has-children"><a href="#">Compra</a>
+            <ul>
+              <li><a href="Compras.php">Ingresar compra</a></li>
+              <li><a href="Listar_Compra.php">Listar compras</a></li>
+            </ul>
+        </li>
         <li><a href="../Controlador/DestruirSesion.php">Cerrar Sesión <i class="fa fa-window-close"></i></a></li>
       </ul>
     </nav>

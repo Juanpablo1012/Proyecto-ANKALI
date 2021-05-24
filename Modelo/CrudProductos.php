@@ -37,15 +37,49 @@
             return $mensaje;
         }
 
-        public function Listarproducto()
+        public function ListarTodo()
         {
             $Db = Db::Conectar(); // conectar bd
-            $sql = $Db->query('SELECT producto.*,tipoproducto.Nombre as nombreTP FROM producto 
-                                JOIN tipoproducto on (producto.TipodeProducto = tipoproducto.IdTipoProducto)'); //definir sentencia sql
+            $sql = $Db->query('SELECT producto.*,tipoproducto.Nombre as NombreY FROM producto 
+            JOIN tipoproducto on (producto.TipodeProducto = tipoproducto.IdTipoProducto)
+            WHERE producto.Estado = 1
+            ORDER BY TipodeProducto ASC  '); //definir sentencia sql
             $sql->execute(); // ejecutar la consulta
             return $sql->fetchAll(); // retorna todos los registros de la consulta
             Db::CerrarConexion($Db);
         }
+        
+        public function Listarproducto()
+        {
+            $Db = Db::Conectar(); // conectar bd
+            $sql = $Db->query('SELECT producto.*,tipoproducto.Nombre as nombreTP FROM producto 
+                                JOIN tipoproducto on (producto.TipodeProducto = tipoproducto.IdTipoProducto)
+                                WHERE TipodeProducto != 3'); //definir sentencia sql
+            $sql->execute(); // ejecutar la consulta
+            return $sql->fetchAll(); // retorna todos los registros de la consulta
+            Db::CerrarConexion($Db);
+        }
+
+        public function ListarServicio()
+        {
+            $Db = Db::Conectar(); // conectar bd
+            $sql = $Db->query('SELECT * FROM producto WHERE TipodeProducto = 3 '); //definir sentencia sql
+            $sql->execute(); // ejecutar la consulta
+            return $sql->fetchAll(); // retorna todos los registros de la consulta
+            Db::CerrarConexion($Db);
+        }
+
+        public function consultarprecioP($idproducto)
+        {
+            $Db = Db::Conectar(); // conectar bd
+            $sql = $Db->query("SELECT * FROM producto WHERE IdProducto = $idproducto "); //definir sentencia sql
+            $sql->execute(); // ejecutar la consulta
+            return $sql->fetch(); // retorna todos los registros de la consulta
+            Db::CerrarConexion($Db);
+        }
+
+       
+
 
         public function ListarTipoproducto()
         {
