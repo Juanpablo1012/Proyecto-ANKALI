@@ -10,9 +10,8 @@ $listarRol = json_decode($ControladorUsuarios->ListarRoles());
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  
 
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
   <!-- Favicons -->
   <link href="../Estilo/img/logo-negro.png" rel="icon">
@@ -108,7 +107,7 @@ $listarRol = json_decode($ControladorUsuarios->ListarRoles());
         <!-- Icon -->
         <div class="fadeIn first">
           <img src="../Estilo/img/logo-negro.png" id="icon2" alt="User Icon">
-          <h6>¡Registrarte!</h6>
+          <h6>Registrar usuario</h6>
         </div>
         <!-- Login Form -->
         <form Method="POST" action="../Controlador/ControladorUsuarios.php">
@@ -132,7 +131,7 @@ $listarRol = json_decode($ControladorUsuarios->ListarRoles());
           <input type="email" id="Correo" class="fadeIn second" name="Correo" placeholder="Correo" required>
           <input type="password" id="Contrasena" class="fadeIn third" name="Contrasena" placeholder="Contraseña">
           
-          <button type="submit" name="registroAdmin" class="fadeIn fourth">Registrar</button>
+          <button type="submit" name="registroAdmin" class="fadeIn fourth" >Registrar</button>
           <!-- <?php print_r($_REQUEST); ?> -->
         </form>
       </div>
@@ -144,8 +143,12 @@ $listarRol = json_decode($ControladorUsuarios->ListarRoles());
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
   <!-- JavaScript Libraries -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
   <script src="../Estilo/lib/jquery/jquery.min.js"></script>
   <script src="../Estilo/lib/jquery/jquery-migrate.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
   <script src="../Estilo/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="../Estilo/lib/superfish/hoverIntent.js"></script>
   <script src="../Estilo/lib/superfish/superfish.min.js"></script>

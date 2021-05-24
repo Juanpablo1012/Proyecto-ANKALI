@@ -37,8 +37,8 @@
         public function ListarCompra()
         {
             $Db = Db::Conectar(); // conectar bd
-            $sql = $Db->query('SELECT *
-            FROM `compra`'); //definir sentencia sql
+            $sql = $Db->query('SELECT compra.*,usuarios.Nombre as nombreU FROM `compra`
+            JOIN usuarios on (compra.DocumentoUsuario = usuarios.Documento)'); //definir sentencia sql
             $sql->execute(); // ejecutar la consulta
             return $sql->fetchAll(); // retorna todos los registros de la consulta
             Db::CerrarConexion($Db);

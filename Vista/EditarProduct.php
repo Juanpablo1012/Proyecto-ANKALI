@@ -93,7 +93,7 @@ if(!($_SESSION['Documento']))
   </header>
   
   <section id="hero3" class="wow fadeIn">
-    <div class="wrapper3 fadeInDown">
+    <div class="wrapper2 fadeInDown">
         <div id="formContent3">
           <!-- Tabs Titles -->
       
@@ -105,17 +105,7 @@ if(!($_SESSION['Documento']))
           <!-- Login Form -->
           <form action="../Controlador/ControladorProductos.php" method="Post" enctype="multipart/form-data">
           
-          <select name="IdTipoProducto">
-              <option>Seleccione un tipo de producto</option>
-              <?php
-                foreach($listarTP as $Tp)
-                {
-              ?> 
-                <option value="<?php echo $Tp->IdTipoProducto?>"> <?php echo $Tp->Nombre?></option>
-              <?php
-                }
-              ?>
-          </select>
+          
 
             <input type="number" name="IdProducto" class="fadeIn third" value="<?php echo $product->getIdProducto() ?>" placeholder="Codigo producto" readonly>
 

@@ -94,7 +94,7 @@ if(!($_SESSION['Documento']))
   </header>
   
   <section id="hero3" class="wow fadeIn">
-    <div class="wrapper3 fadeInDown">
+    <div class="wrapper2 fadeInDown">
         <div id="formContent3">
           <!-- Tabs Titles -->
       

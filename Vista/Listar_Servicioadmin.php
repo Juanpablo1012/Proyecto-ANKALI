@@ -134,7 +134,10 @@ if(!($_SESSION['Documento']))
                                 <td><?php echo $servicio->IdServicios?></td>
                                 <td><?php echo $servicio->Nombre?></td>
                                 <?php  $ruta= $servicio->Imagen;?>
-				                        <td><?php echo "<img src='$ruta' widht='150' height='150' />"  ?></td>  
+				                        <td><?php echo "<img src='$ruta' widht='140' height='140'; margin-top: 10px;
+margin-right: 10px;
+margin-bottom: 10px;
+margin-left: 10px; />"  ?></td>  
                                 <td><?php echo $servicio->Descripcion?></td>
                                 
                                 <td><?php echo $servicio->Precio?></td>
