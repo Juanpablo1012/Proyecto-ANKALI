@@ -144,7 +144,7 @@ if(!($_SESSION['Documento']))
                     </td>
                     
                     <td>
-                        <a href="../Controlador/ControladorProductos.php?CambiarEstadoP&IdProducto=<?php echo $producto->IdProducto?>" class="btn btn" ><?php if($pedido["Estado"] == 1 ){
+                        <a href="../Controlador/Controladorpedido.php?CambiarEstadoDetallePedido&IdPedido=<?php echo $pedido["IdPedido"]?>" class="btn btn" ><?php if($pedido["Estado"] == 1 ){
                         echo "Enviar";
                     } else
                     {

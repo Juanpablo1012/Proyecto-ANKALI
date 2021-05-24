@@ -98,50 +98,25 @@
             return $mensaje;
         }
 
-
-
-
  
-        // public function CambiarEstadoP($id)
-        // {
-        //     $mensaje = "";
-        //     $Db = Db::Conectar(); // conectar bd
-        //     $sql = $Db->prepare('UPDATE producto set Estado = !Estado WHERE IdProducto ='.$id); //definir sentencia sql
-        //     try{
-        //         $sql->execute();
-        //         $mensaje = "Actualizacion Exitoso";
-        //     }
-        //     catch(Exception $e)
-        //     {
-        //         $mensaje = $e->getMessage();
-        //     }
-        //     Db::CerrarConexion($Db);
-        //     return $mensaje;
-        // }
+        public function CambiarEstadoDetallePedido($id)
+        {
+            $mensaje = "";
+            $Db = Db::Conectar(); // conectar bd
+            $sql = $Db->prepare('UPDATE pedido set Estado = !Estado WHERE IdPedido ='.$id); //definir sentencia sql
+            try{
+                $sql->execute();
+                $mensaje = "Actualizacion Exitoso";
+            }
+            catch(Exception $e)
+            {
+                $mensaje = $e->getMessage();
+            }
+            Db::CerrarConexion($Db);
+            return $mensaje;
+        }
 
-        // public function BuscarPedido($pedido)
-        // {
-        //     $pedido = new Pedidos();
-        //     $Db = Db::Conectar(); // conectar bd
-        //     $sql = $Db->prepare('SELECT * FROM pedido 
-        //     WHERE IdPedido =:Idpedido'); //definir sentencia sql
-        //     $sql->bindvalue('Idpedido',$pedido);
         
-        //     try{
-        //         $sql->execute();
-        //         $x = $sql->fetch();
-        //         $pedido->setIdProducto($x['IdPedido']);
-        //         $pedido->setNombre($x['Documento']);    
-        //         $pedido->setPrecio($x['Fecha']);    
-        //         $pedido->setImagen($x['Estado']);     
-        //     }
-        //         catch(Exception $e)
-        //         {
-        //             echo $e->getMessage();
-        //         }
-        //         Db::CerrarConexion($Db);
-        //         return $pedido;
-        // }
 
 
     }
