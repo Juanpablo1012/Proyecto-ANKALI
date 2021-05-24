@@ -27,21 +27,13 @@ class ControladorPedido
         return $crudusu->Listarusuarios();
     }
 
-    // public function ListarServicio(){
-
-    //     $crudproducto = new CrudProductos();
-    //     return $crudproducto->ListarServicio();
-    // }
-
     public function ListarTodo(){
 
         $crudproducto = new CrudProductos();
         return $crudproducto->ListarTodo();
     } 
 
-    
 
-    
     public function ListardetallePedido($idpedido){
 
         $crudpedido = new CrudPedido();
@@ -144,11 +136,6 @@ if(isset($_POST['registrarpedido']))
 
 }
 
-elseif(isset($_POST['consultarprecio']))
-{
-    $idproducto = $_POST['Idproducto'];
-    echo $ControladorPedido->consultarprecioP($idproducto)['Precio'];
-}
 elseif(isset($_POST['eliminardetallepedido']))
 {
     $iddetalle = $_POST['IdDtllPedido'];
@@ -156,25 +143,18 @@ elseif(isset($_POST['eliminardetallepedido']))
 
 }
 
-// elseif(isset($_POST['consultarprecio']))
-// {
-//     $IdProducto = $_POST['IdProducto'];
-//     echo $ControladorPedido->($IdProducto)['Precio'];
-// }
-
-
 elseif(isset($_POST['ListarDetallepedio']))
 {
     $idpedido = $_POST['pedido'];
     require_once('../Vista/Listar_Dtpedido.php');
 }
 
-// elseif(isset($_GET['verdetalle']))
-// {
-//     $idpedido = $_GET['idpedido'];
-//     $controladorpedido->desplegarVista('../Vista/verdetalleusuaro.php?idpedido='.$idpedido);
-//     $controladorpedido->Mispedidos($idpedido);
-// }
+elseif(isset($_GET['Verdetalle']))
+{
+    $idpedido = $_GET['Idpedido'];
+    $ControladorPedido->desplegarVista('../Vista/Verdetalle.php?Idpedido='.$idpedido);
+    $ControladorPedido->ListardetallePedido($idpedido);
+}
 
 // elseif(isset($_GET['verdetalleadmin']))
 // {

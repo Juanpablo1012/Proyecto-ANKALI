@@ -97,7 +97,7 @@ if(!($_SESSION['Documento']))
 
   
 
-  <section id="hero3" class="wow fadeIn">
+  <section id="hero3" class="wow fadeIn" style="border: 1px black;">
     <div class="wrapper3 fadeInDown">
       <div id="formContent3">
         <!-- Tabs Titles -->
@@ -137,11 +137,14 @@ if(!($_SESSION['Documento']))
         </form>
 
         
-
+        
 
       </div>
+      <div id="formContent3">
       <div id="detallepedido">
         </div>
+        </div>
+      
 
       <script>
         $(document).ready(function () {

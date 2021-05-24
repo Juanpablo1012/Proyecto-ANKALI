@@ -118,9 +118,9 @@ if(!($_SESSION['Documento']))
                     <th>Codigo Pedido</th>
                     <th>Nombre cliente</th>
                     <th>Fecha</th>
-                    <th>Ver detalle</th>
                     <th>Estado</th>
                     <th>Cambiar Estado</th>
+                    <th>Ver detalle</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -142,9 +142,7 @@ if(!($_SESSION['Documento']))
                         echo "<h4 style='color:green;'> Enviado </h4>";
                     } ?>           
                     </td>
-                    <td>
-                        <a href="../Controlador/ControladorProductos.php?EditarProducto&IdProducto=<?php echo $producto->IdProducto?>" class="btn btn" >Detalle</a>
-                    </td>
+                    
                     <td>
                         <a href="../Controlador/ControladorProductos.php?CambiarEstadoP&IdProducto=<?php echo $producto->IdProducto?>" class="btn btn" ><?php if($pedido["Estado"] == 1 ){
                         echo "Enviar";
@@ -153,6 +151,13 @@ if(!($_SESSION['Documento']))
                         echo "No enviar";
                     } ?></a>
                     </td>
+                    <td>
+                      <center>
+                        <a href="../Controlador/Controladorpedido.php?Verdetalle&Idpedido=<?php echo  $pedido["IdPedido"]?>" ><i class="fa fa-eye fa-3"></i></a>
+                      </center>
+                    </td>
+
+                    
                     
                 </tr>
                 <?php
@@ -164,6 +169,7 @@ if(!($_SESSION['Documento']))
     </div>
 
     </section>
+    </div>
 
     <footer class="footer">
       <div class="copyrights">
@@ -173,8 +179,6 @@ if(!($_SESSION['Documento']))
         </div>
       </div>
   </footer>
-
-
 
     <!-- <script src="../Estilo/lib/jquery/jquery.min.js"></script> -->
   <script src="../Estilo/lib/jquery/jquery-migrate.min.js"></script>

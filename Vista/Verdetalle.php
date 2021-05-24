@@ -1,8 +1,7 @@
 <?php
 session_start();
-
 require_once("../Controlador/Controladorpedido.php");
-$Listardetallepedido = $ControladorPedido->ListardetallePedido($idpedido);
+$verdetalle = $ControladorPedido->ListardetallePedido($_GET['Idpedido']);
 
 if(!($_SESSION['Documento']))
 {
@@ -56,56 +55,101 @@ if(!($_SESSION['Documento']))
 </head>
 
 <body>
-      <section id="hero4" class="wow fadeIn">
-      
-    <div class="container mt-4">
+    <header id="header" class="header header-hide">
+    <div class="container">
     
-        <div class="card-body" >
-            <table border="1" class="table table-sriped  table-bordered" id="litarroles1">
-                <thead>
-                <tr>
-                    <th>Codigo Detalle de Pedido</th>
-                    <th>Nro pedido</th>
-                    <th>Producto</th>
-                    <th>Tipo de producto</th>
-                    <th>Valor </th>
-                    <th>Cantidad</th>
-                    <th>Total</th>
-                    <th>Eliminar</th>
-                </tr>
-                </thead>
-                <tbody>
-
-                <?php
-                foreach($Listardetallepedido as $dtl)
-                {
-                ?> 
-                <tr>
-                    <td><?php echo $dtl["IdDtllPedido"]?></td>
-                    <td><?php echo $dtl["IdPedido"]?></td>
-                    <td><?php echo $dtl["NombreP"]?></td>
-                    <td><?php echo $dtl["NombreT"]?></td>
-                    <td><?php echo $dtl["PrecioP"]?></td>
-                    <td><?php echo $dtl["Cantidad"]?></td>
-                    <td><?php echo $dtl["Total"]?></td>
-                    <td>
-                    <a href="#" onclick="Eliminardetalle(<?php echo $dtl['IdDtllPedido']?>)"><i class="fa fa-window-close"></i></a>
-                    <!-- <a href="../Controlador/DestruirSesion.php">Cerrar Sesión <i class="fa fa-window-close"></i></a> -->
-                    </td>
-
-                    
-                    
-                </tr>
-                <?php
-                }
-                ?>
-                </tbody>
-            </table>
-        </div>
-        
+    <div id="logo" class="pull-left">
+      <h1><a href="admin.php" class="scrollto"><a href=""><img src="../Estilo/img/logo-blanco.png" width="70" height="70"> </a>  ANKALI</a></h1>
+      <!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
     </div>
 
-    </section>
+    <nav id="nav-menu-container">
+      <ul class="nav-menu">
+        <li class="menu-active"><a href="admin.php">Inicio</a></li>
+        <li class="menu-has-children"><a href="Listar_Servicioadmin.php">Servicios</a></li>
+        
+        <li class="menu-has-children"><a href="#">Productos</a>
+          <ul>
+            <li><a href="Agregar_productoadmin.php">Agregar producto</a></li>
+            <li><a href="Listar_Productoadmin.php">Listar productos</a></li>
+          </ul>
+        </li>
+        <li class="menu-has-children"><a href="#">Pedidos</a>
+          <ul>
+            <li><a href="Agregar_Pedidoadmin.php">Agregar Pedido</a></li>
+            <li><a href="Listar_Pedidoadmin.php">Listar Pedido</a></li>
+          </ul>
+        </li>
+        <li><a href="Ventaadmin.php">Ventas</a></li>
+
+        <li class="menu-has-children"><a href="#">Usuarios</a>
+            <ul>
+              <li><a href="registroAdmin.php">Registrar usuarios</a></li>
+              <li><a href="ResgistrarRol.php">Registrar roles</a></li>
+              <li><a href="Usuariosadmin.php">Listar usuarios</a></li>
+            </ul>
+        </li>
+        <li class="menu-has-children"><a href="#">Compra</a>
+            <ul>
+              <li><a href="Compras.php">Ingresar compra</a></li>
+              <li><a href="Listar_Compra.php">Listar compras</a></li>
+            </ul>
+        </li>
+        <li><a href="../Controlador/DestruirSesion.php">Cerrar Sesión <i class="fa fa-window-close"></i></a></li>
+      </ul>
+    </nav>
+  </div>
+  </header>
+      <br>
+
+
+
+
+
+      <section id="hero4" class="wow fadeIn">
+      
+      <div class="container mt-4">
+      
+          <div class="card-body" >
+              <table border="1" class="table table-sriped  table-bordered" id="litarroles1">
+                  <thead>
+                  <tr>
+                      <th>Codigo Detalle de Pedido</th>
+                      <th>Nro pedido</th>
+                      <th>Producto</th>
+                      <th>Tipo de producto</th>
+                      <th>Valor </th>
+                      <th>Cantidad</th>
+                      <th>Total</th>
+                      <!-- <th>Eliminar</th> -->
+                  </tr>
+                  </thead>
+                  <tbody>
+  
+                  <?php
+                  foreach($verdetalle as $dtl)
+                  {
+                  ?> 
+                  <tr>
+                      <td><?php echo $dtl["IdDtllPedido"]?></td>
+                      <td><?php echo $dtl["IdPedido"]?></td>
+                      <td><?php echo $dtl["NombreP"]?></td>
+                      <td><?php echo $dtl["NombreT"]?></td>
+                      <td><?php echo $dtl["PrecioP"]?></td>
+                      <td><?php echo $dtl["Cantidad"]?></td>
+                      <td><?php echo $dtl["Total"]?></td>                      
+                  </tr>
+                  <?php
+                  }
+                  ?>
+                  </tbody>
+              </table>
+          </div>
+          
+      </div>
+  
+      </section>
+    </div>
 
     <footer class="footer">
       <div class="copyrights">
@@ -115,8 +159,6 @@ if(!($_SESSION['Documento']))
         </div>
       </div>
   </footer>
-
-
 
     <!-- <script src="../Estilo/lib/jquery/jquery.min.js"></script> -->
   <script src="../Estilo/lib/jquery/jquery-migrate.min.js"></script>
