@@ -119,29 +119,29 @@
         //     return $mensaje;
         // }
 
-        public function BuscarPedido($pedido)
-        {
-            $pedido = new  Pedido();
-            $Db = Db::Conectar(); // conectar bd
-            $sql = $Db->prepare('SELECT * FROM pedido 
-            WHERE IdPedido =:Idpedido'); //definir sentencia sql
-            $sql->bindvalue('Idpedido',$pedido);
+        // public function BuscarPedido($pedido)
+        // {
+        //     $pedido = new Pedidos();
+        //     $Db = Db::Conectar(); // conectar bd
+        //     $sql = $Db->prepare('SELECT * FROM pedido 
+        //     WHERE IdPedido =:Idpedido'); //definir sentencia sql
+        //     $sql->bindvalue('Idpedido',$pedido);
         
-            try{
-                $sql->execute();
-                $x = $sql->fetch();
-                $pedido->setIdProducto($x['IdPedido']);
-                $pedido->setNombre($x['Documento']);    
-                $pedido->setPrecio($x['Fecha']);    
-                $pedido->setImagen($x['Estado']);     
-            }
-                catch(Exception $e)
-                {
-                    echo $e->getMessage();
-                }
-                Db::CerrarConexion($Db);
-                return $producto;
-        }
+        //     try{
+        //         $sql->execute();
+        //         $x = $sql->fetch();
+        //         $pedido->setIdProducto($x['IdPedido']);
+        //         $pedido->setNombre($x['Documento']);    
+        //         $pedido->setPrecio($x['Fecha']);    
+        //         $pedido->setImagen($x['Estado']);     
+        //     }
+        //         catch(Exception $e)
+        //         {
+        //             echo $e->getMessage();
+        //         }
+        //         Db::CerrarConexion($Db);
+        //         return $pedido;
+        // }
 
 
     }

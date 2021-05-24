@@ -2,7 +2,7 @@
 session_start();
 
 require_once("../Controlador/Controladorpedido.php");
-$Listardetallepedido = $ControladorPedido->ListardetallePedido($idpedido);
+$verdetalle = $ControladorPedido->ListardetallePedido($_GET['Idpedido']);
 
 if(!($_SESSION['Documento']))
 {
