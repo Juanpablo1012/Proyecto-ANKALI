@@ -64,7 +64,7 @@ if(!($_SESSION['Documento']))
             <table border="1" class="table table-sriped  table-bordered" id="litarroles1">
                 <thead>
                 <tr>
-                    <th>Codigo Detalle de Pedido</th>
+                    <th>Codigo del Pedido</th>
                     <th>Nro pedido</th>
                     <th>Producto</th>
                     <th>Tipo de producto</th>

@@ -58,39 +58,39 @@ if(!($_SESSION['Documento']))
       </div>
 
       <nav id="nav-menu-container">
-      <ul class="nav-menu">
-        <li class="menu-active"><a href="admin.php">Inicio</a></li>
-        <li class="menu-has-children"><a href="Listar_Servicioadmin.php">Servicios</a></li>
-        
-        <li class="menu-has-children"><a href="#">Productos</a>
-          <ul>
-            <li><a href="Agregar_productoadmin.php">Agregar producto</a></li>
-            <li><a href="Listar_Productoadmin.php">Listar productos</a></li>
-          </ul>
-        </li>
-        <li class="menu-has-children"><a href="#">Pedidos</a>
-          <ul>
-            <li><a href="Agregar_Pedidoadmin.php">Agregar Pedido</a></li>
-            <li><a href="Listar_Pedidoadmin.php">Listar Pedido</a></li>
-          </ul>
-        </li>
-        <li><a href="Ventaadmin.php">Ventas</a></li>
+        <ul class="nav-menu">
+          <li class="menu-active"><a href="admin.php">Inicio</a></li>
+          <li class="menu-has-children"><a href="Listar_Servicioadmin.php">Servicios</a></li>
+          
+          <li class="menu-has-children"><a href="#">Productos</a>
+            <ul>
+              <li><a href="Agregar_productoadmin.php">Agregar producto</a></li>
+              <li><a href="Listar_Productoadmin.php">Listar productos</a></li>
+            </ul>
+          </li>
+          <li class="menu-has-children"><a href="#">Pedidos</a>
+            <ul>
+              <li><a href="Agregar_Pedidoadmin.php">Agregar Pedido</a></li>
+              <li><a href="Listar_Pedidoadmin.php">Listar Pedido</a></li>
+            </ul>
+          </li>
+          <li><a href="Ventaadmin.php">Ventas</a></li>
 
-        <li class="menu-has-children"><a href="#">Usuarios</a>
-            <ul>
-              <li><a href="registroAdmin.php">Registrar usuarios</a></li>
-              <li><a href="ResgistrarRol.php">Registrar roles</a></li>
-              <li><a href="Usuariosadmin.php">Listar usuarios</a></li>
-            </ul>
-        </li>
-        <li class="menu-has-children"><a href="#">Compra</a>
-            <ul>
-              <li><a href="Compras.php">Ingresar compra</a></li>
-              <li><a href="Listar_Compra.php">Listar compras</a></li>
-            </ul>
-        </li>
-        <li><a href="../Controlador/DestruirSesion.php">Cerrar Sesión <i class="fa fa-window-close"></i></a></li>
-      </ul>
+          <li class="menu-has-children"><a href="#">Usuarios</a>
+              <ul>
+                <li><a href="registroAdmin.php">Registrar usuarios</a></li>
+                <li><a href="ResgistrarRol.php">Registrar roles</a></li>
+                <li><a href="Usuariosadmin.php">Listar usuarios</a></li>
+              </ul>
+          </li>
+          <li class="menu-has-children"><a href="#">Compra</a>
+              <ul>
+                <li><a href="Compras.php">Ingresar compra</a></li>
+                <li><a href="Listar_Compra.php">Listar compras</a></li>
+              </ul>
+          </li>
+          <li><a href="../Controlador/DestruirSesion.php">Cerrar Sesión <i class="fa fa-window-close"></i></a></li>
+        </ul>
     </nav>
     </div>
   </header>
@@ -98,52 +98,54 @@ if(!($_SESSION['Documento']))
   
 
   <section id="hero3" class="wow fadeIn" style="border: 1px black;">
-    <div class="wrapper3 fadeInDown">
-      <div id="formContent3">
-        <!-- Tabs Titles -->
+    <div class="wrapper4 fadeInDown">
+      <div id="formContent4">
+          <!-- Tabs Titles -->
 
-        <!-- Icon -->
-        <div class="fadeIn first">
+          <!-- Icon -->
+          <div class="fadeIn first">
 
-          <h6>Agregar Pedido</h6>
-        </div>
-        <!-- Login Form -->
-        <form name="frmpedido" id="frmpedido" method="post">
-          <input type="hidden" id="pedido" class="fadeIn second" name="pedido">
+            <h6>Agregar Pedido</h6>
+          </div>
+          <!-- Login Form -->
+          <form name="frmpedido" id="frmpedido" method="post">
+            <input type="hidden" id="pedido" class="fadeIn second" name="pedido">
 
-          <select name="usuario" id="usuario" >
-            <option value="">Seleccione el usuario</option>
-            <?php
-                foreach($Listarusuario as $usuario)
-                echo "<option value=".$usuario['Documento'].">".$usuario['Documento'].'- - - -'.$usuario['Nombre']."</option>";
-            ?>
-          </select>
-          <select name="producto" id="producto" onchange="precio(this)" >
-            <option value="">Seleccione el Producto</option>
-            <?php
-                foreach($Listarproducto as $prud)
-                echo "<option Precio=".$prud['Precio']." value=".$prud['IdProducto'].">".$prud['IdProducto'].'- - -'.$prud['Nombre'].'- - - -'.$prud['NombreY']."</option>";
-            ?>
-          </select>
-          <input type="text" id="Precio" class="fadeIn second" name="Precio" placeholder="Precio Producto" readonly>
+            <select name="usuario" id="usuario" >
+              <option value="">Seleccione el usuario</option>
+              <?php
+                  foreach($Listarusuario as $usuario)
+                  echo "<option value=".$usuario['Documento'].">".$usuario['Documento'].'- - - -'.$usuario['Nombre']."</option>";
+              ?>
+            </select>
+            <select name="producto" id="producto" onchange="precio(this)" >
+              <option value="">Seleccione el Producto</option>
+              <?php
+                  foreach($Listarproducto as $prud)
+                  echo "<option Precio=".$prud['Precio']." value=".$prud['IdProducto'].">".$prud['IdProducto'].'- - -'.$prud['Nombre'].'- - - -'.$prud['NombreY']."</option>";
+              ?>
+            </select>
+            <input type="text" id="Precio" class="fadeIn second" name="Precio" placeholder="Precio Producto" readonly>
 
-          <input type="number" id="Cantidad" class="fadeIn second" name="Cantidad" placeholder="Cantidad">
-          <input type="number" id="Total" class="fadeIn second" name="Total" readonly placeholder="Valor total">
+            <input type="number" id="Cantidad" class="fadeIn second" name="Cantidad" placeholder="Cantidad">
+            <input type="number" id="Total" class="fadeIn second" name="Total" readonly placeholder="Valor total">
 
-          
-          <input type="hidden" name="registrarpedido" id="registrarpedido">
-          <!-- <button type="reset">Terminar</button> -->
-          <button type="submit">Agregar</button>
-        </form>
+            
+            <input type="hidden" name="registrarpedido" id="registrarpedido">
+            <!-- <button type="reset">Terminar</button> -->
+            <button type="submit">Agregar</button>
+          </form>
 
         
         
 
       </div>
-      <div id="formContent3">
-      <div id="detallepedido">
+
+      <div id="formContent4">
+      
+        <div id="detallepedido">
         </div>
-        </div>
+      </div>
       
 
       <script>

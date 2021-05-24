@@ -107,73 +107,16 @@ if(!($_SESSION['Documento']))
 
 
 
-      <section id="hero4" class="wow fadeIn">
+<section id="hero4" class="wow fadeIn">
       
-<<<<<<< HEAD
       <div class="hero-container">        
         <h2>Lista de servicios</h2>
             <hr></hr>
-            <div class="card-body" >
-                <table border="1" class="table table-sriped  table-bordered" id="listarserv">
-                    <thead>
-                    <tr>
-                        <th>Codigo</th>
-                        <th>Nombre</th>
-                        <th>Imagen</th>
-                        <th>Descripción</th>
-                        <th>Precio</th>
-                        <th>Estado</th>
-                        <th></th>
-                        <th colspan="">Cambiar Estado</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                            foreach($listarserv as $servicio)
-                            {
-                            ?> 
-                            <tr>
-                                <td><?php echo $servicio->IdServicios?></td>
-                                <td><?php echo $servicio->Nombre?></td>
-                                <?php  $ruta= $servicio->Imagen;?>
-				                        <td><?php echo "<img src='$ruta' widht='140' height='140'; margin-top: 10px;
-margin-right: 10px;
-margin-bottom: 10px;
-margin-left: 10px; />"  ?></td>  
-                                <td><?php echo $servicio->Descripcion?></td>
-                                
-                                <td><?php echo $servicio->Precio?></td>
-                                <td>
-                                  <?php if($servicio->Estado == 1 ){
-                                  echo "<h4 style='color:green;'> Activo </h4>";
-                                  } else
-                                  {
-                                      echo "<h4 style='color:red;'> Inhabiliado </h4>";
-                                  } ?>             
-                                </td>
-                                <td>
-                                  <a href="../Controlador/ControladorServicios.php?Editarservicio&IdServicios=<?php echo $servicio->IdServicios?>" class="btn btn" >Editar</a>
-                                </td>
-                                <td>
-                                  <a href="../Controlador/ControladorServicios.php?CambiarEstadoS&IdServicios=<?php echo $servicio->IdServicios?>" class="btn btn" ><?php if($servicio->Estado == 1 ){
-                                  echo "Inhabilitar";
-                                  } else
-                                  {
-                                      echo "Activar";
-                                  } ?></a>
-                                </td>
-                            </tr>
-                            <?php
-                            }
-                            ?>
-                      </tbody>
-                </table>
-            </div>
-=======
+            
     <div class="container mt-4">
     
         <div class="card-body" >
-            <table border="1" class="table table-sriped  table-bordered" id="litarroles">
+            <table border="1" class="table table-sriped  table-bordered" id="listarserv">
                 <thead>
                 <tr>
                     <th>Codigo Producto</th>
@@ -234,7 +177,7 @@ margin-left: 10px; />"  ?></td>
                 ?>
                 </tbody>
             </table>
->>>>>>> 1a7bf530ca98e02a4f563bfd1d878bf1cdee87b6
+
         </div>
     </div>
 
@@ -271,7 +214,7 @@ margin-left: 10px; />"  ?></td>
 
     <script>
         $(document).ready(function () {
-            $('#litarroles').DataTable({
+            $('#listarserv').DataTable({
                 "language": {
       "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
     }
