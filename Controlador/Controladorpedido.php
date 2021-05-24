@@ -76,18 +76,6 @@ class ControladorPedido
         $crudpedido = new CrudPedido();
         return $crudpedido->eliminardetallepedido($iddetallepedido);
     }
-    // public function consultarprecioP($idproducto){
-
-    //     $CrudProductos = new CrudProductos();
-    //     return $CrudProductos->consultarprecioP($idproducto);
-    // }
-    
-
-    // public function modificardetallepedido($iddetallepedido,$campo,$valor){
-
-    //     $crudpedido = new crudpedido();
-    //     return $crudpedido->modificardetallepedido($iddetallepedido,$campo,$valor);
-    // }
 
     public function desplegarVista($vista)
     {
@@ -95,31 +83,19 @@ class ControladorPedido
 
     }
 
-    // public function consultarprecioS($idproducto){
+    public function CambiarEstadoDetallePedido($id)
+    {
+        $pedido = new Pedidos();
+        $crudpedido = new CrudPedido();
+        return $crudpedido->CambiarEstadoDetallePedido($id);
 
-    //     $crudproducto = new crudproducto();
-    //     return $crudproducto->consultarprecioS($idproducto);
-    // }
+    }
 
-    
 
-    // public function Mispedidos($documento){
-
-    //     $crudpedido = new crudpedido();
-    //     return $crudpedido->Mispedidos($documento);
-    // } 
-
-    // public function verdetalle($idpedido){
-
-    //     $crudpedido = new crudpedido();
-    //     return $crudpedido->verdetalle($idpedido);
-    // } 
-    
 }
 
 $ControladorPedido = new ControladorPedido();
-//  $juan = $ControladorPedido->consultarprecioP(19);
-//  echo $juan['Precio'];
+
 
 
 if(isset($_POST['registrarpedido']))
@@ -156,37 +132,12 @@ elseif(isset($_GET['Verdetalle']))
     $ControladorPedido->ListardetallePedido($idpedido);
 }
 
-// elseif(isset($_GET['verdetalleadmin']))
-// {
-//     $idpedido = $_GET['idpedido'];
-//     $controladorpedido->desplegarVista('../Vista/verdetalleadmin.php?idpedido='.$idpedido);
-//     $controladorpedido->Mispedidos($idpedido);
-// }
+elseif(isset($_GET['CambiarEstadoDetallePedido']))
+{
+    $Idpedido = $_GET['IdPedido'];
 
-// elseif(isset($_GET['Mispedidos']))
-// {
-//     $documento = $_GET['documento'];
-//     $controladorpedido->desplegarVista('../Vista/Mispedidos.php?documento='.$documento);
-//     $controladorpedido->Mispedidos($documento);
-// }
+     $ControladorPedido->CambiarEstadoDetallePedido($Idpedido);
+     $ControladorPedido->desplegarVista('../Vista/Listar_Pedidoadmin.php');
 
-
-
-
-// elseif(isset($_POST['ModificarDetallepedio']))
-// {
-//     $iddetallepedido = $_POST['iddetallepedido'];
-//     echo $controladorpedido->modificardetallepedido($iddetallepedido,$_POST['campo'],$_POST['valorcampo']);
-
-// }
-
-
-
-
-
-// echo $controladorpedido->Consultarprecio(1)['Precio'];
-
-
-
-
+}
 ?>
