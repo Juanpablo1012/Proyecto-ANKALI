@@ -105,12 +105,13 @@ if(!($_SESSION['Documento']))
         <!-- Icon -->
         <div class="fadeIn first">
 
-          <h6>Agregar Pedido</h6>
+          <h6>Agregar Pedido</h6><br>
         </div>
         <!-- Login Form -->
         <form name="frmpedido" id="frmpedido" method="post">
           <input type="hidden" id="pedido" class="fadeIn second" name="pedido">
-
+          <div class="form-group">
+          <label for=""> Nombre del usuario: </label>
           <select name="usuario" id="usuario" >
             <option value="">Seleccione el usuario</option>
             <?php
@@ -118,6 +119,10 @@ if(!($_SESSION['Documento']))
                 echo "<option value=".$usuario['Documento'].">".$usuario['Documento'].'- - - -'.$usuario['Nombre']."</option>";
             ?>
           </select>
+          </div>
+
+          <div class="form-group">
+          <label for=""> Nombre del producto: </label>
           <select name="producto" id="producto" onchange="precio(this)" >
             <option value="">Seleccione el Producto</option>
             <?php
@@ -125,10 +130,29 @@ if(!($_SESSION['Documento']))
                 echo "<option Precio=".$prud['Precio']." value=".$prud['IdProducto'].">".$prud['IdProducto'].'- - -'.$prud['Nombre'].'- - - -'.$prud['NombreY']."</option>";
             ?>
           </select>
-          <input type="text" id="Precio" class="fadeIn second" name="Precio" placeholder="Precio Producto" readonly>
 
+          </div>
+
+
+          
+
+          <div class="form-group">
+          <label for=""> Valor del producto: </label>
+          <input type="text" id="Precio" class="fadeIn second" name="Precio" placeholder="Precio Producto" readonly>
+          </div>
+          
+
+          <div class="form-group">
+          <label for="">Cantidad:</label>
           <input type="number" id="Cantidad" class="fadeIn second" name="Cantidad" placeholder="Cantidad">
+          </div>
+
+          <div class="form-group">
+          <label for="">Valor total:</label>
           <input type="number" id="Total" class="fadeIn second" name="Total" readonly placeholder="Valor total">
+          </div>
+
+
 
           
           <input type="hidden" name="registrarpedido" id="registrarpedido">
@@ -136,8 +160,9 @@ if(!($_SESSION['Documento']))
           <button type="submit">Agregar</button>
         </form>
 
-        
-        
+
+
+    
 
       </div>
       <div id="formContent3">
