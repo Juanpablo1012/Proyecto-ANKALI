@@ -105,7 +105,7 @@ if(!($_SESSION['Documento']))
           <!-- Icon -->
           <div class="fadeIn first">
 
-            <h6>Agregar Pedido</h6>
+            <h6>Agregar Pedido.</h6>
           </div>
           <!-- Login Form -->
           <form name="frmpedido" id="frmpedido" method="post">
