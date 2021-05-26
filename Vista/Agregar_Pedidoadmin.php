@@ -111,8 +111,8 @@ if(!($_SESSION['Documento']))
         <form name="frmpedido" id="frmpedido" method="post">
           <input type="hidden" id="pedido" class="fadeIn second" name="pedido">
           <div class="form-group">
-          <label for=""> Nombre del usuario: </label>
-          <select name="usuario" id="usuario" >
+          <label for="" > <b>Nombre del usuario: </b></label>
+          <select name="usuario" id="usuario" class="pedidoU" >
             <option value="">Seleccione el usuario</option>
             <?php
                 foreach($Listarusuario as $usuario)
@@ -122,8 +122,8 @@ if(!($_SESSION['Documento']))
           </div>
 
           <div class="form-group">
-          <label for=""> Nombre del producto: </label>
-          <select name="producto" id="producto" onchange="precio(this)" >
+          <label for=""> <b>Nombre del producto: </b></label>
+          <select name="producto" class="pedidoP" id="producto" onchange="precio(this)" >
             <option value="">Seleccione el Producto</option>
             <?php
                 foreach($Listarproducto as $prud)
@@ -132,23 +132,19 @@ if(!($_SESSION['Documento']))
           </select>
 
           </div>
-
-
-          
-
           <div class="form-group">
-          <label for=""> Valor del producto: </label>
-          <input type="text" id="Precio" class="fadeIn second" name="Precio" placeholder="Precio Producto" readonly>
+          <label for=""> <b>Valor del producto:</b> </label>
+          <input type="text" id="Precio" class="pedidoV" name="Precio" placeholder="Precio Producto" readonly>
           </div>
           
 
           <div class="form-group">
-          <label for="">Cantidad:</label>
+          <label for=""><b>Cantidad:</b></label>
           <input type="number" id="Cantidad" class="fadeIn second" name="Cantidad" placeholder="Cantidad">
           </div>
 
           <div class="form-group">
-          <label for="">Valor total:</label>
+          <label for=""><b>Valor total:</i></label>
           <input type="number" id="Total" class="fadeIn second" name="Total" readonly placeholder="Valor total">
           </div>
 
@@ -172,6 +168,12 @@ if(!($_SESSION['Documento']))
         </div>
       </div>
       
+      <script>
+        //cambiar tamaño c:
+        let cambiar = document.querySelector(".pedidoP").style.width="70%";
+        let cambiar1 = document.querySelector(".pedidoU").style.width="70%";
+        let cambiar2 = document.querySelector(".pedidoV").style.width="70%";
+      </script>
 
       <script>
         $(document).ready(function () {
