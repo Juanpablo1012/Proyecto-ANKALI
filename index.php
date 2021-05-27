@@ -1,4 +1,6 @@
+
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -9,8 +11,6 @@
 <!--SWEETALERT-->
 <link href="Estilo/sweetalert2/sweetalert2.css" >
 <link href="Estilo/sweetalert2/sweetalert2.min.css" >
-<script src="Estilo/sweetalert2/sweetalert2.all.min.js"></script>
-
 
   <!-- Favicons -->
   <link href="Estilo/img/logo-negro.png" rel="icon">
@@ -32,7 +32,6 @@
 
   <!-- Main Stylesheet File -->
   <link href="Estilo/css/style.css" rel="stylesheet">
-
   <!-- =======================================================
     Theme Name: eStartup
     Theme URL: https://bootstrapmade.com/estartup-bootstrap-landing-page-template/
@@ -77,17 +76,31 @@
           
           <img src="Estilo/img/logo-negro.png" id="icon" alt="User Icon">
           <h6>Inicia Sesión</h6>
+          <br>
         </div>
     
         <!-- Login Form -->
-        <form Method="POST" action="Controlador/ControladorUsuarios.php">
-          <input type="text" id="login" class="fadeIn second" name="Correo" placeholder="Correo" required>
-          <input type="password" id="password" class="fadeIn third" name="Contrasena" placeholder="Contraseña"required>
+        <!--<form method="POST" name="enviar" action="Controlador/ControladorUsuarios.php" id="formlogin">-->
+        <form method="POST" name="enviar" action="#" id="formlogin">
+
+        <label for="" > <b>Correo: </b></label>
+
+          <input type="text" id="login" class="fadeIn second Correo"  name="correoU" placeholder="Correo">
+          <span id="validar_nombre" style="color:red"></span>
           <br>
-          <button type="submit" name="acceder"class="fadeIn fourth" value="" onclick="InicioSesion()">Iniciar Sesión</button>
+          <label for="" > <b>Contraseña: </b></label>
+
+          <input type="password" id="password" class="fadeIn third Pass" name="contrasenaU" placeholder="Contraseña">
+          <span id="validar" style="color:red"></span>
+          <br>
+
+          <button type="button" name="acceder"class="fadeIn fourth save" xx="1" id="inicio">Iniciar Sesión</button>
 
         </form>
-        <button type="button" class="fadeIn fourth" value="" ><a href="Vista/registro.php" style="color:white"> Registrarse</a></button>
+
+        <button type="submit" class="fadeIn fourth" ><a href="Vista/registro.php" style="color:white">
+          Registrarse</a>
+        </button>
         <!-- Remind Passowrd -->
         <div id="formFooter">
           <a class="underlineHover" href="Vista/RecuperarContrasena.php">¿Olvidaste tu contraseña?</a>
@@ -95,14 +108,24 @@
     
       </div>
     </div>
-      <!--<img src="img/hero-img.png" alt="Hero Imgs">-->
       
     </div>
+    <script>
+        //cambiar tamaño c:
+        let cambiar = document.querySelector(".Correo").style.width="80%";
+        let cambiar1 = document.querySelector(".Pass").style.width="70%";
+      </script>
   </section>
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-  <!-- JavaScript Libraries -->
+  <!-- JavaScript Libraries -->    
+
+
+<!--<script src="Estilo/js/formulario.js"></script>-->
   <script src="Estilo/lib/jquery/jquery.min.js"></script>
   <script src="Estilo/lib/jquery/jquery-migrate.min.js"></script>
+
+  <!---------------------------------------------------------------------------------------->
+
   <script src="Estilo/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="Estilo/lib/superfish/hoverIntent.js"></script>
   <script src="Estilo/lib/superfish/superfish.min.js"></script>
@@ -110,8 +133,9 @@
   <script src="Estilo/lib/modal-video/js/modal-video.js"></script>
   <script src="Estilo/lib/owlcarousel/owl.carousel.min.js"></script>
   <script src="Estilo/lib/wow/wow.min.js"></script>
-  <!-- Contact Form JavaScript File -->
+  <script src="Estilo/sweetalert2/sweetalert2.all.min.js"></script>
   <script src="Estilo/contactform/contactform.js"></script>
+  <script src="Estilo/js/alerts.js"></script>
 
   <!-- Template Main Javascript File -->
   <script src="Estilo/js/main.js"></script>

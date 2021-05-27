@@ -123,7 +123,9 @@ class ControladorUsuarios{
 
 $ControladorUsuarios = new ControladorUsuarios();
 
-if(isset($_POST['registro'])){
+
+if(isset($_POST['action'])&&$_POST['action']=='registro')
+{
     echo $ControladorUsuarios->RegistrarUsuario(
     $_POST['Documento'],
     $_POST['Nombre'],
@@ -131,32 +133,28 @@ if(isset($_POST['registro'])){
     $_POST['Direccion'],
     $_POST['Correo'],
     $_POST['Contrasena']);
-    }
+}
 
-elseif(isset($_POST['acceder']))
+elseif(isset($_POST['action'])&&$_POST['action']=='entra')
 {
-    $Usuario=$ControladorUsuarios->InicioSesion(
-        $_POST['Correo'],
-        $_POST['Contrasena']);
-            if($Usuario->getExiste()==1)
-                {
-                    $_SESSION['Documento']=$Usuario->getDocumento();
-                    $_SESSION['IdRol']=$Usuario->getIdRol();
-                    if($_SESSION['IdRol']==2){
-                        header ("Location:../Vista/usuariousu.php");
-                    }else{
-                        header ("Location:../Vista/admin.php");
-                    }
-                    echo $Usuario->getExiste();
+        $correoU = $_POST['correoU'];
+        $contraU = $_POST['contrasenaU'];
+        
+    $Usuario=$ControladorUsuarios->InicioSesion($correoU,$contraU);
+        if($Usuario->getExiste()==1)
+            {
+                $_SESSION['Documento']=$Usuario->getDocumento();
+                $_SESSION['IdRol']=$Usuario->getIdRol();
+                if($_SESSION['IdRol']==2){
+                    echo 2;
+                }else{
+                    echo 1;
                 }
-            else{
-                echo '
-                    <script>
-                        alert("Usuario o contraseña incorrecta.\nIntentalo nuevamente");
-                        window.history.go(-1);
-                    </script>';
+            }else{
+                echo 0;
                 }
 }
+
 
 elseif(isset($_GET['Actualizarusuario']))
 {

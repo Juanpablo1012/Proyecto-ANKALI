@@ -70,18 +70,30 @@
         <!-- Icon -->
         <div class="fadeIn first">
           <img src="../Estilo/img/logo-negro.png" id="icon2" alt="User Icon">
-          <h6>¡Registrarte!</h6>
+          <h6>¡Registrate!</h6>
+          <br>
         </div>
-        <!-- Login Form -->
-        <form Method="POST" action="../Controlador/ControladorUsuarios.php">
-          <input type="number" id="Documento" class="fadeIn third" name="Documento" placeholder="Numero de documento" required>
-          <input type="number" id="Telefono" class="fadeIn second" name="Telefono" placeholder="Numero de telefono">
-          <input type="text" id="Nombre" class="fadeIn third" name="Nombre" placeholder="Nombre" required>
-          <input type="text" id="Direccion" class="fadeIn second" name="Direccion" placeholder="Direccion">
-          <input type="email" id="Correo" class="fadeIn second" name="Correo" placeholder="Correo"required>
-          <input type="password" id="Contrasena" class="fadeIn third" name="Contrasena" placeholder="Contraseña"required>
+        <!-- Login Form "../Controlador/ControladorUsuarios.php"-->
+        <form Method="POST" action="#">
+          <label for=""><b>Documento:</b></label>
+          <input type="number" id="Documento" class="fadeIn third documento" name="Documento" placeholder="Numero de documento" >
           
-          <button type="submit" name="registro" class="fadeIn fourth">Registrarse</button>
+          <label for=""><b>Número de<br> teléfono:</b></label>
+          <input type="number" id="Telefono" class="fadeIn second telefono" name="Telefono" placeholder="Numero de telefono">
+          <br>
+          <label for=""><b>Nombre:</b></label>
+          <input type="text" id="Nombre" class="fadeIn third nombre" name="Nombre" placeholder="Nombre" >
+
+          <label for=""><b>Direccion:</b></label>
+          <input type="text" id="Direccion" class="fadeIn second direccion" name="Direccion" placeholder="Direccion">
+
+          <label for=""><b>Correo:</b></label>
+          <input type="email" id="Correo" class="fadeIn second correo" name="Correo" placeholder="Correo">
+
+          <label for=""><b>Contraseña:</b></label>
+          <input type="password" id="Contrasena" class="fadeIn third contrasena" name="Contrasena" placeholder="Contraseña">
+          
+          <button type="button" name="registro" class="fadeIn fourth formregistro" id="registro">Registrarse</button>
         </form>
         <button type="submit" class="fadeIn fourth" value="">
             <a href="../index.php" type="button"style="color:white">Iniciar Sesión</a>
@@ -93,8 +105,16 @@
       
     </div>
   </section>
-  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <script>
+        //cambiar tamaño c:
+        let cambiar = document.querySelector(".documento").style.width="70%";
+        let cambiar1 = document.querySelector(".telefono").style.width="70%";
+        let cambiar2 = document.querySelector(".nombre").style.width="70%";
+        let cambiar3 = document.querySelector(".direccion").style.width="70%";
+        let cambiar4 = document.querySelector(".correo").style.width="70%";
+        let cambiar5 = document.querySelector(".contrasena").style.width="70%";
 
+      </script>
   <!-- JavaScript Libraries -->
   <script src="../Estilo/lib/jquery/jquery.min.js"></script>
   <script src="../Estilo/lib/jquery/jquery-migrate.min.js"></script>
@@ -105,8 +125,8 @@
   <script src="../Estilo/lib/modal-video/js/modal-video.js"></script>
   <script src="../Estilo/lib/owlcarousel/owl.carousel.min.js"></script>
   <script src="../Estilo/lib/wow/wow.min.js"></script>
-  <!-- Contact Form JavaScript File -->
   <script src="../Estilo/contactform/contactform.js"></script>
+  <script src="../Estilo/js/alerts.js"></script>
 
   <!-- Template Main Javascript File -->
   <script src="../Estilo/js/main.js"></script>

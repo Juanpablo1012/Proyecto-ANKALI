@@ -21,19 +21,12 @@
 
             try{
                 $sql->execute();
-                echo 
-                '<script>
-                    alert("Registrado correctamente.\nInicia sesión para disfrutar de nuestro sitio web");
-                    window.location="../index.php";
-                </script>';
+                 //correcto 
+                 echo 1;
             }
             catch(Exception $e)
-            {
-                echo 
-                '<script>
-                    alert("Datos incorrectos.");
-                    window.history.go(-1);
-                </script>';
+            {//incorrecto
+                echo 0;
             }
             Db::CerrarConexion($Db);
             return $mensaje;

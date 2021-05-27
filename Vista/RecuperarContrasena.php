@@ -71,14 +71,16 @@
         <div class="fadeIn first">
           <img src="../Estilo/img/logo-negro.png" id="icon2" alt="User Icon">
           <h6>Recuperar contraseña</h6>
+          <br>
         </div>
         <!-- Login Form -->
         <form Method="POST" action="../Controlador/ControladorUsuarios.php">
             <input type="hidden" name="email" id="email" value="<?php echo $Correo;?>">
             
             <input type="hidden" name="ndoc" id="ndco" value="<?php echo $Documento;?>">
+            <label for=""><b>Correo:</b></label>
 
-            <input type="email" id="Correo" class="fadeIn second" name="Correo" placeholder="Correo" required>
+            <input type="email" id="Correo" class="fadeIn second Correo" name="Correo" placeholder="Correo" required>
             <button type="submit" class="fadeIn fourth" name="recuperarcontra">Recuperar contraseña
             </button>
         </form>
@@ -89,7 +91,10 @@
     </div>
   </section>
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+<script>
+        let cambiar = document.querySelector(".Correo").style.width="70%";
 
+</script>
   <!-- JavaScript Libraries -->
   <script src="../Estilo/lib/jquery/jquery.min.js"></script>
   <script src="../Estilo/lib/jquery/jquery-migrate.min.js"></script>

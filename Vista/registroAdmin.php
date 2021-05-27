@@ -106,9 +106,12 @@ $listarRol = json_decode($ControladorUsuarios->ListarRoles());
         </div>
         <!-- Login Form -->
         <form Method="POST" action="../Controlador/ControladorUsuarios.php">
-          <input type="number" id="Documento" class="fadeIn third" name="Documento" placeholder="Numero de documento" required>
+        <label for=""><b>Documento:</b></label>
+
+          <input type="number" id="Documento" class="fadeIn third documento" name="Documento" placeholder="Numero de documento" required>
           
-          <select name="IdRol">
+          <label for=""><b>Seleccione <br>un rol:</b></label>
+          <select name="IdRol" class="pedidoP">
               <option>Seleccione un Rol</option>
               <?php
                 foreach($listarRol as $rol)
@@ -120,11 +123,16 @@ $listarRol = json_decode($ControladorUsuarios->ListarRoles());
               ?>
           </select>
 
-          <input type="number" id="Telefono" class="fadeIn second" name="Telefono" placeholder="Numero de telefono">
-          <input type="text" id="Nombre" class="fadeIn third" name="Nombre" placeholder="Nombre" required>
-          <input type="text" id="Direccion" class="fadeIn second" name="Direccion" placeholder="Direccion">
-          <input type="email" id="Correo" class="fadeIn second" name="Correo" placeholder="Correo" required>
-          <input type="password" id="Contrasena" class="fadeIn third" name="Contrasena" placeholder="Contraseña">
+          <label for=""><b>Teléfono:</b></label>
+          <input type="number" id="Telefono" class="fadeIn second telefono" name="Telefono" placeholder="Numero de telefono">
+          <label for=""><b>Nombre:</b></label>
+          <input type="text" id="Nombre" class="fadeIn third nombre" name="Nombre" placeholder="Nombre" required>
+          <label for=""><b>Dirección:</b></label>
+          <input type="text" id="Direccion" class="fadeIn second direccion" name="Direccion" placeholder="Direccion">
+          <label for=""><b>Correo:</b></label>
+          <input type="email" id="Correo" class="fadeIn second correo" name="Correo" placeholder="Correo" required>
+          <label for=""><b>Contraseña:</b></label>
+          <input type="password" id="Contrasena" class="fadeIn third contrasena" name="Contrasena" placeholder="Contraseña">
           
           <button type="submit" name="registroAdmin" class="fadeIn fourth" >Registrar</button>
           <!-- <?php print_r($_REQUEST); ?> -->
@@ -136,14 +144,12 @@ $listarRol = json_decode($ControladorUsuarios->ListarRoles());
     </div>
   </section>
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-
-  <!-- JavaScript Libraries -->
+  <!--JQUERY-->
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
   <script src="../Estilo/lib/jquery/jquery.min.js"></script>
   <script src="../Estilo/lib/jquery/jquery-migrate.min.js"></script>
+  <!-- JavaScript Libraries -->
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
   <script src="../Estilo/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="../Estilo/lib/superfish/hoverIntent.js"></script>
   <script src="../Estilo/lib/superfish/superfish.min.js"></script>
@@ -151,11 +157,18 @@ $listarRol = json_decode($ControladorUsuarios->ListarRoles());
   <script src="../Estilo/lib/modal-video/js/modal-video.js"></script>
   <script src="../Estilo/lib/owlcarousel/owl.carousel.min.js"></script>
   <script src="../Estilo/lib/wow/wow.min.js"></script>
-  <!-- Contact Form JavaScript File -->
   <script src="../Estilo/contactform/contactform.js"></script>
-
-  <!-- Template Main Javascript File -->
   <script src="../Estilo/js/main.js"></script>
+  <script>
+        //cambiar tamaño inputs c:
+        let cambiar = document.querySelector(".documento").style.width="70%";
+        let cambiar1 = document.querySelector(".telefono").style.width="70%";
+        let cambiar2 = document.querySelector(".nombre").style.width="70%";
+        let cambiar3 = document.querySelector(".direccion").style.width="70%";
+        let cambiar4 = document.querySelector(".correo").style.width="70%";
+        let cambiar5 = document.querySelector(".contrasena").style.width="70%";
+        let cambiar6 = document.querySelector(".pedidoP").style.width="70%";
 
+      </script>             
 </body>
 </html>
