@@ -114,12 +114,7 @@ if(!($_SESSION['Documento']))
 
           <!-- Icon -->
           <div class="fadeIn first">
-<<<<<<< HEAD
             <h6>Agregar Pedido</h6><br>
-=======
-
-          <h6>Agregar Pedido</h6><br>
->>>>>>> 29820ca4a632b263beeba7e080721b8c2b5d7d23
         </div>
         <!-- Login Form -->
         <form name="frmpedido" id="frmpedido" method="post">
