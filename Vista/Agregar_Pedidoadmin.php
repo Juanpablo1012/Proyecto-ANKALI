@@ -176,17 +176,6 @@ if(!($_SESSION['Documento']))
         <div id="detallepedido">
         </div>
       </div>
-<<<<<<< HEAD
-
-=======
-      
-      <script>
-        //cambiar tamaño c:
-        let cambiar = document.querySelector(".pedidoP").style.width="70%";
-        let cambiar1 = document.querySelector(".pedidoU").style.width="70%";
-        let cambiar2 = document.querySelector(".pedidoV").style.width="70%";
-      </script>
->>>>>>> 29820ca4a632b263beeba7e080721b8c2b5d7d23
 
       <script>
         $(document).ready(function () {
