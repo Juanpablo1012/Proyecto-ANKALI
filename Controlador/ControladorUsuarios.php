@@ -122,10 +122,10 @@ class ControladorUsuarios{
 
 
 $ControladorUsuarios = new ControladorUsuarios();
-//print_r ($_REQUEST);
-//$w=$_REQUEST;
 
-if(isset($_POST['registro'])){
+
+if(isset($_POST['action'])&&$_POST['action']=='registro')
+{
     echo $ControladorUsuarios->RegistrarUsuario(
     $_POST['Documento'],
     $_POST['Nombre'],
@@ -133,39 +133,26 @@ if(isset($_POST['registro'])){
     $_POST['Direccion'],
     $_POST['Correo'],
     $_POST['Contrasena']);
-    }
+}
 
-elseif(isset($_POST['action'])&&$_POST['action']=='entra'){
-    
-
-       // if(isset($_POST['enviar'])){
+elseif(isset($_POST['action'])&&$_POST['action']=='entra')
+{
         $correoU = $_POST['correoU'];
         $contraU = $_POST['contrasenaU'];
         
     $Usuario=$ControladorUsuarios->InicioSesion($correoU,$contraU);
-//echo 'ESTO ENCONTRE'. $Usuario->getExiste();
-            if($Usuario->getExiste()==1)
-                {
-                    $_SESSION['Documento']=$Usuario->getDocumento();
-                    $_SESSION['IdRol']=$Usuario->getIdRol();
-                    if($_SESSION['IdRol']==2){
-                        echo 2;
-                    }else{
-                        echo 1;
-                    }
-                    //echo $Usuario->getExiste();
+        if($Usuario->getExiste()==1)
+            {
+                $_SESSION['Documento']=$Usuario->getDocumento();
+                $_SESSION['IdRol']=$Usuario->getIdRol();
+                if($_SESSION['IdRol']==2){
+                    echo 2;
+                }else{
+                    echo 1;
                 }
-            else{
-                    //if($_REQUEST['accion'])==1)
-                    //{
-                    echo 0;
-                        //unset($_REQUEST['accion']);
-                    //}
-
-              // header ("Location:../index.php");
+            }else{
+                echo 0;
                 }
-    //}
-    exit;
 }
 
 

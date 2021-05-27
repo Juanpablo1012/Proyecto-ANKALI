@@ -64,7 +64,6 @@ if(!($_SESSION['Documento']))
         <li class="menu-has-children"><a href="#">Usuarios</a>
             <ul>
               <li><a href="registroAdmin.php">Registrar usuarios</a></li>
-              <li><a href="ResgistrarRol.php">Registrar roles</a></li>
               <li><a href="Usuariosadmin.php">Listar usuarios</a></li>
             </ul>
         </li>

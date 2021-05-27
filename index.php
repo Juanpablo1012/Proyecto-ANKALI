@@ -134,7 +134,6 @@
   <script src="Estilo/lib/owlcarousel/owl.carousel.min.js"></script>
   <script src="Estilo/lib/wow/wow.min.js"></script>
   <script src="Estilo/sweetalert2/sweetalert2.all.min.js"></script>
-  <!-- Contact Form JavaScript File -->
   <script src="Estilo/contactform/contactform.js"></script>
   <script src="Estilo/js/alerts.js"></script>
 
