@@ -358,7 +358,7 @@ elseif(isset($_POST['restablecercontra']))
     $sql = $mysqli->query("UPDATE  usuarios SET Contrasena = '$psw'  where Documento = '$Documento'");
     
 }
-elseif(isset($_POST['registroAdmin']))
+elseif(isset($_POST['action'])&&$_POST['action']=='registroAdmin')
 {
     echo $ControladorUsuarios->RegistrarAdmin(
     $_POST['Documento'],

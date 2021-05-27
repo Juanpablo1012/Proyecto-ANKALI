@@ -180,19 +180,11 @@
 
             try{
                 $sql->execute();
-                echo 
-                '<script>
-                    alert("Usuario registrado exitosamente.");
-                    window.location="../Vista/Usuariosadmin.php";
-                </script>';
+                echo 1;
             }
             catch(Exception $e)
             {
-                echo 
-                '<script>
-                    alert("algo ha ocurrido mal.");
-                    window.history.go(-1);
-                </script>';
+                echo 0;
             }
             Db::CerrarConexion($Db);
             return $mensaje;

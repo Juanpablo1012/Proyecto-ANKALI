@@ -158,4 +158,68 @@ var doRecuperarContra = function (callback){
         }
         });
 };
+//REGISTRO ADMIN
+$(".registraradmin").click(function(e)
+    {
+        //console.log("entre");
+        e.preventDefault();
+        let rol = document.querySelector("#IdRol").value;
+        let documento = document.getElementById("Documento").value;
+        let tel = document.querySelector("#Telefono").value;
+        let nombre = document.querySelector("#Nombre").value;
+        let direc = document.querySelector("#Direccion").value;
+        let correo = document.querySelector("#Correo").value;
+        let pass = document.querySelector("#Contrasena").value;
+        
+                if(!rol.trim() || !documento.trim() || !tel.trim() || !nombre.trim() || !direc.trim() || !correo.trim() ||!pass.trim()){
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Todos los datos son obligatorios'
+                    });
+                    //console.log(documento+'----'+tel+'----'+nombre+'----'+direc+'----'+correo+'----'+pass);
+                }else{
+                    //alert("ERROR");
+                    doRegistroAdmin(function (r){
+                        //console.log(r);
+                            if(r==1){
+                                Swal.fire({
+                                    title: 'Registrado exitosamente',
+                                    text: 'Ahora inicia sesión para disfrutar de nuestro sitio web',
+                                    icon: 'success',
+                                    cancelButtonColor: '#d33',
+                                    confirmButtonText: 'Cerrar'
+                                  }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        window.location.href = "../Vista/Usuariosadmin.php";
+                                    }
+                                  });
+                                }if(r==0){
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Datos incorrectos',
+                                        text: 'Los datos no son validos'
+                                    });
+                                }
+                    });
+                }
+    });
 
+var doRegistroAdmin = function (callback){
+        let rol = document.getElementById("IdRol").value;
+        let documento = document.getElementById("Documento").value;
+        let tel = document.querySelector("#Telefono").value;
+        let nombre = document.querySelector("#Nombre").value;
+        let direc = document.querySelector("#Direccion").value;
+        let correo = document.querySelector("#Correo").value;
+        let pass = document.querySelector("#Contrasena").value;
+
+    datos = {IdRol:rol,Documento:documento,Telefono:tel,Nombre:nombre,Direccion:direc,Correo:correo,Contrasena:pass,action:'registroAdmin'},
+    $.ajax({
+            type:'POST',
+            url:'../Controlador/ControladorUsuarios.php',
+            data:datos,
+            success: function (rr){
+            callback(rr);
+        }
+        });
+};

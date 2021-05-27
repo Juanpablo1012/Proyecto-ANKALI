@@ -56,65 +56,57 @@ if(!($_SESSION['Documento']))
 </head>
 
 <body>
-      <section id="hero4" class="wow fadeIn">
-      
-    <div class="container mt-4">
-    
-        <div class="card-body" >
-            <table border="1" class="table table-sriped  table-bordered" id="litarroles1">
-                <thead>
-                <tr>
-                    <th>Codigo del Pedido</th>
-                    <th>Nro pedido</th>
-                    <th>Producto</th>
-                    <th>Tipo de producto</th>
-                    <th>Valor </th>
-                    <th>Cantidad</th>
-                    <th>Total</th>
-                    <th>Eliminar</th>
-                </tr>
-                </thead>
-                <tbody>
-
-                <?php
-                foreach($Listardetallepedido as $dtl)
-                {
-                ?> 
-                <tr>
-                    <td><?php echo $dtl["IdDtllPedido"]?></td>
-                    <td><?php echo $dtl["IdPedido"]?></td>
-                    <td><?php echo $dtl["NombreP"]?></td>
-                    <td><?php echo $dtl["NombreT"]?></td>
-                    <td><?php echo $dtl["PrecioP"]?></td>
-                    <td><?php echo $dtl["Cantidad"]?></td>
-                    <td><?php echo $dtl["Total"]?></td>
-                    <td>
-                    <a href="#" onclick="Eliminardetalle(<?php echo $dtl['IdDtllPedido']?>)"><i class="fa fa-window-close"></i></a>
-                    <!-- <a href="../Controlador/DestruirSesion.php">Cerrar Sesión <i class="fa fa-window-close"></i></a> -->
-                    </td>
-
-                    
-                    
-                </tr>
-                <?php
-                }
-                ?>
-                </tbody>
-            </table>
-        </div>
+<section id="hero3" class="wow fadeIn" style="border: 1px black;">
+  <div class="fadeInDown">
+        <div class="container mt-4">
         
-    </div>
+            <div class="card-body" >
+                <table border="1" class="table table-sriped  table-bordered" id="litarroles1">
+                    <thead>
+                    <tr>
+                        <th>Codigo del Pedido</th>
+                        <th>Nro pedido</th>
+                        <th>Producto</th>
+                        <th>Tipo de producto</th>
+                        <th>Valor </th>
+                        <th>Cantidad</th>
+                        <th>Total</th>
+                        <th>Eliminar</th>
+                    </tr>
+                    </thead>
+                    <tbody>
 
+                    <?php
+                    foreach($Listardetallepedido as $dtl)
+                    {
+                    ?> 
+                    <tr>
+                        <td><?php echo $dtl["IdDtllPedido"]?></td>
+                        <td><?php echo $dtl["IdPedido"]?></td>
+                        <td><?php echo $dtl["NombreP"]?></td>
+                        <td><?php echo $dtl["NombreT"]?></td>
+                        <td><?php echo $dtl["PrecioP"]?></td>
+                        <td><?php echo $dtl["Cantidad"]?></td>
+                        <td><?php echo $dtl["Total"]?></td>
+                        <td>
+                        <a href="#" onclick="Eliminardetalle(<?php echo $dtl['IdDtllPedido']?>)"><i class="fa fa-window-close"></i></a>
+                        <!-- <a href="../Controlador/DestruirSesion.php">Cerrar Sesión <i class="fa fa-window-close"></i></a> -->
+                        </td>
+
+                        
+                        
+                    </tr>
+                    <?php
+                    }
+                    ?>
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+    </div>
     </section>
 
-    <footer class="footer">
-      <div class="copyrights">
-        <p>&copy; Copyrights eStartup. All rights reserved.</p>
-        <div class="credits">
-          Designed by <a href="">BootstrapMade</a>
-        </div>
-      </div>
-  </footer>
 
 
 

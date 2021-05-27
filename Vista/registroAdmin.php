@@ -104,14 +104,14 @@ $listarRol = json_decode($ControladorUsuarios->ListarRoles());
           <img src="../Estilo/img/logo-negro.png" id="icon2" alt="User Icon">
           <h6>Registrar usuario</h6>
         </div>
-        <!-- Login Form -->
-        <form Method="POST" action="../Controlador/ControladorUsuarios.php">
+        <!-- Login Form ../Controlador/ControladorUsuarios.php-->
+        <form Method="POST" action="#">
         <label for=""><b>Documento:</b></label>
 
-          <input type="number" id="Documento" class="fadeIn third documento" name="Documento" placeholder="Numero de documento" required>
+          <input type="number" id="Documento" class="fadeIn third documento" name="Documento" placeholder="Numero de documento" >
           
           <label for=""><b>Seleccione <br>un rol:</b></label>
-          <select name="IdRol" class="pedidoP">
+          <select name="IdRol" class="pedidoP" id="IdRol">
               <option>Seleccione un Rol</option>
               <?php
                 foreach($listarRol as $rol)
@@ -126,15 +126,15 @@ $listarRol = json_decode($ControladorUsuarios->ListarRoles());
           <label for=""><b>Teléfono:</b></label>
           <input type="number" id="Telefono" class="fadeIn second telefono" name="Telefono" placeholder="Numero de telefono">
           <label for=""><b>Nombre:</b></label>
-          <input type="text" id="Nombre" class="fadeIn third nombre" name="Nombre" placeholder="Nombre" required>
+          <input type="text" id="Nombre" class="fadeIn third nombre" name="Nombre" placeholder="Nombre" >
           <label for=""><b>Dirección:</b></label>
           <input type="text" id="Direccion" class="fadeIn second direccion" name="Direccion" placeholder="Direccion">
           <label for=""><b>Correo:</b></label>
-          <input type="email" id="Correo" class="fadeIn second correo" name="Correo" placeholder="Correo" required>
+          <input type="email" id="Correo" class="fadeIn second correo" name="Correo" placeholder="Correo" >
           <label for=""><b>Contraseña:</b></label>
           <input type="password" id="Contrasena" class="fadeIn third contrasena" name="Contrasena" placeholder="Contraseña">
           
-          <button type="submit" name="registroAdmin" class="fadeIn fourth" >Registrar</button>
+          <button type="button" name="registroAdmin" class="fadeIn fourth registraradmin" >Registrar</button>
           <!-- <?php print_r($_REQUEST); ?> -->
         </form>
       </div>
@@ -159,6 +159,8 @@ $listarRol = json_decode($ControladorUsuarios->ListarRoles());
   <script src="../Estilo/lib/wow/wow.min.js"></script>
   <script src="../Estilo/contactform/contactform.js"></script>
   <script src="../Estilo/js/main.js"></script>
+  <script src="../Estilo/js/alerts.js"></script>
+
   <script>
         //cambiar tamaño inputs c:
         let cambiar = document.querySelector(".documento").style.width="70%";

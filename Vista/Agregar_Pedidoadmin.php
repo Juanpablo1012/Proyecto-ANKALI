@@ -113,7 +113,7 @@ if(!($_SESSION['Documento']))
           <!-- Tabs Titles -->
 
           <!-- Icon -->
-          <div class="fadeIn first">
+        <div class="fadeIn first">
 
           <h6>Agregar Pedido</h6><br>
         </div>
@@ -163,8 +163,8 @@ if(!($_SESSION['Documento']))
           <button type="submit">Agregar</button>
         </form>
       </div>
-
-      <div id="formContent4">
+<br>
+      <div class="wrapper3 fadeInDown formContent4" style="background: white;">
       
         <div id="detallepedido">
         </div>

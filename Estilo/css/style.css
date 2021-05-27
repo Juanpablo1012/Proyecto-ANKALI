@@ -1489,6 +1489,7 @@ body.mobile-nav-active #mobile-nav-toggle i {
   animation-duration: 1s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
+  
 }
 
 @-webkit-keyframes fadeInDown {
@@ -2002,8 +2003,12 @@ input[type=text]:placeholder {
   width: 100%;
   min-height: 100%;
   padding: 60px;
+  max-width: 800px;
 }
-
+.ok {
+  
+  max-width: 800px;
+}
 #formContent3 {
   
   -webkit-border-radius: 10px 10px 10px 10px;
@@ -2146,7 +2151,19 @@ input[type=text]:placeholder {
   min-height: 100%;
   padding: 60px;
 }
-
+.formContent4 {
+  
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  padding: 30px;
+  width: 90%;
+  max-width: 800px;
+  position: relative;
+  -webkit-box-shadow: 0 40px 80px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 40px 80px 0 rgba(0,0,0,0.3);
+  text-align: center;
+}
 #formContent4 {
   
   -webkit-border-radius: 10px 10px 10px 10px;
