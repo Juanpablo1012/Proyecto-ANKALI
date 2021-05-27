@@ -106,44 +106,51 @@ if(!($_SESSION['Documento']))
           <!-- Icon -->
           <div class="fadeIn first">
 
-            <h6>Agregar Producto o Insumo</h6>
+            <h6>Agregar insumo</h6><br>
           </div>
           <!-- Login Form -->
           <form action="../Controlador/ControladorProductos.php" method="Post" enctype="multipart/form-data">
             <!-- <input type="hidden" id="registro" class="fadeIn third" name="login" placeholder="Codigo producto"> -->
-            <select name="IdTipoProducto">
+            <!--<select name="IdTipoProducto">
               <option>Seleccione un tipo de producto</option>
               <?php
-                foreach($listarTP as $Tp)
+                //foreach($listarTP as $Tp)
                 {
               ?> 
                 <option value="<?php echo $Tp->IdTipoProducto?>"> <?php echo $Tp->Nombre?></option>
               <?php
                 }
               ?>
-          </select>
-            <input type="text" id="Nombre" class="fadeIn third" name="Nombre" placeholder="Nombre">
-            <input type="number" id="Precio" class="fadeIn second" name="Precio" placeholder="Precio">
-            <input type="file" id="Imagen" class="fadeIn second" name="Imagen" placeholder="Imagen">
-            <textarea type="text" id="Descripcion" class="fadeIn second" name="Descripcion" placeholder="Descripcion"></textarea>
-            <input type="number" id="Stock" class="fadeIn second" name="Stock" placeholder="Stock">
+          </select>-->
+            <label for=""><b>Nombre:</b></label>
+            <input type="text" id="Nombre" class="fadeIn third nombre" name="Nombre" placeholder="Nombre"><br>
+            <label for=""><b>Precio:</b></label>
+            <input type="number" id="Precio" class="fadeIn second precio" name="Precio" placeholder="Precio"><br>
+            <label for=""><b>Imagen:</b></label>
+            <input type="file" id="Imagen" class="fadeIn second imagen" name="Imagen" placeholder="Imagen"><br>
+            <label for=""><b>Cantidad:</b></label>
+            <input type="number" id="Stock" class="fadeIn second cantidad" name="Stock" placeholder="Stock"><br>
             <!-- <input type="file" id="registro" class="fadeIn second" name="login" placeholder="Correo"> -->
-            <button type="submit" name="CrearProduc" class="fadeIn fourth">Agregar Producto</button>
+            <button type="submit" name="CrearProduc" class="fadeIn fourth">Agregar</button>
           </form>
     
       
         </div>
       </div>
   </section>
-  
+  <script>
+        //cambiar tamaño c:
+        let cambiar = document.querySelector(".nombre").style.width="70%";
+        let cambiar1 = document.querySelector(".precio").style.width="70%";
+        let cambiar2 = document.querySelector(".imagen").style.width="70%";
+        let cambiar3 = document.querySelector(".cantidad").style.width="70%";
+      </script>
 
-
-
-
-
-  <!-- JavaScript Libraries -->
+  <!--------------------------------------------------------------------->
   <script src="../Estilo/lib/jquery/jquery.min.js"></script>
   <script src="../Estilo/lib/jquery/jquery-migrate.min.js"></script>
+  <!--------------------------------------------------------------------->
+
   <script src="../Estilo/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="../Estilo/lib/superfish/hoverIntent.js"></script>
   <script src="../Estilo/lib/superfish/superfish.min.js"></script>
@@ -151,11 +158,9 @@ if(!($_SESSION['Documento']))
   <script src="../Estilo/lib/modal-video/js/modal-video.js"></script>
   <script src="../Estilo/lib/owlcarousel/owl.carousel.min.js"></script>
   <script src="../Estilo/lib/wow/wow.min.js"></script>
-  <!-- Contact Form JavaScript File -->
   <script src="../Estilo/contactform/contactform.js"></script>
-
-  <!-- Template Main Javascript File -->
   <script src="../Estilo/js/main.js"></script>
+
 
 </body>
 </html>

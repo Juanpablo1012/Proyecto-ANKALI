@@ -109,7 +109,7 @@ if(!($_SESSION['Documento']))
           <!-- Icon -->
           <div class="fadeIn first">
 
-            <h6>Agregar Compra</h6>
+            <h6>Agregar Compra</h6><br>
           </div>
           <!-- Login Form  -->
           <form action="../Controlador/ControladorCompras.php" method="Post" enctype="multipart/form-data">
@@ -117,10 +117,11 @@ if(!($_SESSION['Documento']))
             <input type="hidden" id="IdCompra" class="fadeIn third" name="IdCompra" placeholder="Codigo compra">
             <input type="hidden" value="<?php echo $fechaA ?>" id="Fecha" class="fadeIn second" name="Fecha" placeholder="Número">
             <input type="hidden" id="DocumentoUsuario" class="fadeIn second" value="<?php echo $doc?>"name="DocumentoUsuario" placeholder="Número">
-
-            <input type="file" id="Factura" class="fadeIn third" name="Factura" placeholder="Factura" required>
-
-            <input type="number" id="Total" class="fadeIn second" name="Total" placeholder="Total de la compra" required>
+            
+            <label for=""><b>Imagen de la<br> factura:</b></label>
+            <input type="file" id="Factura" class="fadeIn third imagen" name="Factura" placeholder="Factura" required><br>
+            <label for=""><b>Total de la factura:</b></label>
+            <input type="number" id="Total" class="fadeIn second total" name="Total" placeholder="Total de la compra" required><br>
 
             <input type="submit" name="Agregar" class="fadeIn fourth" value="Agregar">
 
@@ -130,11 +131,17 @@ if(!($_SESSION['Documento']))
         </div>
       </div>
   </section>
+  <script>
+        //cambiar tamaño c:
+        let cambiar2 = document.querySelector(".imagen").style.width="70%";
+        let cambiar3 = document.querySelector(".total").style.width="70%";
+      </script>
 
-
-  <!-- JavaScript Libraries -->
+  <!--------------------------------------------------------------------->
   <script src="../Estilo/lib/jquery/jquery.min.js"></script>
   <script src="../Estilo/lib/jquery/jquery-migrate.min.js"></script>
+  <!--------------------------------------------------------------------->
+
   <script src="../Estilo/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="../Estilo/lib/superfish/hoverIntent.js"></script>
   <script src="../Estilo/lib/superfish/superfish.min.js"></script>
@@ -142,11 +149,9 @@ if(!($_SESSION['Documento']))
   <script src="../Estilo/lib/modal-video/js/modal-video.js"></script>
   <script src="../Estilo/lib/owlcarousel/owl.carousel.min.js"></script>
   <script src="../Estilo/lib/wow/wow.min.js"></script>
-  <!-- Contact Form JavaScript File -->
   <script src="../Estilo/contactform/contactform.js"></script>
-
-  <!-- Template Main Javascript File -->
   <script src="../Estilo/js/main.js"></script>
+
 
 </body>
 </html>

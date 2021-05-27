@@ -57,7 +57,7 @@ if(!($_SESSION['Documento']))
                 height="70"> </a> ANKALI</a></h1>
       </div>
 
-    <nav id="nav-menu-container">
+  <nav id="nav-menu-container">
       <ul class="nav-menu">
         <li class="menu-active"><a href="admin.php">Inicio</a></li>
 
@@ -114,7 +114,8 @@ if(!($_SESSION['Documento']))
 
           <!-- Icon -->
           <div class="fadeIn first">
-            <h6>Agregar Pedido</h6><br>
+
+          <h6>Agregar Pedido</h6><br>
         </div>
         <!-- Login Form -->
         <form name="frmpedido" id="frmpedido" method="post">
@@ -128,7 +129,7 @@ if(!($_SESSION['Documento']))
                 echo "<option value=".$usuario['Documento'].">".$usuario['Documento'].'- - - -'.$usuario['Nombre']."</option>";
             ?>
           </select>
-          </div> 
+          </div>
 
           <div class="form-group">
           <label for=""> <b>Nombre del producto: </b></label>
@@ -157,18 +158,10 @@ if(!($_SESSION['Documento']))
           <input type="number" id="Total" class="fadeIn second" name="Total" readonly placeholder="Valor total">
           </div>
 
-
-
-          
           <input type="hidden" name="registrarpedido" id="registrarpedido">
           <!-- <button type="reset">Terminar</button> -->
           <button type="submit">Agregar</button>
         </form>
-
-
-
-    
-
       </div>
 
       <div id="formContent4">
@@ -176,6 +169,13 @@ if(!($_SESSION['Documento']))
         <div id="detallepedido">
         </div>
       </div>
+      
+      <script>
+        //cambiar tamaño c:
+        let cambiar = document.querySelector(".pedidoP").style.width="70%";
+        let cambiar1 = document.querySelector(".pedidoU").style.width="70%";
+        let cambiar2 = document.querySelector(".pedidoV").style.width="70%";
+      </script>
 
       <script>
         $(document).ready(function () {
@@ -263,9 +263,10 @@ if(!($_SESSION['Documento']))
     </div>
   </section>
 
-  <!-- JavaScript Libraries -->
   <script src="../Estilo/lib/jquery/jquery.min.js"></script>
   <script src="../Estilo/lib/jquery/jquery-migrate.min.js"></script>
+  <!--------------------------------------------------------------------->
+
   <script src="../Estilo/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="../Estilo/lib/superfish/hoverIntent.js"></script>
   <script src="../Estilo/lib/superfish/superfish.min.js"></script>
@@ -273,10 +274,7 @@ if(!($_SESSION['Documento']))
   <script src="../Estilo/lib/modal-video/js/modal-video.js"></script>
   <script src="../Estilo/lib/owlcarousel/owl.carousel.min.js"></script>
   <script src="../Estilo/lib/wow/wow.min.js"></script>
-  <!-- Contact Form JavaScript File -->
   <script src="../Estilo/contactform/contactform.js"></script>
-
-  <!-- Template Main Javascript File -->
   <script src="../Estilo/js/main.js"></script>
 
 </body>

@@ -104,13 +104,19 @@ if(!($_SESSION['Documento']))
           <div class="fadeIn first">
 
             <h6>Agregar Sevicio</h6>
+            <br>
           </div>
           <!-- Login Form -->
           <form action="../Controlador/ControladorServicios.php" method="Post" enctype="multipart/form-data">
-            <input type="text" name="Nombre" class="fadeIn third" placeholder="Nombre">
-            <textarea type="number" name="Descripcion" class="fadeIn second"placeholder="Descripcion"></textarea>
-            <input type="file" id="Imagen" class="fadeIn second" name="Imagen" placeholder="Imagen">
-            <input type="number" name="Precio" class="fadeIn second" placeholder="Precio">
+            <label for=""> <b>Nombre:</b> </label>
+            <input type="text" name="Nombre" class="fadeIn third nombre" placeholder="Nombre">
+            <label for=""> <b>Descripción:</b> </label>
+            <textarea type="number" name="Descripcion" class="fadeIn second descripcion" placeholder="Descripcion"></textarea>
+            <label for=""> <b>Imagen:</b> </label>
+            <input type="file" id="Imagen" class="fadeIn second imagen" name="Imagen" placeholder="Imagen"><br>
+            <label for=""> <b>Precio:</b> </label>
+            <input type="number" name="Precio" class="fadeIn second precio" placeholder="Precio">
+            <br>
             <input type="submit" name="AgregarServ" class="fadeIn fourth" value="Agregar">
           </form>
     
@@ -118,8 +124,6 @@ if(!($_SESSION['Documento']))
         </div>
       </div>
   </section>
-  
-
   <footer class="footer">
       <div class="copyrights">
         <p>&copy; Copyrights eStartup. All rights reserved.</p>
@@ -131,10 +135,11 @@ if(!($_SESSION['Documento']))
 
 
 
-
-  <!-- JavaScript Libraries -->
+ 
   <script src="../Estilo/lib/jquery/jquery.min.js"></script>
   <script src="../Estilo/lib/jquery/jquery-migrate.min.js"></script>
+  <!--------------------------------------------------------------------->
+
   <script src="../Estilo/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="../Estilo/lib/superfish/hoverIntent.js"></script>
   <script src="../Estilo/lib/superfish/superfish.min.js"></script>
@@ -142,11 +147,15 @@ if(!($_SESSION['Documento']))
   <script src="../Estilo/lib/modal-video/js/modal-video.js"></script>
   <script src="../Estilo/lib/owlcarousel/owl.carousel.min.js"></script>
   <script src="../Estilo/lib/wow/wow.min.js"></script>
-  <!-- Contact Form JavaScript File -->
   <script src="../Estilo/contactform/contactform.js"></script>
-
-  <!-- Template Main Javascript File -->
   <script src="../Estilo/js/main.js"></script>
+  <script>
+        //cambiar tamaño c:
+        let cambiar = document.querySelector(".nombre").style.width="70%";
+        let cambiar1 = document.querySelector(".descripcion").style.width="70%";
+        let cambiar2 = document.querySelector(".imagen").style.width="70%";
+        let cambiar3 = document.querySelector(".precio").style.width="70%";
 
+      </script>
 </body>
 </html>
