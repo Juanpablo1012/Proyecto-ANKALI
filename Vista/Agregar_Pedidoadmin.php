@@ -114,8 +114,12 @@ if(!($_SESSION['Documento']))
 
           <!-- Icon -->
           <div class="fadeIn first">
+<<<<<<< HEAD
+            <h6>Agregar Pedido</h6><br>
+=======
 
           <h6>Agregar Pedido</h6><br>
+>>>>>>> 29820ca4a632b263beeba7e080721b8c2b5d7d23
         </div>
         <!-- Login Form -->
         <form name="frmpedido" id="frmpedido" method="post">
@@ -129,7 +133,7 @@ if(!($_SESSION['Documento']))
                 echo "<option value=".$usuario['Documento'].">".$usuario['Documento'].'- - - -'.$usuario['Nombre']."</option>";
             ?>
           </select>
-          </div>
+          </div> 
 
           <div class="form-group">
           <label for=""> <b>Nombre del producto: </b></label>
@@ -177,6 +181,9 @@ if(!($_SESSION['Documento']))
         <div id="detallepedido">
         </div>
       </div>
+<<<<<<< HEAD
+
+=======
       
       <script>
         //cambiar tamaño c:
@@ -184,6 +191,7 @@ if(!($_SESSION['Documento']))
         let cambiar1 = document.querySelector(".pedidoU").style.width="70%";
         let cambiar2 = document.querySelector(".pedidoV").style.width="70%";
       </script>
+>>>>>>> 29820ca4a632b263beeba7e080721b8c2b5d7d23
 
       <script>
         $(document).ready(function () {

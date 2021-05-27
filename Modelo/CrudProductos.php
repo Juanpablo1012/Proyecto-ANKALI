@@ -95,11 +95,41 @@
         public function Listarproductousu()
         {
             $Db = Db::Conectar(); // conectar bd
-            $sql = $Db->query('SELECT * FROM producto WHERE Estado = 1'); //definir sentencia sql
+            $sql = $Db->query('SELECT * FROM producto WHERE Estado = 1 AND TipodeProducto = 1'); //definir sentencia sql
             $sql->execute(); // ejecutar la consulta
             return $sql->fetchAll(); // retorna todos los registros de la consulta
             Db::CerrarConexion($Db);
         }
+
+        public function Listarinsumousu()
+        {
+            $Db = Db::Conectar(); // conectar bd
+            $sql = $Db->query('SELECT * FROM producto WHERE Estado = 1 AND TipodeProducto = 2'); //definir sentencia sql
+            $sql->execute(); // ejecutar la consulta
+            return $sql->fetchAll(); // retorna todos los registros de la consulta
+            Db::CerrarConexion($Db);
+        }
+
+
+        public function Listarserviciosusu()
+        {
+            $Db = Db::Conectar(); // conectar bd
+            $sql = $Db->query('SELECT * FROM producto WHERE Estado = 1 AND TipodeProducto = 3'); //definir sentencia sql
+            $sql->execute(); // ejecutar la consulta
+            return $sql->fetchAll(); // retorna todos los registros de la consulta
+            Db::CerrarConexion($Db);
+        }
+
+        public function ProductoBusca($id)
+        {
+            $Db = Db::Conectar(); // conectar bd
+            $sql = $Db->query('SELECT * FROM producto WHERE IdProducto ='.$id); //definir sentencia sql
+            $sql->execute(); // ejecutar la consulta
+            return $sql->fetchAll(); // retorna todos los registros de la consulta
+            Db::CerrarConexion($Db);
+        }
+
+        
 
         public function CambiarEstadoP($id)
         {
