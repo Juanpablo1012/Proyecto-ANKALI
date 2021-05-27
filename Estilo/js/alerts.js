@@ -1,3 +1,4 @@
+//INICIO DE SESIÓN
 $(".save").click(function(e)
     {
         e.preventDefault();
@@ -42,7 +43,7 @@ var doAjax = function (callback){
         }
         });
 };
-
+//REGISTRO
 $(".formregistro").click(function(e)
     {
         //console.log("entre");
@@ -59,7 +60,7 @@ $(".formregistro").click(function(e)
                         icon: 'warning',
                         title: 'Todos los datos son obligatorios'
                     });
-                    console.log(documento+'----'+tel+'----'+nombre+'----'+direc+'----'+correo+'----'+pass);
+                    //console.log(documento+'----'+tel+'----'+nombre+'----'+direc+'----'+correo+'----'+pass);
                 }else{
                     //alert("ERROR");
                     doRegistro(function (r){
@@ -76,15 +77,15 @@ $(".formregistro").click(function(e)
                                         window.location.href = "../index.php";
                                     }
                                   });
-                            }if(r==0){
-                                Swal.fire({
-                                    icon: 'error',
-                                    title: 'Datos incorrectos',
-                                    text: 'Los datos no son validos'
-                                });
-                            }
+                                }if(r==0){
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Datos incorrectos',
+                                        text: 'Los datos no son validos'
+                                    });
+                                }
                     });
-                    }
+                }
     });
 
 var doRegistro = function (callback){
@@ -105,7 +106,56 @@ var doRegistro = function (callback){
         }
         });
 };
+//RECUPERAR CONTRASEÑA
+$(".RecuperarContra").click(function(e)
+    {
+        //console.log("entre");
+        e.preventDefault();
+        let correo = document.querySelector("#Correo").value;
+        
+                if(!correo.trim() ){
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Todos los datos son obligatorios'
+                    });
+                    
+                }else{
+                    doRecuperarContra(function (r){
+                        if(r==1){
+                            Swal.fire({
+                                title: 'Correo enviado existosamente',
+                                text: 'Verifica tu correo para restablecer tu contraseña',
+                                icon: 'success',
+                                cancelButtonColor: '#d33',
+                                confirmButtonText: 'Cerrar'
+                              }).then((result) => {
+                                if (result.isConfirmed) {
+                                    window.location.href = "../index.php";
+                                }
+                              });
+                            }if(r==0){
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Datos incorrectos',
+                                    text: 'El correo ingresado no existe'
+                                });
+                            }
+                    });
+                    
+                }
+    });
 
+var doRecuperarContra = function (callback){
+        let correo = document.querySelector("#Correo").value;
 
-
+    datos = {Correo:correo,action:'recuperarcontra'},
+    $.ajax({
+            type:'POST',
+            url:'../Controlador/ControladorUsuarios.php',
+            data:datos,
+            success: function (rr){
+            callback(rr);
+        }
+        });
+};
 

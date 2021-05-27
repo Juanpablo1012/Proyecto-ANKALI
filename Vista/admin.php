@@ -45,12 +45,23 @@ if(!($_SESSION['Documento']))
     <nav id="nav-menu-container">
       <ul class="nav-menu">
         <li class="menu-active"><a href="admin.php">Inicio</a></li>
-        <li class="menu-has-children"><a href="Listar_Servicioadmin.php">Servicios</a></li>
-        
+
+        <li class="menu-has-children"><a href="#">Servicios</a>
+          <ul>
+            <li><a href="Agregar_servicioadmin.php">Agregar servicio</a></li>
+            <li><a href="Listar_Servicioadmin.php">Listar servicio</a></li>
+          </ul>
+        </li>
         <li class="menu-has-children"><a href="#">Productos</a>
           <ul>
             <li><a href="Agregar_productoadmin.php">Agregar producto</a></li>
             <li><a href="Listar_Productoadmin.php">Listar productos</a></li>
+          </ul>
+        </li>
+        <li class="menu-has-children"><a href="#">Insumos</a>
+          <ul>
+            <li><a href="Agregar_Insumo.php">Agregar insumos</a></li>
+            <li><a href="Listar_Insumo.php">Listar insumos</a></li>
           </ul>
         </li>
         <li class="menu-has-children"><a href="#">Pedidos</a>

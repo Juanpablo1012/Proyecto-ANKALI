@@ -118,6 +118,7 @@
   <!-- JavaScript Libraries -->
   <script src="../Estilo/lib/jquery/jquery.min.js"></script>
   <script src="../Estilo/lib/jquery/jquery-migrate.min.js"></script>
+  <!-------------------------------------------------------------------------------------->
   <script src="../Estilo/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="../Estilo/lib/superfish/hoverIntent.js"></script>
   <script src="../Estilo/lib/superfish/superfish.min.js"></script>
@@ -127,8 +128,6 @@
   <script src="../Estilo/lib/wow/wow.min.js"></script>
   <script src="../Estilo/contactform/contactform.js"></script>
   <script src="../Estilo/js/alerts.js"></script>
-
-  <!-- Template Main Javascript File -->
   <script src="../Estilo/js/main.js"></script>
 
 </body>
