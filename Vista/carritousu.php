@@ -1,8 +1,72 @@
 <?php
 session_start();
+
 if(!($_SESSION['Documento']))
 {
   header ("Location:../index.php");
+}
+
+include "../Modelo/Conexion2.php" ; 
+// ProductoBusca
+
+if(isset($_SESSION['carrito'])){
+  if(isset($_GET['Id'])){
+  $arreglo = $_SESSION['carrito'];
+  $encontro = false;
+  $numero = 0;
+  for($i=0; $i<count($arreglo); $i++){
+    if($arreglo[$i]['IdProducto'] == $_GET['Id']){
+      $encontro = true;
+      $numero = $i;
+    }
+  }
+  if($encontro == true){
+    $arreglo[$numero]['cantidad']=$arreglo[$numero]['cantidad']+1;
+    $_SESSION['carrito'] = $arreglo;
+  }else{
+    $Nombre="";
+    $Precio=0;
+    $Imagen="";
+     $sql=("SELECT * FROM producto WHERE IdProducto=".$_GET['Id']);
+    $rec=$con->query($sql);
+    while ($f = $rec->fetch_array()) {
+      $Nombre=$f['Nombre'];
+      $Precio=$f['Precio'];
+      $Imagen=$f['Imagen'];
+     }
+     $datosnuevos = array('IdProducto'=>$_GET['Id'],
+                        'nombre'=>$Nombre,
+                        'precio'=>$Precio,
+                        'imagne'=>$Imagen,
+                        'cantidad'=>1);
+    array_push($arreglo, $datosnuevos);
+    $_SESSION['carrito']=$arreglo;
+}
+  }
+
+
+}else {
+  if(isset($_GET['Id'])){
+    $Nombre="";
+    $Precio=0;
+    $Imagen="";
+     $sql=("SELECT * FROM producto WHERE IdProducto=".$_GET['Id']);
+    $rec=$con->query($sql);
+    while ($f = $rec->fetch_array()) {
+      $Nombre=$f['Nombre'];
+      $Precio=$f['Precio'];
+      $Imagen=$f['Imagen'];
+
+    }
+     $arreglo[] = array('IdProducto'=>$_GET['Id'],
+                        'nombre'=>$Nombre,
+                        'precio'=>$Precio,
+                        'imagne'=>$Imagen,
+                        'cantidad'=>1);
+      $_SESSION['carrito'] = $arreglo;
+
+  }
+
 }
 ?>
 <!DOCTYPE html>
@@ -17,29 +81,19 @@ if(!($_SESSION['Documento']))
   <link href="../Estilo/img/logo-negro.png" rel="icon">
   <link href="../../Estilo/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Google Fonts -->
+
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i" rel="stylesheet">
 
-  <!-- Bootstrap css -->
-  <!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
   <link href="../Estilo/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Libraries CSS Files -->
   <link href="../Estilo/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="../Estilo/lib/owlcarousel/assets/owl.theme.default.min.css" rel="stylesheet">
   <link href="../Estilo/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link href="../Estilo/lib/animate/animate.min.css" rel="stylesheet">
   <link href="../Estilo/lib/modal-video/css/modal-video.min.css" rel="stylesheet">
 
-  <!-- Main Stylesheet File -->
   <link href="../Estilo/css/style.css" rel="stylesheet">
 
-  <!-- =======================================================
-    Theme Name: eStartup
-    Theme URL: https://bootstrapmade.com/estartup-bootstrap-landing-page-template/
-    Author: BootstrapMade.com
-    License: https://bootstrapmade.com/license/
-  ======================================================= -->
 </head>
 
 <body>
@@ -50,7 +104,6 @@ if(!($_SESSION['Documento']))
       <div id="logo" class="pull-left">
         
         <h1><a href="usuariousu.php" class="scrollto"><a><img src="../Estilo/img/logo-blanco.png" width="70" height="70"> </a>  ANKALI</a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
         
       </div>
 
@@ -66,11 +119,8 @@ if(!($_SESSION['Documento']))
         </ul>
       </nav>
     </div>
-  </header><!-- #header -->
+  </header>
 
-  <!--==========================
-    Hero Section
-  ============================-->
     <section id="hero4" class="wow fadeIn">
       <div class="hero-container">
           <div class="container mt-4">
@@ -78,50 +128,77 @@ if(!($_SESSION['Documento']))
             <hr>
             <div class="row">
                 <div class="col-sm-8">
-                    <table class="table table-hover">
-                        <thead>
-                          <tr>
-                            <th>Imagen</th>
+                <input type="hidden" name="Pedido" id="pedido">
 
-                            <th>Nombre</th>
-                            <th>Cantidad</th>
-                            <th>Precio</th>
-                            <th>Descripción</th>
-                            <th>Acciones</th>
-                        </tr>
-                        </thead>
+                <?php
+                $total = 0;
+                if(isset($_SESSION['carrito'])){
+                  ?>
+                  
+                  <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <!-- <th>Imagen</th> -->
+                      <th>Nombre</th>
+                      <th>Cantidad</th>
+                      <th>Precio</th>
+                      <th>Acciones</th>
+                  </tr>
+                  </thead>
+                  
+                  <?php
+
+                  
+                    $datos=$_SESSION['carrito'];
+                    $total = 0;
+                    for ($i = 0; $i < count($datos); $i++) {
+                      ?>
                         <tbody>
                             <tr class="text-center">
-                              <td>
-                                <img src="../Estilo/img/portalapiz.jpeg" alt="img" class="img-fluid">
-                            </td>
-                                <td>Portalapiz de perrito</td>
-                                 <td><i class="fa fa-minus"></i>  1  <i class="fa fa-plus"></i></td> 
-                                <td>15.000</td>
-                                <td>Portalapiz hecho a mano de foamy</td>
-                                <td><button id="btn-danger"class="btn-danger"><i class="fa fa-times"></i></button></td>
-                                
+                              <!-- <td><img src="<?php $datos[$i]['imagen']?>"></td> -->
+                                <td><?php echo $datos[$i]['nombre']?></td>
+                                 <td id="cantidad"><input type="number" id="cantidad" name="cantidad" value="<?php echo $datos[$i]['cantidad'];?>"></td> 
+                                <td id="precio"><?php echo $datos[$i]['precio']?></td>
+                                <!-- <td><button id="btn-danger"class="btn-danger"><i class="fa fa-times"></i></button></td> -->
+                                <!-- <td id="precio"><?php echo $datos[$i]['Documento']?></td> -->
                             </tr>
                         </tbody>
+
+                    
+                      <?php
+                      $total=($datos[$i]['precio']*$datos[$i]['cantidad'])+$total;
+                    }
+                    ?>
+                                        
                     </table>
+
+
+                    <?php
+                  
+
+                }else {
+                  echo "<center><h2>El carrito esta vacio </h2></center>";
+                }
+                // echo  '<center><h2>'.$total.' </h2></center>';
+                if($total!=""){
+                  echo '<center> <a href="../Controlador/compra.php" class="#263238 blue-grey darken-4 btn">comprar</a> </center>';
+                }
+                ?>
+                  
                 </div>
                 <div class="col-sm-4">
                     <div class="card">
                         <div class="card-header">
                             <h3>Generar compra</h3>
                         </div>
-                         <div class="card-body">
-                             <label>Subtotal:</label>
-                             <input type="text"  readonly="" class="form-control">
-                                <label>Descuento:</label>
-                             <input type="text" readonly="" class="form-control">
-                                <label>Total a Pagar:</label>
-                             <input type="text" readonly="" class="form-control">
+                            <label>Total a Pagar:</label>
+                             <input type="number" value="<?php echo $total; ?>"readonly id="Total" class="form-control">
                             </div>
                                              <div class="card-footer">
-                         <button class="btn" id="carrito">Realizar Pago</button>
-                         <button class="btn" id="carrito">Generar Compra</button>
-                         <a href="usuario.html"><button class="btn" id="carrito">Seguir Comprando</button></a>
+                         <a href="Productosusu.php"><button class="btn" id="carrito">ver mas producto</button></a>
+                         <a href="Insumosusu.php"><button class="btn" id="carrito">Agregar insumos</button></a>
+                         <a href="Serviciosusu.php"><button class="btn" id="carrito">ver mas servicios</button></a>
+                         <!-- <a href="#"><button class="btn" id="carrito">Generar compra</button></a> -->
 
                             </div>
                     </div>
@@ -131,6 +208,27 @@ if(!($_SESSION['Documento']))
         </div>
       </div>
     </section>
+    <script>
+        //  $('#cantidad').keyup(function(){
+        //       $('#Total').val($('#cantidad').val() * $('#precio').val());
+        //     });    
+
+        //     $('#cantidad').keydown(function(){
+        //         $('#Total').val($('#cantidad').val()*$('#precio').val());
+        //     });
+
+
+        //     $('#cantidad').keypress(function(){
+        //         $('#Total').val($('#cantidad').val()*$('#precio').val());
+        //     });
+        //     $('#cantidad').click(function(){
+        //         $('#Total').val($('#cantidad').val()*$('#precio').val());
+        //     });
+        //     $('#cantidad').change(function(){
+        //         $('#Total').val($('#cantidad').val()*$('#precio').val());
+        //     });
+
+    </script>
   <footer class="footer">
     <div class="copyrights">
         <p>&copy; Copyrights eStartup. All rights reserved.</p>

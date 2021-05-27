@@ -1,7 +1,7 @@
 <?php
 
 require_once("../Controlador/ControladorProductos.php");
-$listarproducto = json_decode($ControladorProductos->Listarproductousu());
+$listarproducto = json_decode($ControladorProductos->Listarinsumousu());
 session_start();
 if(!($_SESSION['Documento']))
 {

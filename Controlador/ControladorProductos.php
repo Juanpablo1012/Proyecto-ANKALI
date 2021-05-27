@@ -27,7 +27,7 @@ class ControladorProductos{
     {
         $producto = new Productos();
         $crudproductos = new CrudProductos();
-        $producto->setNombreP($NombreP);
+        $producto->setNombre($NombreP);
         $producto->setPrecio($Precio);
         $producto->setImagen($Imagen);
         $producto->setDescripcion($Descripcion);
@@ -54,6 +54,21 @@ class ControladorProductos{
         return json_encode($crudproducto->ListarTipoproducto());
     } 
 
+    
+
+    public function Listarserviciosusu(){
+
+        $crudproducto = new CrudProductos();
+        return json_encode($crudproducto->Listarserviciosusu());
+    } 
+
+    public function ProductoBusca($id){ 
+
+        $crudproducto = new CrudProductos();
+        return json_encode($crudproducto->ProductoBusca($id));
+    } 
+
+
     public function Listarproductousu(){
 
         $crudproducto = new CrudProductos();
@@ -66,6 +81,12 @@ class ControladorProductos{
         return $crudproductos->BuscarProducto($IdProducto);
 
     }
+
+    public function Listarinsumousu(){
+
+        $crudproducto = new CrudProductos();
+        return json_encode($crudproducto->Listarinsumousu());
+    } 
 
 }
 $ControladorProductos = new ControladorProductos();
@@ -126,6 +147,7 @@ elseif(isset($_GET['CambiarEstadoP']))
      $ControladorProductos->CambiarEstadoP($IdProducto);
      $ControladorProductos->desplegarVista('../Vista/Listar_Productoadmin.php');
 }
+
 elseif(isset($_GET['EditarProducto']))
 {
     $IdProducto = $_GET['IdProducto'];

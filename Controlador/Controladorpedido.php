@@ -110,7 +110,7 @@ if(isset($_POST['registrarpedido']))
     
         echo $idpedido;
 
-}
+} 
 
 elseif(isset($_POST['eliminardetallepedido']))
 {
@@ -140,4 +140,5 @@ elseif(isset($_GET['CambiarEstadoDetallePedido']))
      $ControladorPedido->desplegarVista('../Vista/Listar_Pedidoadmin.php');
 
 }
+
 ?>

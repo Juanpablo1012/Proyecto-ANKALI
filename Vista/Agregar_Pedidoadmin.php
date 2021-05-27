@@ -104,34 +104,7 @@ if(!($_SESSION['Documento']))
 
           <!-- Icon -->
           <div class="fadeIn first">
-
-            <h6>Agregar Pedido.</h6>
-          </div>
-          <!-- Login Form -->
-          <form name="frmpedido" id="frmpedido" method="post">
-            <input type="hidden" id="pedido" class="fadeIn second" name="pedido">
-
-            <select name="usuario" id="usuario" >
-              <option value="">Seleccione el usuario</option>
-              <?php
-                  foreach($Listarusuario as $usuario)
-                  echo "<option value=".$usuario['Documento'].">".$usuario['Documento'].'- - - -'.$usuario['Nombre']."</option>";
-              ?>
-            </select>
-            <select name="producto" id="producto" onchange="precio(this)" >
-              <option value="">Seleccione el Producto</option>
-              <?php
-                  foreach($Listarproducto as $prud)
-                  echo "<option Precio=".$prud['Precio']." value=".$prud['IdProducto'].">".$prud['IdProducto'].'- - -'.$prud['Nombre'].'- - - -'.$prud['NombreY']."</option>";
-              ?>
-            </select>
-            <input type="text" id="Precio" class="fadeIn second" name="Precio" placeholder="Precio Producto" readonly>
-
-            <input type="number" id="Cantidad" class="fadeIn second" name="Cantidad" placeholder="Cantidad">
-            <input type="number" id="Total" class="fadeIn second" name="Total" readonly placeholder="Valor total">
-
-<<<<<<< HEAD
-          <h6>Agregar Pedido</h6><br>
+            <h6>Agregar Pedido</h6><br>
         </div>
         <!-- Login Form -->
         <form name="frmpedido" id="frmpedido" method="post">
@@ -145,7 +118,7 @@ if(!($_SESSION['Documento']))
                 echo "<option value=".$usuario['Documento'].">".$usuario['Documento'].'- - - -'.$usuario['Nombre']."</option>";
             ?>
           </select>
-          </div>
+          </div> 
 
           <div class="form-group">
           <label for=""> Nombre del producto: </label>
@@ -185,13 +158,6 @@ if(!($_SESSION['Documento']))
           <!-- <button type="reset">Terminar</button> -->
           <button type="submit">Agregar</button>
         </form>
-=======
-            
-            <input type="hidden" name="registrarpedido" id="registrarpedido">
-            <!-- <button type="reset">Terminar</button> -->
-            <button type="submit">Agregar</button>
-          </form>
->>>>>>> fad3c7340115905e6bc7788c67473d6e459e5bc2
 
 
 
@@ -204,7 +170,7 @@ if(!($_SESSION['Documento']))
         <div id="detallepedido">
         </div>
       </div>
-      
+
 
       <script>
         $(document).ready(function () {
