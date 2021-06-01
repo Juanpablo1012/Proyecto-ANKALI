@@ -120,7 +120,7 @@ if(!($_SESSION['Documento']))
     
         <!-- Icon -->
         <div class="fadeIn first">
-          <h6>Informacion del usuario</h6>
+          <h6>Información del usuario</h6>
           <br>
         </div>
         <!-- Login Form -->

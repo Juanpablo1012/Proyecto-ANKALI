@@ -111,7 +111,7 @@ if(!($_SESSION['Documento']))
             <label for=""> <b>Nombre:</b> </label>
             <input type="text" name="Nombre" class="fadeIn third nombre" placeholder="Nombre">
             <label for=""> <b>Descripción:</b> </label>
-            <textarea type="number" name="Descripcion" class="fadeIn second descripcion" placeholder="Descripcion"></textarea>
+            <textarea type="number" name="Descripcion" class="fadeIn second descripcion" placeholder="Descripción"></textarea>
             <label for=""> <b>Imagen:</b> </label>
             <input type="file" id="Imagen" class="fadeIn second imagen" name="Imagen" placeholder="Imagen"><br>
             <label for=""> <b>Precio:</b> </label>

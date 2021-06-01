@@ -116,26 +116,27 @@ if(isset($_POST['Agregar'])){
                     
                     $conn->close();
                 }
-                else {
-                    "<script>
-                    Swal.fire({
-                        icon: 'error',
-                        html: '<h3>Parece que a ocurrido un error. <br>Intentalo nuevamente.</h3>',
-                        allowOutsideClick: false,
-                        background: '#fff',
-                        confirmButtonColor: '#FC3E3E',
-                        confirmButtonText: 'Cerrar'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            window.history.back();
-                        }
-                    });
-                    </script>";			
                 
-                }
             }
         
-    }
+        }else {
+            echo
+            "<script>
+            Swal.fire({
+                icon: 'error',
+                html: '<h3>Parece que a ocurrido un error. <br>Intentalo nuevamente.</h3>',
+                allowOutsideClick: false,
+                background: '#fff',
+                confirmButtonColor: '#FC3E3E',
+                confirmButtonText: 'Cerrar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.history.back();
+                }
+            });
+            </script>";			
+        
+        }
 
     }
 
