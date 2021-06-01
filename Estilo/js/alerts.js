@@ -9,7 +9,10 @@ $(".save").click(function(e)
                         icon: 'warning',
                         title: 'Todos los campos son obligatorios.',
                         showDenyButton: true,
-                        confirmButtonColor: '#d33',
+                        allowOutsideClick: false,
+                        closeOnClickOutside: false,
+                        closeOnEsc: false,
+                        confirmButtonColor: "#DD6B55",
                         confirmButtonText: `Cerrar`
                     })
                 }else{
@@ -217,6 +220,63 @@ var doRegistroAdmin = function (callback){
     $.ajax({
             type:'POST',
             url:'../Controlador/ControladorUsuarios.php',
+            data:datos,
+            success: function (rr){
+            callback(rr);
+        }
+        });
+};
+
+//REGISTRO COMPRA
+$(".compras").click(function(e)
+
+    {
+        //console.log("entre");
+        let imagen = document.querySelector("#Factura").value;
+        e.preventDefault();
+        let total = document.querySelector("#Total").value;
+                if(!imagen.trim() || !total.trim() ){
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Todos los datos son obligatorios',
+                    });
+
+                }else{
+
+                    doRegistroCompra(function (r){
+                        console.log(r);
+
+                            if(r==1){
+                                alert("CORRECTO");
+                            }
+                            if(r==0){
+                                alert("error"+r);
+                            }
+                    });
+                }
+    });
+
+var doRegistroCompra = function (callback){
+    let total = document.querySelector("#Total").value;
+    let img = document.querySelector("#Factura").value;
+    let doc = document.querySelector("#DocumentoUsuario").value;
+    let fecha = document.querySelector("#Fecha").value;
+    let frm = new FormData();
+    frm.append('total',total);
+    frm.append('img',Factura);
+
+    alert(frm);
+    //let frm = $('#frmcompra').serialize();
+    //alert(img);
+    //alert(frm + 'DATOS DEL FORM');
+
+    //datos = {Factura:img, Total: total,Fecha:fecha, DocumentoUsuario:doc, action:'AgregarCompra'},
+    datos = {Factura:img, Total: total,Fecha:fecha, DocumentoUsuario:doc, action:'AgregarCompra'},
+
+    //alert(imagen+'---'+total);
+    $.ajax({
+            type:'POST',
+            url:'../Controlador/ControladorCompras.php',
             data:datos,
             success: function (rr){
             callback(rr);

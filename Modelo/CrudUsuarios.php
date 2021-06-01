@@ -1,3 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+
+    </head>
+    <body>
+        
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+</html>
 <?php
     class CrudUsuarios{
         public function __construct()
@@ -21,12 +40,37 @@
 
             try{
                 $sql->execute();
-                 //correcto 
-                 echo 1;
+                 echo "<script> 
+                Swal.fire({
+                    icon: 'success',
+                    html: '<h3>Registro exitoso.</h3><br>',
+                    allowOutsideClick: false,
+                    background: '#fff',
+                    confirmButtonColor: '#FC3E3E',
+                    confirmButtonText: 'Cerrar'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = '../index.php';
+                    }
+                  });
+                </script>";
             }
             catch(Exception $e)
-            {//incorrecto
-                echo 0;
+            {
+                echo "<script> 
+                Swal.fire({
+                    icon: 'error',
+                    html: '<h4>Los datos no son validos.<br>Intentalo nuevamente.</h4>',
+                    allowOutsideClick: false,
+                    background: '#fff',
+                    confirmButtonColor: '#FC3E3E',
+                    confirmButtonText: 'Cerrar'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = '../Vista/registro.php';
+                    }
+                  });
+                </script>";
             }
             Db::CerrarConexion($Db);
             return $mensaje;
@@ -83,7 +127,6 @@
 
         public function Actualizarusuario($Usuarios)
         {
-            $mensaje = "";
             $Db = Db::Conectar(); // conectar bd
             $sql = $Db->prepare('UPDATE usuarios 
             SET Telefono = :Telefono,
@@ -101,14 +144,26 @@
 
             try{
                 $sql->execute();
-                $mensaje = "Actualizacion Exitoso";
+                echo "<script> 
+                Swal.fire({
+                    icon: 'success',
+                    html: '<h3>Actualización exitosa </h3>',
+                    allowOutsideClick: false,
+                    background: '#fff',
+                    confirmButtonColor: '#FC3E3E',
+                    confirmButtonText: 'Cerrar'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = '../Vista/Usuariosadmin.php';
+                    }
+                  });
+                </script>";
             }
             catch(Exception $e)
             {
                 $mensaje = $e->getMessage();
             }
             Db::CerrarConexion($Db);
-            return $mensaje;
         }
 
         public function InicioSesion ($inicio)
@@ -180,11 +235,37 @@
 
             try{
                 $sql->execute();
-                echo 1;
+                echo "<script> 
+                Swal.fire({
+                    icon: 'success',
+                    html: '<h3>Registro exitoso.</h3><br>',
+                    allowOutsideClick: false,
+                    background: '#fff',
+                    confirmButtonColor: '#FC3E3E',
+                    confirmButtonText: 'Cerrar'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = '../Vista/Usuariosadmin.php';
+                    }
+                  });
+                </script>";
             }
             catch(Exception $e)
             {
-                echo 0;
+                echo "<script> 
+                Swal.fire({
+                    icon: 'error',
+                    html: '<h4>Los datos no son validos.<br>Intentalo nuevamente.</h4>',
+                    allowOutsideClick: false,
+                    background: '#fff',
+                    confirmButtonColor: '#FC3E3E',
+                    confirmButtonText: 'Cerrar'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.history.back();
+                    }
+                  });
+                </script>";
             }
             Db::CerrarConexion($Db);
             return $mensaje;

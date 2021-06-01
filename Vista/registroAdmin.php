@@ -55,12 +55,23 @@ $listarRol = json_decode($ControladorUsuarios->ListarRoles());
     <nav id="nav-menu-container">
       <ul class="nav-menu">
         <li class="menu-active"><a href="admin.php">Inicio</a></li>
-        <li class="menu-has-children"><a href="Listar_Servicioadmin.php">Servicios</a></li>
-        
+
+        <li class="menu-has-children"><a href="#">Servicios</a>
+          <ul>
+            <li><a href="Agregar_servicioadmin.php">Agregar servicio</a></li>
+            <li><a href="Listar_Servicioadmin.php">Listar servicio</a></li>
+          </ul>
+        </li>
         <li class="menu-has-children"><a href="#">Productos</a>
           <ul>
             <li><a href="Agregar_productoadmin.php">Agregar producto</a></li>
             <li><a href="Listar_Productoadmin.php">Listar productos</a></li>
+          </ul>
+        </li>
+        <li class="menu-has-children"><a href="#">Insumos</a>
+          <ul>
+            <li><a href="Agregar_Insumo.php">Agregar insumos</a></li>
+            <li><a href="Listar_Insumo.php">Listar insumos</a></li>
           </ul>
         </li>
         <li class="menu-has-children"><a href="#">Pedidos</a>
@@ -74,7 +85,6 @@ $listarRol = json_decode($ControladorUsuarios->ListarRoles());
         <li class="menu-has-children"><a href="#">Usuarios</a>
             <ul>
               <li><a href="registroAdmin.php">Registrar usuarios</a></li>
-              <li><a href="ResgistrarRol.php">Registrar roles</a></li>
               <li><a href="Usuariosadmin.php">Listar usuarios</a></li>
             </ul>
         </li>
@@ -105,7 +115,7 @@ $listarRol = json_decode($ControladorUsuarios->ListarRoles());
           <h6>Registrar usuario</h6>
         </div>
         <!-- Login Form ../Controlador/ControladorUsuarios.php-->
-        <form Method="POST" action="#">
+        <form Method="POST" action="../Controlador/ControladorUsuarios.php">
         <label for=""><b>Documento:</b></label>
 
           <input type="number" id="Documento" class="fadeIn third documento" name="Documento" placeholder="Numero de documento" >
@@ -134,7 +144,7 @@ $listarRol = json_decode($ControladorUsuarios->ListarRoles());
           <label for=""><b>Contraseña:</b></label>
           <input type="password" id="Contrasena" class="fadeIn third contrasena" name="Contrasena" placeholder="Contraseña">
           
-          <button type="button" name="registroAdmin" class="fadeIn fourth registraradmin" >Registrar</button>
+          <button type="submit" name="registroAdmin" class="fadeIn fourth" >Registrar</button>
           <!-- <?php print_r($_REQUEST); ?> -->
         </form>
       </div>

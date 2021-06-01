@@ -118,10 +118,12 @@ if(!($_SESSION['Documento']))
             <input type="hidden" id="IdCompra" class="fadeIn third" value="<?php echo $compra->getIdCompra()?>"name="IdCompra" placeholder="Codigo compra">
             <input type="hidden" id="Fecha" class="fadeIn second" value="<?php echo $compra->getFecha() ?>" name="Fecha" placeholder="Número">
             <input type="hidden" id="DocumentoUsuario" class="fadeIn second" value="<?php echo $doc?>" name="DocumentoUsuario" placeholder="Número">
-            
-            <input type="file" id="Factura" class="fadeIn third" value="<?php echo $compra->getFactura() ?>" name="Factura" placeholder="Factura">
-            
-            <input type="number" id="Total" class="fadeIn second" name="Total" value="<?php echo $compra->getTotal() ?>" placeholder="Total de la compra">
+            <label for=""><b>Imagen de la<br> factura:</b></label>
+
+            <input type="file" id="Factura" class="fadeIn third Factura" value="<?php echo $compra->getFactura() ?>" name="Factura" placeholder="Factura">
+            <label for=""><b>Total de la<br> factura:</b></label>
+
+            <input type="number" id="Total" class="fadeIn second Total" name="Total" value="<?php echo $compra->getTotal() ?>" placeholder="Total de la compra">
 
             <input type="submit" name="Editar" class="fadeIn fourth" value="Editar">
 
@@ -145,7 +147,12 @@ if(!($_SESSION['Documento']))
   <script src="../Estilo/lib/wow/wow.min.js"></script>
   <!-- Contact Form JavaScript File -->
   <script src="../Estilo/contactform/contactform.js"></script>
+  <script>
+        //cambiar tamaño inputs c:
+        let cambiar = document.querySelector(".Factura").style.width="70%";
+        let cambiar1 = document.querySelector(".Total").style.width="70%";
 
+      </script> 
   <!-- Template Main Javascript File -->
   <script src="../Estilo/js/main.js"></script>
 
