@@ -119,7 +119,7 @@ if(!($_SESSION['Documento']))
                 <table border="1" class="table table-sriped  table-bordered" id="listarserv">
                     <thead>
                     <tr>
-                        <th>Codigo</th>
+                        <th>Código</th>
                         <th>Documento de quien <br>ingreso la compra</th>
                         <th>Nombre de quien <br>ingreso la compra</th>
                         <th>Factura</th>
