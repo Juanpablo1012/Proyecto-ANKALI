@@ -111,6 +111,7 @@ if(!($_SESSION['Documento']))
           </div>
           <!-- Login Form -->
           <form action="../Controlador/ControladorProductos.php" method="Post" enctype="multipart/form-data">
+          <input type="hidden" value="1" name="IdTipoProducto">
             <!-- <input type="hidden" id="registro" class="fadeIn third" name="login" placeholder="Codigo producto"> -->
             <!--<select name="IdTipoProducto">
               <option>Seleccione un tipo de producto</option>
@@ -132,13 +133,13 @@ if(!($_SESSION['Documento']))
             <label for=""><b>Imagen:</b></label>
             <input type="file" id="Imagen" class="fadeIn second imagen" name="Imagen" placeholder="Imagen"><br>
 
-            <label for=""><b>Seleccione <br>los insumos:</b></label>
+            <!-- <label for=""><b>Seleccione <br>los insumos:</b></label>
             <select name="" id="" class="insumo">
                 <option value="">Seleccione</option>
-            </select>
+            </select> -->
             
-            <label for=""><b>Cantidad:</b></label>
-            <input type="number" id="Stock" class="fadeIn second cantidad" name="Stock" placeholder="Cantidad"><br>
+            <!-- <label for=""><b>Cantidad:</b></label> -->
+            <!-- <input type="number" id="Stock" class="fadeIn second cantidad" name="Stock" placeholder="Cantidad"><br> -->
             <!-- <input type="file" id="registro" class="fadeIn second" name="login" placeholder="Correo"> -->
             <button type="submit" name="CrearProduc" class="fadeIn fourth">Agregar</button>
           </form>

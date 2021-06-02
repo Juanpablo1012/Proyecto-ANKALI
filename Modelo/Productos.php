@@ -5,8 +5,6 @@
         private $Nombre;
         private $Precio;
         private $Imagen = "Defaul.png";
-        private $Descripcion;
-        private $Stock;
         private $Estado = 1;
         private $TipoProducto;
 
@@ -56,28 +54,6 @@
             return $this->Imagen;
         }
 
-       
-        public function setDescripcion($Descripcion)
-        {
-            $this->Descripcion=$Descripcion;
-        }
-
-        public function getDescripcion()
-        {
-            return $this->Descripcion;
-        }
-        
-        
-        public function setStock($Stock)
-        {
-            $this->Stock=$Stock;
-        }
-
-        public function getStock()
-        {
-            return $this->Stock;
-        }
-        
         public function setEstado($Estado)
         {
             $this->Estado=$Estado;

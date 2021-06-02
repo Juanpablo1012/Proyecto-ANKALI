@@ -23,15 +23,13 @@ class ControladorProductos{
 
     }
 
-    public function CrearProducto($NombreP,$Precio,$Imagen,$Descripcion,$Stock,$TipoProducto)
+    public function CrearProducto($NombreP,$Precio,$Imagen,$TipoProducto)
     {
         $producto = new Productos();
         $crudproductos = new CrudProductos();
         $producto->setNombre($NombreP);
         $producto->setPrecio($Precio);
         $producto->setImagen($Imagen);
-        $producto->setDescripcion($Descripcion);
-        $producto->setStock($Stock);
         $producto->setTipoProducto($TipoProducto);
         return $crudproductos->CrearProducto($producto);
     }
@@ -97,8 +95,6 @@ if(isset($_POST['CrearProduc'])){
 	$IdTipoProducto = $_POST['IdTipoProducto'];
 	$Nombre = $_POST['Nombre'];
 	$Precio = $_POST['Precio'];
-    $Descripcion = $_POST['Descripcion'];
-    $Stock = $_POST['Stock'];
 
 	$Estado = 1;
 
@@ -111,13 +107,64 @@ if(isset($_POST['CrearProduc'])){
 			if(move_uploaded_file($_FILES['Imagen']['tmp_name'], $url)) {
 
 				// insert into database
-				$sql = "INSERT INTO producto (Nombre,Descripcion,Imagen,Precio,Stock,Estado,TipodeProducto) 
-                VALUES ('$Nombre','$Descripcion','$url','$Precio','$Stock','$Estado',$IdTipoProducto)";
+				$sql = "INSERT INTO producto (Nombre,Imagen,Precio,Estado,TipodeProducto) 
+                VALUES ('$Nombre','$url','$Precio','$Estado',$IdTipoProducto)";
 				if($conn->query($sql) === TRUE) {
 					echo 
                         '<script>
                             alert("Producto registrado correctamente.");
-                            window.location="../Vista/Listar_Productoadmin.php";                
+                                window.location="../Vista/Agregar_productoadmin.php";               
+
+
+                        </script>';
+                        $valid['success'] = true;
+                        $valid['messages'] = "Producto Agregado Correctamente";
+				} 
+				else {
+					echo 
+                '<script>
+                    alert("No se puede agregar intentalo nuevamente.");
+                    window.location="../Vista/Agregar_productoadmin.php";                
+                </script>';
+				}
+				$conn->close();
+			}
+			else {
+				$valid['success'] = false;
+				$valid['messages'] = "Se Produjo un Error al Agregar";
+			}
+		}
+	}
+	echo json_encode($valid);
+    
+}
+
+if(isset($_POST['CrearServi'])){
+
+    $valid = array('success' => false, 'messages' => array());
+	$IdTipoProducto = $_POST['IdTipoProducto'];
+	$Nombre = $_POST['Nombre'];
+	$Precio = $_POST['Precio'];
+
+	$Estado = 1;
+
+	$type = explode('.', $_FILES['Imagen']['name']);
+	$type = strtolower($type[count($type)-1]);
+    $url = '../Estilo/img/uploads/' . uniqid(rand()) . '.' . $type;
+
+    if(in_array($type, array('gif', 'jpg', 'jpeg', 'png','tiff','psd','bmp'))) {
+		if(is_uploaded_file($_FILES['Imagen']['tmp_name'])) {
+			if(move_uploaded_file($_FILES['Imagen']['tmp_name'], $url)) {
+
+				// insert into database
+				$sql = "INSERT INTO producto (Nombre,Imagen,Precio,Estado,TipodeProducto) 
+                VALUES ('$Nombre','$url','$Precio','$Estado',$IdTipoProducto)";
+				if($conn->query($sql) === TRUE) {
+					echo 
+                        '<script>
+                            alert("Producto registrado correctamente.");
+                            window.location="../Vista/Listar_Servicioadmin.php";               
+
                         </script>';
                         $valid['success'] = true;
                         $valid['messages'] = "Producto Agregado Correctamente";
@@ -148,6 +195,13 @@ elseif(isset($_GET['CambiarEstadoP']))
      $ControladorProductos->desplegarVista('../Vista/Listar_Productoadmin.php');
 }
 
+elseif(isset($_GET['CambiarEstadoS']))
+{
+    $IdProducto = $_GET['IdProducto'];
+     $ControladorProductos->CambiarEstadoP($IdProducto);
+     $ControladorProductos->desplegarVista('../Vista/Listar_Servicioadmin.php');
+}
+
 elseif(isset($_GET['EditarProducto']))
 {
     $IdProducto = $_GET['IdProducto'];
@@ -160,8 +214,6 @@ elseif(isset($_POST['EditarProducto']))
 	//$IdTipoProducto = $_POST['IdTipoProducto'];
     $Nombre = $_POST['Nombre'];
 	$Precio = $_POST['Precio'];
-	$Descripcion = $_POST['Descripcion'];
-	$Stock = $_POST['Stock'];
     $id=(int) $_POST['IdProducto'];
         
         $type = explode('.', $_FILES['Imagen']['name']);
@@ -177,8 +229,6 @@ elseif(isset($_POST['EditarProducto']))
 
                         Nombre='$Nombre',
                         Precio='$Precio',
-                        Descripcion='$Descripcion',
-                        Stock='$Stock',
                         Imagen='$url' 
                         WHERE IdProducto='$id'";
                         if($conn->query($sql) === TRUE) 

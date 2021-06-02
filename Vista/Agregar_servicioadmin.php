@@ -1,5 +1,6 @@
 <?php
-require_once("../Controlador/ControladorServicios.php");
+require_once("../Controlador/ControladorProductos.php");
+$listarTP = json_decode($ControladorProductos->ListarTipoproducto());
 
 session_start();
 if(!($_SESSION['Documento']))
@@ -16,6 +17,7 @@ if(!($_SESSION['Documento']))
   <meta content="" name="keywords">
   <meta content="" name="description">
 
+  <!-- Favicons -->
   <link href="../Estilo/img/logo-negro.png" rel="icon">
   <link href="../Estilo/img/apple-touch-icon.png" rel="apple-touch-icon">
 
@@ -44,7 +46,8 @@ if(!($_SESSION['Documento']))
   <div class="container">
     
     <div id="logo" class="pull-left">
-      <h1><a href="admin.php" class="scrollto"><a href="#"><img src="../Estilo/img/logo-blanco.png" width="70" height="70"> </a>  ANKALI</a></h1>
+      <h1><a href="admin.php" class="scrollto"><a href=""><img src="../Estilo/img/logo-blanco.png" width="70" height="70"> </a>  ANKALI</a></h1>
+
     </div>
 
     <nav id="nav-menu-container">
@@ -97,45 +100,65 @@ if(!($_SESSION['Documento']))
   
   <section id="hero3" class="wow fadeIn">
     <div class="wrapper2 fadeInDown">
-        <div id="formContent2">
+        <div id="formContent3">
           <!-- Tabs Titles -->
       
           <!-- Icon -->
           <div class="fadeIn first">
 
-            <h6>Agregar Sevicio</h6>
+            <h6>Agregar servicios</h6>
             <br>
           </div>
           <!-- Login Form -->
-          <form action="../Controlador/ControladorServicios.php" method="Post" enctype="multipart/form-data">
-            <label for=""> <b>Nombre:</b> </label>
-            <input type="text" name="Nombre" class="fadeIn third nombre" placeholder="Nombre">
-            <label for=""> <b>Descripción:</b> </label>
-            <textarea type="number" name="Descripcion" class="fadeIn second descripcion" placeholder="Descripcion"></textarea>
-            <label for=""> <b>Imagen:</b> </label>
+          <form action="../Controlador/ControladorProductos.php" method="Post" enctype="multipart/form-data">
+          <input type="hidden" value="3" name="IdTipoProducto">
+            <!-- <input type="hidden" id="registro" class="fadeIn third" name="login" placeholder="Codigo producto"> -->
+            <!--<select name="IdTipoProducto">
+              <option>Seleccione un tipo de producto</option>
+              //<?php
+                //foreach($listarTP as $Tp)
+                {
+              ?> 
+                <option value="<?php echo $Tp->IdTipoProducto?>"> <?php echo $Tp->Nombre?></option>
+              <?php
+                }
+              ?>-->
+          </select>
+            <label for=""><b>Nombre:</b></label>
+            <input type="text" id="Nombre" class="fadeIn third nombre" name="Nombre" placeholder="Nombre"><br>
+
+            <label for=""><b>Precio:</b></label>
+            <input type="number" id="Precio" class="fadeIn second precio" name="Precio" placeholder="Precio"><br>
+
+            <label for=""><b>Imagen:</b></label>
             <input type="file" id="Imagen" class="fadeIn second imagen" name="Imagen" placeholder="Imagen"><br>
-            <label for=""> <b>Precio:</b> </label>
-            <input type="number" name="Precio" class="fadeIn second precio" placeholder="Precio">
-            <br>
-            <input type="submit" name="AgregarServ" class="fadeIn fourth" value="Agregar">
+
+            <!-- <label for=""><b>Seleccione <br>los insumos:</b></label>
+            <select name="" id="" class="insumo">
+                <option value="">Seleccione</option>
+            </select> -->
+            
+            <!-- <label for=""><b>Cantidad:</b></label> -->
+            <!-- <input type="number" id="Stock" class="fadeIn second cantidad" name="Stock" placeholder="Cantidad"><br> -->
+            <!-- <input type="file" id="registro" class="fadeIn second" name="login" placeholder="Correo"> -->
+            <button type="submit" name="CrearServi" class="fadeIn fourth">Agregar</button>
           </form>
     
       
         </div>
       </div>
   </section>
-  <footer class="footer">
-      <div class="copyrights">
-        <p>&copy; Copyrights eStartup. All rights reserved.</p>
-        <div class="credits">
-          Designed by <a href="">BootstrapMade</a>
-        </div>
-      </div>
-  </footer>
+  <script>
+        //cambiar tamaño c:
+        let cambiar = document.querySelector(".nombre").style.width="70%";
+        let cambiar1 = document.querySelector(".precio").style.width="70%";
+        let cambiar2 = document.querySelector(".imagen").style.width="70%";
+        let cambiar3 = document.querySelector(".cantidad").style.width="70%";
+        let cambiar4 = document.querySelector(".insumo").style.width="70%";
 
+      </script>
 
-
- 
+  <!--------------------------------------------------------------------->
   <script src="../Estilo/lib/jquery/jquery.min.js"></script>
   <script src="../Estilo/lib/jquery/jquery-migrate.min.js"></script>
   <!--------------------------------------------------------------------->
@@ -149,13 +172,6 @@ if(!($_SESSION['Documento']))
   <script src="../Estilo/lib/wow/wow.min.js"></script>
   <script src="../Estilo/contactform/contactform.js"></script>
   <script src="../Estilo/js/main.js"></script>
-  <script>
-        //cambiar tamaño c:
-        let cambiar = document.querySelector(".nombre").style.width="70%";
-        let cambiar1 = document.querySelector(".descripcion").style.width="70%";
-        let cambiar2 = document.querySelector(".imagen").style.width="70%";
-        let cambiar3 = document.querySelector(".precio").style.width="70%";
 
-      </script>
 </body>
 </html>

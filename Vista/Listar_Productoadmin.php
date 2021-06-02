@@ -111,12 +111,6 @@ if(!($_SESSION['Documento']))
     </nav>
   </div>
   </header>
-      <br>
-
-
-
-
-
       <section id="hero4" class="wow fadeIn">
       
     <div class="container mt-4">
@@ -129,8 +123,6 @@ if(!($_SESSION['Documento']))
                     <th>Nombre</th>
                     <th>Precio</th>
                     <th>Imagen</th>
-                    <th>Descripcion</th>
-                    <th>Tipo de Producto</th>
                     <th>Estado</th>
                     <th>Editar</th>
                     <th>Cambiar Estado</th>
@@ -148,16 +140,7 @@ if(!($_SESSION['Documento']))
                     <td><?php echo $producto->Precio?></td>
                     <?php  $ruta= $producto->Imagen;?>
 				              <td><?php echo "<img src='$ruta' widht='150' height='150' />"  ?></td> 
-                    <td><?php echo $producto->Descripcion?></td>
-                    <td>
-                    <?php if($producto->TipodeProducto == 1 ){
-                        echo "Producto";
-                    } else
-                    {
-                        echo "Insumo";
-                    } ?>            
-                    </td>
-                    <td>
+                      <td>
                     <?php if($producto->Estado == 1 ){
                         echo "<h4 style='color:green;'> Activo </h4>";
                     } else

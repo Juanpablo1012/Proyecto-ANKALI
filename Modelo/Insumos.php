@@ -1,24 +1,25 @@
 <?php
-class Servicios{
-    private $IdServicios;
+class Insumos{
+    private $Idinsumo;
     private $Nombre;
-    private $Descripcion;
+
     private $Imagen = "Defaul.png";
     private $Precio;
+    private $Stock;
     private $Estado = 1;
 
     public function __construct(){
 
     }
 
-        public function setIdServicios($IdServicios)
+        public function setIdinsumo($Idinsumo)
         {
-            $this->IdServicios=$IdServicios;
+            $this->Idinsumo=$Idinsumo;
         }
 
-        public function getIdServicios()
+        public function getIdinsumo()
         {
-            return $this->IdServicios;
+            return $this->Idinsumo;
         } 
 
         public function setNombre($Nombre)
@@ -31,15 +32,6 @@ class Servicios{
             return $this->Nombre;
         }
         
-        public function setDescripcion($Descripcion)
-        {
-            $this->Descripcion=$Descripcion;
-        }
-
-        public function getDescripcion()
-        {
-            return $this->Descripcion;
-        }
         
         public function setImagen($Imagen)
         {
@@ -59,6 +51,16 @@ class Servicios{
         {
             return $this->Precio;
         }
+
+        public function setStock($Stock)
+        {
+            $this->Stock=$Stock;
+        }
+
+        public function getStock()
+        {
+            return $this->Stock;
+        } 
 
         public function setEstado($Estado)
         {

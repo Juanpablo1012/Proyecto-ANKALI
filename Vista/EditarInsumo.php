@@ -1,7 +1,6 @@
 <?php
-require_once("../Controlador/ControladorProductos.php");
-$listarTP = json_decode($ControladorProductos->ListarTipoproducto());
-
+require_once("../Controlador/ControladorInsumo.php");
+$insumo =  $ControladorInusmo->BuscarInsumo($_GET['IdInsumo']);
 session_start();
 if(!($_SESSION['Documento']))
 {
@@ -17,7 +16,6 @@ if(!($_SESSION['Documento']))
   <meta content="" name="keywords">
   <meta content="" name="description">
 
-  <!-- Favicons -->
   <link href="../Estilo/img/logo-negro.png" rel="icon">
   <link href="../Estilo/img/apple-touch-icon.png" rel="apple-touch-icon">
 
@@ -46,8 +44,7 @@ if(!($_SESSION['Documento']))
   <div class="container">
     
     <div id="logo" class="pull-left">
-      <h1><a href="admin.php" class="scrollto"><a href=""><img src="../Estilo/img/logo-blanco.png" width="70" height="70"> </a>  ANKALI</a></h1>
-
+      <h1><a href="admin.php" class="scrollto"><a href="#"><img src="../Estilo/img/logo-blanco.png" width="70" height="70"> </a>  ANKALI</a></h1>
     </div>
 
     <nav id="nav-menu-container">
@@ -106,38 +103,43 @@ if(!($_SESSION['Documento']))
           <!-- Icon -->
           <div class="fadeIn first">
 
-            <h6>Agregar insumo</h6><br>
+            <h6>Editar Producto o insumo</h6>
           </div>
           <!-- Login Form -->
           <form action="../Controlador/ControladorInsumo.php" method="Post" enctype="multipart/form-data">
-            <label for=""><b>Nombre:</b></label>
-            <input type="text" id="Nombre" class="fadeIn third nombre" name="Nombre" placeholder="Nombre"><br>
-            <label for=""><b>Precio:</b></label>
-            <input type="number" id="Precio" class="fadeIn second precio" name="Precio" placeholder="Precio"><br>
-            <label for=""><b>Imagen:</b></label>
-            <input type="file" id="Imagen" class="fadeIn second imagen" name="Imagen" placeholder="Imagen"><br>
-            <label for=""><b>Cantidad:</b></label>
-            <input type="number" id="Stock" class="fadeIn second cantidad" name="Stock" placeholder="Stock"><br>
-            <button type="submit" name="AgregarInsumo" class="fadeIn fourth">Agregar</button>
+          
+          
+
+            <input type="number" name="IdInsumo" class="fadeIn third" value="<?php echo $insumo->getIdInsumo() ?>" placeholder="Codigo producto" readonly>
+
+            <input type="text" name="Nombre" class="fadeIn third" value="<?php echo $insumo->getNombre() ?>" placeholder="Nombre" required>
+            
+            <input type="number" name="Precio" class="fadeIn second" value="<?php echo $insumo->getPrecio() ?>" placeholder="Precio" required>
+
+
+            <input type="file" name="Imagen" class="fadeIn second" value="<?php echo $insumo->getImagen() ?>" placeholder="Imagen" required>
+
+
+            <input type="number" name="Stock" class="fadeIn second" value="<?php echo $insumo->getStock() ?>" placeholder="Stock" required>
+             
+            
+
+            <input type="submit" ID="EditarInsumos" name="EditarInsumos" class="fadeIn fourth">
           </form>
     
       
         </div>
       </div>
   </section>
-  <script>
-        //cambiar tamaño c:
-        let cambiar = document.querySelector(".nombre").style.width="70%";
-        let cambiar1 = document.querySelector(".precio").style.width="70%";
-        let cambiar2 = document.querySelector(".imagen").style.width="70%";
-        let cambiar3 = document.querySelector(".cantidad").style.width="70%";
-      </script>
+  
 
-  <!--------------------------------------------------------------------->
+
+
+
+
+  <!-- JavaScript Libraries -->
   <script src="../Estilo/lib/jquery/jquery.min.js"></script>
   <script src="../Estilo/lib/jquery/jquery-migrate.min.js"></script>
-  <!--------------------------------------------------------------------->
-
   <script src="../Estilo/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="../Estilo/lib/superfish/hoverIntent.js"></script>
   <script src="../Estilo/lib/superfish/superfish.min.js"></script>
@@ -145,9 +147,11 @@ if(!($_SESSION['Documento']))
   <script src="../Estilo/lib/modal-video/js/modal-video.js"></script>
   <script src="../Estilo/lib/owlcarousel/owl.carousel.min.js"></script>
   <script src="../Estilo/lib/wow/wow.min.js"></script>
+  <!-- Contact Form JavaScript File -->
   <script src="../Estilo/contactform/contactform.js"></script>
-  <script src="../Estilo/js/main.js"></script>
 
+  <!-- Template Main Javascript File -->
+  <script src="../Estilo/js/main.js"></script>
 
 </body>
 </html>

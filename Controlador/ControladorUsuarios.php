@@ -88,13 +88,13 @@ class ControladorUsuarios{
         return $CrudUsuarios->RestablecerContra($Usuarios);
     }
 
-    public function BuscarCorreo($Correo)
-    {
-        $Usuarios = new usuarios();
-        $CrudUsuarios= new CrudUsuarios();
-        return $CrudUsuarios->BuscarCorreo($Correo);
+    // public function BuscarCorreo($Correo)
+    // {
+    //     $Usuarios = new usuarios();
+    //     $CrudUsuarios= new CrudUsuarios();
+    //     return $CrudUsuarios->BuscarCorreo($Correo);
 
-    }
+    // }
 
     public function RegistrarAdmin($Documento,$Nombre,$Telefono,$Direccion,
     $Correo,$Contrasena,$IdRol)

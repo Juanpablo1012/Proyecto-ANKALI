@@ -111,11 +111,6 @@ if(!($_SESSION['Documento']))
     </nav>
   </div>
   </header>
-      <br>
-
-
-
-
 
 <section id="hero4" class="wow fadeIn">
       
@@ -133,8 +128,6 @@ if(!($_SESSION['Documento']))
                     <th>Nombre</th>
                     <th>Precio</th>
                     <th>Imagen</th>
-                    <th>Descripcion</th>
-                    <th>Tipo de Producto</th>
                     <th>Estado</th>
                     <th>Editar</th>
                     <th>Cambiar Estado</th>
@@ -152,15 +145,6 @@ if(!($_SESSION['Documento']))
                     <td><?php echo $servicio->Precio?></td>
                     <?php  $ruta= $servicio->Imagen;?>
 				              <td><?php echo "<img src='$ruta' widht='150' height='150' />"  ?></td> 
-                    <td><?php echo $servicio->Descripcion?></td>
-                    <td>
-                    <?php if($servicio->TipodeProducto == 1 ){
-                        echo "Producto";
-                    } else
-                    {
-                        echo "Insumo";
-                    } ?>            
-                    </td>
                     <td>
                     <?php if($servicio->Estado == 1 ){
                         echo "<h4 style='color:green;'> Activo </h4>";
@@ -173,7 +157,7 @@ if(!($_SESSION['Documento']))
                         <a href="../Controlador/ControladorProductos.php?EditarProducto&IdProducto=<?php echo $servicio->IdProducto?>" class="btn btn" >Editar</a>
                     </td>
                     <td>
-                        <a href="../Controlador/ControladorProductos.php?CambiarEstadoP&IdProducto=<?php echo $servicio->IdProducto?>" class="btn btn" ><?php if($servicio->Estado == 1 ){
+                        <a href="../Controlador/ControladorProductos.php?CambiarEstadoS&IdProducto=<?php echo $servicio->IdProducto?>" class="btn btn" ><?php if($servicio->Estado == 1 ){
                         echo "Inhabilitar";
                     } else
                     {

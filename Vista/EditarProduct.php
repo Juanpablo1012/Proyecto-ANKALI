@@ -119,13 +119,7 @@ if(!($_SESSION['Documento']))
             <input type="number" name="Precio" class="fadeIn second" value="<?php echo $product->getPrecio() ?>" placeholder="Precio" required>
 
 
-            <input type="file" name="Imagen" class="fadeIn second" value="<?php echo $product->getImagen() ?>" placeholder="Imagen" required>
-
-            <textarea type="text" name="Descripcion" class="fadeIn second" value="<?php echo $product->getDescripcion() ?>"placeholder="Descripcion"></textarea>
-
-            <input type="number" name="Stock" class="fadeIn second" value="<?php echo $product->getStock() ?>" placeholder="Stock" required>
-             
-            
+            <input type="file" name="Imagen" class="fadeIn second" value="<?php echo $product->getImagen() ?>" placeholder="Imagen" required>       
 
             <input type="submit" ID="EditarProducto"name="EditarProducto" class="fadeIn fourth">
           </form>
