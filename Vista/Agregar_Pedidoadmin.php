@@ -57,7 +57,7 @@ if(!($_SESSION['Documento']))
                 height="70"> </a> ANKALI</a></h1>
       </div>
 
-  <nav id="nav-menu-container">
+      <nav id="nav-menu-container">
       <ul class="nav-menu">
         <li class="menu-active"><a href="admin.php">Inicio</a></li>
 

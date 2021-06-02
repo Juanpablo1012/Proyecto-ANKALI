@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 require_once("../Controlador/ControladorUsuarios.php");
 $doc =  $ControladorUsuarios->Buscarusuario($_GET['Documento']);
 // session_start();
@@ -11,8 +12,21 @@ if(!($_SESSION['Documento']))
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>ANKALI</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANKALI</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.css" />
+
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.js"></script>
+
+    
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -35,13 +49,9 @@ if(!($_SESSION['Documento']))
 
   <!-- Main Stylesheet File -->
   <link href="../Estilo/css/style.css" rel="stylesheet">
-<!--DATATABLE-->
-  <!-- =======================================================
-    Theme Name: eStartup
-    Theme URL: https://bootstrapmade.com/estartup-bootstrap-landing-page-template/
-    Author: BootstrapMade.com
-    License: https://bootstrapmade.com/license/
-  ======================================================= -->
+
+
+
 </head>
 
 <body>
@@ -54,7 +64,7 @@ if(!($_SESSION['Documento']))
             <!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
           </div>
     
-    <nav id="nav-menu-container">
+          <nav id="nav-menu-container">
       <ul class="nav-menu">
         <li class="menu-active"><a href="admin.php">Inicio</a></li>
 
@@ -110,32 +120,31 @@ if(!($_SESSION['Documento']))
     
         <!-- Icon -->
         <div class="fadeIn first">
-          <h6>Informacion del usuario</h6><br>
+          <h6>Información del usuario</h6>
+          <br>
         </div>
         <!-- Login Form -->
         <form method="POST" action="../Controlador/ControladorUsuarios.php">
 
-          <label for="">Documento </label>
-          <input type="number" id="Documento" class="fadeIn third" name="Documento" value="<?php echo $doc->getDocumento() ?>" placeholder="Numero de documento"readonly>
+          <label for="" > <b>Documento: </b></label>
+          <input type="number" id="Documento" class="fadeIn third documento" name="Documento" value="<?php echo $doc->getDocumento() ?>" placeholder="Numero de documento"readonly>
 
-          <label for="">Telefono</label>
-          <input type="number" id="Telefono" class="fadeIn second" name="Telefono"  value="<?php echo $doc->getTelefono() ?>" placeholder="Numero de telefono">
+          <label for="" > <b>Teléfono: </b></label>
+          <input type="number" id="Telefono" class="fadeIn second telefono" name="Telefono"  value="<?php echo $doc->getTelefono() ?>" placeholder="Numero de telefono">
           
-          <label for="">Nombre</label>
-          <input type="text" id="Nombre" class="fadeIn third" name="Nombre" value="<?php echo $doc->getNombre() ?>"  placeholder="Nombre">
+          <label for="" > <b>Nombre: </b></label>
+          <input type="text" id="Nombre" class="fadeIn third nombre" name="Nombre" value="<?php echo $doc->getNombre() ?>"  placeholder="Nombre">
           
-          <label for="">Correo</label>
+          <label for="" > <b>Correo: </b></label>
 
-          <input type="email" id="Correo" class="fadeIn second" name="Correo" value="<?php echo $doc->getCorreo() ?>" placeholder="Correo" >
+          <input type="email" id="Correo" class="fadeIn second correo" name="Correo" value="<?php echo $doc->getCorreo() ?>" placeholder="Correo" >
           
-          <label for="">Direccion</label>
-          <input type="text" id="Direccion" class="fadeIn second" name="Direccion" value="<?php echo $doc->getDireccion() ?>"  placeholder="Direccion">
-          <label for="">Contraseña </label>
-          <input type="text" id="Contrasena" class="fadeIn third" name="Contrasena" value="<?php echo $doc->getContrasena() ?>" placeholder="Contrasena">
+          <label for="" > <b>Dirección: </b></label>
+          <input type="text" id="Direccion" class="fadeIn second direccion" name="Direccion" value="<?php echo $doc->getDireccion() ?>"  placeholder="Direccion">
+          <label for="" > <b>Contraseña: </b></label>
+          <input type="text" id="Contrasena" class="fadeIn third contrasena" name="Contrasena" value="<?php echo $doc->getContrasena() ?>" placeholder="Contrasena">
           
-          <!-- <button type="submit" name="registro" class="fadeIn fourth">Registrarse</button> -->
-          <!-- <button type="submit" class="fadeIn fourth" name="Actualizarusuario" id="Actualizarusuario">Cambiar estado</button> -->
-          <button class="btn btn-lg btn-primary btn-block btn-signin" name="Actualizarusuario" id="Actualizarusuario" type="submit">EDITAR USUARIO</button>
+          <button class="btn btn-lg btn-primary btn-block btn-signin" name="Actualizarusuario" id="Actualizarusuario" type="submit">Guardar</button>
 
         </form>
       </div>
@@ -144,36 +153,33 @@ if(!($_SESSION['Documento']))
       
     </div>
   </section>
+  <script src="Estilo/lib/jquery/jquery.min.js"></script>
+  <script src="Estilo/lib/jquery/jquery-migrate.min.js"></script>
 
-  
+  <!---------------------------------------------------------------------------------------->
 
-      
-  
+  <script src="Estilo/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="Estilo/lib/superfish/hoverIntent.js"></script>
+  <script src="Estilo/lib/superfish/superfish.min.js"></script>
+  <script src="Estilo/lib/easing/easing.min.js"></script>
+  <script src="Estilo/lib/modal-video/js/modal-video.js"></script>
+  <script src="Estilo/lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="Estilo/lib/wow/wow.min.js"></script>
+  <script src="Estilo/sweetalert2/sweetalert2.all.min.js"></script>
+  <script src="Estilo/contactform/contactform.js"></script>
+  <script src="Estilo/js/alerts.js"></script>
+  <script src="Estilo/js/main.js"></script>
 
-  <footer class="footer">
-      <div class="copyrights">
-        <p>&copy; Copyrights eStartup. All rights reserved.</p>
-        <div class="credits">
-          Designed by <a href="">BootstrapMade</a>
-        </div>
-      </div>
-  </footer>
+  <script>
+        //cambiar tamaño c:
+        let cambiar = document.querySelector(".documento").style.width="70%";
+        let cambiar1 = document.querySelector(".telefono").style.width="70%";
+        let cambiar2 = document.querySelector(".nombre").style.width="70%";
+        let cambiar3 = document.querySelector(".direccion").style.width="70%";
+        let cambiar4 = document.querySelector(".correo").style.width="70%";
+        let cambiar5 = document.querySelector(".contrasena").style.width="70%";
 
-  <!-- JavaScript Libraries -->
-  <script src="../Estilo/lib/jquery/jquery.min.js"></script>
-  <script src="../Estilo/lib/jquery/jquery-migrate.min.js"></script>
-  <script src="../Estilo/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="../Estilo/lib/superfish/hoverIntent.js"></script>
-  <script src="../Estilo/lib/superfish/superfish.min.js"></script>
-  <script src="../Estilo/lib/easing/easing.min.js"></script>
-  <script src="../Estilo/lib/modal-video/js/modal-video.js"></script>
-  <script src="../Estilo/lib/owlcarousel/owl.carousel.min.js"></script>
-  <script src="../Estilo/lib/wow/wow.min.js"></script>
-  <!-- Contact Form JavaScript File -->
-  <script src="../Estilo/contactform/contactform.js"></script>
-
-  <!-- Template Main Javascript File -->
-  <script src="../Estilo/js/main.js"></script>
+      </script>
 
 </body>
 </html>

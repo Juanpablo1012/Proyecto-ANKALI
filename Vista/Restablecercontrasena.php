@@ -73,7 +73,9 @@
         <div class="fadeIn first">
           <img src="../Estilo/img/logo-negro.png" id="icon2" alt="User Icon">
           <h6>Retablecer contraseña</h6>
-          <h7>Ingresa una nueva contraseña.</h7>
+          <br>
+          <h6>Ingresa una nueva contraseña.</h6>
+          <br>
         </div>
         <!-- Login Form -->
 <?php
@@ -82,8 +84,9 @@
             <input type="hidden" name="email" id="email" value="<?php echo $_REQUEST['ABC'];?>">
 
             <input type="hidden" name="ndoc" id="ndoc" value="<?php echo $_REQUEST['ndoc'];?>">
+            <label for=""><b>Contraseña:</b></label>
 
-            <input type="password" id="Contrasena" class="fadeIn second" name="Contrasena" placeholder="Contraseña"required>
+            <input type="password" id="Contrasena" class="fadeIn second pss" name="Contrasena" placeholder="Contraseña">
             <button type="submit" class="fadeIn fourth" name="restablecercontra">
               Cambiar contraseña
             </button>
@@ -95,7 +98,10 @@
     </div>
   </section>
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <script>
+        let cambiar = document.querySelector(".pss").style.width="70%";
 
+</script>
   <!-- JavaScript Libraries -->
   <script src="../Estilo/lib/jquery/jquery.min.js"></script>
   <script src="../Estilo/lib/jquery/jquery-migrate.min.js"></script>

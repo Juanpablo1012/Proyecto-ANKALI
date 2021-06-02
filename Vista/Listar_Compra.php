@@ -62,7 +62,7 @@ if(!($_SESSION['Documento']))
           <div id="logo" class="pull-left">
             <h1><a href="admin.php" class="scrollto"><a href=""><img src="../Estilo/img/logo-blanco.png" width="70" height="70"> </a>  ANKALI</a></h1>
           </div>
-    <nav id="nav-menu-container">
+     <nav id="nav-menu-container">
       <ul class="nav-menu">
         <li class="menu-active"><a href="admin.php">Inicio</a></li>
 

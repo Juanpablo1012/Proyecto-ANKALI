@@ -19,7 +19,8 @@ if(!($_SESSION['Documento']))
   <!-- Favicons -->
   <link href="../Estilo/img/logo-negro.png" rel="icon">
   <link href="../Estilo/img/apple-touch-icon.png" rel="apple-touch-icon">
-
+  <link href="../Estilo/sweetalert2/sweetalert2.css" >
+<link href="../Estilo/sweetalert2/sweetalert2.min.css" >
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i" rel="stylesheet">
 
@@ -109,7 +110,7 @@ if(!($_SESSION['Documento']))
           <!-- Icon -->
           <div class="fadeIn first">
 
-            <h6>Agregar Compra</h6><br>
+            <h6>Agregar Compra</h6>
           </div>
           <!-- Login Form  -->
           <form action="../Controlador/ControladorCompras.php" method="Post" enctype="multipart/form-data">
@@ -117,13 +118,14 @@ if(!($_SESSION['Documento']))
             <input type="hidden" id="IdCompra" class="fadeIn third" name="IdCompra" placeholder="Codigo compra">
             <input type="hidden" value="<?php echo $fechaA ?>" id="Fecha" class="fadeIn second" name="Fecha" placeholder="Número">
             <input type="hidden" id="DocumentoUsuario" class="fadeIn second" value="<?php echo $doc?>"name="DocumentoUsuario" placeholder="Número">
-            
             <label for=""><b>Imagen de la<br> factura:</b></label>
-            <input type="file" id="Factura" class="fadeIn third imagen" name="Factura" placeholder="Factura" required><br>
-            <label for=""><b>Total de la factura:</b></label>
-            <input type="number" id="Total" class="fadeIn second total" name="Total" placeholder="Total de la compra" required><br>
 
-            <input type="submit" name="Agregar" class="fadeIn fourth" value="Agregar">
+            <input type="file" id="Factura" class="fadeIn third Factura" name="Factura" placeholder="Factura" >
+            <label for=""><b>Total de la<br> factura:</b></label>
+
+            <input type="number" id="Total" class="fadeIn second Total" name="Total" placeholder="Total de la compra" >
+
+            <input type="submit" name="Agregar" class="fadeIn fourth " value="Agregar">
 
           </form>
     
@@ -131,16 +133,11 @@ if(!($_SESSION['Documento']))
         </div>
       </div>
   </section>
-  <script>
-        //cambiar tamaño c:
-        let cambiar2 = document.querySelector(".imagen").style.width="70%";
-        let cambiar3 = document.querySelector(".total").style.width="70%";
-      </script>
-
-  <!--------------------------------------------------------------------->
-  <script src="../Estilo/lib/jquery/jquery.min.js"></script>
+<!--------------------------------------------------------------------->
+<script src="../Estilo/lib/jquery/jquery.min.js"></script>
   <script src="../Estilo/lib/jquery/jquery-migrate.min.js"></script>
   <!--------------------------------------------------------------------->
+  <script src="../Estilo/sweetalert2/sweetalert2.all.min.js"></script>
 
   <script src="../Estilo/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="../Estilo/lib/superfish/hoverIntent.js"></script>
@@ -151,7 +148,13 @@ if(!($_SESSION['Documento']))
   <script src="../Estilo/lib/wow/wow.min.js"></script>
   <script src="../Estilo/contactform/contactform.js"></script>
   <script src="../Estilo/js/main.js"></script>
+  <script src="../Estilo/js/alerts.js"></script>
+  <script>
+        //cambiar tamaño inputs c:
+        let cambiar = document.querySelector(".Factura").style.width="70%";
+        let cambiar1 = document.querySelector(".Total").style.width="70%";
 
+      </script> 
 
 </body>
 </html>
