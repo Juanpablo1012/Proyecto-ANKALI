@@ -24,8 +24,7 @@
 
         public function RegistrarUsuario($usuario)
         {
-            $mensaje="";
-            $Db = Db::Conectar(); // conectar bd
+            $Db = Db::Conectar(); 
             $sql = $Db->prepare('INSERT INTO usuarios(Documento,Nombre,
             Telefono,Direccion,Correo,Contrasena,Estado,IdRol)
             VALUES (:Documento,:Nombre,:Telefono,:Direccion,:Correo,:Contrasena,:Estado,:IdRol)'); //definir sentencia sql
@@ -73,7 +72,6 @@
                 </script>";
             }
             Db::CerrarConexion($Db);
-            return $mensaje;
         }
 
         public function Listarusuarios()
