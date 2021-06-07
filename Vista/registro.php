@@ -88,7 +88,7 @@ error_reporting(0);
           <label for=""><b>Nombre:</b></label>
           <input type="text" id="Nombre" class="fadeIn third nombre" name="Nombre" placeholder="Nombre" >
 
-          <label for=""><b>Direccion:</b></label>
+          <label for=""><b>Dirección:</b></label>
           <input type="text" id="Direccion" class="fadeIn second direccion" name="Direccion" placeholder="Dirección">
 
           <label for=""><b>Correo:</b></label>
