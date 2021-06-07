@@ -2,8 +2,8 @@
 // session_start();
 require_once("../Modelo/Conexion.php");
 require_once("../Modelo/Usuarios.php");
-// require_once("../Modelo/Insumos.php");
-// require_once("../Modelo/CrudInsumos.php");
+// require_once("../Modelo/Servicios.php");
+// require_once("../Modelo/CrudServicios.php");
 require_once("../Modelo/Pedidos.php");
 require_once("../Modelo/CrudUsuarios.php");
 require_once("../Modelo/CrudProductos.php");
@@ -19,14 +19,6 @@ class ControladorPedido
         $crudpedido = new CrudPedido();
         return $crudpedido->Listarpedido();
     }
-
-    public function Listarpedidopago(){
-
-        $crudpedido = new CrudPedido();
-        return $crudpedido->Listarpedidopago();
-    }
-
-   
 
 
     public function Listarusuarios(){
