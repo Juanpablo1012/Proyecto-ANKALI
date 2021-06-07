@@ -185,7 +185,7 @@ elseif(isset($_POST['acceder']))
             echo 
             "<script>
             Swal.fire({
-                icon: 'success',
+                icon: 'warning',
                 html: '<h3>Todos los campos son obligatorios.</h3>',
                 allowOutsideClick: false,
                 background: '#fff',

@@ -20,22 +20,26 @@ if(!($_SESSION['Documento']))
   <meta content="" name="keywords">
   <meta content="" name="description">
 
+  <!-- Favicons -->
   <link href="../Estilo/img/logo-negro.png" rel="icon">
   <link href="../Estilo/img/apple-touch-icon.png" rel="apple-touch-icon">
 
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i" rel="stylesheet">
 
-
+  <!-- Bootstrap css -->
+  <!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
   <link href="../Estilo/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+  <!-- Libraries CSS Files -->
   <link href="../Estilo/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="../Estilo/lib/owlcarousel/assets/owl.theme.default.min.css" rel="stylesheet">
   <link href="../Estilo/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link href="../Estilo/lib/animate/animate.min.css" rel="stylesheet">
   <link href="../Estilo/lib/modal-video/css/modal-video.min.css" rel="stylesheet">
 
+  <!-- Main Stylesheet File -->
   <link href="../Estilo/css/style.css" rel="stylesheet">
-  <link href="../Estilo/css/app.css" rel="stylesheet">
 
 </head>
 
@@ -262,7 +266,6 @@ if(!($_SESSION['Documento']))
             $('#Cantidad').keydown(function(){
                 $('#Total').val($('#Cantidad').val()*$('#Precio').val());
             });
-
 
             $('#Cantidad').keypress(function(){
                 $('#Total').val($('#Cantidad').val()*$('#Precio').val());
