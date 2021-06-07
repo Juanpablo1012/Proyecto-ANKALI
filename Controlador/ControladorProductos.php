@@ -21,6 +21,8 @@
 require_once("../Modelo/Conexion.php");
 require_once("../Modelo/Productos.php");
 require_once("../Modelo/CrudProductos.php");
+require_once("../Modelo/Insumos.php");
+require_once("../Modelo/CrudInsumos.php");
 
 
 class ControladorProductos{
@@ -41,6 +43,13 @@ class ControladorProductos{
         return $crudproductos->CambiarEstadoP($Documento);
 
     }
+
+    public function ListarInsumo(){
+
+        $crudInsumo = new CrudInsumos();
+        return json_encode($crudInsumo->ListarInsumo());
+    } 
+    
 
     public function CrearProducto($NombreP,$Precio,$Imagen,$TipoProducto)
     {
@@ -122,7 +131,7 @@ if(isset($_POST['CrearProduc'])){
     if (trim($IdTipoProducto) == null || trim($Nombre) == null || trim($Precio) == null || trim($type) == null)
     {
         echo 
-        "<script>
+        "<script> 
         Swal.fire({
             icon: 'warning',
             html: '<h3>Todos los campos son obligatorios.</h3>',

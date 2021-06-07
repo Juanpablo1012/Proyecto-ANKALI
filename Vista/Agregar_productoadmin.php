@@ -155,10 +155,10 @@ if(!($_SESSION['Documento']))
             <label for=""><b>Imagen:</b></label>
             <input type="file" id="Imagen" class="fadeIn second imagen" name="Imagen" placeholder="Imagen"><br>
 
-            <label for=""><b>Seleccione <br>los insumos:</b></label>
+            <!-- <label for=""><b>Seleccione <br>los insumos:</b></label>
             <select name="" id="" class="insumos">
                 <option value="">Seleccione</option>
-            </select> 
+            </select>  -->
             
             <!-- <label for=""><b>Cantidad:</b></label> -->
             <!-- <input type="number" id="Stock" class="fadeIn second cantidad" name="Stock" placeholder="Cantidad"><br> -->
