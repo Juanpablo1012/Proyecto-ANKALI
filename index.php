@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 <html lang="en">
@@ -81,7 +80,7 @@
     
         <!-- Login Form -->
         <!--<form method="POST" name="enviar" action="Controlador/ControladorUsuarios.php" id="formlogin">-->
-        <form method="POST" name="enviar" action="#" id="formlogin">
+        <form method="POST" name="enviar" action="Controlador/ControladorUsuarios.php" id="formlogin">
 
         <label for="" > <b>Correo: </b></label>
 
@@ -94,7 +93,7 @@
           <span id="validar" style="color:red"></span>
           <br>
 
-          <button type="button" name="acceder"class="fadeIn fourth save" xx="1" id="inicio">Iniciar Sesión</button>
+          <button type="submit" name="acceder"class="fadeIn fourth save" xx="1" id="inicio">Iniciar Sesión</button>
 
         </form>
 
@@ -135,7 +134,6 @@
   <script src="Estilo/lib/wow/wow.min.js"></script>
   <script src="Estilo/sweetalert2/sweetalert2.all.min.js"></script>
   <script src="Estilo/contactform/contactform.js"></script>
-  <script src="Estilo/js/alerts.js"></script>
 
   <!-- Template Main Javascript File -->
   <script src="Estilo/js/main.js"></script>

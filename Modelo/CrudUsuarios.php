@@ -1,3 +1,4 @@
+
 <?php
     class CrudUsuarios{
         public function __construct()
@@ -5,8 +6,7 @@
 
         public function RegistrarUsuario($usuario)
         {
-            $mensaje="";
-            $Db = Db::Conectar(); // conectar bd
+            $Db = Db::Conectar(); 
             $sql = $Db->prepare('INSERT INTO usuarios(Documento,Nombre,
             Telefono,Direccion,Correo,Contrasena,Estado,IdRol)
             VALUES (:Documento,:Nombre,:Telefono,:Direccion,:Correo,:Contrasena,:Estado,:IdRol)'); //definir sentencia sql
@@ -21,15 +21,39 @@
 
             try{
                 $sql->execute();
-                 //correcto 
-                 echo 1;
+                 echo "<script> 
+                Swal.fire({
+                    icon: 'success',
+                    html: '<h3>Registro exitoso.</h3><br>',
+                    allowOutsideClick: false,
+                    background: '#fff',
+                    confirmButtonColor: '#FC3E3E',
+                    confirmButtonText: 'Cerrar'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = '../index.php';
+                    }
+                  });
+                </script>";
             }
             catch(Exception $e)
-            {//incorrecto
-                echo 0;
+            {
+                echo "<script> 
+                Swal.fire({
+                    icon: 'error',
+                    html: '<h4>Los datos no son validos.<br>Intentalo nuevamente.</h4>',
+                    allowOutsideClick: false,
+                    background: '#fff',
+                    confirmButtonColor: '#FC3E3E',
+                    confirmButtonText: 'Cerrar'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = '../Vista/registro.php';
+                    }
+                  });
+                </script>";
             }
             Db::CerrarConexion($Db);
-            return $mensaje;
         }
 
         public function Listarusuarios()
@@ -83,7 +107,6 @@
 
         public function Actualizarusuario($Usuarios)
         {
-            $mensaje = "";
             $Db = Db::Conectar(); // conectar bd
             $sql = $Db->prepare('UPDATE usuarios 
             SET Telefono = :Telefono,
@@ -101,14 +124,26 @@
 
             try{
                 $sql->execute();
-                $mensaje = "Actualizacion Exitoso";
+                echo "<script> 
+                Swal.fire({
+                    icon: 'success',
+                    html: '<h3>Actualización exitosa </h3>',
+                    allowOutsideClick: false,
+                    background: '#fff',
+                    confirmButtonColor: '#FC3E3E',
+                    confirmButtonText: 'Cerrar'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = '../Vista/Usuariosadmin.php';
+                    }
+                  });
+                </script>";
             }
             catch(Exception $e)
             {
                 $mensaje = $e->getMessage();
             }
             Db::CerrarConexion($Db);
-            return $mensaje;
         }
 
         public function InicioSesion ($inicio)
@@ -180,11 +215,37 @@
 
             try{
                 $sql->execute();
-                echo 1;
+                echo "<script> 
+                Swal.fire({
+                    icon: 'success',
+                    html: '<h3>Registro exitoso.</h3><br>',
+                    allowOutsideClick: false,
+                    background: '#fff',
+                    confirmButtonColor: '#FC3E3E',
+                    confirmButtonText: 'Cerrar'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = '../Vista/Usuariosadmin.php';
+                    }
+                  });
+                </script>";
             }
             catch(Exception $e)
             {
-                echo 0;
+                echo "<script> 
+                Swal.fire({
+                    icon: 'error',
+                    html: '<h4>Los datos no son validos.<br>Intentalo nuevamente.</h4>',
+                    allowOutsideClick: false,
+                    background: '#fff',
+                    confirmButtonColor: '#FC3E3E',
+                    confirmButtonText: 'Cerrar'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.history.back();
+                    }
+                  });
+                </script>";
             }
             Db::CerrarConexion($Db);
             return $mensaje;

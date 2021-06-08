@@ -74,7 +74,7 @@
           <br>
         </div>
         <!-- Login Form "../Controlador/ControladorUsuarios.php"-->
-        <form Method="POST" action="#">
+        <form Method="POST" action="../Controlador/ControladorUsuarios.php">
           <label for=""><b>Documento:</b></label>
           <input type="number" id="Documento" class="fadeIn third documento" name="Documento" placeholder="Numero de documento" >
           
@@ -93,7 +93,7 @@
           <label for=""><b>Contraseña:</b></label>
           <input type="password" id="Contrasena" class="fadeIn third contrasena" name="Contrasena" placeholder="Contraseña">
           
-          <button type="button" name="registro" class="fadeIn fourth formregistro" id="registro">Registrarse</button>
+          <button type="submit" name="registro" class="fadeIn fourth" id="registro">Registrarse</button>
         </form>
         <button type="submit" class="fadeIn fourth" value="">
             <a href="../index.php" type="button"style="color:white">Iniciar Sesión</a>
