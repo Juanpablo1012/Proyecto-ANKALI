@@ -119,12 +119,13 @@ if(!($_SESSION['Documento']))
             <table border="1" class="table table-sriped  table-bordered" id="litarroles">
                 <thead>
                 <tr>
-                    <th>Codigo Producto</th>
+                    
                     <th>Nombre</th>
                     <th>Precio</th>
                     <th>Imagen</th>
                     <th>Estado</th>
                     <th>Editar</th>
+                    <th>Agregar Insumos</th>
                     <th>Cambiar Estado</th>
                 </tr>
                 </thead>
@@ -135,7 +136,6 @@ if(!($_SESSION['Documento']))
                 {
                 ?> 
                 <tr>
-                    <td><?php echo $producto->IdProducto?></td>
                     <td><?php echo $producto->Nombre?></td>
                     <td><?php echo $producto->Precio?></td>
                     <?php  $ruta= $producto->Imagen;?>
@@ -150,6 +150,9 @@ if(!($_SESSION['Documento']))
                     </td>
                     <td>
                         <a href="../Controlador/ControladorProductos.php?EditarProducto&IdProducto=<?php echo $producto->IdProducto?>" class="btn btn" >Editar</a>
+                    </td>
+                    <td>
+                        <a href="../Controlador/ControladorProductos.php?Agregarins&IdProducto=<?php echo $producto->IdProducto?>" class="btn btn" >Agregar insumo</a>
                     </td>
                     <td>
                         <a href="../Controlador/ControladorProductos.php?CambiarEstadoP&IdProducto=<?php echo $producto->IdProducto?>" class="btn btn" ><?php if($producto->Estado == 1 ){

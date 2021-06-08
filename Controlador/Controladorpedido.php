@@ -2,8 +2,7 @@
 // session_start();
 require_once("../Modelo/Conexion.php");
 require_once("../Modelo/Usuarios.php");
-// require_once("../Modelo/Servicios.php");
-// require_once("../Modelo/CrudServicios.php");
+
 require_once("../Modelo/Pedidos.php");
 require_once("../Modelo/CrudUsuarios.php");
 require_once("../Modelo/CrudProductos.php");
@@ -20,12 +19,20 @@ class ControladorPedido
         return $crudpedido->Listarpedido();
     }
 
+    public function Listarpedidopago(){
+
+        $crudpedido = new CrudPedido();
+        return $crudpedido->Listarpedidopago();
+    }
+
+
 
     public function Listarusuarios(){
 
         $crudusu = new CrudUsuarios();
         return $crudusu->Listarusuarios();
     }
+
 
     public function ListarTodo(){
 
@@ -106,7 +113,7 @@ if(isset($_POST['registrarpedido']))
     $idpedido= $ControladorPedido->CrearPedido($_POST['usuario']);
     }
 
-    $ControladorPedido->registrardetallepedido($idpedido,$_POST['producto'],$_POST['Total'],$_POST['Cantidad']);
+    $ControladorPedido->registrardetallepedido($idpedido,$_POST['producto'],$_POST['Precio'],1);
     
         echo $idpedido;
 

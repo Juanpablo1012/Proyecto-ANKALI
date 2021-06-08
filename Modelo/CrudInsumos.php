@@ -35,7 +35,7 @@
             return $mensaje;
         }
 
-        public function ListarInsumo()
+        public function ListarInsumo() 
         {
             $Db = Db::Conectar(); // conectar bd
             $sql = $Db->query('SELECT * FROM insumos'); //definir sentencia sql

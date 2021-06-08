@@ -157,7 +157,6 @@
                 $producto->setNombre($x['Nombre']);    
                 $producto->setPrecio($x['Precio']);    
                 $producto->setImagen($x['Imagen']);    
-                $producto->setStock($x['Stock']);    
                 $producto->setEstado($x['Estado']);    
                 //$producto->setTipoProducto($x['TipoProducto']);    
 

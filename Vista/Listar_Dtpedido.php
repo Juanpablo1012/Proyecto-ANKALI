@@ -64,11 +64,8 @@ if(!($_SESSION['Documento']))
                 <table border="1" class="table table-sriped  table-bordered" id="litarroles1">
                     <thead>
                     <tr>
-                        <th>Codigo del Pedido</th>
-                        <th>Nro pedido</th>
                         <th>Producto</th>
                         <th>Tipo de producto</th>
-                        <th>Valor </th>
                         <th>Cantidad</th>
                         <th>Total</th>
                         <th>Eliminar</th>
@@ -77,31 +74,30 @@ if(!($_SESSION['Documento']))
                     <tbody>
 
                     <?php
+                    $total = 0;
                     foreach($Listardetallepedido as $dtl)
                     {
                     ?> 
                     <tr>
-                        <td><?php echo $dtl["IdDtllPedido"]?></td>
-                        <td><?php echo $dtl["IdPedido"]?></td>
+                    
                         <td><?php echo $dtl["NombreP"]?></td>
                         <td><?php echo $dtl["NombreT"]?></td>
-                        <td><?php echo $dtl["PrecioP"]?></td>
+                        <!-- <td><?php echo $dtl["PrecioP"]?></td> -->
                         <td><?php echo $dtl["Cantidad"]?></td>
                         <td><?php echo $dtl["Total"]?></td>
                         <td>
                         <a href="#" onclick="Eliminardetalle(<?php echo $dtl['IdDtllPedido']?>)"><i class="fa fa-window-close"></i></a>
                         <!-- <a href="../Controlador/DestruirSesion.php">Cerrar Sesión <i class="fa fa-window-close"></i></a> -->
                         </td>
-
-                        
-                        
                     </tr>
                     <?php
-                    }
+                }
                     ?>
                     </tbody>
                 </table>
             </div>
+            <a href="Listar_Pedidoadmin.php" class="btn btn" >Finalizar</a>
+
             
         </div>
     </div>

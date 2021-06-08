@@ -2,6 +2,8 @@
 require_once("../Modelo/Conexion.php");
 require_once("../Modelo/Productos.php");
 require_once("../Modelo/CrudProductos.php");
+require_once("../Modelo/Insumos.php");
+require_once("../Modelo/CrudInsumos.php");
 
 
 class ControladorProductos{
@@ -14,6 +16,14 @@ class ControladorProductos{
         header("location:".$vista);
 
     }
+
+    public function Listarinsumo(){
+
+        $CrudInsumos = new CrudInsumos();
+        return $CrudInsumos->ListarInsumo();
+    }
+
+
 
     public function CambiarEstadoP($Documento)
     {
@@ -207,6 +217,30 @@ elseif(isset($_GET['EditarProducto']))
     $IdProducto = $_GET['IdProducto'];
     $ControladorProductos->desplegarVista('../Vista/EditarProduct.php?IdProducto='.$IdProducto);
 }
+
+elseif(isset($_GET['Agregarins']))
+{
+    $IdProducto = $_GET['IdProducto'];
+    $ControladorProductos->desplegarVista('../Vista/Agregar_insumoaproducto.php?IdProducto='.$IdProducto);
+}
+
+if(isset($_POST['registrarinsumo']))
+{
+    $idpedido = $_POST['pedido'];
+
+    if($_POST['pedido']==""){
+    $idpedido= $ControladorPedido->CrearPedido($_POST['usuario']);
+    }
+
+    $ControladorPedido->registrardetallepedido($idpedido,$_POST['producto'],$_POST['Total'],$_POST['Cantidad']);
+    
+        echo $idpedido;
+
+} 
+
+
+
+
 elseif(isset($_POST['EditarProducto']))
 {
     $valid = array('success' => false, 'messages' => array());

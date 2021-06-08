@@ -1,9 +1,9 @@
 <?php
 session_start();
-require_once("../Controlador/Controladorpedido.php");
-$Listarproducto = $ControladorPedido->ListarTodo();
-$Listarusuario = $ControladorPedido->Listarusuarios();
-// $Listarservicio = $ControladorPedido->Listarservicio();
+require_once("../Controlador/ControladorProductos.php");
+$ListarInsumo = $ControladorProductos->Listarinsumo();
+$product = $_GET['IdProducto'];
+
 
 if(!($_SESSION['Documento']))
 {
@@ -115,50 +115,43 @@ if(!($_SESSION['Documento']))
           <!-- Icon -->
         <div class="fadeIn first">
 
-          <h6>Agregar Pedido</h6><br>
+          <h6>Agregar insumo</h6><br>
         </div>
         <!-- Login Form -->
         <form name="frmpedido" id="frmpedido" method="post">
-          <input type="hidden" id="pedido" class="fadeIn second" name="pedido">
+          <input type="text" value="<?php echo $product ?>" id="producto" class="fadeIn second" name="pedido">
           <div class="form-group">
-          <label for="" > <b>Nombre del usuario: </b></label>
-          <select name="usuario" id="usuario" class="pedidoU" >
-            <option value="">Seleccione el usuario</option>
-            <?php
-                foreach($Listarusuario as $usuario)
-                echo "<option value=".$usuario['Documento'].">".$usuario['Documento'].'- - - -'.$usuario['Nombre']."</option>";
-            ?>
-          </select>
-          </div>
-
-          <div class="form-group">
-          <label for=""> <b>Nombre del producto: </b></label>
+          <label for="" > <b>Nombre del insumo: </b></label>
           <select name="producto" class="pedidoP" id="producto" onchange="precio(this)" >
-            <option value="">Seleccione el Producto</option>
-            <?php
-                foreach($Listarproducto as $prud)
-                echo "<option Precio=".$prud['Precio']." value=".$prud['IdProducto'].">".$prud['IdProducto'].'- - -'.$prud['Nombre'].'- - - -'.$prud['NombreY']."</option>";
-            ?>
-          </select>
-
+              <option>Seleccione el insumo</option>
+              <?php
+                foreach($ListarInsumo as $prud)
+                {
+                
+                  echo "<option Precio=".$prud['Precio']." value=".$prud['IdInsumo'].">".$prud['Nombre']."</option>";
+                  
+                    }
+                  ?>
+              </select>
           </div>
+
           <div class="form-group">
           <label for=""> <b>Valor del producto:</b> </label>
           <input type="text" id="Precio" class="pedidoV" name="Precio" placeholder="Precio Producto" readonly>
           </div>
           
 
-          <!-- <div class="form-group">
+          <div class="form-group">
           <label for=""><b>Cantidad:</b></label>
           <input type="number" id="Cantidad" class="fadeIn second" name="Cantidad" placeholder="Cantidad">
-          </div> -->
+          </div>
 
-          <!-- <div class="form-group">
+          <div class="form-group">
           <label for=""><b>Valor total:</i></label>
           <input type="number" id="Total" class="fadeIn second" name="Total" readonly placeholder="Valor total">
-          </div> -->
+          </div>
 
-          <input type="hidden" name="registrarpedido" id="registrarpedido">
+          <input type="hidden" name="registrarinsumo" id="registrarpedido">
           <!-- <button type="reset">Terminar</button> -->
           <button type="submit">Agregar</button>
         </form>
@@ -184,7 +177,7 @@ if(!($_SESSION['Documento']))
             console.log('usuario:' + $('#usuario').val());
             $.ajax({
               type: 'POST',
-              url: '../Controlador/Controladorpedido.php',
+              url: '../Controlador/ControladorProductos.php',
               data: $('#frmpedido').serialize(),
               success: function (data) {
                 // alert(data);
