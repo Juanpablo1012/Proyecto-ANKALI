@@ -2,10 +2,7 @@
 
 require_once("../Controlador/ControladorProductos.php");
 $Listardetalle = $ControladorProductos->Listardetalleinsu($_GET['IdProducto']);
-if(!($_SESSION['Documento']))
-{
-  header ("Location:../index.php");
-} 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,19 +51,81 @@ if(!($_SESSION['Documento']))
 </head>
 
 <body>
-<section id="hero3" class="wow fadeIn" style="border: 1px black;">
-  <div class="fadeInDown">
-        <div class="container mt-4">
-        
-            <div class="card-body" >
-                <table border="1" class="table table-sriped  table-bordered" id="litarroles1">
+    <header id="header" class="header header-hide">
+    <div class="container">
+    
+    <div id="logo" class="pull-left">
+      <h1><a href="admin.php" class="scrollto"><a href=""><img src="../Estilo/img/logo-blanco.png" width="70" height="70"> </a>  ANKALI</a></h1>
+      <!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
+    </div>
+
+    <nav id="nav-menu-container">
+      <ul class="nav-menu">
+        <li class="menu-active"><a href="admin.php">Inicio</a></li>
+
+        <li class="menu-has-children"><a href="#">Servicios</a>
+          <ul>
+            <li><a href="Agregar_servicioadmin.php">Agregar servicio</a></li>
+            <li><a href="Listar_Servicioadmin.php">Listar servicio</a></li>
+          </ul>
+        </li>
+        <li class="menu-has-children"><a href="#">Productos</a>
+          <ul>
+            <li><a href="Agregar_productoadmin.php">Agregar producto</a></li>
+            <li><a href="Listar_Productoadmin.php">Listar productos</a></li>
+          </ul>
+        </li>
+        <li class="menu-has-children"><a href="#">Insumos</a>
+          <ul>
+            <li><a href="Agregar_Insumo.php">Agregar insumos</a></li>
+            <li><a href="Listar_Insumo.php">Listar insumos</a></li>
+          </ul>
+        </li>
+        <li class="menu-has-children"><a href="#">Pedidos</a>
+          <ul>
+            <li><a href="Agregar_Pedidoadmin.php">Agregar Pedido</a></li>
+            <li><a href="Listar_Pedidoadmin.php">Listar Pedido</a></li>
+          </ul>
+        </li>
+        <li><a href="Ventaadmin.php">Ventas</a></li>
+
+        <li class="menu-has-children"><a href="#">Usuarios</a>
+            <ul>
+              <li><a href="registroAdmin.php">Registrar usuarios</a></li>
+              <li><a href="Usuariosadmin.php">Listar usuarios</a></li>
+            </ul>
+        </li>
+        <li class="menu-has-children"><a href="#">Compra</a>
+            <ul>
+              <li><a href="Compras.php">Ingresar compra</a></li>
+              <li><a href="Listar_Compra.php">Listar compras</a></li>
+            </ul>
+        </li>
+        <li><a href="../Controlador/DestruirSesion.php">Cerrar Sesión <i class="fa fa-window-close"></i></a></li>
+      </ul>
+    </nav>
+  </div>
+  </header>
+      <br>
+
+
+
+
+
+      <section id="hero4" class="wow fadeIn">
+      
+      <div class="container mt-4">
+     
+      
+          <div class="card-body" >
+          <h2> insumos del producto<h2>
+          <table border="1" class="table table-sriped  table-bordered" id="litarroles1">
                     <thead>
                     <tr>
                         <th>Producto</th>
                         <th>Tipo de producto</th>
                         <th>Cantidad</th>
                         <th>Total</th>
-                        <th>Eliminar</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -82,26 +141,28 @@ if(!($_SESSION['Documento']))
                         <td><?php echo $dtl["NombreI"]?></td>
                         <!-- <td><?php echo $dtl["PrecioP"]?></td> -->
                         <td><?php echo $dtl["Cantidad"]?></td>
-                        <td><?php echo $dtl["Total"]?></td>
-                        <td>
-                        <a href="#" onclick="Eliminardetalle(<?php echo $dtl['IdDtllPedido']?>)"><i class="fa fa-window-close"></i></a>
-                        <!-- <a href="../Controlador/DestruirSesion.php">Cerrar Sesión <i class="fa fa-window-close"></i></a> -->
-                        </td>
+                        <td><?php echo $dtl["Total"]?></td>                        
                     </tr>
                     <?php
                 }
                     ?>
                     </tbody>
                 </table>
-            </div>
-
-            
-        </div>
+          </div>
+          
+      </div>
+  
+      </section>
     </div>
-    </section>
 
-
-
+    <footer class="footer">
+      <div class="copyrights">
+        <p>&copy; Copyrights eStartup. All rights reserved.</p>
+        <div class="credits">
+          Designed by <a href="">BootstrapMade</a>
+        </div>
+      </div>
+  </footer>
 
     <!-- <script src="../Estilo/lib/jquery/jquery.min.js"></script> -->
   <script src="../Estilo/lib/jquery/jquery-migrate.min.js"></script>

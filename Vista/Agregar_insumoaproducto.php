@@ -119,7 +119,7 @@ if(!($_SESSION['Documento']))
         </div>
         <!-- Login Form -->
         <form name="frmpedido" id="frmpedido" method="post">
-          <input type="text" value="<?php echo $product ?>" id="productoid" class="fadeIn second" name="productoid">
+          <input type="hidden" value="<?php echo $product ?>" id="productoid" class="fadeIn second" name="productoid">
           <div class="form-group">
           <label for="" > <b>Nombre del insumo: </b></label>
           <select name="producto" class="pedidoP" id="producto" onchange="precio(this)" >
@@ -136,7 +136,7 @@ if(!($_SESSION['Documento']))
           </div>
 
           <div class="form-group">
-          <label for=""> <b>Valor del producto:</b> </label>
+          <label for=""> <b>Valor :</b> </label>
           <input type="text" id="Precio" class="pedidoV" name="Precio" placeholder="Precio Producto" readonly>
           </div>
           
@@ -217,18 +217,18 @@ if(!($_SESSION['Documento']))
           });
         }
 
-        function Eliminardetalle($iddetalle) {
+        function Eliminardetalle($IdDeProducto) {
           var formData = new FormData();
-          formData.append('eliminardetallepedido', '');
-          formData.append('IdDtllPedido', $iddetalle)
+          formData.append('eliminardetalle', '');
+          formData.append('IdDeProducto', $IdDeProducto)
           $.ajax({
             type: 'POST',
-            url: '../Controlador/Controladorpedido.php',
+            url: '../Controlador/ControladorProductos.php',
             data: formData,
             contentType: false,
             processData: false,
             success: function (response) {
-              ListarDetallepedido();
+              ListarDetallepinsumo();
             }
           });
         }

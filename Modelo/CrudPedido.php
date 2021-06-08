@@ -79,6 +79,19 @@
             Db::CerrarConexion($Db);
         }
 
+        public function Listarpedidousuario($document)
+        {
+            $Db = Db::Conectar(); // conectar bd
+            $sql = $Db->query('SELECT pedido.*,usuarios.Nombre as nombreCl FROM pedido 
+                                JOIN usuarios on (pedido.Documento = usuarios.Documento)
+                                WHERE usuarios.Documento ='.$document); //definir sentencia sql
+            $sql->execute(); // ejecutar la consulta
+            return $sql->fetchAll(); // retorna todos los registros de la consulta
+            Db::CerrarConexion($Db);
+        }
+
+
+
         public function ListardetallePedido($idpedido)
         {
             $Db = Db::Conectar(); // conectar bd

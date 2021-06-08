@@ -119,6 +119,12 @@ class ControladorProductos{
         return json_encode($crudproducto->Listarinsumousu());
     } 
 
+    public function eliminardetalle($iddetallepedido){
+
+        $crudproducto = new CrudProductos();
+        return $crudproducto->eliminardetalle($iddetallepedido);
+    }
+
 }
 $ControladorProductos = new ControladorProductos();
 
@@ -242,6 +248,15 @@ elseif(isset($_GET['Verdetalleinsu']))
     $ControladorProductos->Listardetalleinsu($IdProducto);
 }
 
+elseif(isset($_POST['eliminardetalle']))
+{
+    $iddetalle = $_POST['IdDeProducto'];
+    echo $ControladorProductos->eliminardetalle($iddetalle);
+
+}
+
+
+
 
 elseif(isset($_GET['EditarProducto']))
 {
@@ -265,10 +280,6 @@ elseif(isset($_POST['ListarDetallepinsumo']))
     $productoid = $_POST['productoid'];
     require_once('../Vista/Listar_Dtinsuprodu.php');
 }
-
-
-
-
 
 
 elseif(isset($_POST['EditarProducto']))

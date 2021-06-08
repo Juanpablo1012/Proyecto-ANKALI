@@ -25,6 +25,12 @@ class ControladorPedido
         return $crudpedido->Listarpedidopago();
     }
 
+    public function Listarpedidousuario($document){
+
+        $crudpedido = new CrudPedido();
+        return $crudpedido->Listarpedidousuario($document);
+    }
+
 
 
     public function Listarusuarios(){
@@ -136,6 +142,13 @@ elseif(isset($_GET['Verdetalle']))
 {
     $idpedido = $_GET['Idpedido'];
     $ControladorPedido->desplegarVista('../Vista/Verdetalle.php?Idpedido='.$idpedido);
+    $ControladorPedido->ListardetallePedido($idpedido);
+}
+
+elseif(isset($_GET['Verdetalleusu']))
+{
+    $idpedido = $_GET['Idpedido'];
+    $ControladorPedido->desplegarVista('../Vista/Verdetalleusu.php?Idpedido='.$idpedido);
     $ControladorPedido->ListardetallePedido($idpedido);
 }
 

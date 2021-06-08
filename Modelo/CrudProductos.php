@@ -211,6 +211,26 @@
         }
 
 
+        public function eliminardetalle($iddetallepedido)
+        {
+            $mensaje = " ";
+            $Db = Db::Conectar(); // conectar bd
+            $sql = $Db->query("DELETE FROM dllproducto WHERE IdDeProducto = $iddetallepedido"); //definir sentencia sql
+            try{
+                $sql->execute();
+                $mensaje = "Eliminacio EXITOSA ";
+            }
+            catch(Exception $e)
+            {
+                $mensaje = $e->getMessage();
+            }
+            Db::CerrarConexion($Db);
+            return $mensaje;
+        }
+
+
+
+
 
 
     }

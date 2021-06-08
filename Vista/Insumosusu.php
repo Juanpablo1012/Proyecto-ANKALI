@@ -106,7 +106,6 @@ if(!($_SESSION['Documento']))
 				        <td><?php echo "<img src='$ruta' widht='290' height='290' />"  ?></td> 
             </h4>
             <h4><?php echo $producto->Nombre?></h4>
-            <p><?php echo $producto->Descripcion?></p><br>
             <p>$<?php echo $producto->Precio?></p><br>
             <a href="carritousu.php?Id=<?php echo $producto->IdProducto?>"><button class="btn"><i class="fa fa-shopping-cart"></i> Comprar</button></a>
           </div>
