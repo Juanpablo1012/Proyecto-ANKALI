@@ -127,6 +127,7 @@ if(!($_SESSION['Documento']))
                     <th>Editar</th>
                     <th>Agregar Insumos</th>
                     <th>Cambiar Estado</th>
+                    <th>Ver Insumos</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -162,6 +163,11 @@ if(!($_SESSION['Documento']))
                         echo "Activar";
                     } ?></a>
                     </td>
+                    <td>
+                      <center>
+                        <a href="../Controlador/ControladorProductos.php?Verdetalleinsu&IdProducto=<?php echo  $producto->IdProducto?>" ><i class="fa fa-eye fa-3"></i></a>
+                      </center>
+                    </td> 
                     
                 </tr>
                 <?php

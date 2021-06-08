@@ -32,7 +32,7 @@
         public function registrardetallepedido($detalle)
         {
             $mensaje=""; 
-            $iddetallepedido = -1;
+            $iddetallepedido = -1; 
             $Db = Db::Conectar(); // conectar bd
             $sql = $Db->prepare('INSERT INTO dllpedido(IdPedido,IdProducto,Total,Cantidad)
             VALUES (:IdPedido,:Idproducto,:Total,:Cantidad)'); //definir sentencia sql

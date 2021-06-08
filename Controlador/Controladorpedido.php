@@ -128,7 +128,7 @@ elseif(isset($_POST['eliminardetallepedido']))
 
 elseif(isset($_POST['ListarDetallepedio']))
 {
-    $idpedido = $_POST['pedido'];
+    $idpedido = $_POST['pedido']; 
     require_once('../Vista/Listar_Dtpedido.php');
 }
 

@@ -4,6 +4,8 @@ require_once("../Modelo/Productos.php");
 require_once("../Modelo/CrudProductos.php");
 require_once("../Modelo/Insumos.php");
 require_once("../Modelo/CrudInsumos.php");
+require_once("../Modelo/dllproducto.php");
+
 
 
 class ControladorProductos{
@@ -32,6 +34,27 @@ class ControladorProductos{
         return $crudproductos->CambiarEstadoP($Documento);
 
     }
+
+    public function registrardetalleInsumo($IdProducto,$Idinsumo,$Total,$Cantidad)
+    {
+        $dllproducto = new dllproducto();
+        $crudproductos = new CrudProductos();
+        $dllproducto->setIdProducto($IdProducto);
+        $dllproducto->setIdInsumo($Idinsumo);
+        $dllproducto->setCantidad($Cantidad);
+        $dllproducto->setTotal($Total);
+        return $crudproductos->registrardetalleInsumo($dllproducto);
+    
+    }
+
+    public function Listardetalleinsu($idpedido){
+
+        $crudproductos = new CrudProductos();
+        return $crudproductos->Listardetalleinsu($idpedido);
+    }
+   
+
+
 
     public function CrearProducto($NombreP,$Precio,$Imagen,$TipoProducto)
     {
@@ -212,6 +235,14 @@ elseif(isset($_GET['CambiarEstadoS']))
      $ControladorProductos->desplegarVista('../Vista/Listar_Servicioadmin.php');
 }
 
+elseif(isset($_GET['Verdetalleinsu']))
+{
+    $IdProducto = $_GET['IdProducto'];
+    $ControladorProductos->desplegarVista('../Vista/Verdetalleinsu.php?IdProducto='.$IdProducto);
+    $ControladorProductos->Listardetalleinsu($IdProducto);
+}
+
+
 elseif(isset($_GET['EditarProducto']))
 {
     $IdProducto = $_GET['IdProducto'];
@@ -226,17 +257,16 @@ elseif(isset($_GET['Agregarins']))
 
 if(isset($_POST['registrarinsumo']))
 {
-    $idpedido = $_POST['pedido'];
+    $ControladorProductos->registrardetalleInsumo($_POST['productoid'],$_POST['producto'],$_POST['Cantidad'],$_POST['Total']);
+}
 
-    if($_POST['pedido']==""){
-    $idpedido= $ControladorPedido->CrearPedido($_POST['usuario']);
-    }
+elseif(isset($_POST['ListarDetallepinsumo']))
+{
+    $productoid = $_POST['productoid'];
+    require_once('../Vista/Listar_Dtinsuprodu.php');
+}
 
-    $ControladorPedido->registrardetallepedido($idpedido,$_POST['producto'],$_POST['Total'],$_POST['Cantidad']);
-    
-        echo $idpedido;
 
-} 
 
 
 

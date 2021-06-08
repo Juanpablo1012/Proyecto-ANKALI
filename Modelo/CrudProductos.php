@@ -169,6 +169,49 @@
                 return $producto;
         }
 
+        public function registrardetalleInsumo($detalle)
+        {
+            $mensaje=""; 
+            $iddetallepedido = -1; 
+            $Db = Db::Conectar(); // conectar bd
+            $sql = $Db->prepare('INSERT INTO dllproducto(IdProducto,IdInsumo,Cantidad,Total)
+            VALUES (:IdProducto,:IdInsumo,:Cantidad,:Total)'); //definir sentencia sql
+             $sql->bindvalue('IdProducto',$detalle->getIdProducto());
+            $sql->bindvalue('IdInsumo',$detalle->getIdInsumo());
+            $sql->bindvalue('Cantidad',$detalle->getCantidad());
+            $sql->bindvalue('Total',$detalle->getTotal());
+            
+ 
+            try{
+                $sql->execute();
+                $iddetallepedido = $Db->lastInsertId();
+            }
+            catch(Exception $e)
+            {
+                echo 
+                '<script>
+                    alert("No se puede agregar");
+                    window.location="../Vista/Agregar_productoadmin.php";
+                </script>';
+            }
+            Db::CerrarConexion($Db);
+            return $iddetallepedido;
+        }
+
+        public function Listardetalleinsu($idproducto)
+        {
+            $Db = Db::Conectar(); // conectar bd
+            $sql = $Db->query('SELECT dllproducto.*,producto.Nombre as NombreP, insumos.Nombre as NombreI
+            FROM dllproducto JOIN producto on (dllproducto.IdProducto = producto.IdProducto) 
+            JOIN insumos ON (insumos.IdInsumo = dllproducto.IdInsumo) 
+            WHERE dllproducto.IdProducto ='.$idproducto ); //definir sentencia sql
+            $sql->execute(); // ejecutar la consulta
+            return $sql->fetchAll(); // retorna todos los registros de la consulta
+            Db::CerrarConexion($Db);
+        }
+
+
+
 
     }
 ?>

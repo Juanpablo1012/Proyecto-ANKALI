@@ -119,7 +119,7 @@ if(!($_SESSION['Documento']))
         </div>
         <!-- Login Form -->
         <form name="frmpedido" id="frmpedido" method="post">
-          <input type="text" value="<?php echo $product ?>" id="producto" class="fadeIn second" name="pedido">
+          <input type="text" value="<?php echo $product ?>" id="productoid" class="fadeIn second" name="productoid">
           <div class="form-group">
           <label for="" > <b>Nombre del insumo: </b></label>
           <select name="producto" class="pedidoP" id="producto" onchange="precio(this)" >
@@ -180,11 +180,11 @@ if(!($_SESSION['Documento']))
               url: '../Controlador/ControladorProductos.php',
               data: $('#frmpedido').serialize(),
               success: function (data) {
-                // alert(data);
-                $('#pedido').val(data);
+                alert(data);
+                // $('#pedido').val(data);
                 // document.getElementById('#usuario').innerHTML = readonly;
                 
-                ListarDetallepedido();
+                ListarDetallepinsumo();
               }
             });
           });
@@ -198,13 +198,13 @@ if(!($_SESSION['Documento']))
          }
 
 
-        function ListarDetallepedido() {
+        function ListarDetallepinsumo() {
           var formData = new FormData();
-          formData.append('ListarDetallepedio', '')
-          formData.append('pedido', $('#pedido').val())
+          formData.append('ListarDetallepinsumo', '')
+          formData.append('productoid', $('#productoid').val())
           $.ajax({
             type: 'POST',
-            url: '../Controlador/Controladorpedido.php',
+            url: '../Controlador/ControladorProductos.php',
             data: formData,
             contentType: false,
             processData: false,

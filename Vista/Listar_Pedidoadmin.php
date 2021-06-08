@@ -165,7 +165,7 @@ if(!($_SESSION['Documento']))
                       <center>
                         <a href="../Controlador/Controladorpedido.php?Verdetalle&Idpedido=<?php echo  $pedido["IdPedido"]?>" ><i class="fa fa-eye fa-3"></i></a>
                       </center>
-                    </td>
+                    </td> 
 
                     
                     

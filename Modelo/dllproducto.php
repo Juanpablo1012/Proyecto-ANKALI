@@ -1,5 +1,5 @@
 <?php
-    class DtlPedidos
+    class dllproducto
     {
         private $IdDeProducto;
         private $IdProducto;
