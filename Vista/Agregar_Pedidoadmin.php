@@ -27,7 +27,9 @@ if(!($_SESSION['Documento']))
   <link href="../Estilo/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i"
+    rel="stylesheet">
 
   <!-- Bootstrap css -->
   <!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
@@ -55,40 +57,50 @@ if(!($_SESSION['Documento']))
                 height="70"> </a> ANKALI</a></h1>
       </div>
 
-      <nav id="nav-menu-container">
-        <ul class="nav-menu">
-          <li class="menu-active"><a href="admin.php">Inicio</a></li>
-          <li class="menu-has-children"><a href="Listar_Servicioadmin.php">Servicios</a></li>
-          
-          <li class="menu-has-children"><a href="#">Productos</a>
-            <ul>
-              <li><a href="Agregar_productoadmin.php">Agregar producto</a></li>
-              <li><a href="Listar_Productoadmin.php">Listar productos</a></li>
-            </ul>
-          </li>
-          <li class="menu-has-children"><a href="#">Pedidos</a>
-            <ul>
-              <li><a href="Agregar_Pedidoadmin.php">Agregar Pedido</a></li>
-              <li><a href="Listar_Pedidoadmin.php">Listar Pedido</a></li>
-            </ul>
-          </li>
-          <li><a href="Ventaadmin.php">Ventas</a></li>
+  <nav id="nav-menu-container">
+      <ul class="nav-menu">
+        <li class="menu-active"><a href="admin.php">Inicio</a></li>
 
-          <li class="menu-has-children"><a href="#">Usuarios</a>
-              <ul>
-                <li><a href="registroAdmin.php">Registrar usuarios</a></li>
-                <li><a href="ResgistrarRol.php">Registrar roles</a></li>
-                <li><a href="Usuariosadmin.php">Listar usuarios</a></li>
-              </ul>
-          </li>
-          <li class="menu-has-children"><a href="#">Compra</a>
-              <ul>
-                <li><a href="Compras.php">Ingresar compra</a></li>
-                <li><a href="Listar_Compra.php">Listar compras</a></li>
-              </ul>
-          </li>
-          <li><a href="../Controlador/DestruirSesion.php">Cerrar Sesión <i class="fa fa-window-close"></i></a></li>
-        </ul>
+        <li class="menu-has-children"><a href="#">Servicios</a>
+          <ul>
+            <li><a href="Agregar_servicioadmin.php">Agregar servicio</a></li>
+            <li><a href="Listar_Servicioadmin.php">Listar servicio</a></li>
+          </ul>
+        </li>
+        <li class="menu-has-children"><a href="#">Productos</a>
+          <ul>
+            <li><a href="Agregar_productoadmin.php">Agregar producto</a></li>
+            <li><a href="Listar_Productoadmin.php">Listar productos</a></li>
+          </ul>
+        </li>
+        <li class="menu-has-children"><a href="#">Insumos</a>
+          <ul>
+            <li><a href="Agregar_Insumo.php">Agregar insumos</a></li>
+            <li><a href="Listar_Insumo.php">Listar insumos</a></li>
+          </ul>
+        </li>
+        <li class="menu-has-children"><a href="#">Pedidos</a>
+          <ul>
+            <li><a href="Agregar_Pedidoadmin.php">Agregar Pedido</a></li>
+            <li><a href="Listar_Pedidoadmin.php">Listar Pedido</a></li>
+          </ul>
+        </li>
+        <li><a href="Ventaadmin.php">Ventas</a></li>
+
+        <li class="menu-has-children"><a href="#">Usuarios</a>
+            <ul>
+              <li><a href="registroAdmin.php">Registrar usuarios</a></li>
+              <li><a href="Usuariosadmin.php">Listar usuarios</a></li>
+            </ul>
+        </li>
+        <li class="menu-has-children"><a href="#">Compra</a>
+            <ul>
+              <li><a href="Compras.php">Ingresar compra</a></li>
+              <li><a href="Listar_Compra.php">Listar compras</a></li>
+            </ul>
+        </li>
+        <li><a href="../Controlador/DestruirSesion.php">Cerrar Sesión <i class="fa fa-window-close"></i></a></li>
+      </ul>
     </nav>
     </div>
   </header>
@@ -101,26 +113,27 @@ if(!($_SESSION['Documento']))
           <!-- Tabs Titles -->
 
           <!-- Icon -->
-          <div class="fadeIn first">
-            <h6>Agregar Pedido</h6><br>
+        <div class="fadeIn first">
+
+          <h6>Agregar Pedido</h6><br>
         </div>
         <!-- Login Form -->
         <form name="frmpedido" id="frmpedido" method="post">
-          <input type="text" id="pedido" class="fadeIn second" name="pedido">
+          <input type="hidden" id="pedido" class="fadeIn second" name="pedido">
           <div class="form-group">
-          <label for=""> Nombre del usuario: </label>
-          <select name="usuario" id="usuario" >
+          <label for="" > <b>Nombre del usuario: </b></label>
+          <select name="usuario" id="usuario" class="pedidoU" >
             <option value="">Seleccione el usuario</option>
             <?php
                 foreach($Listarusuario as $usuario)
                 echo "<option value=".$usuario['Documento'].">".$usuario['Documento'].'- - - -'.$usuario['Nombre']."</option>";
             ?>
           </select>
-          </div> 
+          </div>
 
           <div class="form-group">
-          <label for=""> Nombre del producto: </label>
-          <select name="producto" id="producto" onchange="precio(this)" >
+          <label for=""> <b>Nombre del producto: </b></label>
+          <select name="producto" class="pedidoP" id="producto" onchange="precio(this)" >
             <option value="">Seleccione el Producto</option>
             <?php
                 foreach($Listarproducto as $prud)
@@ -129,46 +142,40 @@ if(!($_SESSION['Documento']))
           </select>
 
           </div>
-
-
-          
-
           <div class="form-group">
-          <label for=""> Valor del producto: </label>
-          <input type="text" id="Precio" class="fadeIn second" name="Precio" placeholder="Precio Producto" readonly>
+          <label for=""> <b>Valor del producto:</b> </label>
+          <input type="text" id="Precio" class="pedidoV" name="Precio" placeholder="Precio Producto" readonly>
           </div>
           
 
           <div class="form-group">
-          <label for="">Cantidad:</label>
+          <label for=""><b>Cantidad:</b></label>
           <input type="number" id="Cantidad" class="fadeIn second" name="Cantidad" placeholder="Cantidad">
           </div>
 
           <div class="form-group">
-          <label for="">Valor total:</label>
+          <label for=""><b>Valor total:</i></label>
           <input type="number" id="Total" class="fadeIn second" name="Total" readonly placeholder="Valor total">
           </div>
 
-
-
-          
           <input type="hidden" name="registrarpedido" id="registrarpedido">
           <!-- <button type="reset">Terminar</button> -->
           <button type="submit">Agregar</button>
         </form>
-
-
-
-    
-
       </div>
-
-      <div id="formContent4">
+<br>
+      <div class="wrapper3 fadeInDown formContent4" style="background: white;">
       
         <div id="detallepedido">
         </div>
       </div>
-
+      
+      <script>
+        //cambiar tamaño c:
+        let cambiar = document.querySelector(".pedidoP").style.width="70%";
+        let cambiar1 = document.querySelector(".pedidoU").style.width="70%";
+        let cambiar2 = document.querySelector(".pedidoV").style.width="70%";
+      </script>
 
       <script>
         $(document).ready(function () {
@@ -242,6 +249,7 @@ if(!($_SESSION['Documento']))
                 $('#Total').val($('#Cantidad').val()*$('#Precio').val());
             });
 
+
             $('#Cantidad').keypress(function(){
                 $('#Total').val($('#Cantidad').val()*$('#Precio').val());
             });
@@ -255,9 +263,10 @@ if(!($_SESSION['Documento']))
     </div>
   </section>
 
-  <!-- JavaScript Libraries -->
   <script src="../Estilo/lib/jquery/jquery.min.js"></script>
   <script src="../Estilo/lib/jquery/jquery-migrate.min.js"></script>
+  <!--------------------------------------------------------------------->
+
   <script src="../Estilo/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="../Estilo/lib/superfish/hoverIntent.js"></script>
   <script src="../Estilo/lib/superfish/superfish.min.js"></script>
@@ -265,10 +274,7 @@ if(!($_SESSION['Documento']))
   <script src="../Estilo/lib/modal-video/js/modal-video.js"></script>
   <script src="../Estilo/lib/owlcarousel/owl.carousel.min.js"></script>
   <script src="../Estilo/lib/wow/wow.min.js"></script>
-  <!-- Contact Form JavaScript File -->
   <script src="../Estilo/contactform/contactform.js"></script>
-
-  <!-- Template Main Javascript File -->
   <script src="../Estilo/js/main.js"></script>
 
 </body>

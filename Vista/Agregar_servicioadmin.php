@@ -1,12 +1,12 @@
 <?php
-  require_once("../Controlador/ControladorProductos.php");
-  $listarTP = json_decode($ControladorProductos->ListarTipoproducto());
+require_once("../Controlador/ControladorProductos.php");
+$listarTP = json_decode($ControladorProductos->ListarTipoproducto());
 
-  session_start();
-  if(!($_SESSION['Documento']))
-  {
-    header ("Location:../index.php");
-  }
+session_start();
+if(!($_SESSION['Documento']))
+{
+  header ("Location:../index.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -153,6 +153,8 @@
         let cambiar = document.querySelector(".nombre").style.width="70%";
         let cambiar1 = document.querySelector(".precio").style.width="70%";
         let cambiar2 = document.querySelector(".imagen").style.width="70%";
+        let cambiar3 = document.querySelector(".cantidad").style.width="70%";
+        let cambiar4 = document.querySelector(".insumo").style.width="70%";
 
       </script>
 

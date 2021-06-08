@@ -80,7 +80,7 @@
             <input type="hidden" name="ndoc" id="ndco" value="<?php echo $Documento;?>">
             <label for=""><b>Correo:</b></label>
 
-            <input type="email" id="Correo" class="fadeIn second Correo" name="Correo" placeholder="Correo">
+            <input type="email" id="Correo" class="fadeIn second Correo" name="Correo" placeholder="Correo" required>
             <button type="submit" class="fadeIn fourth" name="recuperarcontra">Recuperar contraseña
             </button>
         </form>

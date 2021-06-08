@@ -9,8 +9,8 @@
   <meta content="" name="keywords">
   <meta content="" name="description">
 <!--SWEETALERT-->
-  <link href="Estilo/sweetalert2/sweetalert2.css" >
-  <link href="Estilo/sweetalert2/sweetalert2.min.css" >
+<link href="Estilo/sweetalert2/sweetalert2.css" >
+<link href="Estilo/sweetalert2/sweetalert2.min.css" >
 
   <!-- Favicons -->
   <link href="Estilo/img/logo-negro.png" rel="icon">
@@ -81,7 +81,7 @@
     
         <!-- Login Form -->
         <!--<form method="POST" name="enviar" action="Controlador/ControladorUsuarios.php" id="formlogin">-->
-        <form method="POST" name="enviar" action="Controlador/ControladorUsuarios.php"  id="formlogin">
+        <form method="POST" name="enviar" action="#" id="formlogin">
 
         <label for="" > <b>Correo: </b></label>
 
@@ -91,9 +91,10 @@
           <label for="" > <b>Contraseña: </b></label>
 
           <input type="password" id="password" class="fadeIn third Pass" name="contrasenaU" placeholder="Contraseña">
+          <span id="validar" style="color:red"></span>
           <br>
 
-          <button type="submit" name="acceder"class="fadeIn fourth"  id="inicio">Iniciar Sesión</button>
+          <button type="button" name="acceder"class="fadeIn fourth save" xx="1" id="inicio">Iniciar Sesión</button>
 
         </form>
 
@@ -109,7 +110,11 @@
     </div>
       
     </div>
-    
+    <script>
+        //cambiar tamaño c:
+        let cambiar = document.querySelector(".Correo").style.width="80%";
+        let cambiar1 = document.querySelector(".Pass").style.width="70%";
+      </script>
   </section>
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
   <!-- JavaScript Libraries -->    
@@ -131,11 +136,8 @@
   <script src="Estilo/sweetalert2/sweetalert2.all.min.js"></script>
   <script src="Estilo/contactform/contactform.js"></script>
   <script src="Estilo/js/alerts.js"></script>
-  <script>
-        //cambiar tamaño c:
-        let cambiar = document.querySelector(".Correo").style.width="80%";
-        let cambiar1 = document.querySelector(".Pass").style.width="70%";
-      </script>
+
+  <!-- Template Main Javascript File -->
   <script src="Estilo/js/main.js"></script>
 </body>
 </html>

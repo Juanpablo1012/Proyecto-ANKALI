@@ -8,25 +8,6 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
-.insumo{
-  margin-bottom: 30px;
-  font-size: 35px;
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  text-align: center;
-
-}
-hr{
-    /*text-align: center;*/
-    height:3px;
-    /*border:none;
-    color: linear-gradient(274deg, #46c8d0, #6262e2 44%, #c962f7);*/
-    background: linear-gradient(274deg, #46c8d0, #6262e2 44%, #c962f7);
-    width:70%;   
-}
-.centrar{
-  text-align: center;
-}
 body {
   background-color: #fff;
   color: #333;
@@ -157,7 +138,13 @@ span {
     bottom: 15px;
   }
 }
-
+hr{
+  height:3px;
+  border:none;
+  color: linear-gradient(274deg, #46c8d0, #6262e2 44%, #c962f7);;
+  background: linear-gradient(274deg, #46c8d0, #6262e2 44%, #c962f7);
+  width:70%;
+}
 .back-to-top:focus {
   color: #fff;
   outline: none;
@@ -2235,6 +2222,7 @@ input[type=text]:placeholder {
   font-weight: 700;
   line-height: 56px;
   font-family: "Philosopher", sans-serif;
+  color:#ffffff;
 }
 
 @media (max-width: 768px) {
@@ -2244,13 +2232,13 @@ input[type=text]:placeholder {
   }
 }
 
-/*#hero4 h2 {
-  margin: 0 0 10px 0;
+#hero4 h2 {
+  color: #fff;
   margin-bottom: 30px;
   font-size: 20px;
   font-family: "Roboto", sans-serif;
   font-weight: 300;
-}*/
+}
 
 @media (max-width: 768px) {
   #hero4 h2 {

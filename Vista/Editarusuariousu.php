@@ -1,5 +1,4 @@
 <?php
-error_reporting(0);
 require_once("../Controlador/ControladorUsuarios.php");
 $doc =  $ControladorUsuarios->Buscarusuario($_GET['Documento']);
 // session_start();
@@ -12,21 +11,8 @@ if(!($_SESSION['Documento']))
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANKALI</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
-    </script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.css" />
-
-    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.js"></script>
-
-    
+  <meta charset="utf-8">
+  <title>ANKALI</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -49,9 +35,13 @@ if(!($_SESSION['Documento']))
 
   <!-- Main Stylesheet File -->
   <link href="../Estilo/css/style.css" rel="stylesheet">
-
-
-
+<!--DATATABLE-->
+  <!-- =======================================================
+    Theme Name: eStartup
+    Theme URL: https://bootstrapmade.com/estartup-bootstrap-landing-page-template/
+    Author: BootstrapMade.com
+    License: https://bootstrapmade.com/license/
+  ======================================================= -->
 </head>
 
 <body>
@@ -66,11 +56,7 @@ if(!($_SESSION['Documento']))
     
     <nav id="nav-menu-container">
       <ul class="nav-menu">
-        <li class="menu-active"><a href="admin.php">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
-            <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/>
-          </svg> Inicio</a>
-        </li>
+        <li class="menu-active"><a href="admin.php">Inicio</a></li>
 
         <li class="menu-has-children"><a href="#">Servicios</a>
           <ul>
@@ -90,32 +76,19 @@ if(!($_SESSION['Documento']))
             <li><a href="Listar_Insumo.php">Listar insumos</a></li>
           </ul>
         </li>
-        <li class="menu-has-children"><a href="#">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-list" viewBox="0 0 16 16">
-            <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
-            <path d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
-          </svg> Pedidos</a>
+        <li class="menu-has-children"><a href="#">Pedidos</a>
           <ul>
             <li><a href="Agregar_Pedidoadmin.php">Agregar Pedido</a></li>
             <li><a href="Listar_Pedidoadmin.php">Listar Pedido</a></li>
           </ul>
         </li>
+        <li><a href="Ventaadmin.php">Ventas</a></li>
 
-        <li ><a href="Ventaadmin.php">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-receipt" viewBox="0 0 16 16">
-          <path d="M1.92.506a.5.5 0 0 1 .434.14L3 1.293l.646-.647a.5.5 0 0 1 .708 0L5 1.293l.646-.647a.5.5 0 0 1 .708 0L7 1.293l.646-.647a.5.5 0 0 1 .708 0L9 1.293l.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .801.13l.5 1A.5.5 0 0 1 15 2v12a.5.5 0 0 1-.053.224l-.5 1a.5.5 0 0 1-.8.13L13 14.707l-.646.647a.5.5 0 0 1-.708 0L11 14.707l-.646.647a.5.5 0 0 1-.708 0L9 14.707l-.646.647a.5.5 0 0 1-.708 0L7 14.707l-.646.647a.5.5 0 0 1-.708 0L5 14.707l-.646.647a.5.5 0 0 1-.708 0L3 14.707l-.646.647a.5.5 0 0 1-.801-.13l-.5-1A.5.5 0 0 1 1 14V2a.5.5 0 0 1 .053-.224l.5-1a.5.5 0 0 1 .367-.27zm.217 1.338L2 2.118v11.764l.137.274.51-.51a.5.5 0 0 1 .707 0l.646.647.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.509.509.137-.274V2.118l-.137-.274-.51.51a.5.5 0 0 1-.707 0L12 1.707l-.646.647a.5.5 0 0 1-.708 0L10 1.707l-.646.647a.5.5 0 0 1-.708 0L8 1.707l-.646.647a.5.5 0 0 1-.708 0L6 1.707l-.646.647a.5.5 0 0 1-.708 0L4 1.707l-.646.647a.5.5 0 0 1-.708 0l-.509-.51z"/>
-          <path d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm8-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5z"/>
-          </svg> Ventas</a>
-        </li>
-
-        <li class="menu-has-children"><a href="#">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
-            <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
-          </svg> Usuarios</a>
-              <ul>
-                <li><a href="registroAdmin.php">Registrar usuarios</a></li>
-                <li><a href="Usuariosadmin.php">Listar usuarios</a></li>
-              </ul>
+        <li class="menu-has-children"><a href="#">Usuarios</a>
+            <ul>
+              <li><a href="registroAdmin.php">Registrar usuarios</a></li>
+              <li><a href="Usuariosadmin.php">Listar usuarios</a></li>
+            </ul>
         </li>
         <li class="menu-has-children"><a href="#">Compra</a>
             <ul>
@@ -123,12 +96,7 @@ if(!($_SESSION['Documento']))
               <li><a href="Listar_Compra.php">Listar compras</a></li>
             </ul>
         </li>
-        <li><a href="../Controlador/DestruirSesion.php">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
-            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-          </svg> Cerrar Sesión</a>  
-        </li>
+        <li><a href="../Controlador/DestruirSesion.php">Cerrar Sesión <i class="fa fa-window-close"></i></a></li>
       </ul>
     </nav>
         </div>
@@ -142,31 +110,32 @@ if(!($_SESSION['Documento']))
     
         <!-- Icon -->
         <div class="fadeIn first">
-          <h6>Información del usuario</h6>
-          <br>
+          <h6>Informacion del usuario</h6><br>
         </div>
         <!-- Login Form -->
         <form method="POST" action="../Controlador/ControladorUsuarios.php">
 
-          <label for="" > <b>Documento: </b></label>
-          <input type="number" id="Documento" class="fadeIn third documento" name="Documento" value="<?php echo $doc->getDocumento() ?>" placeholder="Numero de documento"readonly>
+          <label for="">Documento </label>
+          <input type="number" id="Documento" class="fadeIn third" name="Documento" value="<?php echo $doc->getDocumento() ?>" placeholder="Numero de documento"readonly>
 
-          <label for="" > <b>Teléfono: </b></label>
-          <input type="number" id="Telefono" class="fadeIn second telefono" name="Telefono"  value="<?php echo $doc->getTelefono() ?>" placeholder="Numero de telefono">
+          <label for="">Telefono</label>
+          <input type="number" id="Telefono" class="fadeIn second" name="Telefono"  value="<?php echo $doc->getTelefono() ?>" placeholder="Numero de telefono">
           
-          <label for="" > <b>Nombre: </b></label>
-          <input type="text" id="Nombre" class="fadeIn third nombre" name="Nombre" value="<?php echo $doc->getNombre() ?>"  placeholder="Nombre">
+          <label for="">Nombre</label>
+          <input type="text" id="Nombre" class="fadeIn third" name="Nombre" value="<?php echo $doc->getNombre() ?>"  placeholder="Nombre">
           
-          <label for="" > <b>Correo: </b></label>
+          <label for="">Correo</label>
 
-          <input type="email" id="Correo" class="fadeIn second correo" name="Correo" value="<?php echo $doc->getCorreo() ?>" placeholder="Correo" >
+          <input type="email" id="Correo" class="fadeIn second" name="Correo" value="<?php echo $doc->getCorreo() ?>" placeholder="Correo" >
           
-          <label for="" > <b>Dirección: </b></label>
-          <input type="text" id="Direccion" class="fadeIn second direccion" name="Direccion" value="<?php echo $doc->getDireccion() ?>"  placeholder="Direccion">
-          <label for="" > <b>Contraseña: </b></label>
-          <input type="text" id="Contrasena" class="fadeIn third contrasena" name="Contrasena" value="<?php echo $doc->getContrasena() ?>" placeholder="Contrasena">
+          <label for="">Direccion</label>
+          <input type="text" id="Direccion" class="fadeIn second" name="Direccion" value="<?php echo $doc->getDireccion() ?>"  placeholder="Direccion">
+          <label for="">Contraseña </label>
+          <input type="text" id="Contrasena" class="fadeIn third" name="Contrasena" value="<?php echo $doc->getContrasena() ?>" placeholder="Contrasena">
           
-          <button class="btn btn-lg btn-primary btn-block btn-signin" name="Actualizarusuario" id="Actualizarusuario" type="submit">Guardar</button>
+          <!-- <button type="submit" name="registro" class="fadeIn fourth">Registrarse</button> -->
+          <!-- <button type="submit" class="fadeIn fourth" name="Actualizarusuario" id="Actualizarusuario">Cambiar estado</button> -->
+          <button class="btn btn-lg btn-primary btn-block btn-signin" name="Actualizarusuario" id="Actualizarusuario" type="submit">EDITAR USUARIO</button>
 
         </form>
       </div>
@@ -175,33 +144,36 @@ if(!($_SESSION['Documento']))
       
     </div>
   </section>
-  <script src="Estilo/lib/jquery/jquery.min.js"></script>
-  <script src="Estilo/lib/jquery/jquery-migrate.min.js"></script>
 
-  <!---------------------------------------------------------------------------------------->
+  
 
-  <script src="Estilo/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="Estilo/lib/superfish/hoverIntent.js"></script>
-  <script src="Estilo/lib/superfish/superfish.min.js"></script>
-  <script src="Estilo/lib/easing/easing.min.js"></script>
-  <script src="Estilo/lib/modal-video/js/modal-video.js"></script>
-  <script src="Estilo/lib/owlcarousel/owl.carousel.min.js"></script>
-  <script src="Estilo/lib/wow/wow.min.js"></script>
-  <script src="Estilo/sweetalert2/sweetalert2.all.min.js"></script>
-  <script src="Estilo/contactform/contactform.js"></script>
-  <script src="Estilo/js/alerts.js"></script>
-  <script src="Estilo/js/main.js"></script>
+      
+  
 
-  <script>
-        //cambiar tamaño c:
-        let cambiar = document.querySelector(".documento").style.width="70%";
-        let cambiar1 = document.querySelector(".telefono").style.width="70%";
-        let cambiar2 = document.querySelector(".nombre").style.width="70%";
-        let cambiar3 = document.querySelector(".direccion").style.width="70%";
-        let cambiar4 = document.querySelector(".correo").style.width="70%";
-        let cambiar5 = document.querySelector(".contrasena").style.width="70%";
+  <footer class="footer">
+      <div class="copyrights">
+        <p>&copy; Copyrights eStartup. All rights reserved.</p>
+        <div class="credits">
+          Designed by <a href="">BootstrapMade</a>
+        </div>
+      </div>
+  </footer>
 
-      </script>
+  <!-- JavaScript Libraries -->
+  <script src="../Estilo/lib/jquery/jquery.min.js"></script>
+  <script src="../Estilo/lib/jquery/jquery-migrate.min.js"></script>
+  <script src="../Estilo/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../Estilo/lib/superfish/hoverIntent.js"></script>
+  <script src="../Estilo/lib/superfish/superfish.min.js"></script>
+  <script src="../Estilo/lib/easing/easing.min.js"></script>
+  <script src="../Estilo/lib/modal-video/js/modal-video.js"></script>
+  <script src="../Estilo/lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="../Estilo/lib/wow/wow.min.js"></script>
+  <!-- Contact Form JavaScript File -->
+  <script src="../Estilo/contactform/contactform.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="../Estilo/js/main.js"></script>
 
 </body>
 </html>
