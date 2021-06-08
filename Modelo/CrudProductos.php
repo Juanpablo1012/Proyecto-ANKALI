@@ -39,7 +39,7 @@
             $Db = Db::Conectar(); // conectar bd
             $sql = $Db->query('SELECT producto.*,tipoproducto.Nombre as NombreY FROM producto 
             JOIN tipoproducto on (producto.TipodeProducto = tipoproducto.IdTipoProducto)
-            WHERE producto.Estado = 1
+            WHERE producto.Estado = 1 and producto.TipodeProducto != 2
             ORDER BY TipodeProducto ASC  '); //definir sentencia sql
             $sql->execute(); // ejecutar la consulta
             return $sql->fetchAll(); // retorna todos los registros de la consulta

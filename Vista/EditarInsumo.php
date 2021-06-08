@@ -120,16 +120,16 @@ if(!($_SESSION['Documento']))
             <input type="file" name="Imagen" class="fadeIn second" value="<?php echo $insumo->getImagen() ?>" placeholder="Imagen" required>
 
 
-            <input type="number" name="Stock" class="fadeIn second" value="<?php echo $insumo->getStock() ?>" placeholder="Stock" required>
-             
+            <input type="number" id="Stock" name="Stock" class="fadeIn second" value="<?php echo $insumo->getStock() ?>" placeholder="Stock" required>
             
-
+    
             <input type="submit" ID="EditarInsumos" name="EditarInsumos" class="fadeIn fourth">
           </form>
     
       
         </div>
       </div>
+
   </section>
   
 

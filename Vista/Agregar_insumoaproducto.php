@@ -180,7 +180,7 @@ if(!($_SESSION['Documento']))
               url: '../Controlador/ControladorProductos.php',
               data: $('#frmpedido').serialize(),
               success: function (data) {
-                alert(data);
+                // alert(data);
                 // $('#pedido').val(data);
                 // document.getElementById('#usuario').innerHTML = readonly;
                 
