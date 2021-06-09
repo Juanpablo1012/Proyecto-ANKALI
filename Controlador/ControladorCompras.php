@@ -1,3 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ANKALI</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+        <link href="../Estilo/css/style.css" rel="stylesheet">
+        <link href="../Estilo/img/logo-negro.png" rel="icon">
+        <link href="../Estilo/img/apple-touch-icon.png" rel="apple-touch-icon">
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+
+    </head>
+    <body>
+        
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+</html>
 <?php
 require_once("../Modelo/Conexion.php");
 require_once("../Modelo/Compras.php");
@@ -52,48 +73,85 @@ if(isset($_POST['Agregar'])){
 	$type = $type[count($type)-1];
 	$url = '../Estilo/img/uploads/' . uniqid(rand()) . '.' . $type;
 
-    if(in_array($type, array('gif', 'jpg', 'jpeg', 'png','tiff','psd','bmp','JPG','GIF','JPEG','PNG'))) {
-		if(is_uploaded_file($_FILES['Factura']['tmp_name'])) {
-			if(move_uploaded_file($_FILES['Factura']['tmp_name'], $url)) {
-
-				// insert into database
-				$sql = "INSERT INTO compra (Factura, Fecha, Total, DocumentoUsuario) 
-                VALUES ('$url','$Fecha', '$Total','$DocumentoUsuario')";
-				if($conn->query($sql) === TRUE) {
-					echo 
-                '<script>
-                    alert("Servicio registrado correctamente.");
-                    window.location="../Vista/Listar_Servicioadmin.php";                
-                </script>';
-				} 
-				else {
-					echo 
-                '<script>
-                    alert("No se puede agregar intentalo nuevamente.");
-                    window.location="../Vista/Agregar_servicioadmin.php";                
-                </script>';
-				}
-				$conn->close();
-			}
-			else {
-				$valid['success'] = false;
-				$valid['messages'] = "Se Produjo un Error al Agregar";
-			}
-		}
-	}
-	echo json_encode($valid);
-	}
-
-    elseif(isset($_GET['EditarCompra']))
-    {
-        $IdCompra = $_GET['IdCompra'];
-        $ControladorCompras->desplegarVista('../Vista/EditarCompras.php?IdCompra='.$IdCompra);
-    }
+    if (trim($Total) == null || trim($type) == null){
+        echo 
+        "<script>
+        Swal.fire({
+            icon: 'warning',
+            html: '<h3>Todos los campos son obligatorios.</h3>',
+            closeOnClickOutside: false,
+            allowOutsideClick: false,
+            background: '#fff',
+            confirmButtonColor: '#FC3E3E',
+            confirmButtonText: 'Cerrar'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                window.history.back();
+            }
+          });
+          </script>";
+    }else{
+        if(in_array($type, array('gif', 'jpg', 'jpeg', 'png','tiff','psd','bmp','JPG','GIF','JPEG','PNG'))) {
+            if(is_uploaded_file($_FILES['Factura']['tmp_name'])) {
+                if(move_uploaded_file($_FILES['Factura']['tmp_name'], $url)) {
     
-    elseif(isset($_POST['EditarCompra']))
-    {
-        echo $ControladorCompras->EditarCompra($_POST['IdCompra'],$_POST['Factura'],$_POST['Fecha'],$_POST['Total'],$_POST['DocumentoUsuario']);
-        $ControladorCompras->desplegarVista('../Vista/EditarCompras.php'.$IdCompra);
+                    // insert into database
+                    $sql = "INSERT INTO compra (Factura, Fecha, Total, DocumentoUsuario) 
+                    VALUES ('$url','$Fecha', '$Total','$DocumentoUsuario')";
+                    if($conn->query($sql) === TRUE) {
+                        echo 
+                            "<script>
+                                Swal.fire({
+                                    icon: 'success',
+                                    html: '<h3>Compra registrada exitosamente.</h3>',
+                                    closeOnClickOutside: false,
+                                    allowOutsideClick: false,
+                                    background: '#fff',
+                                    confirmButtonColor: '#FC3E3E',
+                                    confirmButtonText: 'Cerrar'
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        window.location.href = '../Vista/Listar_Compra.php';
+                                    }
+                                });
+                                </script>";
+                    } 
+                }
+            }
+        }
+        else{
+            echo 
+            "<script>
+                Swal.fire({
+                    icon: 'error',
+                    html: '<h3>Parece que ha ocurrido un error, intentalo nuevamente.</h3>',
+                    closeOnClickOutside: false,
+                    allowOutsideClick: false,
+                    background: '#fff',
+                    confirmButtonColor: '#FC3E3E',
+                    confirmButtonText: 'Cerrar',
+                    closeOnClickOutside: false
+                    }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.history.back();
+                    }
+                });
+                </script>";    }
+        }
+
+    
+}
+
+elseif(isset($_GET['EditarCompra']))
+{
+    $IdCompra = $_GET['IdCompra'];
+    $ControladorCompras->desplegarVista('../Vista/EditarCompras.php?IdCompra='.$IdCompra);
+}
+    
+elseif(isset($_POST['EditarCompra']))
+{
+    echo $ControladorCompras->EditarCompra($_POST['IdCompra'],$_POST['Factura'],$_POST['Fecha'],$_POST['Total'],$_POST['DocumentoUsuario']);
+    $ControladorCompras->desplegarVista('../Vista/EditarCompras.php'.$IdCompra);
 }
 
 elseif(isset($_POST['Editar']))
@@ -101,12 +159,29 @@ elseif(isset($_POST['Editar']))
     $Total = $_POST['Total'];
 	$Fecha = $_POST['Fecha'];
 	$DocumentoUsuario = $_POST['DocumentoUsuario'];
-        $id=(int) $_POST['IdCompra'];
-        
-        $type = explode('.', $_FILES['Factura']['name']);
-	    $type = $type[count($type)-1];
-        $url = '../Estilo/img/uploads/' . uniqid(rand()) . '.' . $type;
+    $id=(int) $_POST['IdCompra'];  
+    $type = explode('.', $_FILES['Factura']['name']);
+    $type = $type[count($type)-1];
+    $url = '../Estilo/img/uploads/' . uniqid(rand()) . '.' . $type;
   
+    if (trim($Total) == null || trim($type) == null){
+        echo 
+        "<script>
+        Swal.fire({
+            icon: 'warning',
+            html: '<h3>Todos los campos son obligatorios.</h3>',
+            closeOnClickOutside: false,
+            allowOutsideClick: false,
+            background: '#fff',
+            confirmButtonColor: '#FC3E3E',
+            confirmButtonText: 'Cerrar'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                window.history.back();
+            }
+          });
+          </script>";
+    }else{
         if(in_array($type, array('gif', 'jpg', 'jpeg', 'png','tiff','psd','bmp','JPG','GIF','JPEG','PNG'))) {
             if(is_uploaded_file($_FILES['Factura']['tmp_name'])) {
                 if(move_uploaded_file($_FILES['Factura']['tmp_name'], $url)) {
@@ -120,28 +195,46 @@ elseif(isset($_POST['Editar']))
     
                     if($conn->query($sql) === TRUE) {
                         echo 
-                        '<script>
-                            alert("Registro correctamente actualizado.");
-                            window.location="../Vista/Listar_Compra.php";                
-                        </script>';
+                            "<script>
+                                Swal.fire({
+                                    icon: 'success',
+                                    html: '<h3>Compra actualizada exitosamente.</h3>',
+                                    closeOnClickOutside: false,
+                                    allowOutsideClick: false,
+                                    background: '#fff',
+                                    confirmButtonColor: '#FC3E3E',
+                                    confirmButtonText: 'Cerrar'
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        window.location.href = '../Vista/Listar_Compra.php';
+                                    }
+                                });
+                                </script>";
                     } 
-                    else {
-                        $valid['success'] = false;
-                        $valid['messages'] = "Se Produjo un Error al Agregar";
-                    }
     
                 }
-                else {
-                    $valid['success'] = false;
-                    $valid['messages'] = "Se Produjo un Error al Agregar";
-                }
             }
+        }else{
             echo 
-            '<script>
-                alert("Registro correctamente actualizado.");
-                window.location="../Vista/Listar_Compra.php";                
-            </script>';
+            "<script>
+                Swal.fire({
+                    icon: 'error',
+                    html: '<h3>Parece que ha ocurrido un error, intentalo nuevamente.</h3>',
+                    closeOnClickOutside: false,
+                    allowOutsideClick: false,
+                    background: '#fff',
+                    confirmButtonColor: '#FC3E3E',
+                    confirmButtonText: 'Cerrar',
+                    closeOnClickOutside: false
+                    }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.history.back();
+                    }
+                });
+                </script>";
         }
+    }
+        
 }
 ?>
 

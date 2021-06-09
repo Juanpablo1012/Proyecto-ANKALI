@@ -82,8 +82,8 @@
             <input type="hidden" name="email" id="email" value="<?php echo $_REQUEST['ABC'];?>">
 
             <input type="hidden" name="ndoc" id="ndoc" value="<?php echo $_REQUEST['ndoc'];?>">
-
-            <input type="password" id="Contrasena" class="fadeIn second" name="Contrasena" placeholder="Contraseña"required>
+            <label for=""><b>Contraseña:</b></label>
+            <input type="password" id="Contrasena" class="fadeIn second Correo" name="Contrasena" placeholder="Contraseña">
             <button type="submit" class="fadeIn fourth" name="restablecercontra">
               Cambiar contraseña
             </button>
@@ -108,7 +108,10 @@
   <script src="../Estilo/lib/wow/wow.min.js"></script>
   <!-- Contact Form JavaScript File -->
   <script src="../Estilo/contactform/contactform.js"></script>
+  <script>
+        let cambiar = document.querySelector(".Correo").style.width="70%";
 
+</script>
   <!-- Template Main Javascript File -->
   <script src="../Estilo/js/main.js"></script>
 

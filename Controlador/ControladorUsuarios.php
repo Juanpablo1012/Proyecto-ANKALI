@@ -7,7 +7,7 @@
         <title>Document</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
         <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
-    <link href="../Estilo/css/style.css" rel="stylesheet">
+        <link href="../Estilo/css/style.css" rel="stylesheet">
         
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 
@@ -187,6 +187,7 @@ elseif(isset($_POST['acceder']))
             Swal.fire({
                 icon: 'warning',
                 html: '<h3>Todos los campos son obligatorios.</h3>',
+                closeOnClickOutside: false,
                 allowOutsideClick: false,
                 background: '#fff',
                 confirmButtonColor: '#FC3E3E',
@@ -217,6 +218,7 @@ elseif(isset($_POST['acceder']))
             Swal.fire({
                 icon: 'error',
                 html: '<h3>Los datos ingresados no son validos.</h3>',
+                closeOnClickOutside: false,
                 allowOutsideClick: false,
                 background: '#fff',
                 confirmButtonColor: '#FC3E3E',
@@ -253,6 +255,7 @@ elseif(isset($_POST['Actualizarusuario']))
         Swal.fire({
             icon: 'warning',
             html: '<h3>Todos los campos son obligatorios.</h3>',
+            closeOnClickOutside: false,
             allowOutsideClick: false,
             background: '#fff',
             confirmButtonColor: '#FC3E3E',
@@ -283,6 +286,7 @@ elseif(isset($_POST['registroAdmin']))
             Swal.fire({
                 icon: 'warning',
                 html: '<h3>Todos los campos son obligatorios.</h3>',
+                closeOnClickOutside: false,
                 allowOutsideClick: false,
                 background: '#fff',
                 confirmButtonColor: '#FC3E3E',
@@ -318,6 +322,7 @@ elseif(isset($_POST['recuperarcontra']))
                 Swal.fire({
                     icon: 'warning',
                     html: '<h3>Todos los campos son obligatorios.</h3>',
+                    closeOnClickOutside: false,
                     allowOutsideClick: false,
                     background: '#fff',
                     confirmButtonColor: '#FC3E3E',
@@ -499,6 +504,7 @@ elseif(isset($_POST['recuperarcontra']))
             Swal.fire({
                 icon: 'success',
                 html: '<h3>Correo enviado exitosamente</h3>',
+                closeOnClickOutside: false,
                 allowOutsideClick: false,
                 background: '#fff',
                 confirmButtonColor: '#FC3E3E',
@@ -534,6 +540,7 @@ elseif(isset($_POST['restablecercontra']))
             Swal.fire({
                 icon: 'warning',
                 html: '<h3>Todos los campos son obligatorios.</h3>',
+                closeOnClickOutside: false,
                 allowOutsideClick: false,
                 background: '#fff',
                 confirmButtonColor: '#FC3E3E',
@@ -549,6 +556,7 @@ elseif(isset($_POST['restablecercontra']))
             Swal.fire({
                 icon: 'success',
                 html: '<h3>Contraseña restablecida<br> correctamente.</h3>',
+                closeOnClickOutside: false,
                 allowOutsideClick: false,
                 background: '#fff',
                 confirmButtonColor: '#FC3E3E',

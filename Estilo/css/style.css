@@ -8,6 +8,25 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+.insumo{
+  margin-bottom: 30px;
+  font-size: 35px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  text-align: center;
+
+}
+hr{
+    /*text-align: center;*/
+    height:3px;
+    /*border:none;
+    color: linear-gradient(274deg, #46c8d0, #6262e2 44%, #c962f7);*/
+    background: linear-gradient(274deg, #46c8d0, #6262e2 44%, #c962f7);
+    width:70%;   
+}
+.centrar{
+  text-align: center;
+}
 body {
   background-color: #fff;
   color: #333;
@@ -351,7 +370,7 @@ hr{
 }
 
 #hero h2 {
-  color: #fff;
+/*color: #fff;*/
   margin-bottom: 30px;
   font-size: 20px;
   font-family: "Roboto", sans-serif;
@@ -2232,13 +2251,13 @@ input[type=text]:placeholder {
   }
 }
 
-#hero4 h2 {
+/*#hero4 h2 {
   color: #fff;
   margin-bottom: 30px;
   font-size: 20px;
   font-family: "Roboto", sans-serif;
   font-weight: 300;
-}
+}*/
 
 @media (max-width: 768px) {
   #hero4 h2 {
