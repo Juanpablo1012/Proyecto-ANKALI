@@ -82,8 +82,11 @@
         public function Listarpedidousuario($document)
         {
             $Db = Db::Conectar(); // conectar bd
-            $sql = $Db->query('SELECT pedido.*,usuarios.Nombre as nombreCl FROM pedido 
-                                JOIN usuarios on (pedido.Documento = usuarios.Documento)
+            $sql = $Db->query('SELECT usuarios.Nombre as cliente, pedido.Fecha, producto.Nombre as producto, tipoproducto.Nombre as tipoproducto, dllpedido.Cantidad,dllpedido.Total,pedido.Estado FROM pedido 
+            JOIN usuarios on (pedido.Documento = usuarios.Documento)
+            JOIN dllpedido on (pedido.IdPedido = dllpedido.IdPedido)
+            JOIN producto on (dllpedido.IdProducto = producto.IdProducto)
+            JOIN tipoproducto on (producto.TipodeProducto = tipoproducto.IdTipoProducto)
                                 WHERE usuarios.Documento ='.$document); //definir sentencia sql
             $sql->execute(); // ejecutar la consulta
             return $sql->fetchAll(); // retorna todos los registros de la consulta
@@ -95,8 +98,10 @@
         public function ListardetallePedido($idpedido)
         {
             $Db = Db::Conectar(); // conectar bd
-            $sql = $Db->query('SELECT dllpedido.*,producto.Nombre as NombreP, tipoproducto.Nombre as NombreT,producto.Precio as PrecioP 
-            FROM dllpedido JOIN producto on (dllpedido.IdProducto = producto.IdProducto) 
+            $sql = $Db->query('SELECT dllpedido.*,usuarios.Nombre as NombreU,producto.Nombre as NombreP, tipoproducto.Nombre as NombreT,producto.Precio as PrecioP FROM dllpedido 
+            JOIN pedido on (pedido.IdPedido = dllpedido.IdPedido)
+            JOIN usuarios on (pedido.Documento = usuarios.Documento)
+            JOIN producto on (dllpedido.IdProducto = producto.IdProducto)
             JOIN tipoproducto ON (producto.TipodeProducto = tipoproducto.IdTipoProducto) 
             WHERE dllpedido.IdPedido='. $idpedido); //definir sentencia sql
             $sql->execute(); // ejecutar la consulta

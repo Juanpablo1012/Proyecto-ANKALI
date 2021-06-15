@@ -136,13 +136,13 @@ if(!($_SESSION['Documento']))
       <section id="hero4" class="wow fadeIn">
       
         <div class="container mt-4">
-        
+          <h2 class="insumo centrar"><u>Lista de compras</u></h2>
             <div class="card-body" >
-                <table border="1" class="table table-sriped  table-bordered" id="listarserv">
+                <table border="1" class="table table-sriped  table-bordered centrar" id="listarserv">
                     <thead>
                     <tr>
-                        <th>Codigo</th>
-                        <th>Documento de quien <br>ingreso la compra</th>
+                        <!--<th>Codigo</th>-->
+                        <th>Documento de quien <br>ingresó la compra</th>
                         <th>Nombre de quien <br>ingreso la compra</th>
                         <th>Factura</th>
                         <th>Total</th>
@@ -157,7 +157,7 @@ if(!($_SESSION['Documento']))
                             {
                             ?> 
                             <tr>
-                                <td><?php echo $x->IdCompra?></td>
+                                <!--<td><?php echo $x->IdCompra?></td>-->
                                 <td><?php echo $x->DocumentoUsuario?></td>
                                 <td><?php echo $x->nombreU?></td>
                                 <?php  $ruta= $x->Factura;?>
@@ -166,7 +166,7 @@ if(!($_SESSION['Documento']))
                                 <td><?php echo $x->Fecha?></td>
 
                                 <td>
-                                  <a href="../Controlador/ControladorCompras.php?EditarCompra&IdCompra=<?php echo $x->IdCompra?>" class="btn btn" >Editar</a>
+                                  <a href="../Controlador/ControladorCompras.php?EditarCompra&IdCompra=<?php echo $x->IdCompra?>" class="btn btn" style="background:#DD93FF; color:black;" >Editar</a>
                                 </td>
                             </tr>
                             <?php

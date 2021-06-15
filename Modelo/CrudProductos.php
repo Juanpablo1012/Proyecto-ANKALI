@@ -180,8 +180,6 @@
             $sql->bindvalue('IdInsumo',$detalle->getIdInsumo());
             $sql->bindvalue('Cantidad',$detalle->getCantidad());
             $sql->bindvalue('Total',$detalle->getTotal());
-            
- 
             try{
                 $sql->execute();
                 $iddetallepedido = $Db->lastInsertId();

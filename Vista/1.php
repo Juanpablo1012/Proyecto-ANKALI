@@ -89,7 +89,7 @@ if(!($_SESSION['Documento']))
                     <td><?php echo $dtl["Cantidad"]?></td>
                     <td><?php echo $dtl["Total"]?></td>
                     <td>
-                    <a href="#" onclick="Eliminardetalle(<?php echo $dtl['IdDtllPedido']?>)"><i class="fa fa-window-close"></i></a>
+                    <a href="#" onclick="Eliminardetalle(<?php echo $dtl['IdDtllPedido']?>)"><i class="fa fa-window-close" style="colore:red"></i></a>
                     <!-- <a href="../Controlador/DestruirSesion.php">Cerrar Sesión <i class="fa fa-window-close"></i></a> -->
                     </td>
 

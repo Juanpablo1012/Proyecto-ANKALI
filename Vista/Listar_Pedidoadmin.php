@@ -136,17 +136,17 @@ if(!($_SESSION['Documento']))
         
       <div class="container mt-4">
         <div class="hero-container">        
-            <h2>Listado de pedidos.</h2>
-              <hr>
+            <h2><u>Listado de pedidos.</u></h2>
                 <div class="card-body" >
-                    <table border="1" class="table table-sriped  table-bordered" id="litarroles">
+                <table border="1" class="table table-sriped  table-bordered" id="litarroles">
+
                         <thead>
                         <tr>
-                            <th>Código del <br>pedido</th>
-                            <th>Nombre cliente</th>
-                            <th>Fecha</th>
-                            <th>Estado</th>
-                            <th>Cambiar Estado</th>
+                            <th>Código del pedido</th>
+                            <th>Nombre de cliente</th>
+                            <th>Fecha del día que se <br>generó el pedido </th>
+                            <th>Estado del pedido</th>
+                            <th>Cambiar estado</th>
                             <th>Ver detalle</th>
                         </tr>
                         </thead>
@@ -156,14 +156,14 @@ if(!($_SESSION['Documento']))
                         foreach($Listarpedido as $pedido)
                         {
                         ?> 
-                        <tr>
+                        <tr class="centrar">
                             <td><?php echo $pedido["IdPedido"]?></td>
                             <td><?php echo $pedido["nombreCl"]?></td>
                             <td><?php echo $pedido["Fecha"]?></td>
                             
                             <td>
                             <?php if($pedido["Estado"] == 1 ){
-                                echo "<h4 style='color:yellow;'> Por enviar </h4>";
+                                echo "<h4 style='color:red;'> Por enviar </h4>";
                             } else
                             {
                                 echo "<h4 style='color:green;'> Enviado </h4>";
@@ -171,17 +171,15 @@ if(!($_SESSION['Documento']))
                             </td>
                             
                             <td>
-                                <a href="../Controlador/Controladorpedido.php?CambiarEstadoDetallePedido&IdPedido=<?php echo $pedido["IdPedido"]?>" class="btn btn" ><?php if($pedido["Estado"] == 1 ){
+                                <a href="../Controlador/Controladorpedido.php?CambiarEstadoDetallePedido&IdPedido=<?php echo $pedido["IdPedido"]?>" class="btn btn" style="background:#FFCACA; color:black;" ><?php if($pedido["Estado"] == 1 ){
                                 echo "Enviar";
                             } else
                             {
-                                echo "No enviar";
+                                echo "Cancelar <br>envio";
                             } ?></a>
                             </td>
                             <td>
-                              <center>
-                                <a href="../Controlador/Controladorpedido.php?Verdetalle&Idpedido=<?php echo  $pedido["IdPedido"]?>" ><i class="fa fa-eye fa-3"></i></a>
-                              </center>
+                                <a href="../Controlador/Controladorpedido.php?Verdetalle&Idpedido=<?php echo  $pedido["IdPedido"]?>" ><i class="fa fa-eye fa-3 verdll" ></i></a>
                             </td> 
 
                             
@@ -193,7 +191,7 @@ if(!($_SESSION['Documento']))
                         </tbody>
                     </table>
                 </div>
-          </div>
+        </div>
       </div>
     </section>
 </div>

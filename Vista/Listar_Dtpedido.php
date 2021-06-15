@@ -86,7 +86,7 @@ if(!($_SESSION['Documento']))
                         <td><?php echo $dtl["Cantidad"]?></td>
                         <td><?php echo $dtl["Total"]?></td>
                         <td>
-                        <a href="#" onclick="Eliminardetalle(<?php echo $dtl['IdDtllPedido']?>)"><i class="fa fa-window-close"></i></a>
+                        <a href="#" onclick="Eliminardetalle(<?php echo $dtl['IdDtllPedido']?>)"><i class="fa fa-window-close" style="color:red"></i></a>
                         <!-- <a href="../Controlador/DestruirSesion.php">Cerrar Sesión <i class="fa fa-window-close"></i></a> -->
                         </td>
                     </tr>
@@ -96,7 +96,10 @@ if(!($_SESSION['Documento']))
                     </tbody>
                 </table>
             </div>
-            <a href="Listar_Pedidoadmin.php" class="btn btn" >Finalizar</a>
+            <form Method="POST" action="../Controlador/Controladorpedido.php">
+                <button type="submit" name="Finalizar" class="fadeIn fourth" >Finalizar</button>
+
+            </form>
 
             
         </div>

@@ -137,9 +137,9 @@ $listarusuarios = json_decode($ControladorUsuarios->Listarusuarios());
       <section id="hero4" class="wow fadeIn">
       
     <div class="container mt-4">
-    
+    <h2 class="centrar insumo"><u>Listado de usuarios en el sistema</u></h2>
         <div class="card-body" >
-            <table border="1" class="table table-sriped  table-bordered" id="litarroles">
+            <table border="1" class="table table-sriped  table-bordered centrar" id="litarroles">
                 <thead>
                 <tr>
                     <th>Número de<br> documento</th>
@@ -175,10 +175,10 @@ $listarusuarios = json_decode($ControladorUsuarios->Listarusuarios());
                     
                     </td>
                     <td>
-                        <a href="../Controlador/ControladorUsuarios.php?Actualizarusuario&Documento=<?php echo $usu->Documento?>" class="btn btn" >Editar</a>
+                        <a href="../Controlador/ControladorUsuarios.php?Actualizarusuario&Documento=<?php echo $usu->Documento?>" class="btn btn" style="background:#DD93FF; color:black;" >Editar</a>
                     </td>
                     <td>
-                        <a href="../Controlador/ControladorUsuarios.php?CambiarEstado&Documento=<?php echo $usu->Documento?>" class="btn btn" ><?php if($usu->Estado == 1 ){
+                        <a href="../Controlador/ControladorUsuarios.php?CambiarEstado&Documento=<?php echo $usu->Documento?>" class="btn btn" style="background:#FFCACA; color:black;" ><?php if($usu->Estado == 1 ){
                         echo "Inhabilitar";
                     } else
                     {

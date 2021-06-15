@@ -124,7 +124,7 @@ if(isset($_POST['AgregarInsumo'])){
           });
           </script>";
     }else{
-        if(in_array($type, array('gif', 'jpg', 'jpeg', 'png','tiff','psd','bmp'))) {
+        if(in_array($type, array('gif', 'jpg', 'jpeg', 'png','tiff','psd','bmp','jfif','webp'))) {
             if(is_uploaded_file($_FILES['Imagen']['tmp_name'])) {
                 if(move_uploaded_file($_FILES['Imagen']['tmp_name'], $url)) {
     
@@ -217,7 +217,7 @@ elseif(isset($_POST['EditarInsumos']))
                         Nombre='$Nombre',
                         Imagen='$url',
                         Precio='$Precio',
-                        Stock = '$Stock'
+                        Stock = '$Stock' + Stock
                         WHERE IdInsumo='$id'";
         
                         if($conn->query($sql) === TRUE) {

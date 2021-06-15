@@ -56,8 +56,8 @@ if(!($_SESSION['Documento']))
 </head>
 
 <body>
-    <header id="header" class="header header-hide">
-    <div class="container">
+<header id="header" class="header header-hide">
+  <div class="container">
     
     <div id="logo" class="pull-left">
       <h1><a href="admin.php" class="scrollto"><a href=""><img src="../Estilo/img/logo-blanco.png" width="70" height="70"> </a>  ANKALI</a></h1>
@@ -132,29 +132,30 @@ if(!($_SESSION['Documento']))
       </ul>
     </nav>
   </div>
-  </header>
+</header>
       <section id="hero4" class="wow fadeIn">
       
       <div class="container mt-4">
-        <div class="hero-container">        
-            <h2>Listado de pedidos.</h2>
-              <hr>
+            <h2 class="centrar insumo"><u>Listado de productos.</u></h2>
         <div class="card-body" >
-            <table border="1" class="table table-sriped  table-bordered" id="litarroles">
+        <table border="1" class="table table-sriped  table-bordered centrar" id="litarroles">
+              <a href="Reportes.Productos.php" class="btn"style="background:#D8F6DF; border-radius: 8px;color:black;">Generar reporte<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="fa bi bi-file-earmark-pdf " viewBox="0 0 16 16">
+                            <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"/>
+                            <path d="M4.603 14.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.697 19.697 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.188-.012.396-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.066.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.712 5.712 0 0 1-.911-.95 11.651 11.651 0 0 0-1.997.406 11.307 11.307 0 0 1-1.02 1.51c-.292.35-.609.656-.927.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.266.266 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.71 12.71 0 0 1 1.01-.193 11.744 11.744 0 0 1-.51-.858 20.801 20.801 0 0 1-.5 1.05zm2.446.45c.15.163.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.876 3.876 0 0 0-.612-.053zM8.078 7.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"/>
+                          </svg> </a>
                 <thead>
                 <tr>
-                    
                     <th>Nombre</th>
                     <th>Precio</th>
                     <th>Imagen</th>
                     <th>Estado</th>
                     <th>Editar</th>
-                    <th>Agregar Insumos</th>
-                    <th>Cambiar Estado</th>
-                    <th>Ver Insumos</th>
+                    <th>Agregar insumos</th>
+                    <th>Cambiar estado</th>
+                    <th>Ver insumos</th>
                 </tr>
                 </thead>
-                <tbody>
+              <tbody>
 
                 <?php
                 foreach($listarproducto as $producto)
@@ -164,7 +165,7 @@ if(!($_SESSION['Documento']))
                     <td><?php echo $producto->Nombre?></td>
                     <td><?php echo $producto->Precio?></td>
                     <?php  $ruta= $producto->Imagen;?>
-				              <td><?php echo "<img src='$ruta' widht='150' height='150' />"  ?></td> 
+				              <td><?php echo "<img src='$ruta' widht='950' height='120' />"  ?></td> 
                       <td>
                     <?php if($producto->Estado == 1 ){
                         echo "<h4 style='color:green;'> Activo </h4>";
@@ -174,45 +175,33 @@ if(!($_SESSION['Documento']))
                     } ?>           
                     </td>
                     <td>
-                        <a href="../Controlador/ControladorProductos.php?EditarProducto&IdProducto=<?php echo $producto->IdProducto?>" class="btn btn" >Editar</a>
+                        <a href="../Controlador/ControladorProductos.php?EditarProducto&IdProducto=<?php echo $producto->IdProducto?>" class="btn" style="background:#DD93FF; color:black;" >Editar</a>
                     </td>
                     <td>
-                        <a href="../Controlador/ControladorProductos.php?Agregarins&IdProducto=<?php echo $producto->IdProducto?>" class="btn btn" >Agregar insumo</a>
+                        <a href="../Controlador/ControladorProductos.php?Agregarins&IdProducto=<?php echo $producto->IdProducto?>" class="btn" style="background: #79b9ee; color:black;" >Agregar <br>insumo</a>
                     </td>
                     <td>
-                        <a href="../Controlador/ControladorProductos.php?CambiarEstadoP&IdProducto=<?php echo $producto->IdProducto?>" class="btn btn" ><?php if($producto->Estado == 1 ){
+                        <a href="../Controlador/ControladorProductos.php?CambiarEstadoP&IdProducto=<?php echo $producto->IdProducto?>" class="btn" style="background:#FFCACA; color:black;" ><?php if($producto->Estado == 1 ){
                         echo "Inhabilitar";
                     } else
                     {
                         echo "Activar";
                     } ?></a>
                     </td>
-                    <td>
-                      <center>
-                        <a href="../Controlador/ControladorProductos.php?Verdetalleinsu&IdProducto=<?php echo  $producto->IdProducto?>" ><i class="fa fa-eye fa-3"></i></a>
-                      </center>
+                    <td class="centrar">
+                        <a style="color:black;"href="../Controlador/ControladorProductos.php?Verdetalleinsu&IdProducto=<?php echo  $producto->IdProducto?>" ><i class="fa fa-eye fa-3 verdll"></i></a>
                     </td> 
-                    
                 </tr>
                 <?php
                 }
                 ?>
-                </tbody>
+              </tbody>
             </table>
         </div>
-    </div>
     </div>
 
     </section>
 
-    <footer class="footer">
-      <div class="copyrights">
-        <p>&copy; Copyrights eStartup. All rights reserved.</p>
-        <div class="credits">
-          Designed by <a href="">BootstrapMade</a>
-        </div>
-      </div>
-  </footer>
 
 
 

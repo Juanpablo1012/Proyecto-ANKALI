@@ -122,11 +122,6 @@ if(isset($_SESSION['carrito'])){
               <path d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
             </svg> Mis pedidos 
             </a></li>
-          <li><a href="#contact">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
-              <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
-            </svg> Contacto 
-            </a></li>
           <li><a href="carritousu.php">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
                 <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
@@ -188,7 +183,7 @@ if(isset($_SESSION['carrito'])){
                                 <td><?php echo $datos[$i]['nombre']?></td>
                                  <td id="cantidad"><input type="number" id="cantidad" name="cantidad" value="<?php echo $datos[$i]['cantidad'];?>"></td> 
                                 <td id="precio"><?php echo $datos[$i]['precio']?></td>
-                                <!-- <td><button id="btn-danger"class="btn-danger"><i class="fa fa-times"></i></button></td> -->
+                                <td><button id="btn-danger"class="btn-danger"><i class="fa fa-times"></i></button></td>
                                 <!-- <td id="precio"><?php echo $datos[$i]['Documento']?></td> -->
                             </tr>
                         </tbody>
@@ -210,7 +205,7 @@ if(isset($_SESSION['carrito'])){
                 }
                 // echo  '<center><h2>'.$total.' </h2></center>';
                 if($total!=""){
-                  echo '<center> <a href="../Controlador/compra.php" class="#263238 blue-grey darken-4 btn">comprar</a> </center>';
+                  echo '<br><center> <a href="../Controlador/compra.php" class=" blue-grey darken-4 btn" style="background:#D3FBDD; color:#000;">comprar</a> </center>';
                 }
                 ?>
                   
@@ -224,9 +219,9 @@ if(isset($_SESSION['carrito'])){
                              <input type="number" value="<?php echo $total; ?>"readonly id="Total" class="form-control">
                             </div>
                                              <div class="card-footer">
-                         <a href="Productosusu.php"><button class="btn" id="carrito">ver mas producto</button></a>
-                         <a href="Insumosusu.php"><button class="btn" id="carrito">Agregar insumos</button></a>
-                         <a href="Serviciosusu.php"><button class="btn" id="carrito">ver mas servicios</button></a>
+                         <a href="Productosusu.php" id="carrito" class="btn" style="background:#E7DBFF; color:#000;">Agregar más<br> producto</a>
+                         <!--<a href="Insumosusu.php"><button class="btn" id="carrito" >Agregar insumos</button></a>-->
+                         <a href="Serviciosusu.php"class="btn" id="carrito" style="background:#F6F4D8; color:#000;">Agregar más<br> servicios</a>
                          <!-- <a href="#"><button class="btn" id="carrito">Generar compra</button></a> -->
 
                             </div>
@@ -258,15 +253,6 @@ if(isset($_SESSION['carrito'])){
         //     });
 
     </script>
-  <footer class="footer">
-    <div class="copyrights">
-        <p>&copy; Copyrights eStartup. All rights reserved.</p>
-        <div class="credits">
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-        </div>
-    </div>
-
-  </footer>
 
 
 

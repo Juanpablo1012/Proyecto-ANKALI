@@ -73,7 +73,7 @@ if(!($_SESSION['Documento']))
           <li><a href="carritousu.php">Carrito <i class="fa fa-shopping-cart"></i></a></li>
           <li><a href="../Controlador/DestruirSesion.php">Cerrar Sesión <i class="fa fa-window-close"></i></a></li>
         </ul>
-      </nav>
+    </nav>
   </div>
   </header>
       <br>

@@ -108,24 +108,20 @@ if(!($_SESSION['Documento']))
     </div>
   </section>
   <section id="productos" class="padd-section text-center wow fadeInUp">
-
-    <div class="container">
+  <div class="container">
       <div class="section-title text-center">
         <h2>Productos</h2>
         <hr><hr>
       </div>
     </div>
-
     <div class="container">
       <div class="row">
-
         <div class="col-md-6 col-lg-3">
           <div class="feature-block">
             <img src="../Estilo/img/portalapiz.jpeg"  class="img-fluid" >
             <h4>Portalapiz de perrito</h4>
             <p>Portalapiz de perrito, hecho a mano con foamy</p>
             
-            <button class="btn"><i class="fa fa-shopping-cart"></i> Comprar</button>
           </div>
         </div>
 
@@ -134,7 +130,6 @@ if(!($_SESSION['Documento']))
             <img src="../Estilo/img/ancheta globo.JPG" alt="img" class="img-fluid">
             <h4>Ancheta Globo</h4>
             <p>Ancheta ideal para relago de cumpleaños</p>
-            <button class="btn"><i class="fa fa-shopping-cart"></i> Comprar</button>
           </div>
         </div>
 
@@ -143,7 +138,6 @@ if(!($_SESSION['Documento']))
             <img src="../Estilo/img/portalapiz leon.jpeg" alt="img" class="img-fluid">
             <h4>Portalapiz de león</h4>
             <p>Portalapiz de león, hecho a mano con foamy</p>
-            <button class="btn"><i class="fa fa-shopping-cart"></i> Comprar</button>
 
           </div>
         </div>
@@ -153,7 +147,6 @@ if(!($_SESSION['Documento']))
             <img src="../Estilo/img/Ancheta elefante.JPG" alt="img" class="img-fluid">
             <h4>Ancheta Elefante</h4>
             <p>Ancheta con elefeante elaborado en foamy</p>
-            <button class="btn"><i class="fa fa-shopping-cart"></i> Comprar</button>
 
           </div>
         </div>
@@ -182,7 +175,6 @@ if(!($_SESSION['Documento']))
             <img src="../Estilo/img/decoracion.jpg"  class="img-fluid" >
             <h4>Decoración de fiestas</h4>
             <p>Decoramos tu fiestas con la tematica que desees</p>
-            <button class="btn" fontawesome=""><i class="fa fa-shopping-cart"></i> Solicitar</button>
           </div>
         </div>
 
@@ -191,7 +183,6 @@ if(!($_SESSION['Documento']))
             <img src="../Estilo/img/regalos.JPG" alt="img" class="img-fluid">
             <h4>Marcado de regalos</h4>
             <p>Personaliza tu regalo</p>
-            <button class="btn"><i class="fa fa-shopping-cart"></i> Solicitar</button>
           </div>
         </div>
 
@@ -200,7 +191,6 @@ if(!($_SESSION['Documento']))
             <img src="../Estilo/img/Desayuno_niño.jpg" alt="img" class="img-fluid">
             <h4>Desayuno sorpresa</h4>
             <p>Personaliza tu desayuno sorpresa</p>
-            <button class="btn"><i class="fa fa-shopping-cart"></i> Solicitar</button>
 
           </div>
         </div>
@@ -210,8 +200,6 @@ if(!($_SESSION['Documento']))
             <img src="../Estilo/img/Ancheta elefante.JPG" alt="img" class="img-fluid">
             <h4>Ancheta Elefante</h4>
             <p>Lorem Ipsum is simply dummy </p>
-            <button class="btn " ><i class="fa fa-shopping-cart"></i> Comprar</button>
-
           </div>
         </div>
         
@@ -296,20 +284,7 @@ if(!($_SESSION['Documento']))
       </div>
     </div>
   </section>
-  
-  <footer class="footer">
-    
 
-    <div class="copyrights">
-      <div class="container">
-        <p>&copy; Copyrights eStartup. All rights reserved.</p>
-        <div class="credits">
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-        </div>
-      </div>
-    </div>
-
-  </footer>
 
 
 
