@@ -199,10 +199,10 @@
         public function Listardetalleinsu($idproducto)
         {
             $Db = Db::Conectar(); // conectar bd
-            $sql = $Db->query('SELECT dllproducto.*,producto.Nombre as NombreP, insumos.Nombre as NombreI
+            $sql = $Db->query('SELECT dllproducto.*,producto.Nombre as NombreP, producto.Imagen, producto.Precio, insumos.Nombre as NombreI
             FROM dllproducto JOIN producto on (dllproducto.IdProducto = producto.IdProducto) 
             JOIN insumos ON (insumos.IdInsumo = dllproducto.IdInsumo) 
-            WHERE dllproducto.IdProducto ='.$idproducto ); //definir sentencia sql
+            WHERE dllproducto.IdProducto ='.$idproducto); //definir sentencia sql
             $sql->execute(); // ejecutar la consulta
             return $sql->fetchAll(); // retorna todos los registros de la consulta
             Db::CerrarConexion($Db);
@@ -225,6 +225,17 @@
             Db::CerrarConexion($Db);
             return $mensaje;
         }
+
+        // public function ListarVerproducto($iddetallepedido)
+        // {
+        //     $Db = Db::Conectar(); // conectar bd
+        //     $sql = $Db->query('SELECT * FROM producto WHERE IdDeProducto = $iddetallepedido'); //definir sentencia sql
+        //     $sql->execute(); // ejecutar la consulta
+        //     return $sql->fetchAll(); // retorna todos los registros de la consulta
+        //     Db::CerrarConexion($Db);
+        // }
+
+
 
 
 

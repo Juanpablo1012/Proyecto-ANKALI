@@ -1,6 +1,6 @@
 <?php
-$mysqli = mysqli_connect ("localhost", "root", "", "ankali");
-$conn = mysqli_connect ("localhost", "root", "", "ankali");
+$mysqli = mysqli_connect ("localhost", "root", "", "ankali2");
+$conn = mysqli_connect ("localhost", "root", "", "ankali2");
 
 
 
@@ -10,7 +10,7 @@ class  Db{
 
     public static function Conectar(){
         $pdo_options[PDO::ATTR_ERRMODE]=PDO::ERRMODE_EXCEPTION;
-        self::$conexion= new PDO('mysql:host=localhost;dbname=ankali','root','',$pdo_options);
+        self::$conexion= new PDO('mysql:host=localhost;dbname=ankali2','root','',$pdo_options);
         return self::$conexion;
     }	
     

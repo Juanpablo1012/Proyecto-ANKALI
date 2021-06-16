@@ -137,8 +137,8 @@ if(!($_SESSION['Documento']))
             <input type="number" name="Precio" class="fadeIn second precio" value="<?php echo $insumo->getPrecio() ?>" placeholder="Precio"><br>
             <label for=""><b>Imagen del<br>insumo:</b></label>
             <input type="file" name="Imagen" class="fadeIn second imagen" value="<?php echo $insumo->getImagen() ?>" placeholder="Imagen"><br>
-            <label for=""><b>Cantidades:</b></label>
-            <input type="number" id="Stock" name="Stock" class="fadeIn second cantidad" value="<?php echo $insumo->getStock() ?>" placeholder="Cantidad">
+            <label for=""><b>Nueva Cantidad:</b></label>
+            <input type="number" id="Stock" name="Stock" class="fadeIn second cantidad" value="" placeholder="Cantidad">
             
     
             <button type="submit" ID="EditarInsumos" name="EditarInsumos" class="fadeIn fourth">Editar</button>
