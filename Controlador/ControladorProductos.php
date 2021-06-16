@@ -538,5 +538,13 @@ elseif(isset($_POST['eliminardetalle']))
     echo $ControladorProductos->eliminardetalle($iddetalle);
 
 }
+
+elseif(isset($_GET['Verproducto']))
+{
+    $IdProducto = $_GET['Idproducto'];
+    $ControladorProductos->desplegarVista('../Vista/Verproducto.php?Idproducto='.$IdProducto);
+}
+
+
 ?>
 
